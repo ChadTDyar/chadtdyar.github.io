@@ -1,0 +1,990 @@
+<blockquote style="border-left: 4px solid #4a148c; padding-left: 1rem; margin: 2rem 0; font-style: italic; color: #666; background: rgba(74, 20, 140, 0.05); padding: 1rem; border-radius: 8px;">
+ "Every great story begins with a system, and every powerful system serves a story worth telling."
+ </blockquote><!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Chad T. Dyar - Author & Coach</title>
+ <style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+
+ body {
+ font-family: 'Arial', sans-serif;
+ line-height: 1.6;
+ color: #333;
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+ min-height: 100vh;
+ }
+
+ .container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 20px;
+ }
+
+ /* Header & Navigation */
+ header {
+ background: rgba(255, 255, 255, 0.95);
+ backdrop-filter: blur(15px);
+ border-bottom: 2px solid #c0c0c0;
+ box-shadow: 0 4px 30px rgba(139, 69, 19, 0.1);
+ position: fixed;
+ top: 0;
+ width: 100%;
+ z-index: 1000;
+ }
+
+ nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 1rem 0;
+ }
+
+ .logo {
+ font-family: 'Times New Roman', serif;
+ font-size: 1.8rem;
+ font-weight: bold;
+ color: #4a148c;
+ text-decoration: none;
+ text-shadow: 0 0 10px rgba(74, 20, 140, 0.3);
+ }
+
+ .nav-links {
+ display: flex;
+ list-style: none;
+ gap: 2rem;
+ }
+
+ .nav-links a {
+ text-decoration: none;
+ color: #333;
+ font-weight: 500;
+ transition: all 0.3s ease;
+ position: relative;
+ }
+
+ .nav-links a:hover {
+ color: #4a148c;
+ text-shadow: 0 0 8px rgba(74, 20, 140, 0.5);
+ }
+
+ .nav-links a::after {
+ content: '';
+ position: absolute;
+ width: 0;
+ height: 2px;
+ bottom: -5px;
+ left: 50%;
+ background: linear-gradient(90deg, #4a148c, #c0c0c0);
+ transition: all 0.3s ease;
+ transform: translateX(-50%);
+ }
+
+ .nav-links a:hover::after {
+ width: 100%;
+ }
+
+ .mobile-menu-btn {
+ display: none;
+ background: none;
+ border: none;
+ font-size: 1.5rem;
+ cursor: pointer;
+ }
+
+ /* Main Content */
+ main {
+ margin-top: 80px;
+ min-height: calc(100vh - 80px);
+ }
+
+ .page {
+ display: none;
+ padding: 2rem 0;
+ }
+
+ .page.active {
+ display: block;
+ }
+
+ /* Hero Section */
+ .hero {
+ text-align: center;
+ padding: 4rem 0;
+ background: linear-gradient(135deg, rgba(74, 20, 140, 0.1), rgba(192, 192, 192, 0.05));
+ border-radius: 20px;
+ margin: 2rem 0;
+ border: 1px solid rgba(192, 192, 192, 0.2);
+ box-shadow: 0 8px 32px rgba(74, 20, 140, 0.1);
+ }
+
+ .hero-title {
+ font-family: 'Times New Roman', serif;
+ font-size: 4rem;
+ font-weight: bold;
+ color: #4a148c;
+ text-shadow: 0 0 20px rgba(74, 20, 140, 0.5);
+ margin-bottom: 1rem;
+ border: 3px solid #c0c0c0;
+ padding: 1rem 2rem;
+ display: inline-block;
+ background: rgba(255, 255, 255, 0.95);
+ border-radius: 15px;
+ box-shadow: 0 0 30px rgba(192, 192, 192, 0.3);
+ position: relative;
+ }
+
+ .hero-title::before {
+ content: '';
+ position: absolute;
+ top: -2px;
+ left: -2px;
+ right: -2px;
+ bottom: -2px;
+ background: linear-gradient(45deg, #4a148c, #c0c0c0, #4a148c);
+ border-radius: 15px;
+ z-index: -1;
+ }
+
+ .hero-tagline {
+ font-size: 1.5rem;
+ color: #c0c0c0;
+ margin-bottom: 2rem;
+ font-weight: 300;
+ text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+ }
+
+ .quick-nav {
+ display: flex;
+ justify-content: center;
+ gap: 2rem;
+ margin: 2rem 0;
+ flex-wrap: wrap;
+ }
+
+ .quick-nav-btn {
+ background: linear-gradient(45deg, #4a148c, #c0c0c0);
+ color: white;
+ padding: 1rem 2rem;
+ border: none;
+ border-radius: 50px;
+ font-size: 1.1rem;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ text-decoration: none;
+ display: inline-block;
+ box-shadow: 0 4px 15px rgba(74, 20, 140, 0.2);
+ position: relative;
+ overflow: hidden;
+ }
+
+ .quick-nav-btn::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: -100%;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+ transition: left 0.5s;
+ }
+
+ .quick-nav-btn:hover::before {
+ left: 100%;
+ }
+
+ .quick-nav-btn:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 8px 25px rgba(74, 20, 140, 0.3);
+ text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+ }
+
+ /* Newsletter Signup */
+ .newsletter {
+ background: rgba(255, 255, 255, 0.9);
+ padding: 2rem;
+ border-radius: 15px;
+ margin: 2rem 0;
+ text-align: center;
+ }
+
+ .newsletter h3 {
+ color: #4a148c;
+ margin-bottom: 1rem;
+ text-shadow: 0 0 10px rgba(74, 20, 140, 0.3);
+ }
+
+ .newsletter-form {
+ display: flex;
+ gap: 1rem;
+ max-width: 500px;
+ margin: 0 auto;
+ }
+
+ .newsletter-form input {
+ flex: 1;
+ padding: 0.8rem;
+ border: 2px solid #c0c0c0;
+ border-radius: 8px;
+ font-size: 1rem;
+ background: rgba(255, 255, 255, 0.9);
+ transition: all 0.3s ease;
+ }
+
+ .newsletter-form input:focus {
+ outline: none;
+ border-color: #4a148c;
+ box-shadow: 0 0 10px rgba(74, 20, 140, 0.3);
+ }
+
+ .newsletter-form button {
+ background: linear-gradient(45deg, #4a148c, #c0c0c0);
+ color: white;
+ border: none;
+ padding: 0.8rem 1.5rem;
+ border-radius: 8px;
+ cursor: pointer;
+ font-size: 1rem;
+ transition: all 0.3s ease;
+ box-shadow: 0 4px 15px rgba(74, 20, 140, 0.2);
+ }
+
+ .newsletter-form button:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 6px 20px rgba(74, 20, 140, 0.3);
+ }
+
+ /* Books Page */
+ .books-section {
+ margin: 2rem 0;
+ padding: 2rem;
+ background: rgba(255, 255, 255, 0.9);
+ border-radius: 15px;
+ }
+
+ .books-section h2 {
+ color: #4a148c;
+ margin-bottom: 1.5rem;
+ text-align: center;
+ font-size: 2.5rem;
+ text-shadow: 0 0 15px rgba(74, 20, 140, 0.3);
+ }
+
+ .books-section h3 {
+ color: #c0c0c0;
+ margin-bottom: 1rem;
+ font-size: 1.8rem;
+ text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+ }
+
+ .books-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 2rem;
+ margin: 2rem 0;
+ }
+
+ .book-card {
+ background: rgba(255, 255, 255, 0.95);
+ padding: 1.5rem;
+ border-radius: 15px;
+ box-shadow: 0 8px 32px rgba(74, 20, 140, 0.1);
+ transition: all 0.3s ease;
+ border: 1px solid rgba(192, 192, 192, 0.2);
+ position: relative;
+ overflow: hidden;
+ }
+
+ .book-card::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ height: 3px;
+ background: linear-gradient(90deg, #4a148c, #c0c0c0, #4a148c);
+ }
+
+ .book-card:hover {
+ transform: translateY(-8px);
+ box-shadow: 0 15px 40px rgba(74, 20, 140, 0.2);
+ }
+
+ .book-card h4 {
+ color: #4a148c;
+ margin-bottom: 0.5rem;
+ text-shadow: 0 0 5px rgba(74, 20, 140, 0.2);
+ }
+
+ .amazon-link {
+ background: #ff9500;
+ color: white;
+ padding: 0.5rem 1rem;
+ text-decoration: none;
+ border-radius: 5px;
+ display: inline-block;
+ margin-top: 1rem;
+ transition: background 0.3s ease;
+ }
+
+ .amazon-link:hover {
+ background: #e6850e;
+ }
+
+ /* Coaching Corner */
+ .coaching-section {
+ background: linear-gradient(135deg, #4a148c 0%, #1a1a2e 50%, #16213e 100%);
+ color: white;
+ padding: 3rem 2rem;
+ border-radius: 20px;
+ margin: 2rem 0;
+ text-align: center;
+ border: 2px solid rgba(192, 192, 192, 0.2);
+ box-shadow: 0 10px 40px rgba(74, 20, 140, 0.3);
+ position: relative;
+ overflow: hidden;
+ }
+
+ .coaching-section::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(192,192,192,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(192,192,192,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(192,192,192,0.1)"/></svg>');
+ pointer-events: none;
+ }
+
+ .coaching-section h2 {
+ margin-bottom: 1rem;
+ font-size: 2.5rem;
+ text-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
+ position: relative;
+ z-index: 1;
+ }
+
+ .access-btn {
+ background: linear-gradient(45deg, #c0c0c0, #4a148c);
+ color: white;
+ padding: 1rem 2rem;
+ border: none;
+ border-radius: 50px;
+ font-size: 1.2rem;
+ cursor: pointer;
+ margin: 1rem;
+ transition: all 0.3s ease;
+ box-shadow: 0 4px 20px rgba(192, 192, 192, 0.2);
+ position: relative;
+ z-index: 1;
+ }
+
+ .access-btn:hover {
+ transform: scale(1.05) translateY(-2px);
+ box-shadow: 0 8px 30px rgba(192, 192, 192, 0.3);
+ text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+ }
+
+ /* Blog Section */
+ .blog-section {
+ margin: 2rem 0;
+ }
+
+ .blog-posts {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+ gap: 2rem;
+ }
+
+ .blog-post {
+ background: rgba(255, 255, 255, 0.9);
+ padding: 2rem;
+ border-radius: 15px;
+ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+ transition: transform 0.3s ease;
+ }
+
+ .blog-post:hover {
+ transform: translateY(-5px);
+ }
+
+ .blog-post h3 {
+ color: #4a148c;
+ margin-bottom: 1rem;
+ text-shadow: 0 0 8px rgba(74, 20, 140, 0.3);
+ }
+
+ .blog-post .date {
+ color: #c0c0c0;
+ font-size: 0.9rem;
+ margin-bottom: 0.5rem;
+ text-shadow: 0 0 5px rgba(192, 192, 192, 0.3);
+ }
+
+ /* About Page */
+ .about-section {
+ background: rgba(255, 255, 255, 0.9);
+ padding: 3rem 2rem;
+ border-radius: 15px;
+ margin: 2rem 0;
+ }
+
+ .about-content {
+ display: grid;
+ grid-template-columns: 1fr 300px;
+ gap: 3rem;
+ align-items: center;
+ }
+
+ .about-image {
+ width: 100%;
+ height: 300px;
+ background: linear-gradient(45deg, #4a148c, #c0c0c0, #1a1a2e);
+ border-radius: 20px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: white;
+ font-size: 1.2rem;
+ box-shadow: 0 10px 30px rgba(74, 20, 140, 0.3);
+ border: 2px solid rgba(192, 192, 192, 0.3);
+ position: relative;
+ overflow: hidden;
+ }
+
+ .about-image::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: radial-gradient(circle at 30% 30%, rgba(192, 192, 192, 0.2) 0%, transparent 50%);
+ }
+
+ /* Contact Page */
+ .contact-section {
+ background: rgba(255, 255, 255, 0.9);
+ padding: 3rem 2rem;
+ border-radius: 15px;
+ margin: 2rem 0;
+ }
+
+ .contact-form {
+ max-width: 600px;
+ margin: 0 auto;
+ }
+
+ .form-group {
+ margin-bottom: 1.5rem;
+ }
+
+ .form-group label {
+ display: block;
+ margin-bottom: 0.5rem;
+ color: #4a148c;
+ font-weight: bold;
+ text-shadow: 0 0 5px rgba(74, 20, 140, 0.2);
+ }
+
+ .form-group input,
+ .form-group textarea {
+ width: 100%;
+ padding: 0.8rem;
+ border: 2px solid #c0c0c0;
+ border-radius: 8px;
+ font-size: 1rem;
+ font-family: inherit;
+ background: rgba(255, 255, 255, 0.95);
+ transition: all 0.3s ease;
+ }
+
+ .form-group input:focus,
+ .form-group textarea:focus {
+ outline: none;
+ border-color: #4a148c;
+ box-shadow: 0 0 15px rgba(74, 20, 140, 0.3);
+ }
+
+ .form-group textarea {
+ height: 120px;
+ resize: vertical;
+ }
+
+ .submit-btn {
+ background: linear-gradient(45deg, #4a148c, #c0c0c0);
+ color: white;
+ padding: 1rem 2rem;
+ border: none;
+ border-radius: 50px;
+ font-size: 1.1rem;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ width: 100%;
+ box-shadow: 0 4px 20px rgba(74, 20, 140, 0.3);
+ }
+
+ .submit-btn:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 8px 30px rgba(74, 20, 140, 0.4);
+ }
+
+ /* Footer */
+ footer {
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+ color: white;
+ padding: 3rem 0;
+ margin-top: 4rem;
+ border-top: 3px solid rgba(192, 192, 192, 0.3);
+ }
+
+ .footer-content {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 2rem;
+ }
+
+ .footer-section h4 {
+ color: #c0c0c0;
+ margin-bottom: 1rem;
+ text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+ }
+
+ .footer-section a {
+ color: white;
+ text-decoration: none;
+ display: block;
+ margin-bottom: 0.5rem;
+ transition: all 0.3s ease;
+ position: relative;
+ }
+
+ .footer-section a:hover {
+ color: #c0c0c0;
+ text-shadow: 0 0 8px rgba(192, 192, 192, 0.5);
+ transform: translateX(5px);
+ }
+
+ .social-links {
+ display: flex;
+ gap: 1rem;
+ }
+
+ .social-links a {
+ background: linear-gradient(45deg, #4a148c, #c0c0c0);
+ padding: 0.5rem;
+ border-radius: 50%;
+ width: 40px;
+ height: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transition: all 0.3s ease;
+ box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
+ transform: translateX(0);
+ }
+
+ .social-links a:hover {
+ transform: translateY(-3px) scale(1.1);
+ box-shadow: 0 8px 25px rgba(192, 192, 192, 0.4);
+ background: linear-gradient(45deg, #c0c0c0, #4a148c);
+ }
+
+ /* Responsive Design */
+ @media (max-width: 768px) {
+ .nav-links {
+ display: none;
+ }
+
+ .mobile-menu-btn {
+ display: block;
+ }
+
+ .hero-title {
+ font-size: 2.5rem;
+ padding: 0.5rem 1rem;
+ }
+
+ .hero-tagline {
+ font-size: 1.2rem;
+ }
+
+ .quick-nav {
+ flex-direction: column;
+ align-items: center;
+ }
+
+ .newsletter-form {
+ flex-direction: column;
+ }
+
+ .about-content {
+ grid-template-columns: 1fr;
+ text-align: center;
+ }
+
+ .books-grid {
+ grid-template-columns: 1fr;
+ }
+ }
+
+ @media (max-width: 480px) {
+ .hero-title {
+ font-size: 2rem;
+ }
+
+ .container {
+ padding: 0 10px;
+ }
+ }
+ </style>
+</head>
+<body>
+ <header>
+ <nav class="container">
+ <a href="#" class="logo" onclick="showPage('home')">Chad T. Dyar</a>
+ <ul class="nav-links">
+ <li><a href="#" onclick="showPage('home')">Home</a></li>
+ <li><a href="#" onclick="showPage('books')">Books</a></li>
+ <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+ <li><a href="#" onclick="showPage('coaching')">Coaching Corner</a></li>
+ <li><a href="#" onclick="showPage('about')">About</a></li>
+ <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+ </ul>
+ <button class="mobile-menu-btn">☰</button>
+ </nav>
+ </header>
+
+ <main class="container">
+ <!-- HOME PAGE -->
+ <div id="home" class="page active">
+ <section class="hero">
+ <h1 class="hero-title">CHAD T. DYAR</h1>
+ <p class="hero-tagline">Author • Coach • Storyteller</p>
+ 
+ <div class="quick-nav">
+ <a href="#" class="quick-nav-btn" onclick="showPage('books')"> Books</a>
+ <a href="#" class="quick-nav-btn" onclick="showPage('blog')"> Blog</a>
+ <a href="#" class="quick-nav-btn" onclick="showPage('coaching')"> Coaching Corner</a>
+ </div>
+ </section>
+
+ <section class="newsletter">
+ <h3>Join the Community</h3>
+ <p>Get early chapters, updates, and exclusive content straight to your inbox.</p>
+ <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+ <input type="email" placeholder="Enter your email address" required>
+ <button type="submit">Subscribe</button>
+ </form>
+ <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+ <em>ConvertKit integration ready - connect your forms here</em>
+ </p>
+ </section>
+ </div>
+
+ <!-- BOOKS PAGE -->
+ <div id="books" class="page">
+ <section class="books-section">
+ <h2> Books</h2>
+ 
+ <h3>Published Books</h3>
+ <div class="books-grid">
+ <div class="book-card">
+ <h4>Book Title One</h4>
+ <p>A compelling story that explores the intersection of creativity and discipline in modern life.</p>
+ <a href="#" class="amazon-link">Available on Amazon</a>
+ </div>
+ <div class="book-card">
+ <h4>Book Title Two</h4>
+ <p>An insightful guide to building systems that support both personal and professional growth.</p>
+ <a href="#" class="amazon-link">Available on Amazon</a>
+ </div>
+ <div class="book-card">
+ <h4>Book Title Three</h4>
+ <p>A thought-provoking exploration of storytelling in the digital age.</p>
+ <a href="#" class="amazon-link">Available on Amazon</a>
+ </div>
+ </div>
+
+ <h3>Upcoming Books</h3>
+ <div class="books-grid">
+ <div class="book-card">
+ <h4>The Digital Storyteller</h4>
+ <p>Coming 2025 - A comprehensive guide to crafting compelling narratives in our connected world.</p>
+ </div>
+ <div class="book-card">
+ <h4>Systems & Stories</h4>
+ <p>Coming 2025 - How to build frameworks that support creative expression and professional success.</p>
+ </div>
+ <div class="book-card">
+ <h4>The Creative's Discipline</h4>
+ <p>Coming 2025 - Practical strategies for maintaining artistic integrity while building sustainable careers.</p>
+ </div>
+ <div class="book-card">
+ <h4>Beach House Wisdom</h4>
+ <p>Coming 2026 - Life lessons learned from coastal living and canine companions.</p>
+ </div>
+ <div class="book-card">
+ <h4>The Author's AI</h4>
+ <p>Coming 2026 - Navigating the intersection of human creativity and artificial intelligence.</p>
+ </div>
+ </div>
+
+ <div style="text-align: center; margin-top: 2rem;">
+ <button class="access-btn" onclick="handleEarlyAccess()">Get Early Chapters & Updates</button>
+ </div>
+ </section>
+ </div>
+
+ <!-- COACHING CORNER PAGE -->
+ <div id="coaching" class="page">
+ <section class="coaching-section">
+ <h2> Coaching Corner</h2>
+ <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+ An exclusive community space for writers, creators, and entrepreneurs seeking personalized guidance and peer support.
+ </p>
+ 
+ <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+ <h3>What You'll Get:</h3>
+ <ul style="text-align: left; max-width: 500px; margin: 1rem auto;">
+ <li>Weekly coaching calls and Q&A sessions</li>
+ <li>Personalized feedback on your projects</li>
+ <li>Access to exclusive resources and templates</li>
+ <li>A supportive community of like-minded creators</li>
+ <li>Direct access to Chad for mentorship</li>
+ </ul>
+ </div>
+
+ <button class="access-btn" onclick="handleCoachingAccess()">Join Coaching Corner</button>
+ <button class="access-btn" onclick="handlePayhipAccess()">Access via Payhip</button>
+ 
+ <div style="margin-top: 2rem;">
+ <p><em>ConvertKit email gate integration ready</em></p>
+ </div>
+ </section>
+
+ <section class="books-section">
+ <h3>Featured Community Stories</h3>
+ <div class="blog-posts">
+ <div class="blog-post">
+ <h4>Sarah's Writing Breakthrough</h4>
+ <p>"Chad's system helped me finally finish my novel after years of false starts. The accountability and structure made all the difference."</p>
+ </div>
+ <div class="blog-post">
+ <h4>Mark's Business Transformation</h4>
+ <p>"The storytelling principles I learned in Coaching Corner completely transformed how I present my business to clients."</p>
+ </div>
+ </div>
+ </section>
+ </div>
+
+ <!-- BLOG PAGE -->
+ <div id="blog" class="page">
+ <section class="books-section">
+ <h2> The System & The Story</h2>
+ <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
+ Exploring the intersection of creative discipline and compelling narratives.
+ </p>
+
+ <div class="blog-posts">
+ <article class="blog-post">
+ <div class="date">May 20, 2025</div>
+ <h3>On AI</h3>
+ <p>Artificial intelligence isn't replacing human creativity—it's amplifying it. Here's how I'm using AI tools to enhance my writing process while maintaining the authentic voice that readers connect with.</p>
+ <p>The key is understanding AI as a collaborative partner, not a replacement. In this post, I explore practical strategies for...</p>
+ <a href="#" style="color: #6a4c93; font-weight: bold;">Read More →</a>
+ </article>
+
+ <article class="blog-post">
+ <div class="date">May 15, 2025</div>
+ <h3>How I Work</h3>
+ <p>My daily routine combines structured systems with creative flexibility. From morning pages to evening reflection, here's the framework that keeps me productive without killing the magic.</p>
+ <p>The morning starts at 5:30 AM with my dogs, followed by 90 minutes of focused writing before the world wakes up...</p>
+ <a href="#" style="color: #6a4c93; font-weight: bold;">Read More →</a>
+ </article>
+
+ <article class="blog-post">
+ <div class="date">May 10, 2025</div>
+ <h3>Creative Discipline</h3>
+ <p>Discipline isn't the enemy of creativity—it's creativity's greatest ally. This post explores how structure and spontaneity can work together to produce your best work.</p>
+ <p>Many creators resist discipline, fearing it will stifle their artistic spirit. But I've found the opposite to be true...</p>
+ <a href="#" style="color: #6a4c93; font-weight: bold;">Read More →</a>
+ </article>
+ </div>
+
+ <div style="text-align: center; margin-top: 2rem;">
+ <p><em>Blog posts automatically sync from ConvertKit RSS or Webflow CMS</em></p>
+ </div>
+ </section>
+ </div>
+
+ <!-- ABOUT PAGE -->
+ <div id="about" class="page">
+ <section class="about-section">
+ <h2 style="color: #6a4c93; text-align: center; margin-bottom: 2rem;">About Chad T. Dyar</h2>
+ 
+ <div class="about-content">
+ <div>
+ <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+ Chad T. Dyar is an author, coach, and storyteller who believes in the power of systems to support creativity and the necessity of authentic stories to connect us all.
+ </p>
+ 
+ <p style="margin-bottom: 1.5rem;">
+ Writing from his beach house with his loyal canine companions, Chad combines the discipline of proven frameworks with the magic of compelling narratives. His work spans fiction, non-fiction, and coaching, always with an eye toward helping others find their voice and tell their stories.
+ </p>
+ 
+ <p style="margin-bottom: 1.5rem;">
+ When he's not writing or coaching, you'll find Chad walking the beach with his dogs, exploring the intersection of technology and creativity, or perfecting his morning routine that balances productivity with presence.
+ </p>
+ 
+ <blockquote style="border-left: 4px solid #6a4c93; padding-left: 1rem; margin: 2rem 0; font-style: italic; color: #666;">
+ "Every great story begins with a system, and every powerful system serves a story worth telling."
+ </blockquote>
+ </div>
+ 
+ <div class="about-image">
+ <div style="text-align: center;">
+ <div style="font-size: 3rem; margin-bottom: 1rem;"> </div>
+ <div style="font-size: 2rem; margin-bottom: 1rem;"> </div>
+ <div>Chad & The Dogs</div>
+ <div style="font-size: 0.9rem; margin-top: 0.5rem;">Beach House Life</div>
+ </div>
+ </div>
+ </div>
+ </section>
+ </div>
+
+ <!-- CONTACT PAGE -->
+ <div id="contact" class="page">
+ <section class="contact-section">
+ <h2 style="color: #6a4c93; text-align: center; margin-bottom: 2rem;">Get In Touch</h2>
+ 
+ <form class="contact-form" onsubmit="handleContactForm(event)">
+ <div class="form-group">
+ <label for="name">Name</label>
+ <input type="text" id="name" name="name" required>
+ </div>
+ 
+ <div class="form-group">
+ <label for="email">Email</label>
+ <input type="email" id="email" name="email" required>
+ </div>
+ 
+ <div class="form-group">
+ <label for="subject">Subject</label>
+ <input type="text" id="subject" name="subject" required>
+ </div>
+ 
+ <div class="form-group">
+ <label for="message">Message</label>
+ <textarea id="message" name="message" required placeholder="Tell me about your project, question, or how I can help..."></textarea>
+ </div>
+ 
+ <button type="submit" class="submit-btn">Send Message</button>
+ </form>
+ 
+ <div style="text-align: center; margin-top: 2rem;">
+ <p><em>Form integrates with Webflow forms or ConvertKit inbox</em></p>
+ </div>
+ </section>
+ </div>
+ </main>
+
+ <footer>
+ <div class="container">
+ <div class="footer-content">
+ <div class="footer-section">
+ <h4>Navigation</h4>
+ <a href="#" onclick="showPage('home')">Home</a>
+ <a href="#" onclick="showPage('books')">Books</a>
+ <a href="#" onclick="showPage('blog')">Blog</a>
+ <a href="#" onclick="showPage('coaching')">Coaching Corner</a>
+ <a href="#" onclick="showPage('about')">About</a>
+ <a href="#" onclick="showPage('contact')">Contact</a>
+ </div>
+ 
+ <div class="footer-section">
+ <h4>Connect</h4>
+ <div class="social-links">
+ <a href="#" title="Twitter"> </a>
+ <a href="#" title="LinkedIn"> </a>
+ <a href="#" title="Instagram"> </a>
+ <a href="#" title="Email"> </a>
+ </div>
+ </div>
+ 
+ <div class="footer-section">
+ <h4>Resources</h4>
+ <a href="#">Newsletter Archive</a>
+ <a href="#">Free Resources</a>
+ <a href="#">Privacy Policy</a>
+ <a href="#">Terms of Service</a>
+ </div>
+ </div>
+ 
+ <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444;">
+ <p>&copy; 2025 Chad T. Dyar. All rights reserved.</p>
+ <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #999;">
+ Built with systems that support stories worth telling.
+ </p>
+ </div>
+ </div>
+ </footer>
+
+ <script>
+ // Page Navigation
+ function showPage(pageId) {
+ // Hide all pages
+ const pages = document.querySelectorAll('.page');
+ pages.forEach(page => page.classList.remove('active'));
+ 
+ // Show selected page
+ document.getElementById(pageId).classList.add('active');
+ 
+ // Scroll to top
+ window.scrollTo(0, 0);
+ }
+
+ // Newsletter Signup
+ function handleNewsletterSignup(event) {
+ event.preventDefault();
+ const email = event.target.querySelector('input[type="email"]').value;
+ 
+ // ConvertKit integration would go here
+ alert(`Thank you for subscribing! We'll send updates to ${email}`);
+ event.target.reset();
+ }
+
+ // Early Access
+ function handleEarlyAccess() {
+ // ConvertKit opt-in integration
+ alert('Redirecting to early access signup...');
+ }
+
+ // Coaching Access
+ function handleCoachingAccess() {
+ // ConvertKit email gate integration
+ alert('Redirecting to Coaching Corner signup...');
+ }
+
+ // Payhip Access
+ function handlePayhipAccess() {
+ // Payhip integration
+ alert('Redirecting to Payhip checkout...');
+ }
+
+ // Contact Form
+ function handleContactForm(event) {
+ event.preventDefault();
+ 
+ const formData = new FormData(event.target);
+ const data = Object.fromEntries(formData);
+ 
+ // Webflow form integration would go here
+ alert(`Thank you for your message, ${data.name}! I'll get
