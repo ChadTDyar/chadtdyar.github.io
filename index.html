@@ -3,480 +3,939 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chad T. Dyar - Performance Coach & Author</title>
-    <meta name="description" content="Chad T. Dyar is a performance coach and author specializing in leadership development and human-centered performance systems.">
+    <title>Chad T Dyar - Author, Strategist & Creative Systems Thinker</title>
+    <meta name="description" content="Chad T Dyar is a genre-jumping author, strategist, and creative performance coach. Architect of The Enablement Operating System and co-author of The Way I Work with AI.">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Chad T. Dyar - Performance Coach & Author">
-    <meta property="og:description" content="Performance coach and author specializing in leadership development and human-centered performance systems.">
+    <meta property="og:title" content="Chad T Dyar - Author, Strategist & Creative Systems Thinker">
+    <meta property="og:description" content="Where systems meet story, and performance becomes personal.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://chadtdyar.com">
     
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Import Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #333; min-height: 100vh; line-height: 1.6;
+        :root {
+            --navy: #0A1628;
+            --graphite: #1A1D29;
+            --charcoal: #2D3748;
+            --slate: #4A5568;
+            --silver: #A0AEC0;
+            --white: #FFFFFF;
+            --cyan: #00D9FF;
+            --magenta: #FF0080;
+            --gradient-primary: linear-gradient(135deg, var(--navy) 0%, var(--graphite) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-strong: 0 8px 40px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Enhanced Header */
-        header { 
-            background: rgba(255,255,255,0.95); backdrop-filter: blur(15px);
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            border-bottom: 2px solid #c0c0c0; box-shadow: 0 4px 30px rgba(74,20,140,0.1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-        
-        .logo { 
-            font-family: 'Times New Roman', serif; font-size: 1.8rem; font-weight: bold;
-            color: #4a148c; text-decoration: none; text-shadow: 0 0 10px rgba(74,20,140,0.3);
+        html {
+            scroll-behavior: smooth;
         }
         
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { 
-            text-decoration: none; color: #333; font-weight: 500; cursor: pointer;
-            padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s ease; position: relative;
-        }
-        .nav-links a:hover { 
-            color: #4a148c; text-shadow: 0 0 8px rgba(74,20,140,0.5);
-            background: rgba(74,20,140,0.1);
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: var(--white);
+            overflow-x: hidden;
         }
         
-        /* Mobile menu */
-        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+        /* Typography */
+        .playbill {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
         
-        main { margin-top: 100px; padding: 2rem 0; }
-        .page { display: none; }
-        .page.active { display: block; }
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
         
-        /* Enhanced Hero Section */
-        .hero { 
-            text-align: center; padding: 4rem 2rem; margin: 2rem 0;
-            background: linear-gradient(135deg, rgba(74,20,140,0.1), rgba(192,192,192,0.05));
-            border-radius: 20px; border: 1px solid rgba(192,192,192,0.2);
-            box-shadow: 0 8px 32px rgba(74,20,140,0.1); position: relative; overflow: hidden;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            color: var(--navy);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--navy);
+        }
+        
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--charcoal);
+            transition: var(--transition);
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-primary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
         
         .hero::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(74,20,140,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(192,192,192,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(74,20,140,0.1)"/></svg>');
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
         
-        .hero-content { position: relative; z-index: 1; }
-        
-        .hero-title { 
-            font-family: 'Times New Roman', serif; font-size: 4rem; font-weight: bold;
-            color: #4a148c; margin-bottom: 1rem; padding: 1rem 2rem; 
-            border: 3px solid #c0c0c0; display: inline-block; border-radius: 15px;
-            background: rgba(255,255,255,0.95); box-shadow: 0 0 30px rgba(192,192,192,0.3);
-            text-shadow: 0 0 20px rgba(74,20,140,0.5); position: relative;
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
         
-        .hero-title::before {
-            content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(45deg, #4a148c, #c0c0c0, #4a148c); border-radius: 15px; z-index: -1;
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: bold;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .hero-tagline { 
-            font-size: 1.5rem; color: #c0c0c0; margin-bottom: 2rem; font-weight: 300;
-            text-shadow: 0 0 10px rgba(192,192,192,0.3);
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            max-width: 600px;
         }
         
-        .hero-description {
-            font-size: 1.1rem; color: #666; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
         
-        .hero-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
-        
-        .btn-primary { 
-            background: linear-gradient(45deg, #4a148c, #c0c0c0); color: white; padding: 1rem 2rem;
-            border: none; border-radius: 50px; font-size: 1.1rem; cursor: pointer; text-decoration: none;
-            display: inline-block; box-shadow: 0 4px 15px rgba(74,20,140,0.2); transition: all 0.3s ease;
-            position: relative; overflow: hidden;
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
-        .btn-primary::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left 0.5s;
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: var(--white);
+            box-shadow: var(--shadow-soft);
         }
         
-        .btn-primary:hover::before { left: 100%; }
-        .btn-primary:hover { 
-            transform: translateY(-3px); box-shadow: 0 8px 25px rgba(74,20,140,0.3);
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-strong);
         }
         
         .btn-secondary {
-            background: rgba(255,255,255,0.9); color: #4a148c; border: 2px solid #4a148c;
-            padding: 1rem 2rem; border-radius: 50px; font-size: 1.1rem; cursor: pointer;
-            text-decoration: none; display: inline-block; transition: all 0.3s ease;
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
         
         .btn-secondary:hover {
-            background: #4a148c; color: white; transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--cyan);
         }
         
-        /* Professional sections */
-        .section { 
-            background: rgba(255,255,255,0.95); margin: 2rem 0; padding: 3rem 2rem; border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(74,20,140,0.1); border: 1px solid rgba(192,192,192,0.2);
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+            position: relative;
         }
         
-        .section h2 { 
-            color: #4a148c; margin-bottom: 2rem; font-size: 2.5rem; text-align: center;
-            text-shadow: 0 0 15px rgba(74,20,140,0.3); position: relative;
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
         
-        .section h2::after {
-            content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
-            width: 60px; height: 3px; background: linear-gradient(90deg, #4a148c, #c0c0c0);
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+            position: relative;
         }
         
-        /* Enhanced Book Cards */
-        .book-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 2rem; margin: 2rem 0;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-accent);
         }
         
-        .book-card { 
-            background: white; padding: 2rem; border-radius: 15px; text-align: center;
-            box-shadow: 0 8px 32px rgba(74,20,140,0.1); transition: all 0.3s ease;
-            border: 1px solid rgba(192,192,192,0.2); position: relative; overflow: hidden;
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--slate);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
-        .book-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, #4a148c, #c0c0c0, #4a148c);
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
         
-        .book-card:hover { 
-            transform: translateY(-8px); box-shadow: 0 15px 40px rgba(74,20,140,0.2);
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--charcoal);
         }
         
-        .book-cover { 
-            width: 180px; height: 270px; margin: 0 auto 1.5rem; border-radius: 12px;
-            background: linear-gradient(45deg, #4a148c, #c0c0c0); color: white; font-weight: bold;
-            display: flex; align-items: center; justify-content: center; font-size: 1rem;
-            box-shadow: 0 8px 25px rgba(74,20,140,0.3); transition: transform 0.3s ease;
-            text-align: center; padding: 1rem; position: relative;
+        .about-content p {
+            margin-bottom: 1.5rem;
         }
         
-        .book-cover::after {
-            content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
-            border: 2px solid rgba(255,255,255,0.3); border-radius: 8px;
+        .about-content p:first-child {
+            font-size: 1.3rem;
+            color: var(--navy);
+            font-weight: 500;
         }
         
-        .book-cover:hover { transform: scale(1.05) rotateY(5deg); }
-        
-        .book-card h4 { 
-            color: #4a148c; margin-bottom: 1rem; font-size: 1.3rem;
-            text-shadow: 0 0 5px rgba(74,20,140,0.2);
+        /* Books Section */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
         
-        .book-card p { margin-bottom: 1.5rem; line-height: 1.6; color: #666; }
-        
-        .amazon-link { 
-            background: #ff9500; color: white; padding: 1rem 2rem; text-decoration: none;
-            border-radius: 8px; display: inline-block; font-weight: bold; transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255,149,0,0.3);
-        }
-        .amazon-link:hover { 
-            background: #e6850e; transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,149,0,0.4);
-        }
-        
-        /* Enhanced Blog Section */
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
-        .blog-post { 
-            background: white; padding: 2rem; border-radius: 15px; transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 4px solid #4a148c;
-        }
-        .blog-post:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(74,20,140,0.2); }
-        .blog-post h3 { color: #4a148c; margin-bottom: 1rem; font-size: 1.4rem; }
-        .blog-post .date { color: #c0c0c0; font-size: 0.9rem; margin-bottom: 1rem; font-weight: 500; }
-        .blog-post .excerpt { color: #666; line-height: 1.6; }
-        
-        /* Enhanced About Section */
-        .about-content { 
-            display: grid; grid-template-columns: 1fr 350px; gap: 3rem; align-items: center;
-            margin-top: 2rem;
+        .book-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(30px);
         }
         
-        .about-text { font-size: 1.1rem; }
-        .about-text p { margin-bottom: 1.5rem; color: #555; }
-        
-        .about-image { 
-            width: 100%; height: 350px; border-radius: 20px; 
-            background: linear-gradient(45deg, #4a148c, #c0c0c0, #1a1a2e);
-            display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;
-            box-shadow: 0 15px 40px rgba(74,20,140,0.3); border: 3px solid rgba(192,192,192,0.3);
-            position: relative; overflow: hidden;
+        .book-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
-        .about-image::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(192,192,192,0.2) 0%, transparent 50%);
+        .book-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
         }
         
-        .quote { 
-            font-style: italic; font-size: 1.2rem; color: #4a148c; text-align: center; margin: 2rem 0;
-            padding: 2rem; background: rgba(74,20,140,0.05); border-radius: 15px;
-            border-left: 4px solid #4a148c; position: relative;
+        .book-genre {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
         }
         
-        .quote::before { content: '"'; font-size: 4rem; position: absolute; top: -10px; left: 20px; color: #4a148c; opacity: 0.3; }
-        
-        /* Contact Section */
-        .contact-info { 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem;
+        .book-title {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 700;
         }
         
-        .contact-methods { }
-        .contact-methods h3 { color: #4a148c; margin-bottom: 1rem; }
-        .contact-item { 
-            display: flex; align-items: center; margin-bottom: 1rem; padding: 1rem;
-            background: rgba(74,20,140,0.05); border-radius: 10px; transition: all 0.3s ease;
-        }
-        .contact-item:hover { background: rgba(74,20,140,0.1); transform: translateX(5px); }
-        .contact-item i { font-size: 1.5rem; margin-right: 1rem; color: #4a148c; }
-        .contact-item a { color: #4a148c; text-decoration: none; font-weight: 500; }
-        .contact-item a:hover { text-decoration: underline; }
-        
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { 
-            display: block; margin-bottom: 0.5rem; color: #4a148c; font-weight: bold;
-            text-shadow: 0 0 5px rgba(74,20,140,0.2);
-        }
-        .form-group input, .form-group textarea { 
-            width: 100%; padding: 1rem; border: 2px solid #c0c0c0; border-radius: 10px; 
-            font-size: 1rem; transition: all 0.3s ease; background: rgba(255,255,255,0.9);
-        }
-        .form-group input:focus, .form-group textarea:focus { 
-            outline: none; border-color: #4a148c; box-shadow: 0 0 15px rgba(74,20,140,0.3);
-            background: white;
-        }
-        .form-group textarea { height: 120px; resize: vertical; }
-        
-        /* Newsletter Section */
-        .newsletter { 
-            background: linear-gradient(135deg, #4a148c 0%, #1a1a2e 50%, #16213e 100%);
-            color: white; padding: 3rem 2rem; border-radius: 20px; margin: 3rem 0;
-            text-align: center; border: 2px solid rgba(192,192,192,0.2);
-            box-shadow: 0 10px 40px rgba(74,20,140,0.3); position: relative; overflow: hidden;
+        .book-description {
+            color: var(--slate);
+            line-height: 1.6;
         }
         
-        .newsletter::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(192,192,192,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(192,192,192,0.1)"/></svg>');
+        /* Blog Section */
+        .blog {
+            background: var(--gradient-primary);
+            color: var(--white);
+        }
+        
+        .blog .section-title {
+            color: var(--white);
+        }
+        
+        .blog .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .blog-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .blog-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .blog-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.2);
+            color: var(--cyan);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-title {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .blog-preview {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .read-more {
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            color: var(--white);
+        }
+        
+        /* Coaching Corner */
+        .coaching {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .coaching::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
         
-        .newsletter-content { position: relative; z-index: 1; }
-        .newsletter h3 { 
-            font-size: 2rem; margin-bottom: 1rem; text-shadow: 0 0 20px rgba(192,192,192,0.5);
+        .coaching .container {
+            position: relative;
+            z-index: 2;
         }
-        .newsletter p { font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9; }
         
-        .newsletter-form { display: flex; gap: 1rem; max-width: 500px; margin: 0 auto; }
-        .newsletter-form input { 
-            flex: 1; padding: 1rem; border: none; border-radius: 10px; font-size: 1rem;
-            background: rgba(255,255,255,0.9);
+        .coaching .section-title {
+            color: var(--white);
         }
-        .newsletter-form button { 
-            background: linear-gradient(45deg, #c0c0c0, #ffffff); color: #4a148c; 
-            border: none; padding: 1rem 2rem; border-radius: 10px; font-weight: bold;
-            cursor: pointer; transition: all 0.3s ease;
+        
+        .coaching .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
         }
-        .newsletter-form button:hover { 
-            transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+        
+        .coaching-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .coaching-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .newsletter-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group input {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--cyan);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .form-disclaimer {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+        
+        /* Subscribe Section */
+        .subscribe {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            text-align: center;
+        }
+        
+        .subscribe-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .subscribe-form input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+        
+        .subscribe-form input:focus {
+            outline: none;
+            border-color: var(--cyan);
         }
         
         /* Footer */
-        footer { 
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white;
-            padding: 3rem 0; margin-top: 4rem; border-top: 3px solid rgba(192,192,192,0.3);
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem 0 2rem;
         }
         
-        .footer-content { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
         
-        .footer-section h4 { 
-            color: #c0c0c0; margin-bottom: 1rem; font-size: 1.2rem;
-            text-shadow: 0 0 10px rgba(192,192,192,0.3);
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--cyan);
         }
         
-        .footer-section a, .footer-section p { 
-            color: white; text-decoration: none; display: block; margin-bottom: 0.5rem;
-            transition: all 0.3s ease; cursor: pointer;
-        }
-        .footer-section a:hover { 
-            color: #c0c0c0; text-shadow: 0 0 8px rgba(192,192,192,0.5); transform: translateX(5px);
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            margin-bottom: 0.5rem;
         }
         
-        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
-        .social-links a { 
-            background: linear-gradient(45deg, #4a148c, #c0c0c0); padding: 1rem; border-radius: 50%;
-            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
-            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(74,20,140,0.3);
-            text-decoration: none; font-size: 1.2rem; transform: translateX(0);
+        .footer-section a:hover {
+            color: var(--white);
         }
-        .social-links a:hover { 
-            transform: translateY(-3px) scale(1.1); box-shadow: 0 8px 25px rgba(192,192,192,0.4);
-            background: linear-gradient(45deg, #c0c0c0, #4a148c);
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-2px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-slow);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .hero-title { font-size: 2.5rem; padding: 0.5rem 1rem; }
-            .hero-tagline { font-size: 1.2rem; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .about-content { grid-template-columns: 1fr; text-align: center; }
-            .contact-info { grid-template-columns: 1fr; }
-            .book-grid { grid-template-columns: 1fr; }
-            .blog-grid { grid-template-columns: 1fr; }
-            .newsletter-form { flex-direction: column; }
-            .social-links { justify-content: center; }
+            nav {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .books-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
         }
         
         @media (max-width: 480px) {
-            .hero-title { font-size: 2rem; }
-            .container { padding: 0 15px; }
-            .section { padding: 2rem 1rem; }
+            .hero {
+                min-height: 70vh;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .book-card,
+            .blog-card {
+                padding: 1.5rem;
+            }
         }
         
-        /* Loading animation */
-        .loading { opacity: 0; animation: fadeIn 0.5s ease-in forwards; }
-        @keyframes fadeIn { to { opacity: 1; } }
+        /* Scroll reveal animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         
-        /* Focus styles for accessibility */
-        button:focus, input:focus, textarea:focus, a:focus {
-            outline: 2px solid #4a148c; outline-offset: 2px;
+        .animate-on-scroll {
+            animation: slideUp 0.6s ease-out forwards;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav class="container">
-            <a href="#" class="logo" onclick="showPage('home')">Chad T. Dyar</a>
+        <nav>
+            <a href="#home" class="logo playbill">Chad T Dyar</a>
             <ul class="nav-links">
-                <li><a onclick="showPage('home')">Home</a></li>
-                <li><a onclick="showPage('books')">Books</a></li>
-                <li><a onclick="showPage('blog')">Blog</a></li>
-                <li><a onclick="showPage('coaching')">Coaching</a></li>
-                <li><a onclick="showPage('about')">About</a></li>
-                <li><a onclick="showPage('contact')">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#coaching">Coaching Corner</a></li>
+                <li><a href="#subscribe">Subscribe</a></li>
             </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 
-    <main class="container">
-        <!-- HOME -->
-        <div id="home" class="page active loading">
-            <div class="hero">
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">CHAD T. DYAR</h1>
-                    <p class="hero-tagline">Performance Coach • Author • Leadership Expert</p>
-                    <p class="hero-description">
-                        Helping leaders and organizations unlock peak performance through human-centered systems, 
-                        authentic coaching practices, and evidence-based leadership development.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#" class="btn-primary" onclick="showPage('books')">📚 Explore My Books</a>
-                        <a href="#" class="btn-secondary" onclick="showPage('coaching')">🎯 Coaching Corner</a>
+                    <h1 class="playbill">Chad T Dyar</h1>
+                    <p class="hero-subtitle">Where systems meet story, and performance becomes personal.</p>
+                    <div class="cta-buttons">
+                        <a href="#books" class="btn btn-primary">Explore Books</a>
+                        <a href="#coaching" class="btn btn-secondary">Coaching Corner</a>
                     </div>
                 </div>
             </div>
-            
-            <section class="newsletter">
-                <div class="newsletter-content">
-                    <h3>🚀 Join the Performance Community</h3>
-                    <p>Get exclusive insights on leadership development, performance systems, and human-centered coaching practices delivered to your inbox.</p>
-                    <form action="https://app.kit.com/forms/8090670/subscriptions" method="post" class="newsletter-form">
-                        <input name="email_address" placeholder="Enter your email address" required type="email">
-                        <button type="submit">Join Now</button>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title playbill">About Chad</h2>
+                </div>
+                <div class="about-content">
+                    <p>Chad T Dyar is a genre-jumping author, strategist, and creative performance coach with a past life in opera and a present obsession with helping people become who they are.</p>
+                    
+                    <p>His work spans eight books—business, stage, and children's—each rooted in clarity, creativity, and transformation. He's the architect behind The Enablement Operating System, the co-author of The Way I Work with AI, and a lifelong storyteller who believes systems should serve the soul—not just the schedule.</p>
+                    
+                    <p>Whether designing AI frameworks, writing plays about queer becoming, or capturing the voices of his three dogs in lyrical picture books, Chad builds experiences that hold.</p>
+                    
+                    <p>He lives at the beach with his partner and their three dogs—Wick, Maya Rudolph, and Benny Hartz. Together they tend a garden of fresh vegetables, flowers, and hard-won freedom. This site is where systems meet story, and performance becomes personal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Section -->
+        <section id="books" class="books">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title playbill">Books</h2>
+                    <p class="section-subtitle">Eight works spanning business strategy, theatrical narrative, and children's literature—each designed to transform how we think, work, and connect.</p>
+                </div>
+                <div class="books-grid">
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Business Strategy</span>
+                        <h3 class="book-title">The Enablement Operating System</h3>
+                        <p class="book-description">A comprehensive framework for designing human-centered performance systems that scale without losing their soul. The intersection of strategic thinking and operational excellence.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">AI + Systems Design</span>
+                        <h3 class="book-title">The Way I Work with AI</h3>
+                        <p class="book-description">Co-authored exploration of integrating artificial intelligence into creative and strategic workflows. Practical wisdom for the age of human-AI collaboration.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Leadership + Self-Mastery</span>
+                        <h3 class="book-title">Performance Is Personal</h3>
+                        <p class="book-description">Leadership principles that honor both individual authenticity and collective excellence. Where personal growth meets professional impact.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Stage Play</span>
+                        <h3 class="book-title">The Gospel According to No One</h3>
+                        <p class="book-description">A theatrical exploration of childhood, faith, and the stories we tell ourselves before we know who we are. The first in a trilogy of becoming.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Stage Play</span>
+                        <h3 class="book-title">The Gospel According to Me</h3>
+                        <p class="book-description">The college years—where identity meets ideology and the self begins to separate from inherited narratives. Part two of the trilogy.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Stage Play</span>
+                        <h3 class="book-title">The Gospel According to Us</h3>
+                        <p class="book-description">Adult reconnection and the complexity of chosen family. The trilogy's conclusion explores love, loss, and the stories we build together.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Children's Picture Book</span>
+                        <h3 class="book-title">The Bark, the Snort, and the Squeak</h3>
+                        <p class="book-description">A lyrical picture book capturing the distinct voices and personalities of three beloved dogs. Where pet parenthood meets poetic observation.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Children's Picture Book</span>
+                        <h3 class="book-title">The Wiggles, the Woofs, and the Why</h3>
+                        <p class="book-description">The companion volume exploring the curious questions and joyful mysteries that only dogs can inspire in the humans who love them.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title playbill">Blog</h2>
+                    <p class="section-subtitle">Essays on creativity, systems thinking, and the intersection of performance and humanity.</p>
+                </div>
+                <div class="blog-grid">
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">AI</span>
+                        <h3 class="blog-title">The Human in the Machine</h3>
+                        <p class="blog-preview">Exploring how artificial intelligence amplifies rather than replaces human creativity. What happens when we design AI systems that honor rather than eliminate the irreplaceable human elements in our work.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">Coaching</span>
+                        <h3 class="blog-title">Performance Is Personal</h3>
+                        <p class="blog-preview">Why the most effective performance systems start with the individual human experience. Moving beyond one-size-fits-all approaches to create frameworks that adapt to who we actually are.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">Creative Process</span>
+                        <h3 class="blog-title">Systems That Serve the Soul</h3>
+                        <p class="blog-preview">How to build operational frameworks that enhance rather than constrain creativity. The art of designing systems that hold space for both structure and spontaneity.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">AI</span>
+                        <h3 class="blog-title">Prompting for Partnership</h3>
+                        <p class="blog-preview">Moving beyond transactional AI interactions toward genuine collaboration. How to design prompts and workflows that create space for both human and artificial intelligence to contribute their unique strengths.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">Creative Process</span>
+                        <h3 class="blog-title">The Theater of Business</h3>
+                        <p class="blog-preview">What my opera background taught me about performance, presence, and the strategic value of understanding your audience. Lessons from the stage that transform how we show up in professional contexts.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">Coaching</span>
+                        <h3 class="blog-title">Becoming Who You Are</h3>
+                        <p class="blog-preview">The paradox of personal development: we don't become someone new, we become more fully ourselves. How coaching creates conditions for authentic emergence rather than manufactured change.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>                </div>
+            </div>
+        </section>
+
+        <!-- Coaching Corner -->
+        <section id="coaching" class="coaching">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title playbill">Coaching Corner</h2>
+                    <p class="section-subtitle">Where systems meet soul—exclusive tools, essays, and frameworks for personal performance transformation.</p>
+                </div>
+                <div class="coaching-content">
+                    <p class="coaching-description">
+                        This is a subscriber-only area where Chad shares behind-the-scenes insights, AI-powered coaching flows, creative rituals, and systems for clarity, creativity, and behavior change. Join the Coaching Center newsletter to unlock access.
+                    </p>
+                    <div class="newsletter-form">
+                        <form action="https://app.kit.com/forms/8090670/subscriptions" method="post">
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Enter your email" required>
+                                <button class="btn btn-primary" type="submit">Join Now</button>
+                            </div>
+                            <p class="form-disclaimer">No spam. Just systems, story, and soul.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscribe Section -->
+        <section id="subscribe" class="subscribe">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title playbill">Join Chad’s Coaching Center</h2>
+                    <p class="section-subtitle">Get exclusive essays, AI prompts, and creative tools in your inbox.</p>
+                </div>
+                <div class="subscribe-form">
+                    <form action="https://app.kit.com/forms/8090670/subscriptions" method="post">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
                     </form>
-                    <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">
-                        ✨ Exclusive content • No spam • Unsubscribe anytime
-                    </p>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
+    </main>
 
-        <!-- BOOKS -->
-        <div id="books" class="page">
-            <section class="section">
-                <h2>📚 Published Works</h2>
-                <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 3rem;">
-                    Evidence-based insights for leaders who want to unlock human potential and drive sustainable performance.
-                </p>
-                <div class="book-grid">
-                    <div class="book-card">
-                        <div class="book-cover">
-                            <div>Performance<br>Whisperer</div>
-                        </div>
-                        <h4>Performance Whisperer</h4>
-                        <p>Unlocking the full potential of those you lead through human-centered performance systems and authentic coaching approaches.</p>
-                        <a href="https://a.co/d/e1U3tzj" class="amazon-link" target="_blank" rel="noopener">📖 Buy on Amazon</a>
-                    </div>
-                    <div class="book-card">
-                        <div class="book-cover">
-                            <div>How to Talk<br>to Humans</div>
-                        </div>
-                        <h4>How to Talk to Humans</h4>
-                        <p>Essential communication skills for building meaningful connections, fostering trust, and creating psychological safety in the workplace.</p>
-                        <a href="https://a.co/d/1XtZ4DN" class="amazon-link" target="_blank" rel="noopener">📖 Buy on Amazon</a>
-                    </div>
-                    <div class="book-card">
-                        <div class="book-cover">
-                            <div>Bring Your<br>Best Self<br>to Work</div>
-                        </div>
-                        <h4>Bring Your Best Self to Work</h4>
-                        <p>No secret identity required. Authentic leadership strategies for sustainable performance and genuine professional fulfillment.</p>
-                        <a href="https://a.co/d/bXq2mSm" class="amazon-link" target="_blank" rel="noopener">📖 Buy on Amazon</a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Explore</h4>
+                    <a href="#about">About</a>
+                    <a href="#books">Books</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#coaching">Coaching</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <a href="mailto:chadtd1@gmail.com">chadtd1@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/chadtdyar" target="_blank">LinkedIn</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow</h4>
+                    <div class="social-links">
+                        <a href="#"><span>IG</span></a>
+                        <a href="#"><span>X</span></a>
+                        <a href="#"><span>LI</span></a>
                     </div>
                 </div>
-                
-                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(74,20,140,0.05); border-radius: 15px;">
-                    <h3 style="color: #4a148c; margin-bottom: 1rem;">📧 Want Early Access to New Books?</h3>
-                    <p style="margin-bottom: 1.5rem;">Join my newsletter to get exclusive previews, early chapters, and behind-the-scenes insights.</p>
-                    <a href="#" class="btn-primary" onclick="showPage('home'); setTimeout(() => document.querySelector('.newsletter input').focus(), 100);">
-                        Get Early Access
-                    </a>
-                </div>
-            </section>
+            </div>
+            <div class="footer-bottom">
+                © Chad T Dyar. Built in partnership with Claude & GPT.
+            </div>
         </div>
+    </footer>
 
-        <!-- COACHING -->
-        <div id="coaching" class="page">
-            <section class="section" style="background: linear-gradient(135deg, #4a148c 0%, #1a1a2e 50%, #16213e 100%); color: white;">
-                <h2 style="color: white;">🎯 Coaching Corner</h2>
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <p style="font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.95;">
-                        Access exclusive coaching tools, frameworks, and resources designed to elevate your leadership practice.
-                    </p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
-                        <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px;">
-                            <h4 style="margin-bottom: 1rem; font-size: 1.2rem;">🛠️ Coaching Toolkit</h4>
-                            <p>Ready-to-use templates, assessment tools, and conversation frameworks.</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px;">
-                            <h4 style="margin-bottom: 1rem; font-size: 1.2rem;">📋 Performance Systems</h4>
-                            <p>Scalable approaches to building high-performance cultures.</p>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px;">
-                            <h4 style="margin-bottom: 1rem; font-size: 1.2rem;">🎓 Skill Development</h4>
-                            <p>Evidence-based methods for developing leadership capabilities.</p>
-                        </div>
-                    </div>
-                    <a href="https://app.kit.com/forms/8090670/subscriptions" class="btn-primary" target="_blank" rel="noopener" 
-                       style="background: linear-gradient(45deg, #c0c0c0, #ffffff); color:
+    <!-- Scripts -->
+    <script>
+        // Animate fade-in elements on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
