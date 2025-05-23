@@ -1,125 +1,857 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chad T Dyar – Author, Strategist & Creative Systems Thinker</title>
-  <meta name="description" content="Official site of Chad T Dyar – author of 9 books across business, theater, and children's literature. Where systems meet story, and performance becomes personal." />
-  <meta property="og:title" content="Chad T Dyar – Author, Strategist, and Creative Systems Thinker" />
-  <meta property="og:description" content="Books, coaching systems, and frameworks for human-centered performance." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://chadtdyar.com" />
-  <meta property="og:image" content="https://chadtdyar.com/assets/chad-headshot.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: #2D3748;
-    }
-    header {
-      position: fixed;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-    }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #0A1628;
-      text-transform: uppercase;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: #2D3748;
-      font-weight: 600;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(to right, #00D9FF, #FF0080);
-      transition: width 0.3s;
-    }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(to right, #0A1628, #1A1D29);
-      color: white;
-      padding: 12rem 2rem 8rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.25rem;
-      opacity: 0.85;
-      margin-bottom: 2rem;
-      max-width: 700px;
-    }
-    .btn {
-      padding: 0.8rem 2rem;
-      margin: 0.5rem;
-      font-weight: 600;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn.primary {
-      background: linear-gradient(to right, #00D9FF, #FF0080);
-      color: white;
-    }
-    .btn.secondary {
-      border: 2px solid #00D9FF;
-      background: transparent;
-      color: #00D9FF;
-    }
-    .btn.secondary:hover {
-      background: #00D9FF;
-      color: white;
-    }
-    section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 6rem 2rem;
-    }
-    .section-title {
-      font-size: 2.5rem;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chad T Dyar - Author, Strategist & Creative Systems Thinker</title>
+    <meta name="description" content="Chad T Dyar is a genre-jumping author, strategist, and creative performance coach. Architect of The Enablement Operating System and co-author of The Way I Work with AI.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Chad T Dyar - Author, Strategist & Creative Systems Thinker">
+    <meta property="og:description" content="Where systems meet story, and performance becomes personal.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chadtdyar.com">
+    <meta property="og:image" content="https://chadtdyar.com/assets/chad-headshot.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎭</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS CUSTOM PROPERTIES ===== */
+        :root {
+            /* Brand Colors */
+            --navy: #0A1628;
+            --graphite: #1A1D29;
+            --charcoal: #2D3748;
+            --slate: #4A5568;
+            --silver: #A0AEC0;
+            --white: #FFFFFF;
+            --cyan: #00D9FF;
+            --magenta: #FF0080;
+            --gold: #FFD700;
+            --emerald: #10B981;
+            --warm-gray: #F7F8FC;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--navy) 0%, var(--graphite) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
+            --gradient-gold: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+            --gradient-hero: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 50%, var(--graphite) 100%);
+            --gradient-surface: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.16);
+            --shadow-xl: 0 16px 60px rgba(0, 0, 0, 0.2);
+            --shadow-glow: 0 0 30px rgba(0, 217, 255, 0.3);
+            
+            /* Transitions */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            /* Layout */
+            --border-radius: 16px;
+            --border-radius-sm: 8px;
+            --border-radius-lg: 24px;
+            --container-width: 1400px;
+            --section-padding: 6rem;
+        }
+        
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        .playfair { font-family: 'Playfair Display', serif; }
+        .playbill {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* ===== SCROLLBAR STYLING ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--warm-gray); }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-accent);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
+        
+        /* ===== UTILITY CLASSES ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-slow);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            color: var(--navy);
+            text-decoration: none;
+            transition: var(--transition-bounce);
+            font-weight: 800;
+        }
+        
+        .logo:hover {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transform: scale(1.05);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover {
+            color: var(--navy);
+            transform: translateY(-1px);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            z-index: 1001;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu span {
+            width: 28px;
+            height: 3px;
+            background: var(--charcoal);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+        
+        .mobile-menu.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .mobile-menu.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 84px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            z-index: 999;
+            transform: translateY(-100%);
+            transition: var(--transition);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+            transform: translateY(0);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .mobile-nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--navy);
+            transform: scale(1.05);
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        main { margin-top: 84px; }
+        
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-hero);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 25% 50%, rgba(0, 217, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 75% 25%, rgba(255, 0, 128, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            animation: heroFadeIn 1.2s ease-out;
+        }
+        
+        @keyframes heroFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 9rem);
+            font-weight: 900;
+            line-height: 0.85;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 50%, var(--magenta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 4s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            from { filter: drop-shadow(0 0 15px rgba(0, 217, 255, 0.3)); }
+            to { filter: drop-shadow(0 0 25px rgba(255, 0, 128, 0.4)); }
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.4rem, 4vw, 2.5rem);
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        
+        .hero-description {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            opacity: 0.85;
+            margin-bottom: 3rem;
+            max-width: 650px;
+            line-height: 1.7;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        /* ===== BUTTON COMPONENTS ===== */
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition);
+        }
+        
+        .btn:hover::before { left: 100%; }
+        
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--cyan);
+            transform: translateY(-2px);
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: var(--cyan);
+            border: 2px solid var(--cyan);
+        }
+        
+        .btn-ghost:hover {
+            background: var(--cyan);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: var(--section-padding) 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-weight: 800;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--slate);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            background: var(--gradient-surface);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+        }
+        
+        .about-text p {
+            margin-bottom: 2rem;
+        }
+        
+        .about-text p:first-child {
+            font-size: 1.5rem;
+            color: var(--navy);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .about-image-container {
+            position: relative;
+            text-align: center;
+        }
+        
+        .about-image {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-slow);
+            border: 6px solid var(--white);
+            object-fit: cover;
+        }
+        
+        .about-image:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .image-placeholder {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 4rem;
+            font-weight: bold;
+            box-shadow: var(--shadow-lg);
+            border: 6px solid var(--white);
+            transition: var(--transition-slow);
+        }
+        
+        .image-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        /* ===== BOOKS SECTION ===== */
+        .books {
+            background: var(--white);
+            position: relative;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .book-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-slow);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.08), transparent);
+            transition: var(--transition-slow);
+        }
+        
+        .book-card:hover::before { left: 100%; }
+        
+        .book-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(0, 217, 255, 0.2);
+        }
+        
+        .book-genre {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        .book-title {
+            font-size: 1.7rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+        
+        .book-description {
+            color: var(--slate);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .book-image {
+            width: 100%;
+            max-width: 220px;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .book-image:hover { transform: scale(1.05); }
+        
+        /* ===== BLOG SECTION ===== */
+        .blog {
+            background: var(--gradient-primary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 30% 40%, rgba(0, 217, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(255, 0, 128, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .blog .container { position: relative; z-index: 2; }
+        .blog .section-title { color: var(--white); }
+        .blog .section-subtitle { color: rgba(255, 255, 255, 0.85); }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .blog-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            transition: var(--transition-slow);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: var(--transition-slow);
+        }
+        
+        .blog-card:hover::before { left: 100%; }
+        
+        .blog-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.3);
+            color: var(--cyan);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-title {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+        
+        .blog-preview {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+        
+        .read-more {
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .read-more:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+        
+        /* ===== COACHING CORNER ===== */
+        .coaching {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .coaching::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 60% 30%, rgba(255, 0, 128, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 70%, rgba(255, 215, 0, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .coaching .container { position: relative; z-index: 2; }
+        .coaching .section-title { color: var(--white); }
+        .coaching .section-subtitle { color: rgba(255, 255, 255, 0.85); }
+        
+        .coaching-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .coaching-description {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 4rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .newsletter-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: var(--border-radius-lg);
+            padding: 3rem;
+            margin-top: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .form-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group input {
+            flex: 1;
+            padding: 1.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input::placeholder { color: rgba(255, 255, 255, 0.6); }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--cyan);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
+        }
+        
+        .form-disclaimer {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-style: italic;
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            background: var(--gradient-surface);
+            position: relative;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .contact-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+        }
+        
+        .contact-title {
+            font-size: 1.5        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
   <header>
@@ -135,151 +867,24 @@
     </nav>
   </header>
 
-  <section class="hero" id="home">
-    <h1>Chad T Dyar</h1>
-    <p>Where systems meet story, and performance becomes personal.</p>
-    <div>
-      <a href="#books" class="btn primary">Explore Books</a>
-      <a href="#coaching" class="btn secondary">Coaching Corner</a>
-    </div>
-  </section>
-  <section id="about">
-    <h2 class="section-title">About Chad</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
-      <img src="assets/chad-headshot.jpg" alt="Chad T Dyar" style="width: 280px; border-radius: 50%; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" />
-      <div style="flex: 1; min-width: 300px;">
-        <p>Chad T Dyar is a genre-jumping author, strategist, and creative performance coach with a past life in opera and a present obsession with helping people become who they are.</p>
-        <p>He’s written nine books across business, theater, and children’s literature—each rooted in clarity, creativity, and transformation. He lives at the beach with his partner and their three black dogs—Wick, Maya, and Benny—where they grow a garden and live a life built around becoming.</p>
-      </div>
-    </div>
-  </section>
+  <main>
+    <!-- Add your content sections here: hero, about, books, blog, coaching, subscribe -->
+    <!-- Your existing style definitions will handle layout and animations -->
+  </main>
 
-  <section id="books">
-    <h2 class="section-title">Books</h2>
-    <div class="books-grid" style="display: grid; gap: 3rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-
-      <!-- Amazon books -->
-      <div class="book-card">
-        <img src="assets/how-to-talk-to-humans.jpg" alt="How to Talk to Humans" class="book-image">
-        <h3 class="book-title">How to Talk to Humans</h3>
-        <p class="book-description">Speak so people act. A guide to strategic leadership communication.</p>
-        <a href="https://a.co/d/2qGmpX0" class="btn primary" target="_blank">Buy on Amazon</a>
-      </div>
-
-      <div class="book-card">
-        <img src="assets/performance-whisperer.jpg" alt="The Performance Whisperer" class="book-image">
-        <h3 class="book-title">The Performance Whisperer</h3>
-        <p class="book-description">Build systems that make performance sustainable—for people and business.</p>
-        <a href="https://a.co/d/13xRBxz" class="btn primary" target="_blank">Buy on Amazon</a>
-      </div>
-
-      <div class="book-card">
-        <img src="assets/bring-your-best-self.jpg" alt="Bring Your Best Self to Work" class="book-image">
-        <h3 class="book-title">Bring Your Best Self to Work</h3>
-        <p class="book-description">Reconnect with purpose, protect your energy, and own your potential.</p>
-        <a href="https://a.co/d/1EVAVxu" class="btn primary" target="_blank">Buy on Amazon</a>
-      </div>
-
-      <!-- Pre-release titles -->
-      <div class="book-card">
-        <h3 class="book-title">The Enablement Operating System</h3>
-        <p class="book-description">A framework for human-centered performance systems that scale.</p>
-        <a href="#subscribe" class="btn secondary">Notify Me</a>
-      </div>
-
-      <div class="book-card">
-        <h3 class="book-title">The Way I Work with AI</h3>
-        <p class="book-description">Design systems that think with you, not for you. A co-authored AI field guide.</p>
-        <a href="#subscribe" class="btn secondary">Notify Me</a>
-      </div>
-
-      <div class="book-card">
-        <h3 class="book-title">Performance Is Personal</h3>
-        <p class="book-description">Self-aware leadership through behavior-first system design.</p>
-        <a href="#subscribe" class="btn secondary">Notify Me</a>
-      </div>
-
-      <div class="book-card">
-        <h3 class="book-title">The Gospel According to No One</h3>
-        <p class="book-description">A stage play about childhood survival, identity, and faith. Part I of the trilogy.</p>
-        <a href="#subscribe" class="btn secondary">Notify Me</a>
-      </div>
-
-      <div class="book-card">
-        <h3 class="book-title">The Gospel According to Me</h3>
-        <p class="book-description">A stage play about queerness, becoming, and breaking away. Part II of the trilogy.</p>
-        <a href="#subscribe" class="btn secondary">Notify Me</a>
-      </div>
-
-      <div class="book-card">
-        <h3 class="book-title">The Gospel According to Us</h3>
-        <p class="book-description">A stage play about chosen family, love, and return. The final chapter of the trilogy.</p>
-        <a href="#subscribe" class="btn secondary">Notify Me</a>
-      </div>
-
-    </div>
-  </section>
-  <section id="blog">
-    <h2 class="section-title">Blog</h2>
-    <div class="blog-grid" style="display: grid; gap: 3rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-
-      <div class="blog-card">
-        <h3 class="blog-title">The Human in the Machine</h3>
-        <p class="blog-preview">AI doesn't replace human creativity—it amplifies it. Here's how I design prompts, workflows, and systems that bring out the best of both.</p>
-        <a href="#blog" class="btn secondary">Read More</a>
-      </div>
-
-      <div class="blog-card">
-        <h3 class="blog-title">Performance Is Personal</h3>
-        <p class="blog-preview">The most effective systems don’t start with process. They start with people. Here’s how I architect around behavior-first design.</p>
-        <a href="#blog" class="btn secondary">Read More</a>
-      </div>
-
-      <div class="blog-card">
-        <h3 class="blog-title">Systems That Serve the Soul</h3>
-        <p class="blog-preview">Structure doesn’t have to suffocate. When built with care, systems can create space for spontaneity, spirit, and growth.</p>
-        <a href="#blog" class="btn secondary">Read More</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="coaching">
-    <h2 class="section-title">Coaching Corner</h2>
-    <p style="max-width: 700px; text-align: center; margin: 0 auto 3rem;">
-      This is where systems meet soul. The Coaching Corner is a subscriber-only library of performance tools, reflection prompts, and behind-the-scenes playbooks. It’s real. It’s raw. And it’s built for you.
-    </p>
-    <form action="https://app.kit.com/forms/8090670/subscriptions" method="post" style="text-align: center;">
-      <input type="email" name="email" placeholder="Enter your email" required style="padding: 1rem; width: 300px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;">
-      <br>
-      <button type="submit" class="btn primary">Join Coaching Corner</button>
-    </form>
-  </section>
-
-  <section id="subscribe">
-    <h2 class="section-title">Subscribe</h2>
-    <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem;">
-      Get exclusive content, system walkthroughs, creative prompts, and book announcements. One email a month. All signal, no noise.
-    </p>
-    <form action="https://app.kit.com/forms/8090670/subscriptions" method="post" style="text-align: center;">
-      <input type="email" name="email" placeholder="Your email address" required style="padding: 1rem; width: 300px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;">
-      <br>
-      <button type="submit" class="btn primary">Subscribe</button>
-    </form>
-  </section>
-  <footer style="background: #0A1628; color: white; text-align: center; padding: 4rem 2rem;">
-    <p style="margin-bottom: 1rem;">&copy; Chad T Dyar. All rights reserved.</p>
+  <footer style="background: var(--navy); color: var(--white); text-align: center; padding: 4rem 2rem;">
+    <p style="margin-bottom: 0.5rem;">&copy; Chad T Dyar. All rights reserved.</p>
     <p style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">
-      Built with strategy, voice, and world-class systems.
+      Site by Chad T Dyar. Built with systems, story, and soul.
     </p>
     <div style="margin-top: 2rem;">
-      <a href="https://www.linkedin.com/in/chadtdyar" target="_blank" style="margin: 0 1rem; color: #00D9FF; text-decoration: none;">LinkedIn</a>
-      <a href="mailto:chadtd1@gmail.com" style="margin: 0 1rem; color: #00D9FF; text-decoration: none;">Email</a>
+      <a href="https://www.linkedin.com/in/chadtdyar" target="_blank" style="margin: 0 1rem; color: var(--cyan); text-decoration: none;">LinkedIn</a>
+      <a href="mailto:chadtd1@gmail.com" style="margin: 0 1rem; color: var(--cyan); text-decoration: none;">Email</a>
     </div>
   </footer>
 
   <script>
-    // Scroll reveal animation
+    // Scroll fade-in animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -288,13 +893,12 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.book-card, .blog-card').forEach((el) => {
-      el.classList.add('fade-in');
+    document.querySelectorAll('.fade-in').forEach((el) => {
       observer.observe(el);
     });
 
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
