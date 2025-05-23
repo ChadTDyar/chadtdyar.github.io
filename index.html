@@ -461,6 +461,21 @@
             text-align: center;
         }
         
+        .about-image {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-slow);
+            border: 6px solid var(--white);
+            object-fit: cover;
+        }
+        
+        .about-image:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: var(--shadow-glow);
+        }
+        
         .image-placeholder {
             width: 320px;
             height: 320px;
@@ -481,6 +496,43 @@
         .image-placeholder:hover {
             transform: scale(1.05) rotate(5deg);
             box-shadow: var(--shadow-glow);
+        }
+        
+        /* Book Images */
+        .book-image-placeholder {
+            width: 200px;
+            height: 280px;
+            background: var(--gradient-accent);
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            object-fit: cover; /* This ensures images fit properly */
+        }
+        
+        .book-image-placeholder:hover { 
+            transform: scale(1.05) rotateY(10deg);
+        }
+        
+        /* For actual book cover images */
+        .book-cover-image {
+            width: 200px;
+            height: 280px;
+            border-radius: var(--border-radius-sm);
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            object-fit: cover;
+            display: block;
+        }
+        
+        .book-cover-image:hover { 
+            transform: scale(1.05) rotateY(10deg);
         }
         
         /* Books Section */
@@ -1093,10 +1145,15 @@
                         <p>He lives at the beach with his partner and their three black dogs—Wick, Maya, and Benny—where they grow vegetables, watch the tides, and live a life built around becoming.</p>
                     </div>
                     <div class="about-image-container">
+                        <!-- Option 1: Use image placeholder until you add real image -->
                         <div class="image-placeholder tooltip interactive-element">
                             CT
                             <span class="tooltiptext">Chad T Dyar - Author, Strategist & Coach</span>
                         </div>
+                        
+                        <!-- Option 2: Uncomment and add your image path -->
+                        <!-- <img src="assets/images/chad-headshot.jpg" alt="Chad T Dyar" class="about-image tooltip interactive-element">
+                        <span class="tooltiptext">Chad T Dyar - Author, Strategist & Coach</span> -->
                     </div>
                 </div>
             </div>
@@ -1111,7 +1168,12 @@
                 </div>
                 <div class="books-grid">
                     <div class="book-card interactive-element" onclick="openBookPreview('book1')">
+                        <!-- Option 1: Keep emoji placeholder -->
                         <div class="book-image-placeholder">📚</div>
+                        
+                        <!-- Option 2: Replace with actual book cover -->
+                        <!-- <img src="assets/images/how-to-talk-to-humans.jpg" alt="How to Talk to Humans Book Cover" class="book-image-placeholder"> -->
+                        
                         <div class="book-genre">Business Communication</div>
                         <h3 class="book-title">How to Talk to Humans</h3>
                         <p class="book-description">Speak so people act. A leadership guide for relational, strategic communication.</p>
@@ -1119,7 +1181,12 @@
                     </div>
                     
                     <div class="book-card interactive-element" onclick="openBookPreview('book2')">
+                        <!-- Option 1: Keep emoji placeholder -->
                         <div class="book-image-placeholder">✨</div>
+                        
+                        <!-- Option 2: Replace with actual book cover -->
+                        <!-- <img src="assets/images/bring-your-best-self.jpg" alt="Bring Your Best Self to Work Book Cover" class="book-image-placeholder"> -->
+                        
                         <div class="book-genre">Self-Development</div>
                         <h3 class="book-title">Bring Your Best Self to Work</h3>
                         <p class="book-description">Reconnect with purpose, protect your energy, and show up in your full power.</p>
@@ -1127,7 +1194,12 @@
                     </div>
                     
                     <div class="book-card interactive-element" onclick="openBookPreview('book3')">
+                        <!-- Option 1: Keep emoji placeholder -->
                         <div class="book-image-placeholder">🎯</div>
+                        
+                        <!-- Option 2: Replace with actual book cover -->
+                        <!-- <img src="assets/images/performance-whisperer.jpg" alt="The Performance Whisperer Book Cover" class="book-image-placeholder"> -->
+                        
                         <div class="book-genre">Coaching</div>
                         <h3 class="book-title">The Performance Whisperer</h3>
                         <p class="book-description">Performance doesn't happen by accident. This book shows you how to build systems that coach, develop, and sustain excellence.</p>
