@@ -1,1837 +1,1469 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chad T Dyar - Author, Strategist & Performance Coach</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --yellow: #FFD700;
-      --magenta: #FF0080;
-      --cyan: #00D9FF;
-      --navy: #0A1628;
-      --slate: #4A5568;
-      --white: #FFFFFF;
-
-      --gradient-primary: linear-gradient(135deg, var(--yellow) 0%, var(--magenta) 100%);
-      --gradient-accent: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
-
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
-      --border-radius: 12px;
-      --container-width: 1400px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      color: var(--navy);
-      background: var(--white);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(10, 22, 40, 0.1);
-      z-index: 1000;
-      transition: var(--transition);
-    }
-
-    header.scrolled {
-      background: rgba(255, 255, 255, 0.98);
-      box-shadow: var(--shadow-md);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 2rem;
-      max-width: var(--container-width);
-      margin: 0 auto;
-    }
-
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--navy);
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .logo:hover {
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      transform: scale(1.05);
-    }
-   .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      position: relative;
-      transition: var(--transition);
-      padding: 0.5rem 0;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gradient-accent);
-      transition: var(--transition);
-      border-radius: 1px;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-links a:hover {
-      color: var(--magenta);
-      transform: translateY(-1px);
-    }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 4px;
-      padding: 0.5rem;
-      z-index: 1001;
-    }
-
-    .mobile-menu span {
-      width: 25px;
-      height: 3px;
-      background: var(--navy);
-      transition: var(--transition);
-      border-radius: 2px;
-    }
-
-    .mobile-menu.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .mobile-menu.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .mobile-menu.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
-    }
-
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      top: 84px;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(10, 22, 40, 0.1);
-      padding: 2rem;
-      z-index: 999;
-      transform: translateY(-100%);
-      transition: var(--transition);
-    }
-
-    .mobile-nav.active {
-      display: block;
-      transform: translateY(0);
-    }
-
-    .mobile-nav ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .mobile-nav a {
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.2rem;
-      transition: var(--transition);
-    }
-
-    .mobile-nav a:hover {
-      color: var(--magenta);
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        padding: 1rem;
-      }
-      .nav-links {
-        display: none;
-      }
-      .mobile-menu {
-        display: flex;
-      }
-      .logo {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chad T Dyar - Author, Strategist & Creative Systems Thinker</title>
+    <meta name="description" content="Where systems meet story, and performance becomes personal.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Chad T Dyar - Author, Strategist & Creative Systems Thinker">
+    <meta property="og:description" content="Where systems meet story, and performance becomes personal.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chadtdyar.com">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #0A1628;
+            --graphite: #1A1D29;
+            --charcoal: #2D3748;
+            --slate: #4A5568;
+            --silver: #A0AEC0;
+            --white: #FFFFFF;
+            --cyan: #00D9FF;
+            --magenta: #FF0080;
+            --gold: #FFD700;
+            --emerald: #10B981;
+            --warm-gray: #F7F8FC;
+            
+            --gradient-primary: linear-gradient(135deg, var(--navy) 0%, var(--graphite) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
+            --gradient-gold: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+            --gradient-hero: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 50%, var(--graphite) 100%);
+            --gradient-surface: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.16);
+            --shadow-xl: 0 16px 60px rgba(0, 0, 0, 0.2);
+            --shadow-glow: 0 0 30px rgba(0, 217, 255, 0.3);
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            --border-radius: 16px;
+            --border-radius-sm: 8px;
+            --border-radius-lg: 24px;
+            --container-width: 1400px;
+            --section-padding: 6rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Utility Classes */
+        .playfair { font-family: 'Playfair Display', serif; }
+        .playbill {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--warm-gray); }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-accent);
+            border-radius: 10px;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-slow);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            color: var(--navy);
+            text-decoration: none;
+            transition: var(--transition-bounce);
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .logo:hover {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transform: scale(1.05);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover {
+            color: var(--navy);
+            transform: translateY(-1px);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            z-index: 1001;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu span {
+            width: 28px;
+            height: 3px;
+            background: var(--charcoal);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+        
+        .mobile-menu.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .mobile-menu.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 84px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            z-index: 999;
+            transform: translateY(-100%);
+            transition: var(--transition);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+            transform: translateY(0);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .mobile-nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        main { margin-top: 84px; }
+        
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-hero);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 25% 50%, rgba(0, 217, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 75% 25%, rgba(255, 0, 128, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+            animation: backgroundFloat 20s ease-in-out infinite;
+        }
+        
+        @keyframes backgroundFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(1deg); }
+            66% { transform: translateY(5px) rotate(-0.5deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            animation: heroFadeIn 1.2s ease-out;
+        }
+        
+        @keyframes heroFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 9rem);
+            font-weight: 900;
+            line-height: 0.85;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 50%, var(--magenta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 4s ease-in-out infinite alternate;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        @keyframes textGlow {
+            from { filter: drop-shadow(0 0 15px rgba(0, 217, 255, 0.3)); }
+            to { filter: drop-shadow(0 0 25px rgba(255, 0, 128, 0.4)); }
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.4rem, 4vw, 2.5rem);
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        
+        .hero-description {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            opacity: 0.85;
+            margin-bottom: 3rem;
+            max-width: 650px;
+            line-height: 1.7;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        /* Button Styles */
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+        
+        .btn:hover::before { transform: translateX(100%); }
+        
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--cyan);
+            transform: translateY(-2px);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: var(--section-padding) 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--slate);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--gradient-surface);
+            position: relative;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+        }
+        
+        .about-text p {
+            margin-bottom: 2rem;
+        }
+        
+        .about-text p:first-child {
+            font-size: 1.5rem;
+            color: var(--navy);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .about-image-container {
+            position: relative;
+            text-align: center;
+        }
+        
+        .image-placeholder {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 4rem;
+            font-weight: bold;
+            box-shadow: var(--shadow-lg);
+            border: 6px solid var(--white);
+            transition: var(--transition-slow);
+            margin: 0 auto;
+        }
+        
+        .image-placeholder:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        /* Books Section */
+        .books {
+            background: var(--white);
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .book-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-slow);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .book-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.08), transparent);
+            transform: translateX(-100%);
+            transition: var(--transition-slow);
+        }
+        
+        .book-card:hover::before { transform: translateX(100%); }
+        
+        .book-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(0, 217, 255, 0.2);
+        }
+        
+        .book-image-placeholder {
+            width: 200px;
+            height: 280px;
+            background: var(--gradient-accent);
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .book-image-placeholder:hover { 
+            transform: scale(1.05) rotateY(10deg);
+        }
+        
+        .book-genre {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        .book-title {
+            font-size: 1.7rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+        
+        .book-description {
+            color: var(--slate);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
+        
+        /* Coaching Section */
+        .coaching {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .coaching::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 60% 30%, rgba(255, 0, 128, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 70%, rgba(255, 215, 0, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .coaching .container { position: relative; z-index: 2; }
+        .coaching .section-title { color: var(--white); }
+        .coaching .section-subtitle { color: rgba(255, 255, 255, 0.85); }
+        
+        .coaching-modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .module-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .module-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            border-color: var(--cyan);
+        }
+        
+        .module-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .module-title {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .module-description {
+            opacity: 0.9;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        .module-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .module-features li {
+            padding: 0.5rem 0;
+            opacity: 0.8;
+        }
+        
+        .module-features li::before {
+            content: "✓";
+            color: var(--cyan);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        /* Blog Section */
+        .blog {
+            background: var(--gradient-primary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(0, 217, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(255, 0, 128, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .blog .container { position: relative; z-index: 2; }
+        .blog .section-title { color: var(--white); }
+        .blog .section-subtitle { color: rgba(255, 255, 255, 0.85); }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .blog-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            transition: var(--transition-slow);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .blog-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.3);
+            color: var(--cyan);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-title {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+        
+        .blog-preview {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+        
+        .read-more {
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .read-more:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .contact-card {
+            background: var(--gradient-surface);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .contact-title {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .contact-card a {
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .contact-card a:hover {
+            color: var(--magenta);
+        }
+        
+        /* Newsletter */
+        .newsletter-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: var(--border-radius-lg);
+            padding: 3rem;
+            margin-top: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: center;
+        }
+        
+        .form-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-group input {
+            flex: 1;
+            padding: 1.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input::placeholder { color: rgba(255, 255, 255, 0.6); }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--cyan);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            color: var(--cyan);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient-accent);
+            transform: scale(1.1);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: clamp(2.5rem, 8vw, 4rem);
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .image-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .coaching-modules {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+        
+        /* Interactive Elements */
+        .interactive-element {
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .interactive-element:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 84px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--gradient-accent);
+            z-index: 999;
+            transition: width 0.3s ease;
+        }
+        
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--navy);
+            color: var(--white);
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: var(--cyan);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-<header id="header">
-  <nav>
-    <a href="#home" class="logo">Chad T Dyar</a>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#books">Books</a></li>
-      <li><a href="#consulting">Consulting</a></li>
-      <li><a href="#coaching">Coaching</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="mobile-menu" id="mobileMenu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
-  <div class="mobile-nav" id="mobileNav">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#books">Books</a></li>
-      <li><a href="#consulting">Consulting</a></li>
-      <li><a href="#coaching">Coaching</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</header>
-<main>
-  <section id="home" class="hero">
-    <div class="hero-container">
-      <div class="hero-content">
-        <h1 class="hero-title">Welcome to Chad’s Enablement Hub</h1>
-        <p class="hero-subtitle">
-          Dive into resources that will transform your personal and professional life. Let’s embark on this journey of continuous improvement together.
-        </p>
-        <div class="hero-buttons">
-          <a href="#consulting" class="btn btn-primary">Start Your Journey</a>
-          <a href="#coaching" class="btn btn-secondary">Unlock Exclusive Content</a>
-          <a href="#blog" class="btn btn-tertiary">Read the Latest Blog</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <div class="image-wrapper">
-          <img src="assets/chad-headshot.jpg" alt="Coach Chad T Dyar" class="headshot" />
-        </div>
-      </div>
-    </div>
-    <div class="hero-background"></div>
-  </section>
- <style>
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 0, 128, 0.05) 50%, rgba(0, 217, 255, 0.05) 100%);
-    }
-
-    .hero-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 60% 80%, rgba(0, 217, 255, 0.06) 0%, transparent 50%);
-      pointer-events: none;
-      animation: floatBackground 20s ease-in-out infinite;
-    }
-
-    @keyframes floatBackground {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      33% { transform: translateY(-10px) rotate(1deg); }
-      66% { transform: translateY(5px) rotate(-0.5deg); }
-    }
-
-    .hero-container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-content {
-      animation: slideInLeft 1s ease-out;
-    }
-
-    @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--magenta) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      color: var(--slate);
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-      max-width: 500px;
-    }
-   .hero-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .btn {
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: var(--border-radius);
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      position: relative;
-      overflow: hidden;
-      min-width: 200px;
-      justify-content: center;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: var(--transition);
-    }
-
-    .btn:hover::before {
-      left: 100%;
-    }
-
-    .btn-primary {
-      background: var(--gradient-primary);
-      color: var(--white);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-secondary {
-      background: var(--gradient-accent);
-      color: var(--white);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-tertiary {
-      background: transparent;
-      color: var(--navy);
-      border: 2px solid var(--navy);
-    }
-
-    .btn-tertiary:hover {
-      background: var(--navy);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-
-    .hero-image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: slideInRight 1s ease-out;
-    }
-
-    @keyframes slideInRight {
-      from {
-        opacity: 0;
-        transform: translateX(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-   .image-wrapper {
-      position: relative;
-      width: 350px;
-      height: 350px;
-    }
-
-    .image-wrapper::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      background: var(--gradient-primary);
-      border-radius: 50%;
-      z-index: -1;
-      opacity: 0.3;
-      animation: pulse 3s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.3; }
-      50% { transform: scale(1.05); opacity: 0.5; }
-    }
-
-    .headshot {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 6px solid var(--white);
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-    }
-
-    .headshot:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
-    }
-
-    @media (max-width: 768px) {
-      .hero-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-      }
-
-      .hero-buttons {
-        align-items: center;
-      }
-
-      .image-wrapper {
-        width: 250px;
-        height: 250px;
-      }
-
-      .hero-title {
-        font-size: 2.5rem;
-      }
-    }
-  </style>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileNav = document.getElementById('mobileNav');
-    const header = document.getElementById('site-header');
-
-    // Mobile menu toggle
-    mobileMenu.addEventListener("click", () => {
-      mobileMenu.classList.toggle("active");
-      mobileNav.classList.toggle("active");
-    });
-
-    // Close mobile nav on link click
-    document.querySelectorAll('.mobile-nav a').forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("active");
-        mobileNav.classList.remove("active");
-      });
-    });
-
-    // Scroll header behavior
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
-
-    // Smooth anchor scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          e.preventDefault();
-          const offset = 84;
-          const pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
-          window.scrollTo({ top: pos, behavior: "smooth" });
-        }
-      });
-    });
-  });
-</script>
- <section id="books" class="books">
-    <div class="books-container">
-      <div class="section-header">
-        <h2 class="section-title">Books</h2>
-        <p class="section-subtitle">
-          Explore the work. Three books, one voice: clear, bold, and built to move you forward.
-        </p>
-      </div>
-      <div class="books-grid">
-        <!-- Book 1 -->
-        <div class="book-card">
-          <div class="book-image-wrapper">
-            <img src="assets/how-to-talk-to-humans.jpg" alt="How to Talk to Humans Book Cover" class="book-image">
-          </div>
-          <span class="book-genre">Business Communication</span>
-          <h3 class="book-title">How to Talk to Humans</h3>
-          <p class="book-description">
-            Speak so people act. A leadership guide for relational, strategic communication.
-          </p>
-          <a href="https://a.co/d/2qGmpX0" class="btn btn-primary" target="_blank">Buy on Amazon</a>
-        </div>
-
-        <!-- Book 2 -->
-        <div class="book-card">
-          <div class="book-image-wrapper">
-            <img src="assets/bring-your-best-self.jpg" alt="Bring Your Best Self to Work Book Cover" class="book-image">
-          </div>
-          <span class="book-genre">Self-Development</span>
-          <h3 class="book-title">Bring Your Best Self to Work</h3>
-          <p class="book-description">
-            Reconnect with purpose, protect your energy, and show up in your full power.
-          </p>
-          <a href="https://a.co/d/1EVAVxu" class="btn btn-primary" target="_blank">Buy on Amazon</a>
-        </div>
-
-        <!-- Book 3 -->
-        <div class="book-card">
-          <div class="book-image-wrapper">
-            <img src="assets/performance-whisperer.jpg" alt="The Performance Whisperer Book Cover" class="book-image">
-          </div>
-          <span class="book-genre">Coaching</span>
-          <h3 class="book-title">The Performance Whisperer</h3>
-          <p class="book-description">
-            Performance doesn’t happen by accident. This book shows you how to build systems that coach, develop, and sustain excellence.
-          </p>
-          <a href="#subscribe" class="btn btn-secondary">Notify Me</a>
-        </div>
-      </div>
-    </div>
-  </section>
- <style>
-    .books {
-      background: #ffffff;
-      padding: 6rem 2rem;
-      position: relative;
-    }
-
-    .books-container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-title {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      color: var(--navy);
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .section-subtitle {
-      font-size: 1.2rem;
-      color: var(--slate);
-      max-width: 640px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    .books-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 3rem;
-      margin-top: 2rem;
-    }
-
-    .book-card {
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .book-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
-    }
-
-    .book-image-wrapper {
-      width: 100%;
-      max-width: 220px;
-      margin: 0 auto 1.5rem;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .book-image {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-      transition: transform 0.3s ease;
-    }
-
-    .book-image:hover {
-      transform: scale(1.05);
-    }
-
-    .book-genre {
-      display: inline-block;
-      background: var(--gradient-accent);
-      color: #ffffff;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .book-title {
-      font-size: 1.5rem;
-      color: #0A1628;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .book-description {
-      color: #4A5568;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .books-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .book-image-wrapper {
-        max-width: 180px;
-      }
-    }
-  </style>
-<section id="consulting" class="consulting">
-  <div class="consulting-container">
-    <div class="section-header">
-      <h2 class="section-title">Work With Chad</h2>
-      <p class="section-subtitle">
-        Performance is not accidental. It’s designed. Whether you need to build a coaching system,
-        revamp enablement strategy, or develop frontline leaders—Chad helps you architect clarity,
-        behavior change, and results that last.
-      </p>
-    </div>
-
-    <div class="consulting-flex">
-      <div class="consulting-services">
-        <h3 class="services-heading">Consulting Services</h3>
-        <ul class="services-list">
-          <li>Sales Enablement Audits</li>
-          <li>Coaching System Design</li>
-          <li>Manager Training & Certification</li>
-          <li>Performance Program Roadmaps</li>
-        </ul>
-      </div>
-
-      <div class="consulting-form">
-        <h3 class="form-heading">Start the Conversation</h3>
-        <form action="#" method="POST" class="contact-form">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required placeholder="Your full name">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="Your email address">
-          </div>
-          <div class="form-group">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company" placeholder="Your company name">
-          </div>
-          <div class="form-group">
-            <label for="message">Consulting Needs</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Tell Chad what you're looking for..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Send Inquiry</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  .consulting {
-    background: var(--gradient-surface, #f7fafc);
-    padding: 6rem 2rem;
-    position: relative;
-  }
-
-  .consulting-container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-  }
-
-  .consulting-flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 4rem;
-    margin-top: 3rem;
-  }
-
-  /* Services Column */
-  .consulting-services {
-    flex: 1 1 400px;
-  }
-
-  .services-heading {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 1rem;
-  }
-
-  .services-list {
-    list-style: none;
-    padding-left: 0;
-    font-size: 1.1rem;
-    color: var(--slate);
-    line-height: 2;
-  }
-
-  .services-list li::before {
-    content: "✓";
-    color: var(--cyan);
-    font-weight: bold;
-    margin-right: 0.5rem;
-  }
-
-  /* Form Column */
-  .consulting-form {
-    flex: 1 1 500px;
-    background: #ffffff;
-    padding: 2.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-  }
-
-  .form-heading {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: var(--navy);
-  }
-
-  .contact-form .form-group {
-    margin-bottom: 1.5rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .contact-form label {
-    font-weight: 600;
-    color: var(--charcoal, #2d3748);
-    margin-bottom: 0.5rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    padding: 1rem;
-    border: 2px solid rgba(0, 0, 0, 0.08);
-    border-radius: var(--border-radius-sm, 8px);
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-  }
-
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    outline: none;
-    border-color: var(--cyan);
-    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.15);
-  }
-
-  .contact-form .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-    .consulting-flex {
-      flex-direction: column;
-    }
-
-    .consulting-services,
-    .consulting-form {
-      flex: 1 1 100%;
-    }
-  }
-</style>
-<section id="coaching" class="coaching-locked">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title playbill">Coaching Content</h2>
-      <p class="section-subtitle">
-        High-impact coaching resources. Built for leaders who want to coach better—not harder. These premium modules are exclusive to members.
-      </p>
-    </div>
-
-    <div class="modules-grid">
-      <!-- Module 1 -->
-      <div class="module-card locked">
-        <div class="lock-overlay">
-          <div class="lock-icon">🔒</div>
-        </div>
-        <h3 class="module-title">Coaching Like a Human</h3>
-        <p class="module-description">
-          Embrace empathy and connect deeply with those you lead. This module explores the emotional infrastructure of great coaching.
-        </p>
-        <div class="module-actions">
-          <a href="#" class="btn btn-secondary">Log In</a>
-          <a href="#" class="btn btn-primary">Join Now</a>
-        </div>
-      </div>
-
-      <!-- Module 2 -->
-      <div class="module-card locked">
-        <div class="lock-overlay">
-          <div class="lock-icon">🔒</div>
-        </div>
-        <h3 class="module-title">Coaching Skill</h3>
-        <p class="module-description">
-          Master the professional development skills that drive long-term growth. Coaching isn’t instinct—it’s a learned craft.
-        </p>
-        <div class="module-actions">
-          <a href="#" class="btn btn-secondary">Log In</a>
-          <a href="#" class="btn btn-primary">Join Now</a>
-        </div>
-      </div>
-
-      <!-- Module 3 -->
-      <div class="module-card locked">
-        <div class="lock-overlay">
-          <div class="lock-icon">🔒</div>
-        </div>
-        <h3 class="module-title">Coaching Performance</h3>
-        <p class="module-description">
-          Learn how to align feedback, goals, and clarity to enable consistent performance without burnout.
-        </p>
-        <div class="module-actions">
-          <a href="#" class="btn btn-secondary">Log In</a>
-          <a href="#" class="btn btn-primary">Join Now</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  .coaching-locked {
-    background: #0A1628;
-    color: #ffffff;
-    padding: 6rem 2rem;
-    position: relative;
-  }
-
-  .coaching-locked .section-title,
-  .coaching-locked .section-subtitle {
-    color: #ffffff;
-  }
-
-  .modules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 3rem;
-    margin-top: 3rem;
-  }
-
-  .module-card {
-    position: relative;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(6px);
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-  }
-
-  .module-card:hover {
-    transform: translateY(-6px);
-  }
-
-  .lock-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    border-radius: 16px;
-    transition: opacity 0.3s ease;
-  }
-
-  .lock-icon {
-    font-size: 2.5rem;
-    color: #FFD700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-  }
-
-  .module-title {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #ffffff;
-    position: relative;
-    z-index: 1;
-  }
-
-  .module-description {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #E2E8F0;
-    margin-bottom: 2rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .module-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 1;
-  }
-
-  .btn {
-    font-size: 0.95rem;
-    padding: 0.9rem 1.8rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, #00D9FF, #FF0080);
-    color: #ffffff;
-  }
-
-  .btn-primary:hover {
-    background: #FFD700;
-    color: #0A1628;
-  }
-
-  .btn-secondary {
-    border: 2px solid #FFD700;
-    color: #FFD700;
-    background: transparent;
-  }
-
-  .btn-secondary:hover {
-    background: #FFD700;
-    color: #0A1628;
-  }
-
-  @media (max-width: 768px) {
-    .module-card {
-      padding: 2rem;
-    }
-
-    .lock-icon {
-      font-size: 2rem;
-    }
-
-    .module-title {
-      font-size: 1.4rem;
-    }
-
-    .module-description {
-      font-size: 1rem;
-    }
-  }
-</style>
-<section id="blog" class="blog">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title playbill">Blog</h2>
-      <p class="section-subtitle">
-        Ideas that move. Essays on creativity, coaching, and the systems that shape how we work.
-      </p>
-    </div>
-
-    <div class="blog-grid">
-      <!-- Post 1 -->
-      <article class="blog-card">
-        <span class="blog-category">AI</span>
-        <h3 class="blog-title">The Human in the Machine</h3>
-        <p class="blog-preview">
-          Exploring how artificial intelligence amplifies—rather than replaces—human creativity. What happens when we honor the human element in our tools?
-        </p>
-        <a href="#" class="read-more">Read More →</a>
-      </article>
-
-      <!-- Post 2 -->
-      <article class="blog-card">
-        <span class="blog-category">Coaching</span>
-        <h3 class="blog-title">Performance Is Personal</h3>
-        <p class="blog-preview">
-          The best systems start with the individual. When you coach for clarity, confidence follows. Here's how to make performance feel human again.
-        </p>
-        <a href="#" class="read-more">Read More →</a>
-      </article>
-
-      <!-- Post 3 -->
-      <article class="blog-card">
-        <span class="blog-category">Design</span>
-        <h3 class="blog-title">Systems That Serve the Soul</h3>
-        <p class="blog-preview">
-          Great design doesn’t control—it liberates. Build systems that hold space for structure and spontaneity in equal measure.
-        </p>
-        <a href="#" class="read-more">Read More →</a>
-      </article>
-    </div>
-
-    <!-- Blog Subscription CTA -->
-    <div class="blog-subscribe">
-      <h3>Stay Updated</h3>
-      <p>Subscribe to Chad’s Coaching Center to receive new posts, tools, and updates—delivered straight to your inbox.</p>
-      <form class="subscribe-form" action="#" method="POST">
-        <input type="email" name="email" placeholder="Enter your email" required>
-        <button type="submit" class="btn btn-primary">Subscribe</button>
-      </form>
-    </div>
-  </div>
-</section>
-<style>
-  .blog {
-    background: var(--gradient-primary);
-    color: #ffffff;
-    padding: 6rem 2rem;
-    position: relative;
-  }
-
-  .blog .section-title,
-  .blog .section-subtitle {
-    color: #ffffff;
-  }
-
-  .blog .section-subtitle {
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
-  }
-
-  .blog-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
-    padding: 2.5rem;
-    transition: transform 0.3s ease, background 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-  }
-
-  .blog-card:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-6px);
-  }
-
-  .blog-category {
-    display: inline-block;
-    padding: 0.4rem 1rem;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-    background: rgba(0, 217, 255, 0.25);
-    color: #00D9FF;
-  }
-
-  .blog-title {
-    font-size: 1.6rem;
-    color: #ffffff;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
-  .blog-preview {
-    font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-
-  .read-more {
-    color: var(--cyan);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-
-  .read-more:hover {
-    color: #ffffff;
-    transform: translateX(4px);
-  }
-
-  .blog-subscribe {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
-    padding: 3rem;
-    margin-top: 5rem;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-  }
-
-  .blog-subscribe h3 {
-    font-size: 1.8rem;
-    color: #ffffff;
-    margin-bottom: 1rem;
-  }
-
-  .blog-subscribe p {
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 2rem;
-    font-size: 1.05rem;
-  }
-
-  .subscribe-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .subscribe-form input {
-    padding: 1rem;
-    border-radius: var(--border-radius-sm);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    font-size: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
-  }
-
-  .subscribe-form input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .subscribe-form input:focus {
-    outline: none;
-    border-color: var(--cyan);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
-  }
-</style>
-<section id="testimonials" class="testimonials">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title playbill">Testimonials</h2>
-      <p class="section-subtitle">
-        Real voices. Real results. Here’s what coaching with Chad unlocks.
-      </p>
-    </div>
-
-    <div class="testimonial-block left">
-      <div class="testimonial-avatar">
-        <img src="assets/avatar-placeholder-left.png" alt="Client Photo">
-      </div>
-      <div class="testimonial-content">
-        <blockquote>
-          “Chad helped me connect the dots between people, process, and performance. He didn’t just coach my team—he helped us become one.”
-        </blockquote>
-        <p class="testimonial-author">– Senior Director, Enterprise Enablement</p>
-      </div>
-    </div>
-
-    <div class="testimonial-block right">
-      <div class="testimonial-content">
-        <blockquote>
-          “His systems are powerful. His presence is grounding. I trust him with the things that actually matter to my business—and to my people.”
-        </blockquote>
-        <p class="testimonial-author">– VP, Sales Strategy & Ops</p>
-      </div>
-      <div class="testimonial-avatar">
-        <img src="assets/avatar-placeholder-right.png" alt="Client Photo">
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  .testimonials {
-    background: var(--gradient-surface, #f9fafb);
-    padding: 6rem 2rem;
-    position: relative;
-  }
-
-  .testimonial-block {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    margin-bottom: 4rem;
-    flex-wrap: wrap;
-  }
-
-  .testimonial-block.left .testimonial-avatar {
-    order: 1;
-  }
-
-  .testimonial-block.left .testimonial-content {
-    order: 2;
-  }
-
-  .testimonial-block.right .testimonial-avatar {
-    order: 2;
-  }
-
-  .testimonial-block.right .testimonial-content {
-    order: 1;
-  }
-
-  .testimonial-avatar img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: var(--shadow-md);
-    border: 4px solid #ffffff;
-  }
-
-  .testimonial-content {
-    flex: 1 1 600px;
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-  }
-
-  .testimonial-content blockquote {
-    font-size: 1.2rem;
-    color: var(--charcoal, #2d3748);
-    font-style: italic;
-    margin-bottom: 1rem;
-    line-height: 1.7;
-  }
-
-  .testimonial-author {
-    font-size: 0.95rem;
-    color: var(--slate);
-    font-weight: 600;
-  }
-
-  @media (max-width: 768px) {
-    .testimonial-block {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .testimonial-avatar img {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 1rem;
-    }
-
-    .testimonial-content {
-      width: 100%;
-    }
-  }
-</style>
-<section id="contact" class="contact">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title playbill">Contact</h2>
-      <p class="section-subtitle">
-        Let’s connect. Whether you’re ready to work together or just want to start a conversation—I’d love to hear from you.
-      </p>
-    </div>
-
-    <div class="contact-grid">
-      <!-- Contact Info Block -->
-      <div class="contact-card">
-        <div class="contact-icon">✉️</div>
-        <h3 class="contact-title">Email</h3>
-        <p><a href="mailto:coach@chadtdyar.com">coach@chadtdyar.com</a></p>
-      </div>
-
-      <div class="contact-card">
-        <div class="contact-icon">🔗</div>
-        <h3 class="contact-title">Follow</h3>
-        <p>
-          <a href="https://www.linkedin.com/in/chadtdyar" target="_blank">LinkedIn</a><br>
-          <a href="https://www.youtube.com/@chadtdyar" target="_blank">YouTube</a><br>
-          <a href="https://www.instagram.com/chadtdyar" target="_blank">Instagram</a>
-        </p>
-      </div>
-
-      <!-- Form Block -->
-      <div class="contact-card">
-        <div class="contact-icon">✍️</div>
-        <h3 class="contact-title">Send a Message</h3>
-        <form class="contact-form" action="#" method="POST">
-          <div class="form-group">
-            <label for="contact-name">Name</label>
-            <input type="text" id="contact-name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="contact-email">Email</label>
-            <input type="email" id="contact-email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="contact-subject">Subject</label>
-            <input type="text" id="contact-subject" name="subject">
-          </div>
-          <div class="form-group">
-            <label for="contact-message">Message</label>
-            <textarea id="contact-message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Send</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  .contact {
-    background: var(--gradient-surface, #f9f9fb);
-    padding: 6rem 2rem;
-    position: relative;
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
-  }
-
-  .contact-card {
-    background: #ffffff;
-    padding: 2.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-
-  .contact-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .contact-icon {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 1.5rem;
-    font-size: 2.5rem;
-    background: var(--gradient-accent);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-glow);
-  }
-
-  .contact-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 1rem;
-  }
-
-  .contact-card a {
-    color: var(--cyan);
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 0.5rem;
-  }
-
-  .contact-card a:hover {
-    color: var(--magenta);
-  }
-
-  .contact-form {
-    text-align: left;
-  }
-
-  .contact-form .form-group {
-    margin-bottom: 1.2rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .contact-form label {
-    font-weight: 600;
-    color: var(--charcoal, #2d3748);
-    margin-bottom: 0.5rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    padding: 1rem;
-    border-radius: var(--border-radius-sm);
-    font-size: 1rem;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    outline: none;
-    border-color: var(--cyan);
-    background: #f0fcff;
-    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
-  }
-
-  .contact-form .btn {
-    margin-top: 1rem;
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-<section id="about" class="about">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title playbill">About Chad</h2>
-      <p class="section-subtitle">
-        Performance begins with identity. This is the story behind the systems.
-      </p>
-    </div>
-
-    <!-- Bio Block -->
-    <div class="about-bio">
-      <div class="about-image">
-        <img src="assets/chad-headshot.jpg" alt="Chad T Dyar Headshot">
-      </div>
-      <div class="about-text">
-        <p class="bio-lead">
-          Chad T Dyar is a genre-jumping author, strategist, and creative performance coach with a past life in opera and a present obsession with helping people become who they are.
-        </p>
-        <p>
-          He’s written nine books across business, theater, and children’s literature—each rooted in clarity, creativity, and transformation. From designing enablement systems to writing plays about becoming, his work centers voice, identity, and performance.
-        </p>
-        <p>
-          He lives at the beach with his partner and their three black dogs—Wick, Maya, and Benny—where they grow vegetables, watch the tides, and live a life built around becoming.
-        </p>
-      </div>
-    </div>
-
-    <!-- Values Grid -->
-    <div class="about-values">
-      <h3 class="values-title">My Values</h3>
-      <ul class="values-grid">
-        <li><span>Empathy</span> – Coaching starts with understanding the human inside the performer.</li>
-        <li><span>Growth</span> – We don’t arrive. We evolve. Always.</li>
-        <li><span>Lifelong Learning</span> – I’m not done yet. You aren’t either.</li>
-        <li><span>Kaizen Mindset</span> – Tiny shifts. Every day. That’s what holds.</li>
-      </ul>
-    </div>
-
-    <!-- Story Timeline -->
-    <div class="about-timeline">
-      <h3 class="timeline-title">The Journey</h3>
-      <div class="timeline-grid">
-        <div class="timeline-item">
-          <h4>Act I: The Artist</h4>
-          <p>From stage to story—performing opera taught me how to hold a room and shape a narrative with breath, body, and intention.</p>
-        </div>
-        <div class="timeline-item">
-          <h4>Act II: The Strategist</h4>
-          <p>I found business. I didn’t copy it—I rearchitected it. Sales enablement became my instrument. Process, my new score.</p>
-        </div>
-        <div class="timeline-item">
-          <h4>Act III: The Coach</h4>
-          <p>Now I teach others how to perform without pretending. Real leadership doesn’t shout—it listens, designs, and holds.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  .about {
-    background: var(--white);
-    padding: 6rem 2rem;
-  }
-
-  .about-bio {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 3rem;
-    margin-bottom: 4rem;
-  }
-
-  .about-image img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: var(--shadow-lg);
-    border: 6px solid #ffffff;
-    transition: transform 0.3s ease;
-  }
-
-  .about-image img:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .about-text {
-    flex: 1 1 600px;
-  }
-
-  .bio-lead {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 1.5rem;
-  }
-
-  /* Values Grid */
-  .about-values {
-    margin-bottom: 4rem;
-    text-align: center;
-  }
-
-  .values-title {
-    font-size: 1.8rem;
-    color: var(--navy);
-    font-weight: 700;
-    margin-bottom: 2rem;
-  }
-
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    list-style: none;
-    padding: 0;
-  }
-
-  .values-grid li {
-    background: var(--gradient-surface, #f7fafc);
-    padding: 1.8rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
-    text-align: left;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: var(--charcoal, #2d3748);
-    border-left: 6px solid var(--cyan);
-  }
-
-  .values-grid li span {
-    font-weight: 700;
-    color: var(--magenta);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Timeline */
-  .about-timeline {
-    margin-top: 4rem;
-  }
-
-  .timeline-title {
-    font-size: 1.8rem;
-    color: var(--navy);
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .timeline-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  .timeline-item {
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    border-left: 6px solid var(--gold, #FFD700);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .timeline-item h4 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--charcoal);
-    margin-bottom: 1rem;
-  }
-
-  .timeline-item p {
-    font-size: 1.05rem;
-    color: var(--slate);
-    line-height: 1.7;
-  }
-
-  @media (max-width: 768px) {
-    .about-bio {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .about-image img {
-      width: 240px;
-      height: 240px;
-    }
-
-    .values-grid li,
-    .timeline-item {
-      text-align: left;
-    }
-  }
-</style>
-<footer class="site-footer">
-  <div class="container">
-
-    <div class="footer-grid">
-      <!-- Quick Links -->
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#books">Books</a></li>
-          <li><a href="#consulting">Consulting</a></li>
-          <li><a href="#coaching">Coaching</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Brand Ethos -->
-      <div class="footer-section">
-        <h4>Chad’s Ethos</h4>
-        <p>Built with systems, story, and soul. Every tool, every post, every plan—it all comes back to performance with purpose.</p>
-      </div>
-
-      <!-- Social Links -->
-      <div class="footer-section">
-        <h4>Connect</h4>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/chadtdyar" target="_blank" aria-label="LinkedIn">
-            <img src="assets/icon-linkedin.svg" alt="LinkedIn">
-          </a>
-          <a href="https://www.instagram.com/chadtdyar" target="_blank" aria-label="Instagram">
-            <img src="assets/icon-instagram.svg" alt="Instagram">
-          </a>
-          <a href="https://www.youtube.com/@chadtdyar" target="_blank" aria-label="YouTube">
-            <img src="assets/icon-youtube.svg" alt="YouTube">
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-      <p>© 2025 Chad T Dyar. All rights reserved.</p>
-    </div>
-
-  </div>
-</footer>
-<style>
-  .site-footer {
-    background: var(--navy);
-    color: var(--white);
-    padding: 4rem 2rem 2rem;
-    font-size: 0.95rem;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
-    margin-bottom: 3rem;
-  }
-
-  .footer-section h4 {
-    color: var(--cyan);
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
-    font-weight: 700;
-  }
-
-  .footer-section p {
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.6;
-  }
-
-  .footer-section ul {
-    list-style: none;
-    padding-left: 0;
-  }
-
-  .footer-section ul li {
-    margin-bottom: 0.6rem;
-  }
-
-  .footer-section a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  .footer-section a:hover {
-    color: var(--magenta);
-  }
-
-  /* Social Icons */
-  .social-icons {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin-top: 0.5rem;
-  }
-
-  .social-icons a {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-
-  .social-icons a:hover {
-    background: var(--gradient-accent);
-    transform: scale(1.1);
-  }
-
-  .social-icons img {
-    width: 20px;
-    height: 20px;
-    filter: brightness(0) invert(1);
-  }
-
-  /* Footer Bottom */
-  .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding-top: 2rem;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.6);
-  }
-</style>
-
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#home" class="logo">Chad T Dyar</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#coaching">Coaching</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#coaching">Coaching</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Chad</h1>
+                    <div class="hero-subtitle">Where systems meet story, and performance becomes personal.</div>
+                    <div class="hero-description">
+                        I'm an author, strategist, and creative systems thinker who helps leaders and organizations design performance that doesn't just work—it transforms.
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#about" class="btn btn-primary">Discover My Story</a>
+                        <a href="#coaching" class="btn btn-secondary">Explore Coaching</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Chad</h2>
+                    <p class="section-subtitle">Performance begins with identity. This is the story behind the systems.</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Chad T Dyar is a genre-jumping author, strategist, and creative performance coach with a past life in opera and a present obsession with helping people become who they are.</p>
+                        <p>He's written nine books across business, theater, and children's literature—each rooted in clarity, creativity, and transformation. From designing enablement systems to writing plays about becoming, his work centers voice, identity, and performance.</p>
+                        <p>He lives at the beach with his partner and their three black dogs—Wick, Maya, and Benny—where they grow vegetables, watch the tides, and live a life built around becoming.</p>
+                    </div>
+                    <div class="about-image-container">
+                        <div class="image-placeholder tooltip interactive-element">
+                            CT
+                            <span class="tooltiptext">Chad T Dyar - Author, Strategist & Coach</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Section -->
+        <section id="books" class="books fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Books</h2>
+                    <p class="section-subtitle">Explore the work. Multiple books, one voice: clear, bold, and built to move you forward.</p>
+                </div>
+                <div class="books-grid">
+                    <div class="book-card interactive-element" onclick="openBookPreview('book1')">
+                        <div class="book-image-placeholder">📚</div>
+                        <div class="book-genre">Business Communication</div>
+                        <h3 class="book-title">How to Talk to Humans</h3>
+                        <p class="book-description">Speak so people act. A leadership guide for relational, strategic communication.</p>
+                        <a href="https://amazon.com" class="btn btn-primary" target="_blank" onclick="event.stopPropagation()">Buy on Amazon</a>
+                    </div>
+                    
+                    <div class="book-card interactive-element" onclick="openBookPreview('book2')">
+                        <div class="book-image-placeholder">✨</div>
+                        <div class="book-genre">Self-Development</div>
+                        <h3 class="book-title">Bring Your Best Self to Work</h3>
+                        <p class="book-description">Reconnect with purpose, protect your energy, and show up in your full power.</p>
+                        <a href="https://amazon.com" class="btn btn-primary" target="_blank" onclick="event.stopPropagation()">Buy on Amazon</a>
+                    </div>
+                    
+                    <div class="book-card interactive-element" onclick="openBookPreview('book3')">
+                        <div class="book-image-placeholder">🎯</div>
+                        <div class="book-genre">Coaching</div>
+                        <h3 class="book-title">The Performance Whisperer</h3>
+                        <p class="book-description">Performance doesn't happen by accident. This book shows you how to build systems that coach, develop, and sustain excellence.</p>
+                        <a href="#newsletter" class="btn btn-secondary" onclick="event.stopPropagation()">Notify Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coaching Section -->
+        <section id="coaching" class="coaching fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Coaching & Development</h2>
+                    <p class="section-subtitle">High-impact coaching resources. Built for leaders who want to coach better—not harder.</p>
+                </div>
+                <div class="coaching-modules">
+                    <div class="module-card interactive-element">
+                        <div class="module-icon">🧠</div>
+                        <h3 class="module-title">Coaching Like a Human</h3>
+                        <p class="module-description">Embrace empathy and connect deeply with those you lead. This module explores the emotional infrastructure of great coaching.</p>
+                        <ul class="module-features">
+                            <li>12 Video Lessons</li>
+                            <li>Interactive Worksheets</li>
+                            <li>Real-world Case Studies</li>
+                            <li>Peer Discussion Forums</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    
+                    <div class="module-card interactive-element">
+                        <div class="module-icon">⚡</div>
+                        <h3 class="module-title">Coaching Skill</h3>
+                        <p class="module-description">Master the professional development skills that drive long-term growth. Coaching isn't instinct—it's a learned craft.</p>
+                        <ul class="module-features">
+                            <li>15 Skill-building Modules</li>
+                            <li>Practice Exercises</li>
+                            <li>Assessment Tools</li>
+                            <li>Certification Path</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    
+                    <div class="module-card interactive-element">
+                        <div class="module-icon">🎯</div>
+                        <h3 class="module-title">Coaching Performance</h3>
+                        <p class="module-description">Learn how to align feedback, goals, and clarity to enable consistent performance without burnout.</p>
+                        <ul class="module-features">
+                            <li>Performance Frameworks</li>
+                            <li>System Design Templates</li>
+                            <li>Culture Assessment Tools</li>
+                            <li>Leadership Playbooks</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Newsletter Signup -->
+                <div class="newsletter-form" id="newsletter">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.8rem;">Stay Connected</h3>
+                    <p style="margin-bottom: 2rem; opacity: 0.9;">Get insights on coaching, leadership, and performance delivered to your inbox.</p>
+                    <form class="form-group" onsubmit="handleNewsletterSignup(event)">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 1rem;">No spam, just valuable insights. Unsubscribe anytime.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Latest Insights</h2>
+                    <p class="section-subtitle">Ideas that move. Essays on creativity, coaching, and the systems that shape how we work.</p>
+                </div>
+                <div class="blog-grid">
+                    <article class="blog-card interactive-element" onclick="openBlogPost('post1')">
+                        <div class="blog-category">AI & Creativity</div>
+                        <h3 class="blog-title">The Human in the Machine</h3>
+                        <p class="blog-preview">Exploring how artificial intelligence amplifies—rather than replaces—human creativity. What happens when we honor the human element in our tools?</p>
+                        <a href="#" class="read-more" onclick="event.stopPropagation()">Read More →</a>
+                    </article>
+                    
+                    <article class="blog-card interactive-element" onclick="openBlogPost('post2')">
+                        <div class="blog-category">Performance</div>
+                        <h3 class="blog-title">Performance Is Personal</h3>
+                        <p class="blog-preview">The best systems start with the individual. When you coach for clarity, confidence follows. Here's how to make performance feel human again.</p>
+                        <a href="#" class="read-more" onclick="event.stopPropagation()">Read More →</a>
+                    </article>
+                    
+                    <article class="blog-card interactive-element" onclick="openBlogPost('post3')">
+                        <div class="blog-category">Systems Design</div>
+                        <h3 class="blog-title">Systems That Serve the Soul</h3>
+                        <p class="blog-preview">Great design doesn't control—it liberates. Build systems that hold space for structure and spontaneity in equal measure.</p>
+                        <a href="#" class="read-more" onclick="event.stopPropagation()">Read More →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Let's Connect</h2>
+                    <p class="section-subtitle">Whether you're ready to work together or just want to start a conversation—I'd love to hear from you.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-card interactive-element">
+                        <div class="contact-icon">✉️</div>
+                        <h3 class="contact-title">Email</h3>
+                        <p><a href="mailto:coach@chadtdyar.com">coach@chadtdyar.com</a></p>
+                        <p style="margin-top: 1rem; color: var(--slate); font-size: 0.9rem;">Best for consulting inquiries and speaking opportunities</p>
+                    </div>
+                    
+                    <div class="contact-card interactive-element">
+                        <div class="contact-icon">🔗</div>
+                        <h3 class="contact-title">Social</h3>
+                        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                            <a href="https://linkedin.com/in/chadtdyar" target="_blank" style="padding: 0.5rem; background: var(--gradient-accent); color: white; border-radius: 8px; text-decoration: none;">LinkedIn</a>
+                            <a href="https://instagram.com/chadtdyar" target="_blank" style="padding: 0.5rem; background: var(--gradient-accent); color: white; border-radius: 8px; text-decoration: none;">Instagram</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card interactive-element">
+                        <div class="contact-icon">📅</div>
+                        <h3 class="contact-title">Schedule a Call</h3>
+                        <p style="margin-bottom: 1rem;">Let's discuss how we can work together</p>
+                        <a href="https://calendly.com/chadtdyar" target="_blank" class="btn btn-primary">Book a Call</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#books">Books</a>
+                    <a href="#coaching">Coaching</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#">Speaking</a>
+                    <a href="#">Consulting</a>
+                    <a href="#">Workshops</a>
+                    <a href="#">Newsletter</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/chadtdyar" target="_blank">💼</a>
+                        <a href="https://instagram.com/chadtdyar" target="_blank">📸</a>
+                        <a href="https://youtube.com/@chadtdyar" target="_blank">📺</a>
+                        <a href="mailto:coach@chadtdyar.com">✉️</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Chad T Dyar. All rights reserved. Built with systems, story, and soul.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu functionality
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenu.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+        
+        // Header scroll behavior
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Progress bar
+        window.addEventListener('scroll', function() {
+            const progressBar = document.getElementById('progressBar');
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 84;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Interactive functions
+        function openBookPreview(bookId) {
+            alert(`Opening preview for ${bookId}. In a real implementation, this would show a detailed book preview with sample chapters, reviews, and purchase options.`);
+        }
+        
+        function openBlogPost(postId) {
+            alert(`Opening blog post ${postId}. In a real implementation, this would navigate to the full blog post with rich content, sharing options, and related articles.`);
+        }
+        
+        function handleNewsletterSignup(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input').value;
+            const button = event.target.querySelector('button');
+            const originalText = button.textContent;
+            
+            // Show loading state
+            button.innerHTML = '<span class="loading"></span> Subscribing...';
+            button.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                button.textContent = 'Subscribed!';
+                button.style.background = 'var(--emerald)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.style.background = '';
+                    event.target.reset();
+                }, 2000);
+            }, 1500);
+        }
+        
+        // Add dynamic interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to interactive elements
+            const interactiveElements = document.querySelectorAll('.interactive-element');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.cursor = 'pointer';
+                });
+            });
+            
+            // Add click feedback
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('btn')) {
+                    e.target.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        e.target.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
+        
+        // Easter egg - Konami code
+        let konamiCode = [];
+        const correctCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑↑↓↓←→←→BA
+        
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.keyCode);
+            if (konamiCode.length > correctCode.length) {
+                konamiCode.shift();
+            }
+            
+            if (konamiCode.every((key, index) => key === correctCode[index])) {
+                document.body.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57)';
+                document.body.style.backgroundSize = '400% 400%';
+                document.body.style.animation = 'rainbow 2s ease infinite';
+                
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes rainbow {
+                        0% { background-position: 0% 50%; }
+                        50% { background-position: 100% 50%; }
+                        100% { background-position: 0% 50%; }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                setTimeout(() => {
+                    location.reload();
+                }, 5000);
+            }
+        });
+    </script>
 </body>
 </html>
