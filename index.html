@@ -851,6 +851,54 @@
             color: var(--magenta);
         }
         
+        /* ConvertKit Form Styling */
+        #convertkit-form-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* Style ConvertKit form to match website design */
+        #convertkit-form-container input[type="email"] {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1.1rem;
+            transition: var(--transition);
+            margin-bottom: 1rem;
+        }
+        
+        #convertkit-form-container input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        #convertkit-form-container input[type="email"]:focus {
+            outline: none;
+            border-color: var(--cyan);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
+        }
+        
+        #convertkit-form-container button[type="submit"] {
+            background: var(--gradient-accent);
+            color: var(--white);
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        #convertkit-form-container button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
         /* Newsletter */
         .newsletter-form {
             background: rgba(255, 255, 255, 0.1);
@@ -1242,14 +1290,22 @@
                     </div>
                 </div>
                 
-                <!-- Newsletter Signup -->
+                <!-- Newsletter Signup with Real ConvertKit Integration -->
                 <div class="newsletter-form" id="newsletter">
                     <h3 style="margin-bottom: 1rem; font-size: 1.8rem;">Stay Connected</h3>
                     <p style="margin-bottom: 2rem; opacity: 0.9;">Get insights on coaching, leadership, and performance delivered to your inbox.</p>
-                    <form class="form-group" onsubmit="handleNewsletterSignup(event)">
+                    
+                    <!-- ConvertKit Form Integration -->
+                    <div id="convertkit-form-container">
+                        <script async data-uid="4dec1b3a85" src="https://chad-t-dyar.kit.com/4dec1b3a85/index.js"></script>
+                    </div>
+                    
+                    <!-- Fallback Manual Form (hidden by default) -->
+                    <form class="form-group fallback-form" onsubmit="handleNewsletterSignup(event)" style="display: none;">
                         <input type="email" placeholder="Enter your email address" required>
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
+                    
                     <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 1rem;">No spam, just valuable insights. Unsubscribe anytime.</p>
                 </div>
             </div>
