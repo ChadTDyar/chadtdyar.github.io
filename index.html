@@ -1,971 +1,1974 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chad T Dyar - Author, Strategist & Performance Coach</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --yellow: #FFD700;
-            --magenta: #FF0080;
-            --cyan: #00D9FF;
-            --navy: #0A1628;
-            --slate: #4A5568;
-            --white: #FFFFFF;
-            
-            --gradient-primary: linear-gradient(135deg, var(--yellow) 0%, var(--magenta) 100%);
-            --gradient-accent: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
-            
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-            
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            
-            --border-radius: 12px;
-            --container-width: 1400px;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--navy);
-            background: var(--white);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        /* HEADER SECTION */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(10, 22, 40, 0.1);
-            z-index: 1000;
-            transition: var(--transition);
-        }
-        
-        header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow-md);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 2rem;
-            max-width: var(--container-width);
-            margin: 0 auto;
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--navy);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .logo:hover {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transform: scale(1.05);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            color: var(--navy);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            position: relative;
-            transition: var(--transition);
-            padding: 0.5rem 0;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-accent);
-            transition: var(--transition);
-            border-radius: 1px;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .nav-links a:hover {
-            color: var(--magenta);
-            transform: translateY(-1px);
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-            padding: 0.5rem;
-            z-index: 1001;
-        }
-        
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: var(--navy);
-            transition: var(--transition);
-            border-radius: 2px;
-        }
-        
-        .mobile-menu.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .mobile-menu.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .mobile-menu.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-        
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 84px;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(10, 22, 40, 0.1);
-            padding: 2rem;
-            z-index: 999;
-            transform: translateY(-100%);
-            transition: var(--transition);
-        }
-        
-        .mobile-nav.active {
-            display: block;
-            transform: translateY(0);
-        }
-        
-        .mobile-nav ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .mobile-nav a {
-            color: var(--navy);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-        
-        .mobile-nav a:hover {
-            color: var(--magenta);
-            transform: scale(1.05);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: flex;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-        }
-        
-        /* Add space for fixed header */
-        main {
-            margin-top: 84px;
-        }
-        
-        /* HERO SECTION */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 0, 128, 0.05) 50%, rgba(0, 217, 255, 0.05) 100%);
-        }
-        
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 60% 80%, rgba(0, 217, 255, 0.06) 0%, transparent 50%);
-            pointer-events: none;
-            animation: floatBackground 20s ease-in-out infinite;
-        }
-        
-        @keyframes floatBackground {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-10px) rotate(1deg); }
-            66% { transform: translateY(5px) rotate(-0.5deg); }
-        }
-        
-        .hero-container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-content {
-            animation: slideInLeft 1s ease-out;
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            color: var(--navy);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--magenta) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            color: var(--slate);
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-            max-width: 500px;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-        
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            position: relative;
-            overflow: hidden;
-            min-width: 200px;
-            justify-content: center;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: var(--transition);
-        }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: var(--white);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .btn-secondary {
-            background: var(--gradient-accent);
-            color: var(--white);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .btn-tertiary {
-            background: transparent;
-            color: var(--navy);
-            border: 2px solid var(--navy);
-        }
-        
-        .btn-tertiary:hover {
-            background: var(--navy);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-        
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: slideInRight 1s ease-out;
-        }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .image-wrapper {
-            position: relative;
-            width: 350px;
-            height: 350px;
-        }
-        
-        .image-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0.3;
-            animation: pulse 3s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.05); opacity: 0.5; }
-        }
-        
-        .headshot,
-        .image-placeholder {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid var(--white);
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-        
-        .headshot:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
-        }
-        
-        .image-placeholder {
-            background: var(--gradient-accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 3rem;
-            font-weight: 800;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .image-placeholder:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.4);
-        }
-        
-        /* Hero Responsive */
-        @media (max-width: 768px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-            
-            .hero-buttons {
-                align-items: center;
-            }
-            
-            .image-wrapper {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-        }
-        
-        /* SECTION STYLES */
-        .section {
-            padding: 6rem 0;
-        }
-        
-        .section-container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 1rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--gradient-primary);
-            border-radius: 2px;
-        }
-        
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--slate);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        
-        /* Fade-in animation utility */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition-slow);
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* BOOKS SECTION */
-        .books {
-            background: var(--white);
-        }
-        
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-        
-        .book-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border: 1px solid rgba(10, 22, 40, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .book-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            transition: var(--transition);
-        }
-        
-        .book-card:hover::before {
-            left: 100%;
-        }
-        
-        .book-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--yellow);
-        }
-        
-        .book-image-wrapper {
-            width: 200px;
-            height: 280px;
-            margin: 0 auto 1.5rem;
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .book-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-        
-        .book-image:hover {
-            transform: scale(1.05);
-        }
-        
-        .book-placeholder {
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            border-radius: 8px;
-        }
-        
-        .book-genre {
-            display: inline-block;
-            background: var(--gradient-accent);
-            color: var(--white);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
-        }
-        
-        .book-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-        
-        .book-description {
-            color: var(--slate);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-        }
-        
-        .book-status {
-            background: var(--gradient-primary);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-        
-        .btn-book {
-            background: var(--gradient-primary);
-            color: var(--white);
-            border: none;
-        }
-        
-        .btn-book:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .btn-notify {
-            background: transparent;
-            color: var(--magenta);
-            border: 2px solid var(--magenta);
-        }
-        
-        .btn-notify:hover {
-            background: var(--magenta);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-        
-        /* Books Responsive */
-        @media (max-width: 768px) {
-            .books-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .book-card {
-                padding: 1.5rem;
-            }
-            
-            .book-image-wrapper {
-                width: 160px;
-                height: 220px;
-            }
-        }
-        
-        /* CONSULTING SECTION */
-        .consulting {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.03) 0%, rgba(0, 217, 255, 0.03) 100%);
-        }
-        
-        .consulting-philosophy {
-            max-width: 800px;
-            margin: 0 auto 4rem;
-            text-align: center;
-        }
-        
-        .philosophy-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 1.5rem;
-        }
-        
-        .philosophy-text {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--slate);
-        }
-        
-        .services-and-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-        
-        .services-section,
-        .contact-form-section {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(10, 22, 40, 0.1);
-        }
-        
-        .services-title,
-        .form-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 2rem;
-        }
-        
-        .services-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .service-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(10, 22, 40, 0.1);
-            transition: var(--transition);
-        }
-        
-        .service-item:last-child {
-            border-bottom: none;
-        }
-        
-        .service-item:hover {
-            transform: translateX(5px);
-            color: var(--magenta);
-        }
-        
-        .service-icon {
-            font-size: 1.5rem;
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        .service-item span {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--navy);
-        }
-        
-        /* FORM STYLES */
-        .consulting-form,
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .form-group label {
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            padding: 1rem;
-            border: 2px solid rgba(10, 22, 40, 0.1);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: var(--transition);
-            font-family: inherit;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--cyan);
-            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        
-        .btn-form {
-            background: var(--gradient-accent);
-            color: var(--white);
-            border: none;
-            align-self: flex-start;
-        }
-        
-        .btn-form:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        /* Consulting Responsive */
-        @media (max-width: 768px) {
-            .services-and-form {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .consulting-philosophy,
-            .services-section,
-            .contact-form-section {
-                padding: 1.5rem;
-            }
-        }
-        
-        /* FOOTER */
-        .footer {
-            background: var(--gradient-primary);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-            text-align: center;
-        }
-        
-        .footer-container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .footer-content {
-            margin-bottom: 2rem;
-        }
-        
-        .footer-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-text {
-            font-size: 1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-    </style>
-</head>
-<body>
-    <!-- HEADER -->
-    <header id="header">
-        <nav>
-            <a href="#home" class="logo">Chad T Dyar</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#books">Books</a></li>
-                <li><a href="#consulting">Consulting</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-menu" id="mobileMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-        <div class="mobile-nav" id="mobileNav">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#books">Books</a></li>
-                <li><a href="#consulting">Consulting</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chad T Dyar - Author, Strategist & Performance Coach</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --yellow: #FFD700;
+            --magenta: #FF0080;
+            --cyan: #00D9FF;
+            --navy: #0A1628;
+            --slate: #4A5568;
+            --white: #FFFFFF;
+            
+            --gradient-primary: linear-gradient(135deg, var(--yellow) 0%, var(--magenta) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --border-radius: 12px;
+            --container-width: 1400px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+            background: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-    <main>
-        <!-- HERO SECTION -->
-        <section id="home" class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Welcome to Chad's Enablement Hub</h1>
-                    <p class="hero-subtitle">Dive into resources that will transform your personal and professional life. Let's embark on this journey of continuous improvement together.</p>
-                    <div class="hero-buttons">
-                        <a href="#consulting" class="btn btn-primary">Start Your Journey</a>
-                        <a href="#books" class="btn btn-secondary">Explore Books</a>
-                        <a href="#contact" class="btn btn-tertiary">Get In Touch</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="image-wrapper">
-                        <div class="image-placeholder">CT</div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-background"></div>
-        </section>
+<header id="site-header">
+  <nav class="nav-container">
+    <a href="#home" class="logo playfair">Coach Chad</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#consulting">Consulting</a></li>
+      <li><a href="#coaching">Coaching</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="mobile-menu" id="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#consulting">Consulting</a></li>
+      <li><a href="#coaching">Coaching</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
 
-        <!-- BOOKS SECTION -->
-        <section id="books" class="section books">
-            <div class="section-container">
-                <div class="section-header">
-                    <h2 class="section-title">Books</h2>
-                    <p class="section-subtitle">Transform your approach to leadership, communication, and performance with these essential reads.</p>
-                </div>
-                <div class="books-grid">
-                    <div class="book-card fade-in">
-                        <div class="book-image-wrapper">
-                            <div class="book-placeholder">📚</div>
-                        </div>
-                        <span class="book-genre">Business Communication</span>
-                        <h3 class="book-title">How to Talk to Humans</h3>
-                        <p class="book-description">Speak so people act. A leadership guide for relational, strategic communication.</p>
-                        <a href="https://a.co/d/2qGmpX0" class="btn btn-book" target="_blank">Buy on Amazon</a>
-                    </div>
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
 
-                    <div class="book
+header.scrolled {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0A1628;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  background: linear-gradient(135deg, #FFD700, #FF0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: #0A1628;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(to right, #00D9FF, #FF0080);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #FF0080;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.mobile-menu span {
+  width: 26px;
+  height: 3px;
+  background: #0A1628;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .mobile-menu {
+    display: flex;
+  }
+  .mobile-nav {
+    display: none;
+    background: white;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    z-index: 998;
+  }
+  .mobile-nav.active {
+    display: block;
+  }
+  .mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .mobile-nav a {
+    color: #0A1628;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+}
+
+<script>
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileNav = document.getElementById('mobileNav');
+
+  mobileMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+  });
+
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('site-header');
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+
+<section id="home" class="hero">
+  <div class="container hero-content">
+    <div class="hero-left">
+      <h1 class="hero-title playbill">Welcome to Coach Chad’s Enablement Hub</h1>
+      <p class="hero-subtitle">Dive into resources that will transform your personal and professional life. Let’s embark on this journey of continuous improvement together.</p>
+      <div class="hero-buttons">
+        <a href="#consulting" class="btn btn-primary">Start Your Journey</a>
+        <a href="#coaching" class="btn btn-secondary">Unlock Exclusive Content</a>
+        <a href="#blog" class="btn btn-ghost">Read the Latest Blog</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="assets/chad-headshot.jpg" alt="Coach Chad T Dyar" class="hero-headshot">
+    </div>
+  </div>
+</section>
+
+/* Container */
+.hero {
+  background: radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.08), transparent 60%),
+              radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.08), transparent 60%),
+              radial-gradient(circle at 50% 80%, rgba(0, 217, 255, 0.06), transparent 60%);
+  background-color: #ffffff;
+  padding: 8rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+/* Left Side */
+.hero-left {
+  flex: 1 1 600px;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #0A1628;
+  margin-bottom: 2rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #4A5568;
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.btn {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00D9FF, #FF0080);
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+  border: 2px solid #00D9FF;
+  color: #00D9FF;
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: #00D9FF;
+  color: white;
+}
+
+.btn-ghost {
+  color: #FF0080;
+  border: none;
+  background: transparent;
+  text-decoration: underline;
+}
+
+.btn-ghost:hover {
+  color: #0A1628;
+}
+
+/* Right Side */
+.hero-right {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.hero-headshot {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid white;
+  box-shadow: 0 0 0 6px #FFD700, 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-headshot:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 6px #00D9FF, 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left, .hero-right {
+    flex: 1 1 100%;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-headshot {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const fadeTargets = document.querySelectorAll(".hero-left, .hero-right");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeTargets.forEach(el => {
+      el.classList.add("fade-in");
+      observer.observe(el);
+    });
+  });
+</script>
+
+<section id="books" class="books">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title playbill">Books</h2>
+      <p class="section-subtitle">
+        Explore the work. Three books, one voice: clear, bold, and built to move you forward.
+      </p>
+    </div>
+    <div class="books-grid">
+      
+      <!-- Book 1 -->
+      <div class="book-card">
+        <img src="assets/how-to-talk-to-humans.jpg" alt="How to Talk to Humans Book Cover" class="book-image">
+        <span class="book-genre">Business Communication</span>
+        <h3 class="book-title">How to Talk to Humans</h3>
+        <p class="book-description">
+          Speak so people act. A leadership guide for relational, strategic communication.
+        </p>
+        <a href="https://a.co/d/2qGmpX0" class="btn btn-primary" target="_blank">Buy on Amazon</a>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="book-card">
+        <img src="assets/bring-your-best-self.jpg" alt="Bring Your Best Self to Work Book Cover" class="book-image">
+        <span class="book-genre">Self-Development</span>
+        <h3 class="book-title">Bring Your Best Self to Work</h3>
+        <p class="book-description">
+          Reconnect with purpose, protect your energy, and show up in your full power.
+        </p>
+        <a href="https://a.co/d/1EVAVxu" class="btn btn-primary" target="_blank">Buy on Amazon</a>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="book-card">
+        <img src="assets/performance-whisperer.jpg" alt="The Performance Whisperer Book Cover" class="book-image">
+        <span class="book-genre">Coaching</span>
+        <h3 class="book-title">The Performance Whisperer</h3>
+        <p class="book-description">
+          Performance doesn’t happen by accident. This book shows you how to build systems that coach, develop, and sustain excellence.
+        </p>
+        <a href="#subscribe" class="btn btn-secondary">Notify Me</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+.books {
+  background: #ffffff;
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #0A1628;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #4A5568;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.book-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+}
+
+.book-image {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 12px;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.book-image:hover {
+  transform: scale(1.05);
+}
+
+.book-genre {
+  display: inline-block;
+  background: linear-gradient(135deg, #00D9FF, #FF0080);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.book-title {
+  font-size: 1.5rem;
+  color: #0A1628;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.book-description {
+  color: #4A5568;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.9rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00D9FF, #FF0080);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary:hover {
+  background: #0A1628;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  border: 2px solid #FFD700;
+  color: #FFD700;
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: #FFD700;
+  color: #0A1628;
+}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const bookCards = document.querySelectorAll(".book-card");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    bookCards.forEach(card => {
+      card.classList.add("fade-in");
+      observer.observe(card);
+    });
+  });
+</script>
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+<section id="consulting" class="consulting">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title playbill">Work With Chad</h2>
+      <p class="section-subtitle">
+        Performance is not accidental. It’s designed. Whether you need to build a coaching system, revamp enablement strategy, or develop frontline leaders—Chad helps you architect clarity, behavior change, and results that last.
+      </p>
+    </div>
+
+    <div class="consulting-flex">
+      <div class="consulting-services">
+        <h3 class="services-heading">Consulting Services</h3>
+        <ul class="services-list">
+          <li>Sales Enablement Audits</li>
+          <li>Coaching System Design</li>
+          <li>Manager Training & Certification</li>
+          <li>Performance Program Roadmaps</li>
+        </ul>
+      </div>
+
+      <div class="consulting-form">
+        <h3 class="form-heading">Start the Conversation</h3>
+        <form action="#" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Your email address">
+          </div>
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" placeholder="Your company name">
+          </div>
+          <div class="form-group">
+            <label for="message">Consulting Needs</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell Chad what you're looking for..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+.consulting {
+  background: var(--gradient-surface);
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.consulting-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+/* Services Column */
+.consulting-services {
+  flex: 1 1 400px;
+}
+
+.services-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.services-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.1rem;
+  color: var(--slate);
+  line-height: 2;
+}
+
+.services-list li::before {
+  content: "✓";
+  color: var(--cyan);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Form Column */
+.consulting-form {
+  flex: 1 1 500px;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.form-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--navy);
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.15);
+}
+
+/* Submit Button */
+.contact-form .btn {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .consulting-flex {
+    flex-direction: column;
+  }
+
+  .consulting-services,
+  .consulting-form {
+    flex: 1 1 100%;
+  }
+}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const targets = document.querySelectorAll(".consulting-services, .consulting-form");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    targets.forEach(section => {
+      section.classList.add("fade-in");
+      observer.observe(section);
+    });
+  });
+</script>
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+<section id="coaching" class="coaching-locked">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title playbill">Coaching Content</h2>
+      <p class="section-subtitle">
+        High-impact coaching resources. Built for leaders who want to coach better—not harder.
+        These premium modules are exclusive to members.
+      </p>
+    </div>
+
+    <div class="modules-grid">
+
+      <!-- Module 1 -->
+      <div class="module-card locked">
+        <div class="lock-overlay">
+          <div class="lock-icon">🔒</div>
+        </div>
+        <h3 class="module-title">Coaching Like a Human</h3>
+        <p class="module-description">
+          Embrace empathy and connect deeply with those you lead. This module explores the emotional infrastructure of great coaching.
+        </p>
+        <div class="module-actions">
+          <a href="#" class="btn btn-secondary">Log In</a>
+          <a href="#" class="btn btn-primary">Join Now</a>
+        </div>
+      </div>
+
+      <!-- Module 2 -->
+      <div class="module-card locked">
+        <div class="lock-overlay">
+          <div class="lock-icon">🔒</div>
+        </div>
+        <h3 class="module-title">Coaching Skill</h3>
+        <p class="module-description">
+          Master the professional development skills that drive long-term growth. Coaching isn’t instinct—it’s a learned craft.
+        </p>
+        <div class="module-actions">
+          <a href="#" class="btn btn-secondary">Log In</a>
+          <a href="#" class="btn btn-primary">Join Now</a>
+        </div>
+      </div>
+
+      <!-- Module 3 -->
+      <div class="module-card locked">
+        <div class="lock-overlay">
+          <div class="lock-icon">🔒</div>
+        </div>
+        <h3 class="module-title">Coaching Performance</h3>
+        <p class="module-description">
+          Learn how to align feedback, goals, and clarity to enable consistent performance without burnout.
+        </p>
+        <div class="module-actions">
+          <a href="#" class="btn btn-secondary">Log In</a>
+          <a href="#" class="btn btn-primary">Join Now</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+.coaching-locked {
+  background: #0A1628;
+  color: #ffffff;
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.coaching-locked .section-title,
+.coaching-locked .section-subtitle {
+  color: #ffffff;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+/* Card */
+.module-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Lock Overlay */
+.lock-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border-radius: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.lock-icon {
+  font-size: 2.5rem;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.module-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.module-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #E2E8F0;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Buttons */
+.module-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  font-size: 0.95rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00D9FF, #FF0080);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #FFD700;
+  color: #0A1628;
+}
+
+.btn-secondary {
+  border: 2px solid #FFD700;
+  color: #FFD700;
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: #FFD700;
+  color: #0A1628;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .module-card {
+    padding: 2rem;
+  }
+
+  .lock-icon {
+    font-size: 2rem;
+  }
+
+  .module-title {
+    font-size: 1.4rem;
+  }
+
+  .module-description {
+    font-size: 1rem;
+  }
+}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modules = document.querySelectorAll(".module-card");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    modules.forEach(card => {
+      card.classList.add("fade-in");
+      observer.observe(card);
+    });
+  });
+</script>
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+<section id="blog" class="blog">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title playbill">Blog</h2>
+      <p class="section-subtitle">
+        Ideas that move. Essays on creativity, coaching, and the systems that shape how we work.
+      </p>
+    </div>
+
+    <div class="blog-grid">
+
+      <!-- Post 1 -->
+      <article class="blog-card">
+        <span class="blog-category">AI</span>
+        <h3 class="blog-title">The Human in the Machine</h3>
+        <p class="blog-preview">
+          Exploring how artificial intelligence amplifies—rather than replaces—human creativity. What happens when we honor the human element in our tools?
+        </p>
+        <a href="#" class="read-more">Read More →</a>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="blog-card">
+        <span class="blog-category">Coaching</span>
+        <h3 class="blog-title">Performance Is Personal</h3>
+        <p class="blog-preview">
+          The best systems start with the individual. When you coach for clarity, confidence follows. Here's how to make performance feel human again.
+        </p>
+        <a href="#" class="read-more">Read More →</a>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="blog-card">
+        <span class="blog-category">Design</span>
+        <h3 class="blog-title">Systems That Serve the Soul</h3>
+        <p class="blog-preview">
+          Great design doesn’t control—it liberates. Build systems that hold space for structure and spontaneity in equal measure.
+        </p>
+        <a href="#" class="read-more">Read More →</a>
+      </article>
+
+    </div>
+
+    <!-- Blog Subscription CTA -->
+    <div class="blog-subscribe">
+      <h3>Stay Updated</h3>
+      <p>Subscribe to Chad’s Coaching Center to receive new posts, tools, and updates—delivered straight to your inbox.</p>
+      <form class="subscribe-form" action="#" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+.blog {
+  background: var(--gradient-primary);
+  color: #ffffff;
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.blog .section-title,
+.blog .section-subtitle {
+  color: #ffffff;
+}
+
+.blog .section-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.blog-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.blog-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-6px);
+}
+
+/* Category Tags */
+.blog-category {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  background: rgba(0, 217, 255, 0.25);
+  color: #00D9FF;
+}
+
+.blog-title {
+  font-size: 1.6rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.blog-preview {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.read-more {
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.read-more:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* Blog Subscription */
+.blog-subscribe {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  padding: 3rem;
+  margin-top: 5rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.blog-subscribe h3 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.blog-subscribe p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.subscribe-form input {
+  padding: 1rem;
+  border-radius: var(--border-radius-sm);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.subscribe-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-form input:focus {
+  outline: none;
+  border-color: var(--cyan);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
+}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const blogItems = document.querySelectorAll(".blog-card, .blog-subscribe");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    blogItems.forEach(el => {
+      el.classList.add("fade-in");
+      observer.observe(el);
+    });
+  });
+</script>
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+<section id="testimonials" class="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title playbill">Testimonials</h2>
+      <p class="section-subtitle">
+        Real voices. Real results. Here’s what coaching with Chad unlocks.
+      </p>
+    </div>
+
+    <div class="testimonial-block left">
+      <div class="testimonial-avatar">
+        <img src="assets/avatar-placeholder-left.png" alt="Client Photo">
+      </div>
+      <div class="testimonial-content">
+        <blockquote>
+          “Chad helped me connect the dots between people, process, and performance. He didn’t just coach my team—he helped us become one.”
+        </blockquote>
+        <p class="testimonial-author">– Senior Director, Enterprise Enablement</p>
+      </div>
+    </div>
+
+    <div class="testimonial-block right">
+      <div class="testimonial-content">
+        <blockquote>
+          “His systems are powerful. His presence is grounding. I trust him with the things that actually matter to my business—and to my people.”
+        </blockquote>
+        <p class="testimonial-author">– VP, Sales Strategy & Ops</p>
+      </div>
+      <div class="testimonial-avatar">
+        <img src="assets/avatar-placeholder-right.png" alt="Client Photo">
+      </div>
+    </div>
+  </div>
+</section>
+
+.testimonials {
+  background: var(--gradient-surface);
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.testimonial-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.testimonial-block.left .testimonial-avatar {
+  order: 1;
+}
+.testimonial-block.left .testimonial-content {
+  order: 2;
+}
+
+.testimonial-block.right .testimonial-avatar {
+  order: 2;
+}
+.testimonial-block.right .testimonial-content {
+  order: 1;
+}
+
+.testimonial-avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+  border: 4px solid #ffffff;
+}
+
+.testimonial-content {
+  flex: 1 1 600px;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.testimonial-content blockquote {
+  font-size: 1.2rem;
+  color: var(--charcoal);
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.testimonial-author {
+  font-size: 0.95rem;
+  color: var(--slate);
+  font-weight: 600;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .testimonial-block {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .testimonial-avatar img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-content {
+    width: 100%;
+  }
+}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const testimonials = document.querySelectorAll(".testimonial-block");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    testimonials.forEach(block => {
+      block.classList.add("fade-in");
+      observer.observe(block);
+    });
+  });
+</script>
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title playbill">Contact</h2>
+      <p class="section-subtitle">
+        Let’s connect. Whether you’re ready to work together or just want to start a conversation—I’d love to hear from you.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Contact Info Block -->
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <h3 class="contact-title">Email</h3>
+        <p><a href="mailto:coach@chadtdyar.com">coach@chadtdyar.com</a></p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">🔗</div>
+        <h3 class="contact-title">Follow</h3>
+        <p>
+          <a href="https://www.linkedin.com/in/chadtdyar" target="_blank">LinkedIn</a><br>
+          <a href="https://www.youtube.com/@chadtdyar" target="_blank">YouTube</a><br>
+          <a href="https://www.instagram.com/chadtdyar" target="_blank">Instagram</a>
+        </p>
+      </div>
+
+      <!-- Form Block -->
+      <div class="contact-card">
+        <div class="contact-icon">✍️</div>
+        <h3 class="contact-title">Send a Message</h3>
+        <form class="contact-form" action="#" method="POST">
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <input type="text" id="contact-subject" name="subject">
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+.contact {
+  background: var(--gradient-surface);
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.contact-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  font-size: 2.5rem;
+  background: var(--gradient-accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glow);
+}
+
+.contact-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.contact-card a {
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.contact-card a:hover {
+  color: var(--magenta);
+}
+
+/* Contact Form Styling */
+.contact-form {
+  text-align: left;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem;
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--cyan);
+  background: #f0fcff;
+  box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
+}
+
+/* Button */
+.contact-form .btn {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const contactCards = document.querySelectorAll(".contact-card");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    contactCards.forEach(card => {
+      card.classList.add("fade-in");
+      observer.observe(card);
+    });
+  });
+</script>
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title playbill">About Chad</h2>
+      <p class="section-subtitle">
+        Performance begins with identity. This is the story behind the systems.
+      </p>
+    </div>
+
+    <!-- Bio Block -->
+    <div class="about-bio">
+      <div class="about-image">
+        <img src="assets/chad-headshot.jpg" alt="Chad T Dyar Headshot">
+      </div>
+      <div class="about-text">
+        <p class="bio-lead">
+          Chad T Dyar is a genre-jumping author, strategist, and creative performance coach with a past life in opera and a present obsession with helping people become who they are.
+        </p>
+        <p>
+          He’s written nine books across business, theater, and children’s literature—each rooted in clarity, creativity, and transformation. From designing enablement systems to writing plays about becoming, his work centers voice, identity, and performance.
+        </p>
+        <p>
+          He lives at the beach with his partner and their three black dogs—Wick, Maya, and Benny—where they grow vegetables, watch the tides, and live a life built around becoming.
+        </p>
+      </div>
+    </div>
+
+    <!-- Values Grid -->
+    <div class="about-values">
+      <h3 class="values-title">My Values</h3>
+      <ul class="values-grid">
+        <li><span>Empathy</span> – Coaching starts with understanding the human inside the performer.</li>
+        <li><span>Growth</span> – We don’t arrive. We evolve. Always.</li>
+        <li><span>Lifelong Learning</span> – I’m not done yet. You aren’t either.</li>
+        <li><span>Kaizen Mindset</span> – Tiny shifts. Every day. That’s what holds.</li>
+      </ul>
+    </div>
+
+    <!-- Story Timeline -->
+    <div class="about-timeline">
+      <h3 class="timeline-title">The Journey</h3>
+      <div class="timeline-grid">
+        <div class="timeline-item">
+          <h4>Act I: The Artist</h4>
+          <p>From stage to story—performing opera taught me how to hold a room and shape a narrative with breath, body, and intention.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Act II: The Strategist</h4>
+          <p>I found business. I didn’t copy it—I rearchitected it. Sales enablement became my instrument. Process, my new score.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Act III: The Coach</h4>
+          <p>Now I teach others how to perform without pretending. Real leadership doesn’t shout—it listens, designs, and holds.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+.about {
+  background: var(--white);
+  padding: 6rem 2rem;
+}
+
+.about-bio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.about-image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
+  border: 6px solid #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-xl);
+}
+
+.about-text {
+  flex: 1 1 600px;
+}
+
+.bio-lead {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+
+/* Values Grid */
+.about-values {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.values-title {
+  font-size: 1.8rem;
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.values-grid li {
+  background: var(--gradient-surface);
+  padding: 1.8rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+  border-left: 6px solid var(--cyan);
+}
+
+.values-grid li span {
+  font-weight: 700;
+  color: var(--magenta);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Timeline */
+.about-timeline {
+  margin-top: 4rem;
+}
+
+.timeline-title {
+  font-size: 1.8rem;
+  color: var(--navy);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.timeline-item {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border-left: 6px solid var(--gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-item h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 1rem;
+}
+
+.timeline-item p {
+  font-size: 1.05rem;
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-bio {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .values-grid li,
+  .timeline-item {
+    text-align: left;
+  }
+}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const aboutItems = document.querySelectorAll(".about-bio, .about-values, .timeline-item");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    aboutItems.forEach(el => {
+      el.classList.add("fade-in");
+      observer.observe(el);
+    });
+  });
+</script>
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#books">Books</a></li>
+          <li><a href="#consulting">Consulting</a></li>
+          <li><a href="#coaching">Coaching</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Brand Ethos -->
+      <div class="footer-section">
+        <h4>Chad’s Ethos</h4>
+        <p>Built with systems, story, and soul. Every tool, every post, every plan—it all comes back to performance with purpose.</p>
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/chadtdyar" target="_blank" aria-label="LinkedIn">
+            <img src="assets/icon-linkedin.svg" alt="LinkedIn">
+          </a>
+          <a href="https://www.instagram.com/chadtdyar" target="_blank" aria-label="Instagram">
+            <img src="assets/icon-instagram.svg" alt="Instagram">
+          </a>
+          <a href="https://www.youtube.com/@chadtdyar" target="_blank" aria-label="YouTube">
+            <img src="assets/icon-youtube.svg" alt="YouTube">
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 Chad T Dyar. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+.site-footer {
+  background: var(--navy);
+  color: var(--white);
+  padding: 4rem 2rem 2rem;
+  font-size: 0.95rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-section h4 {
+  color: var(--cyan);
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.footer-section p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-section a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: var(--magenta);
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: var(--gradient-accent);
+  transform: scale(1.1);
+}
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const footer = document.querySelector(".site-footer");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          footer.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (footer) {
+      footer.classList.add("fade-in");
+      observer.observe(footer);
+    }
+  });
+</script>
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({
+            top: target.offsetTop - 60,
+            behavior: "smooth"
+          });
+        }
+      });
+    });
+
+    // Mobile menu toggle
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    if (mobileMenu) {
+      mobileMenu.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+        if (mobileNav) {
+          mobileNav.classList.toggle("active");
+        }
+      });
+    }
+
+    // Header shadow on scroll
+    const header = document.querySelector("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 60) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+  });
+</script>
