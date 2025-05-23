@@ -1,264 +1,1076 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chad T Dyar - Author, Strategist & Creative Systems Thinker</title>
-  <meta name="description" content="Chad T Dyar is a genre-jumping author, strategist, and creative performance coach. Architect of The Enablement Operating System and co-author of The Way I Work with AI.">
-  <meta property="og:title" content="Chad T Dyar - Author, Strategist & Creative Systems Thinker" />
-  <meta property="og:description" content="Where systems meet story, and performance becomes personal." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://chadtdyar.com" />
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-      color: #2D3748;
-      line-height: 1.6;
-    }
-
-    header {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      border-bottom: 1px solid #eee;
-      z-index: 1000;
-    }
-
-    nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #0A1628;
-      text-transform: uppercase;
-      font-family: 'Times New Roman', serif;
-      letter-spacing: 1px;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #2D3748;
-      font-weight: 500;
-    }
-
-    .hero {
-      background: linear-gradient(to bottom right, #0A1628, #1A1D29);
-      color: white;
-      padding: 10rem 2rem 6rem;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      opacity: 0.85;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
-
-    .section-title {
-      font-family: 'Times New Roman', serif;
-      text-transform: uppercase;
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .about img {
-      width: 200px;
-      border-radius: 100px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      display: block;
-      margin: 0 auto 2rem;
-    }
-
-    .books-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .book-card {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      transition: 0.3s ease;
-    }
-
-    .book-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    }
-
-    .book-card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-
-    .book-card .book-title {
-      font-size: 1.25rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-
-    .book-card .book-description {
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background: #00D9FF;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #FF0080;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chad T Dyar - Author, Strategist & Creative Systems Thinker</title>
+    <meta name="description" content="Chad T Dyar is a genre-jumping author, strategist, and creative performance coach. Architect of The Enablement Operating System and co-author of The Way I Work with AI.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Chad T Dyar - Author, Strategist & Creative Systems Thinker">
+    <meta property="og:description" content="Where systems meet story, and performance becomes personal.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chadtdyar.com">
+    
+    <style>
+        /* Import Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --navy: #0A1628;
+            --graphite: #1A1D29;
+            --charcoal: #2D3748;
+            --slate: #4A5568;
+            --silver: #A0AEC0;
+            --white: #FFFFFF;
+            --cyan: #00D9FF;
+            --magenta: #FF0080;
+            --gradient-primary: linear-gradient(135deg, var(--navy) 0%, var(--graphite) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-strong: 0 8px 40px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        .playbill {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            color: var(--navy);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--navy);
+        }
+        
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            z-index: 1001;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--charcoal);
+            transition: var(--transition);
+        }
+        
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            z-index: 999;
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .mobile-nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--navy);
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-primary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: bold;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: var(--white);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-strong);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--cyan);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-accent);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--slate);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 2rem;
+            align-items: start;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p:first-child {
+            font-size: 1.3rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+        
+        .about-image {
+            width: 200px;
+            border-radius: 100px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        /* Books Section */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .book-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .book-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .book-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
+        }
+        
+        .book-genre {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        
+        .book-title {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .book-description {
+            color: var(--slate);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .book-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        /* Blog Section */
+        .blog {
+            background: var(--gradient-primary);
+            color: var(--white);
+        }
+        
+        .blog .section-title {
+            color: var(--white);
+        }
+        
+        .blog .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .blog-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .blog-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .blog-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.2);
+            color: var(--cyan);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-title {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .blog-preview {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .read-more {
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            color: var(--white);
+        }
+        
+        /* Coaching Corner */
+        .coaching {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .coaching::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .coaching .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .coaching .section-title {
+            color: var(--white);
+        }
+        
+        .coaching .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .coaching-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .coaching-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .newsletter-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group input {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--cyan);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .form-disclaimer {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+        
+        /* Subscribe Section */
+        .subscribe {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            text-align: center;
+        }
+        
+        .subscribe-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .subscribe-form input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+        
+        .subscribe-form input:focus {
+            outline: none;
+            border-color: var(--cyan);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--cyan);
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-2px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-slow);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .books-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .about-image {
+                justify-self: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 70vh;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .book-card,
+            .blog-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Scroll reveal animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="#home" class="logo playbill">Chad T Dyar</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#coaching">Coaching Corner</a></li>
+                <li><a href="#subscribe">Subscribe</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#coaching">Coaching Corner</a></li>
+                <li><a href="#subscribe">Subscribe</a></li>
+            </ul>
+        </div>
+    </header>
 
-  <header>
-    <nav>
-      <div class="logo">Chad T Dyar</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#books">Books</a></li>
-        <li><a href="#subscribe">Subscribe</a></li>
-      </ul>
-    </nav>
-  </header>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="playbill">Chad T Dyar</h1>
+                    <p class="hero-subtitle">Where systems meet story, and performance becomes personal.</p>
+                    <div class="cta-buttons">
+                        <a href="#books" class="btn btn-primary">Explore Books</a>
+                        <a href="#coaching" class="btn btn-secondary">Coaching Corner</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <section class="hero" id="home">
-    <h1>Chad T Dyar</h1>
-    <p>Where systems meet story, and performance becomes personal.</p>
-  </section>
+        <!-- Blog Section -->
+        <section id="blog" class="blog">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title playbill">Blog</h2>
+                    <p class="section-subtitle">Essays on creativity, systems thinking, and the intersection of performance and humanity.</p>
+                </div>
+                <div class="blog-grid">
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">AI</span>
+                        <h3 class="blog-title">The Human in the Machine</h3>
+                        <p class="blog-preview">Exploring how artificial intelligence amplifies rather than replaces human creativity. What happens when we design AI systems that honor rather than eliminate the irreplaceable human elements in our work.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">Coaching</span>
+                        <h3 class="blog-title">Performance Is Personal</h3>
+                        <p class="blog-preview">Why the most effective performance systems start with the individual human experience. Moving beyond one-size-fits-all approaches to create frameworks that adapt to who we actually are.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">Creative Process</span>
+                        <h3 class="blog-title">Systems That Serve the Soul</h3>
+                        <p class="blog-preview">How to build operational frameworks that enhance rather than constrain creativity. The art of designing systems that hold space for both structure and spontaneity.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">AI</span>
+                        <h3 class="blog-title">Prompting for Partnership</h3>
+                        <p class="blog-preview">Moving beyond transactional AI interactions toward genuine collaboration. How to design prompts and workflows that create space for both human and artificial intelligence to contribute their unique strengths.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">Creative Process</span>
+                        <h3 class="blog-title">The Theater of Business</h3>
+                        <p class="blog-preview">What my opera background taught me about performance, presence, and the strategic value of understanding your audience. Lessons from the stage that transform how we show up in professional contexts.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                    <article class="blog-card fade-in">
+                        <span class="blog-category">Coaching</span>
+                        <h3 class="blog-title">Becoming Who You Are</h3>
+                        <p class="blog-preview">The paradox of personal development: we don't become someone new, we become more fully ourselves. How coaching creates conditions for authentic emergence rather than manufactured change.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-  <section id="about" class="about container">
-    <h2 class="section-title">About Chad</h2>
-    <img src="chad-headshot.jpg" alt="Chad T Dyar">
-    <p>Chad T Dyar is a genre-jumping author, strategist, and creative performance coach with a past life in opera and a present obsession with helping people become who they are.</p>
-    <p>He’s written eight books across business, stage, and children’s genres—each rooted in clarity, creativity, and transformation. He lives at the beach with his partner and their three black dogs—Wick, Maya, and Benny—where they grow a garden and live a life built around becoming.</p>
-  </section>
+        <!-- Coaching Corner -->
+        <section id="coaching" class="coaching">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title playbill">Coaching Corner</h2>
+                    <p class="section-subtitle">Where systems meet soul—exclusive tools, essays, and frameworks for personal performance transformation.</p>
+                </div>
+                <div class="coaching-content">
+                    <p class="coaching-description">
+                        This is a subscriber-only area where Chad shares behind-the-scenes insights, AI-powered coaching flows, creative rituals, and systems for clarity, creativity, and behavior change. Join the Coaching Center newsletter to unlock access.
+                    </p>
+                    <div class="newsletter-form">
+                        <form action="https://app.kit.com/forms/8090670/subscriptions" method="post">
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Enter your email" required>
+                                <button class="btn btn-primary" type="submit">Join Now</button>
+                            </div>
+                            <p class="form-disclaimer">No spam. Just systems, story, and soul.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <section id="books" class="container">
-    <h2 class="section-title">Books</h2>
-    <div class="books-grid">      <!-- Amazon-published books with images -->
-      <div class="book-card">
-        <img src="how-to-talk-to-humans.jpg" alt="How to Talk to Humans Cover">
-        <div class="book-title">How to Talk to Humans</div>
-        <div class="book-description">A bold, no-nonsense guide to leadership communication. Speak so people listen, act, and transform.</div>
-        <a href="https://a.co/d/2qGmpX0" class="btn" target="_blank">Buy on Amazon</a>
-      </div>
+        <!-- Subscribe Section -->
+        <section id="subscribe" class="subscribe">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title playbill">Join Chad's Coaching Center</h2>
+                    <p class="section-subtitle">Get exclusive essays, AI prompts, and creative tools in your inbox.</p>
+                </div>
+                <div class="subscribe-form">
+                    <form action="https://app.kit.com/forms/8090670/subscriptions" method="post">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      <div class="book-card">
-        <img src="performance-whisperer.jpg" alt="Performance Whisperer Cover">
-        <div class="book-title">The Performance Whisperer</div>
-        <div class="book-description">Build systems that make human performance possible—without burnout. A leader’s guide to sustainable excellence.</div>
-        <a href="https://a.co/d/13xRBxz" class="btn" target="_blank">Buy on Amazon</a>
-      </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Explore</h4>
+                    <a href="#about">About</a>
+                    <a href="#books">Books</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#coaching">Coaching</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <a href="mailto:chadtd1@gmail.com">chadtd1@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/chadtdyar" target="_blank">LinkedIn</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow</h4>
+                    <div class="social-links">
+                        <a href="#"><span>IG</span></a>
+                        <a href="#"><span>X</span></a>
+                        <a href="#"><span>LI</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © Chad T Dyar. Built in partnership with Claude & GPT.
+            </div>
+        </div>
+    </footer>
 
-      <div class="book-card">
-        <img src="bring-your-best-self.jpg" alt="Bring Your Best Self to Work Cover">
-        <div class="book-title">Bring Your Best Self to Work</div>
-        <div class="book-description">Reconnect with purpose, build boundaries, and reclaim your energy and voice—starting right where you are.</div>
-        <a href="https://a.co/d/1EVAVxu" class="btn" target="_blank">Buy on Amazon</a>
-      </div>
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu functionality
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNav = document.getElementById('mobileNav');
 
-      <!-- Pre-publication books -->
-      <div class="book-card">
-        <div class="book-title">The Enablement Operating System</div>
-        <div class="book-description">A comprehensive framework for human-centered sales performance systems. Strategic, scalable, and deeply human.</div>
-        <a href="#subscribe" class="btn">Notify Me</a>
-      </div>
+        mobileMenu.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
 
-      <div class="book-card">
-        <div class="book-title">The Way I Work with AI</div>
-        <div class="book-description">A hybrid field guide on how to design with AI without losing your voice. Systems, prompts, and co-authored creativity.</div>
-        <a href="#subscribe" class="btn">Notify Me</a>
-      </div>
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
 
-      <div class="book-card">
-        <div class="book-title">Performance Is Personal</div>
-        <div class="book-description">Leadership begins at the level of the individual. This book helps you create systems that honor who people are—and who they can become.</div>
-        <a href="#subscribe" class="btn">Notify Me</a>
-      </div>
+        // Animate fade-in elements on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-      <div class="book-card">
-        <div class="book-title">The Gospel According to Me</div>
-        <div class="book-description">A stage play about identity, queerness, and freedom—set in the dorms of 1990s South Carolina. The second part of a queer trilogy of becoming.</div>
-        <a href="#subscribe" class="btn">Notify Me</a>
-      </div>
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-      <div class="book-card">
-        <div class="book-title">The Gospel According to Us</div>
-        <div class="book-description">The final installment in the trilogy. A return to the people, places, and stories that shaped us. What is wholeness after survival?</div>
-        <a href="#subscribe" class="btn">Notify Me</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="subscribe" class="container">
-    <h2 class="section-title">Subscribe</h2>
-    <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem;">Get updates on new releases, behind-the-scenes coaching tools, and creative essays on performance, systems, and voice.</p>
-    <form action="https://app.kit.com/forms/8090670/subscriptions" method="post" style="text-align: center;">
-      <input type="email" name="email" placeholder="Enter your email" style="padding: 0.8rem; width: 60%; max-width: 400px; border-radius: 6px; border: 1px solid #ccc;" required>
-      <br><br>
-      <button type="submit" class="btn">Subscribe</button>
-    </form>
-  </section>
-
-  <footer style="background: #0A1628; color: #fff; text-align: center; padding: 2rem;">
-    <p>© Chad T Dyar. All rights reserved.</p>
-    <p style="opacity: 0.6; font-size: 0.9rem;">Built with Claude & GPT</p>
-  </footer>
-
-  <script>
-    // Optional: Scroll reveal logic for book cards
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.book-card').forEach(el => observer.observe(el));
-  </script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-    
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title playbill">About Chad</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Chad T Dyar is a genre-jumping author, strategist, and creative performance coach with a past life in opera and a present obsession with helping people become who they are.</p>
+                        
+                        <p>His work spans eight books—business, stage, and children's—each rooted in clarity, creativity, and transformation. He's the architect behind The Enablement Operating System, the co-author of The Way I Work with AI, and a lifelong storyteller who believes systems should serve the soul—not just the schedule.</p>
+                        
+                        <p>Whether designing AI frameworks, writing plays about queer becoming, or capturing the voices of his three dogs in lyrical picture books, Chad builds experiences that hold.</p>
+                        
+                        <p>He lives at the beach with his partner and their three dogs—Wick, Maya Rudolph, and Benny Hartz. Together they tend a garden of fresh vegetables, flowers, and hard-won freedom. This site is where systems meet story, and performance becomes personal.</p>
+                    </div>
+                    <img src="chad-headshot.jpg" alt="Chad T Dyar Headshot" class="about-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Section -->
+        <section id="books" class="books">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title playbill">Books</h2>
+                    <p class="section-subtitle">Eight works spanning business strategy, theatrical narrative, and children's literature—each designed to transform how we think, work, and connect.</p>
+                </div>
+                <div class="books-grid">
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Performance Coaching</span>
+                        <h3 class="book-title">The Performance Whisperer</h3>
+                        <p class="book-description">For anyone trying to lead humans in high-pressure environments. This book shows you how to listen, guide, and build systems that make performance possible—without burnout.</p>
+                        <a href="https://a.co/d/13xRBxz" class="btn btn-primary" target="_blank">Buy on Amazon</a>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Business Strategy</span>
+                        <h3 class="book-title">How to Talk to Humans</h3>
+                        <p class="book-description">A bold, no-nonsense guide to leadership communication. Learn to speak so people listen, act, and transform. Direct, strategic, and human-first.</p>
+                        <a href="https://a.co/d/2qGmpX0" class="btn btn-primary" target="_blank">Buy on Amazon</a>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Self-Development</span>
+                        <h3 class="book-title">Bring Your Best Self to Work</h3>
+                        <p class="book-description">You are the system. This is your invitation to reconnect with purpose, build boundaries, and step into your full potential—wherever you are in your career.</p>
+                        <a href="https://a.co/d/1EVAVxu" class="btn btn-primary" target="_blank">Buy on Amazon</a>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Business Strategy</span>
+                        <h3 class="book-title">The Enablement Operating System</h3>
+                        <p class="book-description">A comprehensive framework for designing human-centered performance systems that scale without losing their soul. The intersection of strategic thinking and operational excellence.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">AI + Systems Design</span>
+                        <h3 class="book-title">The Way I Work with AI</h3>
+                        <p class="book-description">Co-authored exploration of integrating artificial intelligence into creative and strategic workflows. Practical wisdom for the age of human-AI collaboration.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Stage Play</span>
+                        <h3 class="book-title">The Gospel According to No One</h3>
+                        <p class="book-description">A theatrical exploration of childhood, faith, and the stories we tell ourselves before we know who we are. The first in a trilogy of becoming.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Stage Play</span>
+                        <h3 class="book-title">The Gospel According to Me</h3>
+                        <p class="book-description">The college years—where identity meets ideology and the self begins to separate from inherited narratives. Part two of the trilogy.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Stage Play</span>
+                        <h3 class="book-title">The Gospel According to Us</h3>
+                        <p class="book-description">Adult reconnection and the complexity of chosen family. The trilogy's conclusion explores love, loss, and the stories we build together.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Children's Picture Book</span>
+                        <h3 class="book-title">The Bark, the Snort, and the Squeak</h3>
+                        <p class="book-description">A lyrical picture book capturing the distinct voices and personalities of three beloved dogs. Where pet parenthood meets poetic observation.</p>
+                    </div>
+                    <div class="book-card fade-in">
+                        <span class="book-genre">Children's Picture Book</span>
+                        <h3 class="book-title">The Wiggles, the Woofs, and the Why</h3>
+                        <p class="book-description">The companion volume exploring the curious questions and joyful mysteries that only dogs can inspire in the humans who love them.</p>
+                    </div>
