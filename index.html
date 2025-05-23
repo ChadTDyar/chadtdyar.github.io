@@ -3,698 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
     <title>Chad T. Dyar - Performance Coach & Author</title>
-    <meta name="description" content="Chad T. Dyar is a performance coach and author specializing in leadership development and human-centered performance systems. Author of 'Performance Whisperer' and 'How to Talk to Humans'.">
-    <meta name="keywords" content="Chad T. Dyar, performance coach, leadership, Performance Whisperer, How to Talk to Humans, coaching, enablement">
-    <meta name="author" content="Chad T. Dyar">
-    <link rel="canonical" href="https://chadtdyar.com">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chadtdyar.com">
-    <meta property="og:title" content="Chad T. Dyar - Performance Coach & Author">
-    <meta property="og:description" content="Performance coach and author specializing in leadership development and human-centered performance systems.">
-    <meta property="og:image" content="https://chadtdyar.com/assets/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://chadtdyar.com">
-    <meta property="twitter:title" content="Chad T. Dyar - Performance Coach & Author">
-    <meta property="twitter:description" content="Performance coach and author specializing in leadership development and human-centered performance systems.">
-    <meta property="twitter:image" content="https://chadtdyar.com/assets/twitter-card.jpg">
-    
-    <!-- Schema.org structured data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Chad T. Dyar",
-        "url": "https://chadtdyar.com",
-        "jobTitle": "Performance Coach and Author",
-        "description": "Performance coach and author specializing in leadership development and human-centered performance systems",
-        "sameAs": [
-            "https://www.linkedin.com/in/chadtdyar"
-        ],
-        "author": [
-            {
-                "@type": "Book",
-                "name": "Performance Whisperer",
-                "url": "https://a.co/d/e1U3tzj"
-            },
-            {
-                "@type": "Book", 
-                "name": "How to Talk to Humans",
-                "url": "https://a.co/d/1XtZ4DN"
-            },
-            {
-                "@type": "Book",
-                "name": "Bring Your Best Self to Work", 
-                "url": "https://a.co/d/bXq2mSm"
-            }
-        ]
-    }
-    </script>
-
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 2px solid #c0c0c0;
-            box-shadow: 0 4px 30px rgba(74, 20, 140, 0.1);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-family: 'Times New Roman', serif;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #4a148c;
-            text-decoration: none;
-            text-shadow: 0 0 10px rgba(74, 20, 140, 0.3);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #4a148c;
-            text-shadow: 0 0 8px rgba(74, 20, 140, 0.5);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background: linear-gradient(90deg, #4a148c, #c0c0c0);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Main Content */
-        main {
-            margin-top: 80px;
-            min-height: calc(100vh - 80px);
-        }
-
-        .page {
-            display: none;
-            padding: 2rem 0;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-            background: linear-gradient(135deg, rgba(74, 20, 140, 0.1), rgba(192, 192, 192, 0.05));
-            border-radius: 20px;
-            margin: 2rem 0;
-            border: 1px solid rgba(192, 192, 192, 0.2);
-            box-shadow: 0 8px 32px rgba(74, 20, 140, 0.1);
-        }
-
-        .hero-title {
-            font-family: 'Times New Roman', serif;
-            font-size: 4rem;
-            font-weight: bold;
-            color: #4a148c;
-            text-shadow: 0 0 20px rgba(74, 20, 140, 0.5);
-            margin-bottom: 1rem;
-            border: 3px solid #c0c0c0;
-            padding: 1rem 2rem;
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(192, 192, 192, 0.3);
-            position: relative;
-        }
-
-        .hero-title::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #4a148c, #c0c0c0, #4a148c);
-            border-radius: 15px;
-            z-index: -1;
-        }
-
-        .hero-tagline {
-            font-size: 1.5rem;
-            color: #c0c0c0;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
-        }
-
-        .quick-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .quick-nav-btn {
-            background: linear-gradient(45deg, #4a148c, #c0c0c0);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(74, 20, 140, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quick-nav-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .quick-nav-btn:hover::before {
-            left: 100%;
-        }
-
-        .quick-nav-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(74, 20, 140, 0.3);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        /* Newsletter Signup */
-        .newsletter {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        .newsletter h3 {
-            color: #4a148c;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px rgba(74, 20, 140, 0.3);
-        }
-
-        /* Books Section */
-        .books-section {
-            margin: 2rem 0;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-        }
-
-        .books-section h2 {
-            color: #4a148c;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-size: 2.5rem;
-            text-shadow: 0 0 15px rgba(74, 20, 140, 0.3);
-        }
-
-        .books-section h3 {
-            color: #c0c0c0;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
-        }
-
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .book-card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(74, 20, 140, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(192, 192, 192, 0.2);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .book-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #4a148c, #c0c0c0, #4a148c);
-        }
-
-        .book-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(74, 20, 140, 0.2);
-        }
-
-        .book-cover {
-            width: 150px;
-            height: 225px;
-            border-radius: 8px;
-            margin: 0 auto 1rem;
-            display: block;
-            object-fit: cover;
-            box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .book-cover:hover {
-            transform: scale(1.05);
-        }
-
-        .book-card h4 {
-            color: #4a148c;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 5px rgba(74, 20, 140, 0.2);
-            font-size: 1.2rem;
-        }
-
-        .book-card p {
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .amazon-link {
-            background: #ff9500;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 8px;
-            display: inline-block;
-            margin: 0.5rem;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .amazon-link:hover {
-            background: #e6850e;
-            transform: translateY(-2px);
-        }
-
-        /* Coaching Corner */
-        .coaching-section {
-            background: linear-gradient(135deg, #4a148c 0%, #1a1a2e 50%, #16213e 100%);
-            color: white;
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            margin: 2rem 0;
-            text-align: center;
-            border: 2px solid rgba(192, 192, 192, 0.2);
-            box-shadow: 0 10px 40px rgba(74, 20, 140, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .coaching-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(192,192,192,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(192,192,192,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(192,192,192,0.1)"/></svg>');
-            pointer-events: none;
-        }
-
-        .coaching-section h2 {
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
-            text-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
-            position: relative;
-            z-index: 1;
-        }
-
-        .access-btn {
-            background: linear-gradient(45deg, #c0c0c0, #4a148c);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(192, 192, 192, 0.2);
-            position: relative;
-            z-index: 1;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .access-btn:hover {
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 8px 30px rgba(192, 192, 192, 0.3);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-        }
-
-        /* Blog Section */
-        .blog-section {
-            margin: 2rem 0;
-        }
-
-        .blog-posts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .blog-post {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .blog-post:hover {
-            transform: translateY(-5px);
-        }
-
-        .blog-post h3 {
-            color: #4a148c;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 8px rgba(74, 20, 140, 0.3);
-        }
-
-        .blog-post .date {
-            color: #c0c0c0;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 5px rgba(192, 192, 192, 0.3);
-        }
-
-        .blog-post .read-more {
-            color: #4a148c;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .blog-post .read-more:hover {
-            text-shadow: 0 0 5px rgba(74, 20, 140, 0.5);
-        }
-
-        /* About Page */
-        .about-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 3rem 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 300px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 30px rgba(74, 20, 140, 0.3);
-            border: 2px solid rgba(192, 192, 192, 0.3);
-            position: relative;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Contact Page */
-        .contact-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 3rem 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #4a148c;
-            font-weight: bold;
-            text-shadow: 0 0 5px rgba(74, 20, 140, 0.2);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #c0c0c0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            background: rgba(255, 255, 255, 0.95);
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #4a148c;
-            box-shadow: 0 0 15px rgba(74, 20, 140, 0.3);
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, #4a148c, #c0c0c0);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            box-shadow: 0 4px 20px rgba(74, 20, 140, 0.3);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(74, 20, 140, 0.4);
-        }
-
-        /* Footer */
-        footer {
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 3rem 0;
-            margin-top: 4rem;
-            border-top: 3px solid rgba(192, 192, 192, 0.3);
+            color: #333; min-height: 100vh;
         }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { 
+            background: rgba(255,255,255,0.95); position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 1rem 0; border-bottom: 2px solid #c0c0c0;
         }
-
-        .footer-section h4 {
-            color: #c0c0c0;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { 
+            font-family: 'Times New Roman', serif; font-size: 1.8rem; font-weight: bold;
+            color: #4a148c; text-decoration: none;
         }
-
-        .footer-section a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: all 0.3s ease;
-            position: relative;
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { 
+            text-decoration: none; color: #333; font-weight: 500; cursor: pointer;
+            padding: 0.5rem 1rem; border-radius: 5px; transition: all 0.3s ease;
         }
-
-        .footer-section a:hover {
-            color: #c0c0c0;
-            text-shadow: 0 0 8px rgba(192, 192, 192, 0.5);
-            transform: translateX(5px);
+        .nav-links a:hover { background: #4a148c; color: white; }
+        main { margin-top: 100px; padding: 2rem 0; }
+        .page { display: none; }
+        .page.active { display: block; }
+        .hero { 
+            text-align: center; padding: 4rem 2rem; margin: 2rem 0;
+            background: rgba(255,255,255,0.9); border-radius: 20px;
         }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+        .hero-title { 
+            font-family: 'Times New Roman', serif; font-size: 3rem; font-weight: bold;
+            color: #4a148c; margin-bottom: 1rem; padding: 1rem; border: 3px solid #c0c0c0;
+            display: inline-block; border-radius: 15px;
         }
-
-        .social-links a {
-            background: linear-gradient(45deg, #4a148c, #c0c0c0);
-            padding: 0.8rem;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
-            transform: translateX(0);
-            text-decoration: none;
-            font-size: 1.2rem;
+        .hero-tagline { font-size: 1.3rem; color: #666; margin-bottom: 2rem; }
+        .section { 
+            background: rgba(255,255,255,0.9); margin: 2rem 0; padding: 2rem; border-radius: 15px;
         }
-
-        .social-links a:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(192, 192, 192, 0.4);
-            background: linear-gradient(45deg, #c0c0c0, #4a148c);
+        .section h2 { color: #4a148c; margin-bottom: 1rem; font-size: 2rem; text-align: center; }
+        .book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .book-card { 
+            background: white; padding: 1.5rem; border-radius: 10px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;
         }
-
-        /* Responsive Design */
+        .book-card:hover { transform: translateY(-5px); }
+        .book-cover { 
+            width: 150px; height: 200px; margin: 0 auto 1rem; border-radius: 8px;
+            background: linear-gradient(45deg, #4a148c, #c0c0c0); color: white; font-weight: bold;
+            display: flex; align-items: center; justify-content: center; font-size: 0.9rem;
+        }
+        .amazon-link { 
+            background: #ff9500; color: white; padding: 0.8rem 1.5rem; text-decoration: none;
+            border-radius: 8px; display: inline-block; margin-top: 1rem; font-weight: bold;
+        }
+        .amazon-link:hover { background: #e6850e; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #4a148c; font-weight: bold; }
+        .form-group input, .form-group textarea { 
+            width: 100%; padding: 0.8rem; border: 2px solid #ddd; border-radius: 5px; font-size: 1rem;
+        }
+        .form-group textarea { height: 100px; }
+        .btn { 
+            background: linear-gradient(45deg, #4a148c, #c0c0c0); color: white; padding: 1rem 2rem;
+            border: none; border-radius: 25px; font-size: 1rem; cursor: pointer; margin: 0.5rem;
+        }
+        .btn:hover { transform: translateY(-2px); }
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-                padding: 0.5rem 1rem;
-            }
-
-            .hero-tagline {
-                font-size: 1.2rem;
-            }
-
-            .quick-nav {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .books-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 0 10px;
-            }
-        }
-
-        /* Focus styles for accessibility */
-        button:focus,
-        input:focus,
-        textarea:focus,
-        a:focus {
-            outline: 2px solid #4a148c;
-            outline-offset: 2px;
+            .hero-title { font-size: 2rem; }
+            .book-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -703,47 +82,145 @@
         <nav class="container">
             <a href="#" class="logo" onclick="showPage('home')">Chad T. Dyar</a>
             <ul class="nav-links">
-                <li><a href="#" onclick="showPage('home')">Home</a></li>
-                <li><a href="#" onclick="showPage('books')">Books</a></li>
-                <li><a href="#" onclick="showPage('blog')">Blog</a></li>
-                <li><a href="#" onclick="showPage('coaching')">Coaching Corner</a></li>
-                <li><a href="#" onclick="showPage('about')">About</a></li>
-                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="showPage('books')">Books</a></li>
+                <li><a onclick="showPage('blog')">Blog</a></li>
+                <li><a onclick="showPage('coaching')">Coaching</a></li>
+                <li><a onclick="showPage('about')">About</a></li>
+                <li><a onclick="showPage('contact')">Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle mobile menu">☰</button>
         </nav>
     </header>
 
     <main class="container">
-        <!-- HOME PAGE -->
+        <!-- HOME -->
         <div id="home" class="page active">
-            <section class="hero">
+            <div class="hero">
                 <h1 class="hero-title">CHAD T. DYAR</h1>
                 <p class="hero-tagline">Performance Coach • Author • Leadership Expert</p>
-                
-                <div class="quick-nav">
-                    <a href="#" class="quick-nav-btn" onclick="showPage('books')">📚 Books</a>
-                    <a href="#" class="quick-nav-btn" onclick="showPage('blog')">✍️ Blog</a>
-                    <a href="#" class="quick-nav-btn" onclick="showPage('coaching')">🎯 Coaching Corner</a>
-                </div>
-            </section>
+                <button class="btn" onclick="showPage('books')">📚 View Books</button>
+                <button class="btn" onclick="showPage('coaching')">🎯 Coaching Corner</button>
+            </div>
+            <div class="section">
+                <h3>Join the Newsletter</h3>
+                <p>Get insights on performance systems and leadership development.</p>
+                <form action="https://app.kit.com/forms/8090670/subscriptions" method="post" style="margin-top: 1rem;">
+                    <input name="email_address" placeholder="Enter your email" required type="email" 
+                           style="padding: 12px; width: 70%; margin-right: 10px; border: 2px solid #ddd; border-radius: 5px;">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
 
-            <section class="newsletter">
-                <h3>Join the Community</h3>
-                <p>Get insights on performance systems, leadership development, and human-centered coaching.</p>
-                
-                <!-- ConvertKit Form -->
-                <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-                <form action="https://app.kit.com/forms/8090670/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="8090670" data-uid="cfee23ea58" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}" min-width="400 500 600 700 800" style="background-color: rgba(74, 20, 140, 0.05); border-radius: 15px; border: 2px solid rgba(74, 20, 140, 0.1);">
-                    <div class="formkit-background" style="opacity: 0.1;"></div>
-                    <div data-style="minimal">
-                        <div class="formkit-header" data-element="header" style="color: #4a148c; font-size: 27px; font-weight: 700;">
-                            <h3>Join the Newsletter</h3>
-                        </div>
-                        <div class="formkit-subheader" data-element="subheader" style="color: #666; font-size: 18px;">Subscribe to get insights on performance and leadership.</div>
-                        <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-                        <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
-                            <div class="formkit-field">
-                                <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required="" type="email" style="color: rgb(0, 0, 0); border-color: #c0c0c0; border-radius: 8px; font-weight: 400;">
-                            </div>
-                            <button data-element="submit" class="formkit-submit formkit-submit" style="color: rgb(255, 255, 255); background: linear-gradient(45deg, #4a148c, #c0c0c0); border-radius: 8px; font
+        <!-- BOOKS -->
+        <div id="books" class="page">
+            <div class="section">
+                <h2>📚 My Books</h2>
+                <div class="book-grid">
+                    <div class="book-card">
+                        <div class="book-cover">Performance Whisperer</div>
+                        <h4>Performance Whisperer</h4>
+                        <p>Unlocking the full potential of those you lead.</p>
+                        <a href="https://a.co/d/e1U3tzj" class="amazon-link" target="_blank">Buy on Amazon</a>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">How to Talk to Humans</div>
+                        <h4>How to Talk to Humans</h4>
+                        <p>Essential communication skills for meaningful connections.</p>
+                        <a href="https://a.co/d/1XtZ4DN" class="amazon-link" target="_blank">Buy on Amazon</a>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">Bring Your Best Self to Work</div>
+                        <h4>Bring Your Best Self to Work</h4>
+                        <p>Authentic leadership for sustainable performance.</p>
+                        <a href="https://a.co/d/bXq2mSm" class="amazon-link" target="_blank">Buy on Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COACHING -->
+        <div id="coaching" class="page">
+            <div class="section">
+                <h2>🎯 Coaching Corner</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    Join the Coaching Corner to access exclusive tools and frameworks for your coaching practice.
+                </p>
+                <a href="https://app.kit.com/forms/8090670/subscriptions" class="btn" target="_blank">
+                    Access Coaching Resources
+                </a>
+            </div>
+        </div>
+
+        <!-- BLOG -->
+        <div id="blog" class="page">
+            <div class="section">
+                <h2>✍️ Blog</h2>
+                <div style="background: white; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                    <h3 style="color: #4a148c;">Coaching Is Not a Pipeline Review</h3>
+                    <p style="color: #666; margin-bottom: 1rem;">May 22, 2025</p>
+                    <p>Let's set the record straight: coaching is not a pipeline review. Coaching is about performance, not probability. It's about people, not pipeline.</p>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                    <h3 style="color: #4a148c;">Performance Is Personal</h3>
+                    <p style="color: #666; margin-bottom: 1rem;">May 15, 2025</p>
+                    <p>The best leaders understand a fundamental truth: performance is personal. It's not about the system, the process, or the technology.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <div id="about" class="page">
+            <div class="section">
+                <h2>About Chad T. Dyar</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    Chad T. Dyar is a performance coach and enablement leader who specializes in building systems that help people and organizations perform at their peak.
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Through his coaching practice and writing, Chad helps leaders move beyond traditional management approaches to create environments where both individual contributors and teams can thrive.
+                </p>
+                <blockquote style="border-left: 4px solid #4a148c; padding-left: 1rem; margin: 2rem 0; font-style: italic; color: #666;">
+                    "Performance is personal. The best systems start with the human and build out from there."
+                </blockquote>
+            </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div id="contact" class="page">
+            <div class="section">
+                <h2>Get In Touch</h2>
+                <form onsubmit="handleContact(event)">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" required placeholder="How can I help?"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        
+        function handleContact(event) {
+            event.preventDefault();
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
+```
