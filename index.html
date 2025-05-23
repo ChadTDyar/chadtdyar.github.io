@@ -867,10 +867,156 @@
     </nav>
   </header>
 
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- [HEAD CONTENT TRUNCATED - see previous output for full <style> and meta block] -->
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Chad T Dyar</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#coaching">Coaching</a></li>
+        <li><a href="#subscribe">Subscribe</a></li>
+      </ul>
+    </nav>
+  </header>
   <main>
-    <!-- Add your content sections here: hero, about, books, blog, coaching, subscribe -->
-    <!-- Your existing style definitions will handle layout and animations -->
-  </main>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <h1>Chad T Dyar</h1>
+      <p class="hero-subtitle">Where systems meet story, and performance becomes personal.</p>
+      <div class="cta-buttons">
+        <a href="#books" class="btn btn-primary">Explore Books</a>
+        <a href="#coaching" class="btn btn-secondary">Coaching Corner</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container about-content">
+      <div class="about-text">
+        <p>Chad T Dyar is a genre-jumping author, strategist, and creative performance coach with a past life in opera and a present obsession with helping people become who they are.</p>
+        <p>He’s written nine books across business, theater, and children’s literature—each rooted in clarity, creativity, and transformation. He lives at the beach with his partner and their three black dogs—Wick, Maya, and Benny—where they grow a garden and live a life built around becoming.</p>
+      </div>
+      <div class="about-image-container">
+        <img src="assets/chad-headshot.jpg" alt="Chad T Dyar" class="about-image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Books Section -->
+  <section id="books" class="books">
+    <div class="container">
+      <h2 class="section-title">Books</h2>
+      <div class="books-grid">
+        <!-- Example Book Card: Amazon-linked -->
+        <div class="book-card">
+          <img src="assets/how-to-talk-to-humans.jpg" alt="How to Talk to Humans" class="book-image">
+          <div class="book-genre">Business</div>
+          <div class="book-title">How to Talk to Humans</div>
+          <div class="book-description">Speak so people act. A framework for real, relational leadership communication.</div>
+          <a href="https://a.co/d/2qGmpX0" class="btn btn-primary" target="_blank">Buy on Amazon</a>
+        </div>
+        <!-- Pre-release Notify Example -->
+        <div class="book-card">
+          <div class="book-genre">AI + Systems</div>
+          <div class="book-title">The Way I Work with AI</div>
+          <div class="book-description">A field guide to designing with AI as a creative partner. Built from lived collaboration.</div>
+          <a href="#subscribe" class="btn btn-secondary">Notify Me</a>
+        </div>
+        <!-- Add the rest of your 9 book cards similarly -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="blog">
+    <div class="container">
+      <h2 class="section-title">Blog</h2>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-category">AI</div>
+          <div class="blog-title">The Human in the Machine</div>
+          <div class="blog-preview">AI doesn’t replace creativity—it reveals it. Here’s how I design with it.</div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-category">Performance</div>
+          <div class="blog-title">Performance Is Personal</div>
+          <div class="blog-preview">Systems don’t perform. People do. Here’s how I design for both.</div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-category">Process</div>
+          <div class="blog-title">Systems That Serve the Soul</div>
+          <div class="blog-preview">Structure doesn’t have to suffocate. It can set us free. Here’s how.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coaching Corner -->
+  <section id="coaching" class="coaching">
+    <div class="container coaching-content">
+      <h2 class="section-title">Coaching Corner</h2>
+      <p class="coaching-description">The Coaching Corner is a private subscriber space with tactical prompts, creative systems, and behind-the-scenes insights from Chad. Join the newsletter to unlock it.</p>
+      <form class="newsletter-form" action="https://app.kit.com/forms/8090670/subscriptions" method="post">
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Your email" required />
+          <button type="submit" class="btn btn-primary">Join Now</button>
+        </div>
+        <p class="form-disclaimer">No spam. Just systems, story, and soul.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Subscribe Section -->
+  <section id="subscribe" class="subscribe">
+    <div class="container">
+      <h2 class="section-title">Subscribe</h2>
+      <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem;">Be the first to get new writing, creative tools, book updates, and coaching prompts. One email a month. No noise.</p>
+      <form action="https://app.kit.com/forms/8090670/subscriptions" method="post" style="text-align: center;">
+        <input type="email" name="email" placeholder="Enter your email" required style="padding: 1rem; width: 300px; border-radius: 8px; border: 1px solid #ccc;">
+        <br><br>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+</main>
+  <footer>
+    <div class="container">
+      <p>&copy; Chad T Dyar. All rights reserved.</p>
+      <p class="credit">Built with strategy, story, and system design.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
+
 
   <footer style="background: var(--navy); color: var(--white); text-align: center; padding: 4rem 2rem;">
     <p style="margin-bottom: 0.5rem;">&copy; Chad T Dyar. All rights reserved.</p>
