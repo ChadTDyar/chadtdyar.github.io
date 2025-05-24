@@ -12,10 +12,10 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://chadtdyar.com">
     
-    <!-- Fonts -->
+    <!-- Fonts - Modern Typography System -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -62,6 +62,44 @@
             --border-radius-lg: 24px;
             --container-width: 1400px;
             --section-padding: 6rem;
+            /* Chalkboard mobile styles */
+            .chalkboard {
+                padding: 2rem 1.5rem;
+                border-width: 4px;
+            }
+            
+            .chalkboard-header h3 {
+                font-size: 1.5rem;
+            }
+            
+            .story-form {
+                padding: 1.5rem;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            
+            .btn-chalk {
+                width: 100%;
+                padding: 1rem;
+            }
+            
+            .stories-display {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .story-note {
+                transform: rotate(0deg) !important;
+                margin-bottom: 0.5rem;
+            }
+            
+            .story-note:hover {
+                transform: rotate(0deg) scale(1.01);
+            }
         }
         
         * {
@@ -77,21 +115,23 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--charcoal);
-            background: var(--white);
+            background: var(--warm-white);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            font-weight: 400;
         }
         
-        /* Utility Classes */
-        .playfair { font-family: 'Playfair Display', serif; }
+        /* Typography System */
+        .theatrical { font-family: 'Crimson Text', serif; }
+        .playfair { font-family: 'Crimson Text', serif; }
         .playbill {
-            font-family: 'Playfair Display', serif;
-            font-weight: 800;
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
         }
         
         /* Scrollbar */
@@ -151,8 +191,8 @@
             color: var(--gold);
             text-decoration: none;
             transition: var(--transition-bounce);
-            font-weight: 900;
-            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-family: 'Crimson Text', serif;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -344,9 +384,9 @@
         
         .gradient-text {
             font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 900;
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--white) 50%, var(--gold) 100%);
+            font-weight: 600;
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--warm-white) 50%, var(--gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -355,6 +395,7 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.1;
         }
         
         @keyframes titleGlow {
@@ -515,8 +556,9 @@
             color: var(--navy);
             margin-bottom: 1.5rem;
             position: relative;
-            font-weight: 800;
-            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-family: 'Crimson Text', serif;
+            line-height: 1.2;
         }
         
         .section-title::after {
@@ -948,7 +990,203 @@
             margin: 0;
         }
         
-        /* Blog Section */
+        /* Virtual Chalkboard Section */
+        .chalkboard-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chalkboard-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .chalkboard-section .container { position: relative; z-index: 2; }
+        .chalkboard-section .section-title { color: var(--white); }
+        .chalkboard-section .section-subtitle { color: rgba(255, 255, 255, 0.85); }
+        
+        .chalkboard-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .chalkboard {
+            background: linear-gradient(135deg, #1a3d2e 0%, #2d5a47 100%);
+            border: 8px solid #8B4513;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: 
+                inset 0 0 50px rgba(0, 0, 0, 0.3),
+                0 20px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 24px,
+                    rgba(255, 255, 255, 0.03) 25px,
+                    rgba(255, 255, 255, 0.03) 26px
+                );
+        }
+        
+        .chalkboard::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #654321, #8B4513, #654321);
+            border-radius: calc(var(--border-radius) + 4px);
+            z-index: -1;
+        }
+        
+        .chalkboard-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .chalkboard-header h3 {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .chalkboard-header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+        
+        .story-form {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .story-form input,
+        .story-form textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #8B4513;
+            border-radius: var(--border-radius-sm);
+            padding: 1rem;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+        
+        .story-form input:focus,
+        .story-form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .char-count {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .btn-chalk {
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .btn-chalk:hover {
+            background: #FFA500;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .stories-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .story-note {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--charcoal);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-sm);
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transform: rotate(-1deg);
+            transition: var(--transition);
+            border-left: 4px solid var(--gold);
+            position: relative;
+        }
+        
+        .story-note:nth-child(even) {
+            transform: rotate(1deg);
+        }
+        
+        .story-note:nth-child(3n) {
+            transform: rotate(-0.5deg);
+        }
+        
+        .story-note:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        
+        .story-note::before {
+            content: '📌';
+            position: absolute;
+            top: -8px;
+            right: 10px;
+            font-size: 1.2rem;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        
+        .story-content {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .story-author {
+            font-style: italic;
+            color: var(--slate);
+            font-size: 0.9rem;
+            text-align: right;
+            font-family: 'Playfair Display', serif;
+        }
         .blog {
             background: var(--gradient-primary);
             color: var(--white);
@@ -1456,9 +1694,8 @@
                 <li><a href="#consulting">Consulting</a></li>
                 <li><a href="#coaching-content">Coaching Content</a></li>
                 <li><a href="#quiz-coach-type">Quiz</a></li>
-                <li><a href="#interactive-tools">Tools</a></li>
+                <li><a href="#coaching-stories">Stories</a></li>
                 <li><a href="#blog">Blog</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="mobile-menu" id="mobileMenu">
@@ -1474,9 +1711,8 @@
                 <li><a href="#consulting">Consulting</a></li>
                 <li><a href="#coaching-content">Coaching Content</a></li>
                 <li><a href="#quiz-coach-type">Quiz</a></li>
-                <li><a href="#interactive-tools">Tools</a></li>
+                <li><a href="#coaching-stories">Stories</a></li>
                 <li><a href="#blog">Blog</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -2005,10 +2241,56 @@
             </div>
         </section>
 
-        <!-- Blog Section -->
+        <!-- Virtual Chalkboard Section -->
+        <section id="coaching-stories" class="chalkboard-section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <div class="playbill-label">✦ Backstage Stories ✦</div>
+                    <h2 class="section-title">Coaching Chalkboard</h2>
+                    <p class="section-subtitle">Share your coaching story, breakthrough moment, or lesson learned. This is our virtual green room where coaches connect. 🎭</p>
+                </div>
+
+                <div class="chalkboard-container">
+                    <div class="chalkboard">
+                        <div class="chalkboard-header">
+                            <h3>Share Your Story</h3>
+                            <p>What's your coaching breakthrough, challenge, or "aha!" moment?</p>
+                        </div>
+                        
+                        <div class="story-form">
+                            <input type="text" id="story-name" placeholder="Your name (or stay anonymous)" maxlength="50">
+                            <textarea id="story-text" placeholder="Share your coaching story..." maxlength="280" rows="4"></textarea>
+                            <div class="form-actions">
+                                <span class="char-count">280 characters remaining</span>
+                                <button onclick="addStory()" class="btn btn-chalk">Post to Board</button>
+                            </div>
+                        </div>
+                        
+                        <div class="stories-display" id="stories-display">
+                            <!-- Sample stories to get started -->
+                            <div class="story-note">
+                                <div class="story-content">"My biggest breakthrough was realizing I was coaching myself, not my coachee. Once I learned to listen first, everything changed." 🎯</div>
+                                <div class="story-author">- Sarah M.</div>
+                            </div>
+                            
+                            <div class="story-note">
+                                <div class="story-content">"I used to think coaching was about having all the answers. Now I know it's about asking the right questions." 💡</div>
+                                <div class="story-author">- Anonymous Coach</div>
+                            </div>
+                            
+                            <div class="story-note">
+                                <div class="story-content">"Three years ago I was afraid to coach anyone. Today I'm leading a team of 12. Sometimes you just have to start before you're ready." 🚀</div>
+                                <div class="story-author">- Mike D.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="blog" class="blog fade-in">
             <div class="container">
                 <div class="section-header">
+                    <div class="playbill-label">✦ Behind the Scenes ✦</div>
                     <h2 class="section-title">The System & The Story</h2>
                     <p class="section-subtitle">This isn't a blog. It's a backstage pass into how I work, what I build, and what the work is teaching me. I write to make sense of what I'm seeing—and share what's actually working in the wild.</p>
                 </div>
@@ -2102,6 +2384,7 @@
                     <a href="#about">About</a>
                     <a href="#books">Books</a>
                     <a href="#coaching">Coaching</a>
+                    <a href="#coaching-stories">Stories</a>
                     <a href="#blog">Blog</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -2358,7 +2641,142 @@
             }
         }
         
-        // Interactive functions
+        // Virtual Chalkboard Functionality
+        function addStory() {
+            try {
+                const nameInput = document.getElementById('story-name');
+                const textInput = document.getElementById('story-text');
+                const storiesDisplay = document.getElementById('stories-display');
+                
+                const name = nameInput.value.trim() || 'Anonymous Coach';
+                const text = textInput.value.trim();
+                
+                if (!text) {
+                    alert('Please share your coaching story!');
+                    return;
+                }
+                
+                if (text.length > 280) {
+                    alert('Please keep your story to 280 characters or less.');
+                    return;
+                }
+                
+                // Create new story element
+                const storyNote = document.createElement('div');
+                storyNote.className = 'story-note';
+                storyNote.style.opacity = '0';
+                storyNote.style.transform = 'translateY(20px) rotate(-1deg)';
+                
+                // Add random rotation for authenticity
+                const rotations = ['-1deg', '1deg', '-0.5deg', '0.5deg'];
+                const randomRotation = rotations[Math.floor(Math.random() * rotations.length)];
+                
+                storyNote.innerHTML = `
+                    <div class="story-content">"${text}"</div>
+                    <div class="story-author">- ${name}</div>
+                `;
+                
+                // Add to top of stories display
+                storiesDisplay.insertBefore(storyNote, storiesDisplay.firstChild);
+                
+                // Animate in
+                setTimeout(() => {
+                    storyNote.style.transition = 'all 0.5s ease-out';
+                    storyNote.style.opacity = '1';
+                    storyNote.style.transform = `translateY(0) rotate(${randomRotation})`;
+                }, 100);
+                
+                // Clear form
+                nameInput.value = '';
+                textInput.value = '';
+                updateCharCount();
+                
+                // Show success message
+                showNotification('Your story has been added to the board! 🎭');
+                
+            } catch (error) {
+                console.error('Error adding story:', error);
+                alert('There was an error adding your story. Please try again.');
+            }
+        }
+        
+        function updateCharCount() {
+            try {
+                const textInput = document.getElementById('story-text');
+                const charCount = document.querySelector('.char-count');
+                
+                if (textInput && charCount) {
+                    const remaining = 280 - textInput.value.length;
+                    charCount.textContent = `${remaining} characters remaining`;
+                    
+                    if (remaining < 50) {
+                        charCount.style.color = '#FFD700';
+                    } else if (remaining < 20) {
+                        charCount.style.color = '#FF6B6B';
+                    } else {
+                        charCount.style.color = 'rgba(255, 255, 255, 0.7)';
+                    }
+                }
+            } catch (error) {
+                console.error('Error updating character count:', error);
+            }
+        }
+        
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: var(--gold);
+                color: var(--navy);
+                padding: 1rem 2rem;
+                border-radius: var(--border-radius);
+                font-weight: 600;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                z-index: 10000;
+                font-family: 'Playfair Display', serif;
+                transform: translateX(400px);
+                transition: all 0.3s ease-out;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Slide in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Slide out and remove
+            setTimeout(() => {
+                notification.style.transform = 'translateX(400px)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Initialize chalkboard functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                const textInput = document.getElementById('story-text');
+                if (textInput) {
+                    textInput.addEventListener('input', updateCharCount);
+                    textInput.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter' && e.ctrlKey) {
+                            addStory();
+                        }
+                    });
+                }
+                
+                // Initial character count
+                updateCharCount();
+                
+            } catch (error) {
+                console.error('Error initializing chalkboard:', error);
+            }
+        });
         function openBookPreview(bookId) {
             alert(`Opening preview for ${bookId}. In a real implementation, this would show a detailed book preview with sample chapters, reviews, and purchase options.`);
         }
