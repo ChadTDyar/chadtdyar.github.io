@@ -44,12 +44,14 @@
             --gradient-surface: linear-gradient(135deg, var(--silver-light) 0%, #f8fafc 100%);
             --gradient-purple: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-light) 100%);
             
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
-            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.16);
-            --shadow-xl: 0 16px 60px rgba(0, 0, 0, 0.2);
+            --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.16);
+            --shadow-xl: 0 20px 80px rgba(0, 0, 0, 0.2);
             --shadow-glow: 0 0 30px rgba(139, 95, 191, 0.3);
             --shadow-silver: 0 0 20px rgba(192, 199, 214, 0.4);
+            --shadow-elegant: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
             
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -117,22 +119,22 @@
             transform: translateY(0);
         }
         
-        /* Header */
+        /* Header - Broadway Playbill Style */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            border-bottom: 3px solid var(--gold);
             z-index: 1000;
             transition: var(--transition);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow-md);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
         }
         
         nav {
@@ -146,19 +148,20 @@
         
         .logo {
             font-size: 1.8rem;
-            color: var(--navy);
+            color: var(--gold);
             text-decoration: none;
             transition: var(--transition-bounce);
-            font-weight: 800;
+            font-weight: 900;
             font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .logo:hover {
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--white);
             transform: scale(1.05);
+            text-shadow: 0 0 10px var(--gold);
         }
         
         .nav-links {
@@ -169,7 +172,7 @@
         }
         
         .nav-links a {
-            color: var(--charcoal);
+            color: var(--white);
             text-decoration: none;
             font-weight: 500;
             position: relative;
@@ -184,13 +187,13 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--gradient-accent);
+            background: var(--gold);
             transition: var(--transition);
         }
         
         .nav-links a:hover::after { width: 100%; }
         .nav-links a:hover {
-            color: var(--navy);
+            color: var(--gold);
             transform: translateY(-1px);
         }
         
@@ -353,7 +356,7 @@
             align-items: center;
         }
         
-        /* Button Styles */
+        /* Button Styles - Enhanced */
         .btn {
             padding: 1.2rem 2.5rem;
             border: none;
@@ -369,6 +372,7 @@
             position: relative;
             overflow: hidden;
             text-align: center;
+            box-shadow: var(--shadow-card);
         }
         
         .btn::before {
@@ -385,11 +389,11 @@
         .btn-primary {
             background: var(--gradient-accent);
             color: var(--white);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-elegant);
         }
         
         .btn-primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
         }
         
@@ -406,7 +410,7 @@
             transform: translateY(-2px);
         }
         
-        /* Section Styles */
+        /* Section Styles - Enhanced */
         section {
             padding: var(--section-padding) 0;
             position: relative;
@@ -414,8 +418,25 @@
         
         .section-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
             position: relative;
+        }
+        
+        .playbill-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: var(--gold);
+            padding: 0.5rem 2rem;
+            border: 2px solid var(--gold);
+            border-radius: 30px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
         
         .section-title {
@@ -437,6 +458,7 @@
             height: 4px;
             background: var(--gradient-accent);
             border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(139, 95, 191, 0.3);
         }
         
         .section-subtitle {
@@ -574,9 +596,9 @@
             background: var(--white);
             border-radius: var(--border-radius);
             padding: 2.5rem;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-card);
             transition: var(--transition-slow);
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             position: relative;
             overflow: hidden;
             cursor: pointer;
@@ -587,7 +609,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.08), transparent);
+            background: linear-gradient(90deg, transparent, rgba(139, 95, 191, 0.06), transparent);
             transform: translateX(-100%);
             transition: var(--transition-slow);
         }
@@ -595,9 +617,9 @@
         .book-card:hover::before { transform: translateX(100%); }
         
         .book-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: var(--shadow-xl);
-            border-color: rgba(139, 95, 191, 0.2);
+            transform: translateY(-16px) scale(1.02);
+            box-shadow: var(--shadow-elegant);
+            border-color: rgba(139, 95, 191, 0.15);
         }
         
         .book-genre {
@@ -780,7 +802,14 @@
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+        }
+        
+        .quiz-question:hover {
+            box-shadow: var(--shadow-elegant);
+            transform: translateY(-2px);
         }
         
         .quiz-question p {
@@ -957,12 +986,14 @@
             border-radius: var(--border-radius);
             text-align: center;
             transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: var(--shadow-card);
         }
         
         .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-elegant);
+            border-color: rgba(139, 95, 191, 0.1);
         }
         
         .contact-icon {
@@ -1078,12 +1109,25 @@
             box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
         }
         
-        /* Footer */
+        /* Footer - Broadway Playbill Style */
         footer {
-            background: var(--navy);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             color: var(--white);
             padding: 4rem 0 2rem;
             text-align: center;
+            border-top: 3px solid var(--gold);
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
         
         .footer-content {
@@ -1095,9 +1139,13 @@
         
         .footer-section h4 {
             margin-bottom: 1.5rem;
-            color: var(--purple-light);
+            color: var(--gold);
             font-size: 1.3rem;
             font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         
         .footer-section a {
@@ -1109,7 +1157,8 @@
         }
         
         .footer-section a:hover {
-            color: var(--white);
+            color: var(--gold);
+            transform: translateX(3px);
         }
         
         .social-links {
@@ -1122,24 +1171,39 @@
         .social-links a {
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--gold);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
             font-size: 1.2rem;
+            color: var(--gold);
         }
         
         .social-links a:hover {
-            background: var(--gradient-accent);
+            background: var(--gold);
+            color: var(--navy);
             transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
         }
         
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--gold);
             padding-top: 2rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        
+        .footer-bottom::before {
+            content: "✦ ✦ ✦";
+            display: block;
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1rem;
         }
         
         /* Responsive Design */
@@ -1376,7 +1440,7 @@
                     <div class="about-text">
                         <p>Chad T Dyar is a genre-jumping author, strategist, and creative performance coach with a past life on the stage and a present obsession with helping people become who they are meant to be.</p>
                         <p>He's written nine books across business, theater, and children's literature—each rooted in clarity, creativity, and transformation. From designing enablement systems to writing plays about finding your voice, his work centers identity and performance.</p>
-                        <p>He lives at the beach with his partner and their three dogs—Wick, Maya Rudolph, and Benny Hartz—where they have a happy garden, watch the tides, and live a life built around being yoga-loving dog dads.</p>
+                        <p>He lives at the beach with his partner and their three dogs—Wick (corgi), Maya Rudolph (corgi), and Benny Hartz (mini aussie)—where they have a happy garden, watch the tides, and live a life built around being yoga-loving dog dads. 🐾</p>
                     </div>
 
                     <div class="about-image-container tooltip interactive-element">
@@ -1395,6 +1459,7 @@
         <section id="books" class="books fade-in">
             <div class="container">
                 <div class="section-header">
+                    <div class="playbill-label">✦ Now Playing ✦</div>
                     <h2 class="section-title">Books</h2>
                     <p class="section-subtitle">Explore the work. Multiple books, one voice: clear, bold, and built to move you forward.</p>
                 </div>
@@ -1529,6 +1594,7 @@
         <section id="coaching" class="coaching fade-in">
             <div class="container">
                 <div class="section-header">
+                    <div class="playbill-label">✦ Featured Performance ✦</div>
                     <h2 class="section-title">Coaching by Chad</h2>
                     <p class="section-subtitle">Where Performance Gets Personal. This isn't a "coaching program." This is a behavior-first, outcome-driven architecture for transformation. I don't teach theory. I build systems that shift how you lead, sell, and grow.</p>
                 </div>
@@ -1589,7 +1655,7 @@
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
                     
-                    <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 1rem;">When you sign up, you'll get a welcome note from me (not a robot), my 3 favorite prompts for designing a performance system, and early access to new tools and blog drops.</p>
+                    <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 1rem;">When you sign up, you'll get a welcome note from me (not a robot), my 3 favorite prompts for designing a performance system, and early access to new tools and blog drops. 🐕</p>
                 </div>
             </div>
         </section>
@@ -1988,7 +2054,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Chad T Dyar. All rights reserved. Built with systems, story, and soul.</p>
+                <p>&copy; 2024 Chad T Dyar. All rights reserved. Built with systems, story, and soul. 🐾</p>
             </div>
         </div>
     </footer>
