@@ -61,7 +61,10 @@
             --border-radius-sm: 8px;
             --border-radius-lg: 24px;
             --container-width: 1400px;
-            --section-padding: 6rem;
+            --section-padding: 8rem;
+            --section-padding-mobile: 4rem;
+            --element-spacing: 3rem;
+            --content-spacing: 2rem;
             /* Chalkboard mobile styles */
             .chalkboard {
                 padding: 2rem 1.5rem;
@@ -460,7 +463,7 @@
             opacity: 0.7;
         }
         
-        /* Button Styles - Enhanced */
+        /* Button Styles - Unified System */
         .btn {
             padding: 1.2rem 2.5rem;
             border: none;
@@ -477,6 +480,8 @@
             overflow: hidden;
             text-align: center;
             box-shadow: var(--shadow-card);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.02em;
         }
         
         .btn::before {
@@ -527,7 +532,7 @@
         
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
             position: relative;
         }
         
@@ -601,7 +606,7 @@
         }
         
         .about-text p {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
         
         .about-text p:first-child {
@@ -1110,20 +1115,20 @@
             background: var(--gold);
             color: var(--navy);
             border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: var(--border-radius-sm);
+            padding: 1.2rem 2.5rem;
+            border-radius: var(--border-radius);
             font-weight: 600;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Inter', sans-serif;
             cursor: pointer;
             transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.02em;
+            box-shadow: var(--shadow-card);
         }
         
         .btn-chalk:hover {
-            background: #FFA500;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            background: var(--gold-warm);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow);
         }
         
         .stories-display {
@@ -1477,7 +1482,7 @@
         .social-links a {
             width: 40px;
             height: 40px;
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(212, 175, 55, 0.1);
             border: 1px solid var(--gold);
             border-radius: 50%;
             display: flex;
@@ -1491,8 +1496,8 @@
         .social-links a:hover {
             background: var(--gold);
             color: var(--navy);
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
         }
         
         .footer-bottom {
