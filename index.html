@@ -2656,16 +2656,29 @@
                 const textInput = document.getElementById('story-text');
                 const storiesDisplay = document.getElementById('stories-display');
                 
+                if (!nameInput || !textInput || !storiesDisplay) {
+                    console.error('Chalkboard elements not found');
+                    return;
+                }
+                
                 const name = nameInput.value.trim() || 'Anonymous Coach';
                 const text = textInput.value.trim();
                 
                 if (!text) {
                     alert('Please share your coaching story!');
+                    textInput.focus();
                     return;
                 }
                 
                 if (text.length > 280) {
                     alert('Please keep your story to 280 characters or less.');
+                    textInput.focus();
+                    return;
+                }
+                
+                if (text.length < 10) {
+                    alert('Please share a bit more detail in your story (at least 10 characters).');
+                    textInput.focus();
                     return;
                 }
                 
