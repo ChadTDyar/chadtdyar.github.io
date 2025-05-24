@@ -847,13 +847,6 @@
         .contact-card a:hover {
             color: var(--magenta);
         }
-        <section id="quiz" class="fade-in" style="background: var(--warm-gray); padding: 4rem 2rem;">
-  <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
-    <h2 class="section-title">What Kind of Coach Am I?</h2>
-    
-    <div id="quizResult" style="margin-top: 2rem;"></div>
-  </div>
-</section>
 
         /* ConvertKit Form Styling */
         #convertkit-form-container {
@@ -1559,8 +1552,13 @@
     <div id="quiz-result" style="display:none; margin-top: 2rem;"></div>
   </div>
 </section>
-
-<script>
+ <section id="quiz" class="fade-in" style="background: var(--warm-gray); padding: 4rem 2rem;">
+  <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <h2 class="section-title">What Kind of Coach Am I?</h2>
+    
+    <div id="quizResult" style="margin-top: 2rem;"></div>
+  </div>
+</section><script>
 document.getElementById("coachQuizForm").addEventListener("submit", function (event) {
   event.preventDefault();
   const formData = new FormData(this);
