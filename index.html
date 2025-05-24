@@ -64,6 +64,7 @@
             scroll-behavior: smooth;
             font-size: 16px;
         }
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -237,10 +238,11 @@
             transition: var(--transition);
         }
         
-     main {
-  margin-top: 84px;
-}
- .container {
+        main {
+            margin-top: 84px;
+        }
+        
+        .container {
             max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 2rem;
@@ -287,22 +289,33 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-.hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
-  font-family: 'Playfair Display', serif;
-  color: var(--white);
-  margin-bottom: 1rem;
-  background: none;
-  -webkit-text-fill-color: inherit;
-}     
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }     
+        
+        .gradient-text {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 50%, var(--magenta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 4s ease-in-out infinite alternate;
+            margin-bottom: 1.5rem;
+        }
+        
         @keyframes textGlow {
             from { filter: drop-shadow(0 0 15px rgba(0, 217, 255, 0.3)); }
             to { filter: drop-shadow(0 0 25px rgba(255, 0, 128, 0.4)); }
         }
         
         .hero-subtitle {
-            font-size: clamp(1.4rem, 4vw, 2.5rem);
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             font-weight: 400;
             opacity: 0.95;
             margin-bottom: 1.5rem;
@@ -312,7 +325,7 @@
         }
         
         .hero-description {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-size: clamp(1rem, 2vw, 1.2rem);
             opacity: 0.85;
             margin-bottom: 3rem;
             max-width: 650px;
@@ -392,7 +405,7 @@
         }
         
         .section-title {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2rem, 5vw, 3rem);
             color: var(--navy);
             margin-bottom: 1.5rem;
             position: relative;
@@ -413,7 +426,7 @@
         }
         
         .section-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-size: clamp(1rem, 2vw, 1.2rem);
             color: var(--slate);
             max-width: 700px;
             margin: 0 auto;
@@ -436,7 +449,7 @@
         }
         
         .about-text {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.8;
             color: var(--charcoal);
         }
@@ -446,7 +459,7 @@
         }
         
         .about-text p:first-child {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--navy);
             font-weight: 600;
             font-family: 'Playfair Display', serif;
@@ -458,8 +471,8 @@
         }
         
         .about-image {
-            width: 320px;
-            height: 320px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             box-shadow: var(--shadow-lg);
             transition: var(--transition-slow);
@@ -473,15 +486,15 @@
         }
         
         .image-placeholder {
-            width: 320px;
-            height: 320px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             background: var(--gradient-accent);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: bold;
             box-shadow: var(--shadow-lg);
             border: 6px solid var(--white);
@@ -508,7 +521,7 @@
             margin: 0 auto 1.5rem;
             box-shadow: var(--shadow-md);
             transition: var(--transition);
-            object-fit: cover; /* This ensures images fit properly */
+            object-fit: cover;
         }
         
         .book-image-placeholder:hover { 
@@ -573,25 +586,6 @@
             border-color: rgba(0, 217, 255, 0.2);
         }
         
-        .book-image-placeholder {
-            width: 200px;
-            height: 280px;
-            background: var(--gradient-accent);
-            border-radius: var(--border-radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 3rem;
-            margin: 0 auto 1.5rem;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-        
-        .book-image-placeholder:hover { 
-            transform: scale(1.05) rotateY(10deg);
-        }
-        
         .book-genre {
             display: inline-block;
             background: var(--gradient-accent);
@@ -606,7 +600,7 @@
         }
         
         .book-title {
-            font-size: 1.7rem;
+            font-size: 1.4rem;
             color: var(--navy);
             margin-bottom: 1.5rem;
             font-weight: 700;
@@ -618,27 +612,26 @@
             color: var(--slate);
             line-height: 1.7;
             margin-bottom: 2.5rem;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
         
-      /* Coaching Section */
-.coaching {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
-    color: var(--white);
-    position: relative;
-    overflow: hidden;
-}
+        /* Coaching Section */
+        .coaching {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
 
-.coaching::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse at 50% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 70%),
-        radial-gradient(ellipse at 70% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-    pointer-events: none;
-}
-
+        .coaching::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 70%),
+                radial-gradient(ellipse at 70% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
 
         .coaching .container { position: relative; z-index: 2; }
         .coaching .section-title { color: var(--white); }
@@ -676,7 +669,7 @@
         }
         
         .module-title {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -686,6 +679,7 @@
             opacity: 0.9;
             line-height: 1.7;
             margin-bottom: 2rem;
+            font-size: 1rem;
         }
         
         .module-features {
@@ -704,6 +698,57 @@
             color: var(--cyan);
             font-weight: bold;
             margin-right: 0.5rem;
+        }
+        
+        /* Quiz Styles */
+        .quiz-section {
+            background: var(--warm-gray);
+            padding: 4rem 2rem;
+        }
+        
+        .quiz-questions {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .quiz-question {
+            background: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .quiz-question p {
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+        
+        .quiz-question label {
+            display: block;
+            padding: 0.5rem 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .quiz-question label:hover {
+            color: var(--cyan);
+        }
+        
+        .quiz-question input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        
+        #quiz-result {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            text-align: center;
         }
         
         /* Blog Section */
@@ -767,7 +812,7 @@
         }
         
         .blog-title {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: var(--white);
             margin-bottom: 1.5rem;
             font-weight: 700;
@@ -779,7 +824,7 @@
             color: rgba(255, 255, 255, 0.85);
             line-height: 1.7;
             margin-bottom: 2rem;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
         
         .read-more {
@@ -830,7 +875,7 @@
         }
         
         .contact-title {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--navy);
             margin-bottom: 1rem;
             font-family: 'Playfair Display', serif;
@@ -935,6 +980,7 @@
             background: rgba(255, 255, 255, 0.15);
             box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
         }
+        
         /* Footer */
         footer {
             background: var(--navy);
@@ -1017,26 +1063,20 @@
                 font-size: 1.5rem;
             }
             
-.gradient-text {
-  font-size: clamp(3.5rem, 10vw, 9rem);
-  font-weight: 900;
-  font-family: 'Playfair Display', serif;
-  background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 50%, var(--magenta) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: textGlow 4s ease-in-out infinite alternate;
-  margin-bottom: 2rem;
-}
- 
             .about-content {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
             
+            .about-image {
+                width: 220px;
+                height: 220px;
+            }
+            
             .image-placeholder {
-                width: 250px;
-                height: 250px;
+                width: 220px;
+                height: 220px;
+                font-size: 3rem;
             }
             
             .books-grid {
@@ -1061,6 +1101,17 @@
             
             .cta-buttons {
                 justify-content: center;
+            }
+            
+            .book-cover-image {
+                width: 160px;
+                height: 220px;
+            }
+            
+            .book-image-placeholder {
+                width: 160px;
+                height: 220px;
+                font-size: 2rem;
             }
         }
         
@@ -1140,16 +1191,15 @@
         <nav>
             <a href="#home" class="logo">Chad T Dyar</a>
             <ul class="nav-links">
-  <li><a href="#home">Home</a></li>
-  <li><a href="#books">Books</a></li>
-  <li><a href="#consulting">Consulting</a></li>
-  <li><a href="#coaching-content">Coaching Content</a></li>
-  <li><a href="#quiz-coach-type">Quiz</a></li>
-  <li><a href="#interactive-tools">Tools</a></li>
-  <li><a href="#blog">Blog</a></li>
-  <li><a href="#testimonials">Testimonials</a></li>
-  <li><a href="#contact">Contact</a></li>
-</ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#consulting">Consulting</a></li>
+                <li><a href="#coaching-content">Coaching Content</a></li>
+                <li><a href="#quiz-coach-type">Quiz</a></li>
+                <li><a href="#interactive-tools">Tools</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="mobile-menu" id="mobileMenu">
                 <span></span>
@@ -1157,86 +1207,65 @@
                 <span></span>
             </div>
         </nav>
-       <div class="mobile-nav" id="mobileNav">
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#books">Books</a></li>
-        <li><a href="#consulting">Consulting</a></li>
-        <li><a href="#coaching-content">Coaching Content</a></li>
-        <li><a href="#quiz-coach-type">Quiz</a></li>
-        <li><a href="#interactive-tools">Tools</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</div>
-<script>
-  async function sendMessage(event) {
-    event.preventDefault();
-    const inputField = document.getElementById('user-input');
-    const chatHistory = document.getElementById('chat-history');
-    const userMessage = inputField.value.trim();
-    if (!userMessage) return;
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#consulting">Consulting</a></li>
+                <li><a href="#coaching-content">Coaching Content</a></li>
+                <li><a href="#quiz-coach-type">Quiz</a></li>
+                <li><a href="#interactive-tools">Tools</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
-    chatHistory.innerHTML += '<p><strong>You:</strong> ' + userMessage + '</p>';
-    inputField.value = '';
-    chatHistory.scrollTop = chatHistory.scrollHeight;
-
-    // Simulate response (swap with real API integration)
-    chatHistory.innerHTML += '<p><strong>Chad:</strong> Thinking...</p>';
-    chatHistory.scrollTop = chatHistory.scrollHeight;
-
-    setTimeout(() => {
-      chatHistory.innerHTML = chatHistory.innerHTML.replace('Thinking...', 'This is a simulated response. Add your OpenAI API call here.');
-      chatHistory.scrollTop = chatHistory.scrollHeight;
-    }, 1000);
-  }
-</script> <!-- ✅ Correct closing tag -->
-
-
-<main id="main-content">
-    
+    <main id="main-content">
         <!-- Hero Section -->
-<section id="home" class="hero">
-  <div class="container">
-    <div class="hero-content">
- <h1 class="gradient-text"></h1>
-      <div class="hero-subtitle">Where systems meet story, and performance becomes personal.</div>
-      <div class="hero-description">
-        I'm an author, strategist, and creative systems thinker who helps leaders and organizations design performance that doesn't just work - it transforms.
-      </div>
-      <div class="cta-buttons">
-        <a href="#about" class="btn btn-primary">Discover My Story</a>
-        <a href="#coaching" class="btn btn-secondary">Explore Coaching</a>
-      </div>
-    </div>
-  </div>
-</section> 
-<section id="about" class="about fade-in">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">About Chad</h2>
-      <p class="section-subtitle">Performance begins with identity. This is the story behind the systems.</p>
-    </div>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="gradient-text">Chad T Dyar</h1>
+                    <div class="hero-subtitle">Where systems meet story, and performance becomes personal.</div>
+                    <div class="hero-description">
+                        I'm an author, strategist, and creative systems thinker who helps leaders and organizations design performance that doesn't just work - it transforms.
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#about" class="btn btn-primary">Discover My Story</a>
+                        <a href="#coaching" class="btn btn-secondary">Explore Coaching</a>
+                    </div>
+                </div>
+            </div>
+        </section> 
 
-    <div class="about-content">
-      <div class="about-text">
-        <p>Chad T Dyar is a genre-jumping author, strategist, and creative performance coach with a past life on the stage and a present obsession with helping people become who they are.</p>
-        <p>He's written nine books across business, theater, and children's literature—each rooted in clarity, creativity, and transformation. From designing enablement systems to writing plays about becoming, his work centers voice, identity, and performance.</p>
-        <p>He lives at the beach with his partner and their three dogs—Wick, Maya Rudolph, and Benny Hartz—where they grow vegetables, watch the tides, and live a life built around becoming.</p>
-      </div>
+        <section id="about" class="about fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Chad</h2>
+                    <p class="section-subtitle">Performance begins with identity. This is the story behind the systems.</p>
+                </div>
 
-      <div class="about-image-container tooltip interactive-element">
-        <img 
-          src="https://res.cloudinary.com/dwvn18ge3/image/upload/v1748048037/chad-headshot_qe2rsc.jpg" 
-          alt="Chad T Dyar – Author, Strategist & Coach" 
-          class="about-image" 
-          loading="lazy">
-        <span class="tooltiptext">Chad T Dyar – Author, Strategist & Coach</span>
-      </div>
-    </div>
-  </div>
-</section>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Chad T Dyar is a genre-jumping author, strategist, and creative performance coach with a past life on the stage and a present obsession with helping people become who they are.</p>
+                        <p>He's written nine books across business, theater, and children's literature—each rooted in clarity, creativity, and transformation. From designing enablement systems to writing plays about becoming, his work centers voice, identity, and performance.</p>
+                        <p>He lives at the beach with his partner and their three dogs—Wick, Maya Rudolph, and Benny Hartz—where they grow vegetables, watch the tides, and live a life built around becoming.</p>
+                    </div>
+
+                    <div class="about-image-container tooltip interactive-element">
+                        <img 
+                            src="https://res.cloudinary.com/dwvn18ge3/image/upload/v1748048037/chad-headshot_qe2rsc.jpg" 
+                            alt="Chad T Dyar – Author, Strategist & Coach" 
+                            class="about-image" 
+                            loading="lazy">
+                        <span class="tooltiptext">Chad T Dyar – Author, Strategist & Coach</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Books Section -->
         <section id="books" class="books fade-in">
             <div class="container">
@@ -1246,7 +1275,6 @@
                 </div>
                 <div class="books-grid">
                     <div class="book-card interactive-element" onclick="openBookPreview('book1')">
-                        <!-- "How to Talk to Humans" book cover -->
                         <img src="https://imgur.com/Cl8WbZI.jpg" alt="How to Talk to Humans Book Cover" class="book-cover-image">
                         
                         <div class="book-genre">Business Communication</div>
@@ -1256,7 +1284,6 @@
                     </div>
                     
                     <div class="book-card interactive-element" onclick="openBookPreview('book2')">
-                        <!-- "Bring Your Best Self to Work" book cover -->
                         <img src="https://imgur.com/jlqfVxA.jpg" alt="Bring Your Best Self to Work Book Cover" class="book-cover-image">
                         
                         <div class="book-genre">Self-Development</div>
@@ -1266,7 +1293,6 @@
                     </div>
                     
                     <div class="book-card interactive-element" onclick="openBookPreview('book3')">
-                        <!-- "Performance Whisperer" book cover -->
                         <img src="https://imgur.com/NKehWIQ.jpg" alt="The Performance Whisperer Book Cover" class="book-cover-image">
                         
                         <div class="book-genre">Coaching</div>
@@ -1278,104 +1304,103 @@
             </div>
         </section>
     
-<!-- Coming Soon Section -->
-<section id="coming-soon" class="books fade-in">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Coming Soon</h2>
-      <p class="section-subtitle">Books, tools, and courses in production. Get ready for what’s next.</p>
-    </div>
-    <div class="books-grid">
+        <!-- Coming Soon Section -->
+        <section id="coming-soon" class="books fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Coming Soon</h2>
+                    <p class="section-subtitle">Books, tools, and courses in production. Get ready for what's next.</p>
+                </div>
+                <div class="books-grid">
+                    <!-- EOS -->
+                    <div class="book-card interactive-element">
+                        <div class="book-image-placeholder">📘</div>
+                        <div class="book-genre">Enablement</div>
+                        <h3 class="book-title">The Enablement Operating System</h3>
+                        <p class="book-description">A systems-first field guide to human-centered performance at scale.</p>
+                    </div>
 
-      <!-- EOS -->
-      <div class="book-card interactive-element">
-        <div class="book-image-placeholder">📘</div>
-        <div class="book-genre">Enablement</div>
-        <h3 class="book-title">The Enablement Operating System</h3>
-        <p class="book-description">A systems-first field guide to human-centered performance at scale.</p>
-      </div>
+                    <!-- Performance Is Personal -->
+                    <div class="book-card interactive-element">
+                        <div class="book-image-placeholder">🧠</div>
+                        <div class="book-genre">Leadership</div>
+                        <h3 class="book-title">Performance Is Personal</h3>
+                        <p class="book-description">Designing systems that serve the soul—not just the strategy.</p>
+                    </div>
 
-      <!-- Performance Is Personal -->
-      <div class="book-card interactive-element">
-        <div class="book-image-placeholder">🧠</div>
-        <div class="book-genre">Leadership</div>
-        <h3 class="book-title">Performance Is Personal</h3>
-        <p class="book-description">Designing systems that serve the soul—not just the strategy.</p>
-      </div>
+                    <!-- The Way I Work with AI -->
+                    <div class="book-card interactive-element">
+                        <div class="book-image-placeholder">🤖</div>
+                        <div class="book-genre">AI + Work</div>
+                        <h3 class="book-title">The Way I Work with AI</h3>
+                        <p class="book-description">A field guide for building systems that think with you, not for you.</p>
+                    </div>
 
-      <!-- The Way I Work with AI -->
-      <div class="book-card interactive-element">
-        <div class="book-image-placeholder">🤖</div>
-        <div class="book-genre">AI + Work</div>
-        <h3 class="book-title">The Way I Work with AI</h3>
-        <p class="book-description">A field guide for building systems that think with you, not for you.</p>
-      </div>
+                    <!-- Gospel Trilogy -->
+                    <div class="book-card interactive-element">
+                        <div class="book-image-placeholder">🎭</div>
+                        <div class="book-genre">Theater</div>
+                        <h3 class="book-title">The Gospel According to No One</h3>
+                        <p class="book-description">A play about survival, silence, and the story underneath.</p>
+                    </div>
 
-      <!-- Gospel Trilogy -->
-      <div class="book-card interactive-element">
-        <div class="book-image-placeholder">🎭</div>
-        <div class="book-genre">Theater</div>
-        <h3 class="book-title">The Gospel According to No One</h3>
-        <p class="book-description">A play about survival, silence, and the story underneath.</p>
-      </div>
+                    <div class="book-card interactive-element">
+                        <div class="book-image-placeholder">🎭</div>
+                        <div class="book-genre">Theater</div>
+                        <h3 class="book-title">The Gospel According to Me</h3>
+                        <p class="book-description">College. Queerness. Embodiment. Becoming.</p>
+                    </div>
 
-      <div class="book-card interactive-element">
-        <div class="book-image-placeholder">🎭</div>
-        <div class="book-genre">Theater</div>
-        <h3 class="book-title">The Gospel According to Me</h3>
-        <p class="book-description">College. Queerness. Embodiment. Becoming.</p>
-      </div>
+                    <div class="book-card interactive-element">
+                        <div class="book-image-placeholder">🎭</div>
+                        <div class="book-genre">Theater</div>
+                        <h3 class="book-title">The Gospel According to Us</h3>
+                        <p class="book-description">The third act of the trilogy—how we hold each other through it.</p>
+                    </div>
 
-      <div class="book-card interactive-element">
-        <div class="book-image-placeholder">🎭</div>
-        <div class="book-genre">Theater</div>
-        <h3 class="book-title">The Gospel According to Us</h3>
-        <p class="book-description">The third act of the trilogy—how we hold each other through it.</p>
-      </div>
+                    <!-- Children's Books -->
+                    <div class="book-card interactive-element">
+                        <div class="book-image-placeholder">🐾</div>
+                        <div class="book-genre">Children's</div>
+                        <h3 class="book-title">The Wiggles, the Woofs, and the Why</h3>
+                        <p class="book-description">A story about big feelings, little dogs, and finding your way back.</p>
+                    </div>
 
-      <!-- Children’s Books -->
-      <div class="book-card interactive-element">
-        <div class="book-image-placeholder">🐾</div>
-        <div class="book-genre">Children's</div>
-        <h3 class="book-title">The Wiggles, the Woofs, and the Why</h3>
-        <p class="book-description">A story about big feelings, little dogs, and finding your way back.</p>
-      </div>
+                    <div class="book-card interactive-element">
+                        <div class="book-image-placeholder">🐾</div>
+                        <div class="book-genre">Children's</div>
+                        <h3 class="book-title">The Barks, the Snort, and the Squeak</h3>
+                        <p class="book-description">The voices we use matter. Even the ones with paws.</p>
+                    </div>
 
-      <div class="book-card interactive-element">
-        <div class="book-image-placeholder">🐾</div>
-        <div class="book-genre">Children's</div>
-        <h3 class="book-title">The Barks, the Snort, and the Squeak</h3>
-        <p class="book-description">The voices we use matter. Even the ones with paws.</p>
-      </div>
+                    <!-- AI Prompts -->
+                    <div class="book-card interactive-element">
+                        <div class="book-image-placeholder">🔤</div>
+                        <div class="book-genre">Prompts</div>
+                        <h3 class="book-title">AI Prompts</h3>
+                        <p class="book-description">200+ real-world prompts for enablement, coaching, and systems design.</p>
+                    </div>
 
-      <!-- AI Prompts -->
-      <div class="book-card interactive-element">
-        <div class="book-image-placeholder">🔤</div>
-        <div class="book-genre">Prompts</div>
-        <h3 class="book-title">AI Prompts</h3>
-        <p class="book-description">200+ real-world prompts for enablement, coaching, and systems design.</p>
-      </div>
+                    <!-- AI Prompt Engineering Course -->
+                    <div class="book-card interactive-element">
+                        <div class="book-image-placeholder">🧪</div>
+                        <div class="book-genre">Courses</div>
+                        <h3 class="book-title">AI Prompt Engineering</h3>
+                        <p class="book-description">A beginner-to-pro system for unlocking AI as a creative, strategic partner.</p>
+                    </div>
 
-      <!-- AI Prompt Engineering Course -->
-      <div class="book-card interactive-element">
-        <div class="book-image-placeholder">🧪</div>
-        <div class="book-genre">Courses</div>
-        <h3 class="book-title">AI Prompt Engineering</h3>
-        <p class="book-description">A beginner-to-pro system for unlocking AI as a creative, strategic partner.</p>
-      </div>
+                    <!-- Coaching Premium -->
+                    <div class="book-card interactive-element">
+                        <div class="book-image-placeholder">🚀</div>
+                        <div class="book-genre">Coaching</div>
+                        <h3 class="book-title">Premium Coaching Content</h3>
+                        <p class="book-description">Frameworks, templates, and toolkits for leading with clarity and coaching with impact.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <!-- Coaching Premium -->
-      <div class="book-card interactive-element">
-        <div class="book-image-placeholder">🚀</div>
-        <div class="book-genre">Coaching</div>
-        <h3 class="book-title">Premium Coaching Content</h3>
-        <p class="book-description">Frameworks, templates, and toolkits for leading with clarity and coaching with impact.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-                <!-- Coaching Section -->
+        <!-- Coaching Section -->
         <section id="coaching" class="coaching fade-in">
             <div class="container">
                 <div class="section-header">
@@ -1422,8 +1447,7 @@
                         <a href="#contact" class="btn btn-secondary">Discuss Your Needs</a>
                     </div>
                 </div>
-                </section>
-</main>
+                
                 <!-- Newsletter Signup with Real ConvertKit Integration -->
                 <div class="newsletter-form" id="newsletter">
                     <h3 style="margin-bottom: 1rem; font-size: 1.8rem;">Chad's Coaching Center</h3>
@@ -1443,147 +1467,118 @@
                     <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 1rem;">When you sign up, you'll get a welcome note from me (not a robot), my 3 favorite prompts for designing a performance system, and early access to new tools and blog drops.</p>
                 </div>
             </div>
-</section>
-<section id="quiz-coach-type" class="books fade-in">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">What Kind of Coach Am I?</h2>
-      <p class="section-subtitle">Answer 10 quick questions and find out your coaching type.</p>
-    </div>
+        </section>
 
-   <form id="coachQuizForm" onsubmit="return calculateCoachType(event)">
+        <!-- Quiz Section -->
+        <section id="quiz-coach-type" class="quiz-section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Kind of Coach Am I?</h2>
+                    <p class="section-subtitle">Answer 10 quick questions and find out your coaching type.</p>
+                </div>
 
-      <div class="quiz-questions">
+                <form id="coachQuizForm" onsubmit="return calculateCoachType(event)">
+                    <div class="quiz-questions">
+                        <!-- Question 1 -->
+                        <div class="quiz-question">
+                            <p><strong>1. How do you approach the initial conversation with your coachee?</strong></p>
+                            <label><input type="radio" name="q1" value="A"> A) With empathy and understanding</label><br>
+                            <label><input type="radio" name="q1" value="B"> B) With a focus on skill development</label><br>
+                            <label><input type="radio" name="q1" value="C"> C) By setting performance goals</label><br>
+                            <label><input type="radio" name="q1" value="D"> D) By discussing strategic objectives</label>
+                        </div>
 
-        <!-- Question 1 -->
-        <div class="quiz-question">
-          <p><strong>1. How do you approach the initial conversation with your coachee?</strong></p>
-          <label><input type="radio" name="q1" value="A"> A) With empathy and understanding</label><br>
-          <label><input type="radio" name="q1" value="B"> B) With a focus on skill development</label><br>
-          <label><input type="radio" name="q1" value="C"> C) By setting performance goals</label><br>
-          <label><input type="radio" name="q1" value="D"> D) By discussing strategic objectives</label>
-        </div>
+                        <!-- Question 2 -->
+                        <div class="quiz-question">
+                            <p><strong>2. How do you identify your coachee's needs?</strong></p>
+                            <label><input type="radio" name="q2" value="A"> A) By asking about their feelings and perspectives</label><br>
+                            <label><input type="radio" name="q2" value="B"> B) Through skill assessments</label><br>
+                            <label><input type="radio" name="q2" value="C"> C) By analyzing performance data</label><br>
+                            <label><input type="radio" name="q2" value="D"> D) By aligning with strategic goals</label>
+                        </div>
 
-        <!-- Question 2 -->
-        <div class="quiz-question">
-          <p><strong>2. How do you identify your coachee's needs?</strong></p>
-          <label><input type="radio" name="q2" value="A"> A) By asking about their feelings and perspectives</label><br>
-          <label><input type="radio" name="q2" value="B"> B) Through skill assessments</label><br>
-          <label><input type="radio" name="q2" value="C"> C) By analyzing performance data</label><br>
-          <label><input type="radio" name="q2" value="D"> D) By aligning with strategic goals</label>
-        </div>
+                        <!-- Question 3 -->
+                        <div class="quiz-question">
+                            <p><strong>3. What is your main focus during coaching sessions?</strong></p>
+                            <label><input type="radio" name="q3" value="A"> A) Building trust and understanding</label><br>
+                            <label><input type="radio" name="q3" value="B"> B) Developing specific skills</label><br>
+                            <label><input type="radio" name="q3" value="C"> C) Improving performance</label><br>
+                            <label><input type="radio" name="q3" value="D"> D) Achieving strategic alignment</label>
+                        </div>
 
-        <!-- Repeat similar structure for questions 3 through 10 -->
-        <!-- Question 3 -->
-        <div class="quiz-question">
-          <p><strong>3. What is your main focus during coaching sessions?</strong></p>
-          <label><input type="radio" name="q3" value="A"> A) Building trust and understanding</label><br>
-          <label><input type="radio" name="q3" value="B"> B) Developing specific skills</label><br>
-          <label><input type="radio" name="q3" value="C"> C) Improving performance</label><br>
-          <label><input type="radio" name="q3" value="D"> D) Achieving strategic alignment</label>
-        </div>
+                        <!-- Question 4 -->
+                        <div class="quiz-question">
+                            <p><strong>4. How do you measure coaching success?</strong></p>
+                            <label><input type="radio" name="q4" value="A"> A) By the coachee's emotional well-being</label><br>
+                            <label><input type="radio" name="q4" value="B"> B) By the coachee's skill improvement</label><br>
+                            <label><input type="radio" name="q4" value="C"> C) By the coachee's performance metrics</label><br>
+                            <label><input type="radio" name="q4" value="D"> D) By the coachee's alignment with strategic goals</label>
+                        </div>
 
-        <!-- Question 4 -->
-        <div class="quiz-question">
-          <p><strong>4. How do you measure coaching success?</strong></p>
-          <label><input type="radio" name="q4" value="A"> A) By the coachee’s emotional well-being</label><br>
-          <label><input type="radio" name="q4" value="B"> B) By the coachee’s skill improvement</label><br>
-          <label><input type="radio" name="q4" value="C"> C) By the coachee’s performance metrics</label><br>
-          <label><input type="radio" name="q4" value="D"> D) By the coachee’s alignment with strategic goals</label>
-        </div>
+                        <!-- Question 5 -->
+                        <div class="quiz-question">
+                            <p><strong>5. How do you set goals with your coachees?</strong></p>
+                            <label><input type="radio" name="q5" value="A"> A) Based on their personal aspirations</label><br>
+                            <label><input type="radio" name="q5" value="B"> B) According to their skill needs</label><br>
+                            <label><input type="radio" name="q5" value="C"> C) Focused on performance metrics</label><br>
+                            <label><input type="radio" name="q5" value="D"> D) Aligned with strategic objectives</label>
+                        </div>
 
-        <!-- Question 5 -->
-        <div class="quiz-question">
-          <p><strong>5. How do you set goals with your coachees?</strong></p>
-          <label><input type="radio" name="q5" value="A"> A) Based on their personal aspirations</label><br>
-          <label><input type="radio" name="q5" value="B"> B) According to their skill needs</label><br>
-          <label><input type="radio" name="q5" value="C"> C) Focused on performance metrics</label><br>
-          <label><input type="radio" name="q5" value="D"> D) Aligned with strategic objectives</label>
-        </div>
+                        <!-- Question 6 -->
+                        <div class="quiz-question">
+                            <p><strong>6. What type of feedback do you provide?</strong></p>
+                            <label><input type="radio" name="q6" value="A"> A) Emotional and supportive</label><br>
+                            <label><input type="radio" name="q6" value="B"> B) Instructional and corrective</label><br>
+                            <label><input type="radio" name="q6" value="C"> C) Performance-driven and specific</label><br>
+                            <label><input type="radio" name="q6" value="D"> D) Strategic and future-focused</label>
+                        </div>
 
-        <!-- Question 6 -->
-        <div class="quiz-question">
-          <p><strong>6. What type of feedback do you provide?</strong></p>
-          <label><input type="radio" name="q6" value="A"> A) Emotional and supportive</label><br>
-          <label><input type="radio" name="q6" value="B"> B) Instructional and corrective</label><br>
-          <label><input type="radio" name="q6" value="C"> C) Performance-driven and specific</label><br>
-          <label><input type="radio" name="q6" value="D"> D) Strategic and future-focused</label>
-        </div>
+                        <!-- Question 7 -->
+                        <div class="quiz-question">
+                            <p><strong>7. How do you motivate your coachees?</strong></p>
+                            <label><input type="radio" name="q7" value="A"> A) Through emotional encouragement</label><br>
+                            <label><input type="radio" name="q7" value="B"> B) By setting skill milestones</label><br>
+                            <label><input type="radio" name="q7" value="C"> C) With performance rewards</label><br>
+                            <label><input type="radio" name="q7" value="D"> D) By outlining strategic benefits</label>
+                        </div>
 
-        <!-- Question 7 -->
-        <div class="quiz-question">
-          <p><strong>7. How do you motivate your coachees?</strong></p>
-          <label><input type="radio" name="q7" value="A"> A) Through emotional encouragement</label><br>
-          <label><input type="radio" name="q7" value="B"> B) By setting skill milestones</label><br>
-          <label><input type="radio" name="q7" value="C"> C) With performance rewards</label><br>
-          <label><input type="radio" name="q7" value="D"> D) By outlining strategic benefits</label>
-        </div>
+                        <!-- Question 8 -->
+                        <div class="quiz-question">
+                            <p><strong>8. How do you handle resistance from coachees?</strong></p>
+                            <label><input type="radio" name="q8" value="A"> A) With empathy and understanding</label><br>
+                            <label><input type="radio" name="q8" value="B"> B) By breaking down skills into manageable steps</label><br>
+                            <label><input type="radio" name="q8" value="C"> C) By showing performance data</label><br>
+                            <label><input type="radio" name="q8" value="D"> D) By revisiting strategic goals</label>
+                        </div>
 
-        <!-- Question 8 -->
-        <div class="quiz-question">
-          <p><strong>8. How do you handle resistance from coachees?</strong></p>
-          <label><input type="radio" name="q8" value="A"> A) With empathy and understanding</label><br>
-          <label><input type="radio" name="q8" value="B"> B) By breaking down skills into manageable steps</label><br>
-          <label><input type="radio" name="q8" value="C"> C) By showing performance data</label><br>
-          <label><input type="radio" name="q8" value="D"> D) By revisiting strategic goals</label>
-        </div>
+                        <!-- Question 9 -->
+                        <div class="quiz-question">
+                            <p><strong>9. What do you believe is the most important outcome of coaching?</strong></p>
+                            <label><input type="radio" name="q9" value="A"> A) Emotional well-being</label><br>
+                            <label><input type="radio" name="q9" value="B"> B) Skill proficiency</label><br>
+                            <label><input type="radio" name="q9" value="C"> C) Performance improvement</label><br>
+                            <label><input type="radio" name="q9" value="D"> D) Strategic alignment</label>
+                        </div>
 
-        <!-- Question 9 -->
-        <div class="quiz-question">
-          <p><strong>9. What do you believe is the most important outcome of coaching?</strong></p>
-          <label><input type="radio" name="q9" value="A"> A) Emotional well-being</label><br>
-          <label><input type="radio" name="q9" value="B"> B) Skill proficiency</label><br>
-          <label><input type="radio" name="q9" value="C"> C) Performance improvement</label><br>
-          <label><input type="radio" name="q9" value="D"> D) Strategic alignment</label>
-        </div>
+                        <!-- Question 10 -->
+                        <div class="quiz-question">
+                            <p><strong>10. How do you assess your coachee's progress?</strong></p>
+                            <label><input type="radio" name="q10" value="A"> A) Through regular check-ins on well-being</label><br>
+                            <label><input type="radio" name="q10" value="B"> B) Through skill assessments</label><br>
+                            <label><input type="radio" name="q10" value="C"> C) By tracking performance metrics</label><br>
+                            <label><input type="radio" name="q10" value="D"> D) By reviewing progress towards strategic goals</label>
+                        </div>
 
-        <!-- Question 10 -->
-        <div class="quiz-question">
-          <p><strong>10. How do you assess your coachee’s progress?</strong></p>
-          <label><input type="radio" name="q10" value="A"> A) Through regular check-ins on well-being</label><br>
-          <label><input type="radio" name="q10" value="B"> B) Through skill assessments</label><br>
-          <label><input type="radio" name="q10" value="C"> C) By tracking performance metrics</label><br>
-          <label><input type="radio" name="q10" value="D"> D) By reviewing progress towards strategic goals</label>
-        </div>
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <button type="submit" class="btn btn-primary">Get My Coaching Type</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="quiz-result" style="display:none; margin-top: 2rem;"></div>
+            </div>
+        </section>
 
-        <br>
-        <button type="submit" class="btn btn-primary">Get My Coaching Type</button>
-      </div>
-    </form>
-    <div id="quiz-result" style="display:none; margin-top: 2rem;"></div>
-  </div>
-</section>
-  <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
-    <h2 class="section-title">What Kind of Coach Am I?</h2>
-    
-    <div id="quizResult" style="margin-top: 2rem;"></div>
-  </div>
-</section><script>
-document.getElementById("coachQuizForm").addEventListener("submit", function (event) {
-  event.preventDefault();
-  const formData = new FormData(this);
-  const count = { A: 0, B: 0, C: 0, D: 0 };
-  for (let [key, value] of formData.entries()) {
-    count[value]++;
-  }
-
-  const max = Math.max(count.A, count.B, count.C, count.D);
-  let result = "";
-
-  if (count.A === max) {
-    result = `<h3>Human-Centered Coach</h3><p>You lead with empathy, trust, and emotional support. Strengths: Excellent in trust-building and emotional intelligence. Opportunities: Work on assertiveness and boundaries.</p>`;
-  } else if (count.B === max) {
-    result = `<h3>Skill-Focused Coach</h3><p>You prioritize skill development and clarity. Strengths: Technical knowledge and instruction. Opportunities: Performance tracking and planning.</p>`;
-  } else if (count.C === max) {
-    result = `<h3>Performance-Driven Coach</h3><p>You focus on results and metrics. Strengths: Analytical and goal-oriented. Opportunities: Build empathy and emotional strategy.</p>`;
-  } else if (count.D === max) {
-    result = `<h3>Visionary Coach</h3><p>You are strategy-focused and future-aligned. Strengths: Long-term planning. Opportunities: Improve daily tracking and implementation.</p>`;
-  }
-
-  const output = document.getElementById("quiz-result");
-  output.innerHTML = result;
-  output.style.display = "block";
-});        <!-- Blog Section -->
+        <!-- Blog Section -->
         <section id="blog" class="blog fade-in">
             <div class="container">
                 <div class="section-header">
@@ -1615,27 +1610,28 @@ document.getElementById("coachQuizForm").addEventListener("submit", function (ev
             </div>
         </section>
 
+        <!-- Contact Chad Button -->
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="https://chat.openai.com/g/g-68311183afa88191afa94562b36b701f-coach-chad" target="_blank" rel="noopener noreferrer">
+                <button style="
+                    background-color: #000;
+                    color: #fff;
+                    font-size: 1.5rem;
+                    padding: 1rem 2.5rem;
+                    border: none;
+                    border-radius: 1rem;
+                    cursor: pointer;
+                    transition: background 0.3s ease;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                "
+                onmouseover="this.style.backgroundColor='#444'"
+                onmouseout="this.style.backgroundColor='#000'">
+                    💬 Chat with Coach Chad
+                </button>
+            </a>
+        </div>
+
         <!-- Contact Section -->
-<!-- Contact Chad Button -->
-<div style="text-align: center; margin: 3rem 0;">
-  <a href="https://chat.openai.com/g/g-68311183afa88191afa94562b36b701f-coach-chad" target="_blank" rel="noopener noreferrer">
-    <button style="
-      background-color: #000;
-      color: #fff;
-      font-size: 1.5rem;
-      padding: 1rem 2.5rem;
-      border: none;
-      border-radius: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    "
-    onmouseover="this.style.backgroundColor='#444'"
-    onmouseout="this.style.backgroundColor='#000'">
-      💬 Chat with Coach Chad
-    </button>
-  </a>
-</div>
         <section id="contact" class="contact fade-in">
             <div class="container">
                 <div class="section-header">
@@ -1647,7 +1643,9 @@ document.getElementById("coachQuizForm").addEventListener("submit", function (ev
                         <div class="contact-icon">✉️</div>
                         <h3 class="contact-title">Email</h3>
                         <p><a href="mailto:chadtd1@gmail.com">chadtd1@gmail.com</a></p>
-                       <p style="margin-top: 1rem; color: var(--slate); font-size: 0.9rem;">Reach me directly for consulting, coaching, or collaboration</p>
+                        <p style="margin-top: 1rem; color: var(--slate); font-size: 0.9rem;">Reach me directly for consulting, coaching, or collaboration</p>
+                    </div>
+                    
                     <div class="contact-card interactive-element">
                         <div class="contact-icon">🔗</div>
                         <h3 class="contact-title">Social</h3>
@@ -1663,13 +1661,13 @@ document.getElementById("coachQuizForm").addEventListener("submit", function (ev
                         <a href="https://calendly.com/chadtdyar" target="_blank" class="btn btn-primary">Book a Call</a>
                     </div>
                 </div>
-             </div>
-    </section>
+            </div>
+        </section>
+    </main>
+
     <!-- Footer -->
     <footer>
         <div class="container">
-            ...
-
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -1698,24 +1696,13 @@ document.getElementById("coachQuizForm").addEventListener("submit", function (ev
                     </div>
                 </div>
             </div>
-           </section> <!-- Contact section ends -->
-
-<!-- QUIZ SECTION GOES HERE -->
-<section id="quiz-coach-type" class="fade-in" style="background: var(--warm-gray); padding: 4rem 2rem;">
-  <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
-    <h2 class="section-title">What Kind of Coach Am I?</h2>
-    <div id="quizResult" style="margin-top: 2rem;"></div>
-  </div>
-</section>
-
-
-<footer>
-  <div class="container">
+            
             <div class="footer-bottom">
                 <p>&copy; 2024 Chad T Dyar. All rights reserved. Built with systems, story, and soul.</p>
             </div>
         </div>
     </footer>
+
     <!-- JavaScript -->
     <script>
         // Mobile menu functionality
@@ -1791,6 +1778,47 @@ document.getElementById("coachQuizForm").addEventListener("submit", function (ev
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
+        
+        // Quiz functionality
+        function calculateCoachType(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(document.getElementById('coachQuizForm'));
+            const count = { A: 0, B: 0, C: 0, D: 0 };
+            
+            // Count answers
+            for (let [key, value] of formData.entries()) {
+                count[value]++;
+            }
+            
+            // Check if all questions are answered
+            if (Object.values(count).reduce((a, b) => a + b, 0) < 10) {
+                alert("Please answer all questions.");
+                return false;
+            }
+            
+            const max = Math.max(count.A, count.B, count.C, count.D);
+            let result = "";
+
+            if (count.A === max) {
+                result = `<h3 style="color: var(--navy); margin-bottom: 1rem;">Human-Centered Coach</h3><p>You lead with empathy, trust, and emotional support. Your strength lies in building deep relationships and creating safe spaces for growth. <strong>Strengths:</strong> Excellent in trust-building and emotional intelligence. <strong>Opportunities:</strong> Work on assertiveness and setting clear boundaries.</p>`;
+            } else if (count.B === max) {
+                result = `<h3 style="color: var(--navy); margin-bottom: 1rem;">Skill-Focused Coach</h3><p>You prioritize skill development and clear instruction. You're the coach people turn to when they need to master something specific. <strong>Strengths:</strong> Technical knowledge and systematic instruction. <strong>Opportunities:</strong> Develop performance tracking and strategic planning skills.</p>`;
+            } else if (count.C === max) {
+                result = `<h3 style="color: var(--navy); margin-bottom: 1rem;">Performance-Driven Coach</h3><p>You focus on results and measurable outcomes. You're data-driven and goal-oriented in your approach. <strong>Strengths:</strong> Analytical mindset and results orientation. <strong>Opportunities:</strong> Build more empathy and emotional intelligence into your coaching approach.</p>`;
+            } else if (count.D === max) {
+                result = `<h3 style="color: var(--navy); margin-bottom: 1rem;">Visionary Coach</h3><p>You are strategy-focused and help people see the bigger picture. You excel at connecting daily work to long-term vision. <strong>Strengths:</strong> Long-term thinking and strategic alignment. <strong>Opportunities:</strong> Improve daily implementation and practical skill development.</p>`;
+            }
+
+            const output = document.getElementById("quiz-result");
+            output.innerHTML = result;
+            output.style.display = "block";
+            
+            // Scroll to result
+            output.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            return false;
+        }
         
         // Interactive functions
         function openBookPreview(bookId) {
@@ -1899,75 +1927,7 @@ document.getElementById("coachQuizForm").addEventListener("submit", function (ev
                     location.reload();
                 }, 5000);
             }
-           });
-<script>
-  function calculateCoachType(event) {
-    event.preventDefault();
-    const answers = Array.from(document.querySelectorAll('#coachQuizForm input[type="radio"]:checked'))
-                         .map(input => input.value);
-    if (answers.length < 10) {
-      alert("Please answer all questions.");
-      return false;
-    }
-    const counts = { A: 0, B: 0, C: 0, D: 0 };
-    answers.forEach(val => counts[val]++);
-    const highest = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
-    const result = {
-      A: {
-        title: "Human-Centered Coach",
-        desc: "You lead with empathy. You create a safe, supportive coaching environment rooted in trust."
-      },
-      B: {
-        title: "Skill-Focused Coach",
-        desc: "You are a developer of talent. You focus on technical growth and practical skill mastery."
-      },
-      C: {
-        title: "Performance-Driven Coach",
-        desc: "You push for outcomes. You drive measurable results and performance accountability."
-      },
-      D: {
-        title: "Visionary Coach",
-        desc: "You coach for alignment. You connect today’s work to tomorrow’s strategy with clarity and foresight."
-      }
-    };
-    const output = result[highest];
-    document.getElementById("quizResult").innerHTML = `<h3>${output.title}</h3><p>${output.desc}</p>`;
-    return false;
-  }
-
-document.addEventListener("DOMContentLoaded", function () {
-  const quizForm = document.getElementById("coachQuizForm");
-  if (!quizForm) return;
-
-  quizForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const formData = new FormData(quizForm);
-    const count = { A: 0, B: 0, C: 0, D: 0 };
-
-    for (let [_, value] of formData.entries()) {
-      count[value]++;
-    }
-
-    const max = Math.max(count.A, count.B, count.C, count.D);
-    let result = "";
-
-    if (count.A === max) {
-      result = `<h3>Human-Centered Coach</h3><p>You lead with empathy and emotional support. You build trust first.</p>`;
-    } else if (count.B === max) {
-      result = `<h3>Skill-Focused Coach</h3><p>You teach with precision. You develop people through clear instruction and repetition.</p>`;
-    } else if (count.C === max) {
-      result = `<h3>Performance-Driven Coach</h3><p>You care about results. You coach to performance metrics and measurable success.</p>`;
-    } else if (count.D === max) {
-      result = `<h3>Visionary Coach</h3><p>You think long-term. You help people connect daily work to their strategic goals.</p>`;
-    }
-
-    const output = document.getElementById("quiz-result");
-    output.innerHTML = result;
-    output.style.display = "block";
-  });
-});
-</script>
+        });
+    </script>
 </body>
 </html>
-
-
