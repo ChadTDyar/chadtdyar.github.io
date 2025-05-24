@@ -855,41 +855,6 @@
   </div>
 </section>
 
-<script>
-  function calculateCoachType(event) {
-    event.preventDefault();
-    const answers = Array.from(document.querySelectorAll('#coachQuizForm input[type="radio"]:checked'))
-                         .map(input => input.value);
-    if (answers.length < 10) {
-      alert("Please answer all questions.");
-      return false;
-    }
-    const counts = { A: 0, B: 0, C: 0, D: 0 };
-    answers.forEach(val => counts[val]++);
-    const highest = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
-    const result = {
-      A: {
-        title: "Human-Centered Coach",
-        desc: "You lead with empathy. You create a safe, supportive coaching environment rooted in trust."
-      },
-      B: {
-        title: "Skill-Focused Coach",
-        desc: "You are a developer of talent. You focus on technical growth and practical skill mastery."
-      },
-      C: {
-        title: "Performance-Driven Coach",
-        desc: "You push for outcomes. You drive measurable results and performance accountability."
-      },
-      D: {
-        title: "Visionary Coach",
-        desc: "You coach for alignment. You connect today’s work to tomorrow’s strategy with clarity and foresight."
-      }
-    };
-    const output = result[highest];
-    document.getElementById("quizResult").innerHTML = `<h3>${output.title}</h3><p>${output.desc}</p>`;
-    return false;
-  }
-</script>
         /* ConvertKit Form Styling */
         #convertkit-form-container {
             max-width: 500px;
@@ -1492,7 +1457,8 @@
       <p class="section-subtitle">Answer 10 quick questions and find out your coaching type.</p>
     </div>
 
-    <form id="coachQuizForm">
+   <form id="coachQuizForm" onsubmit="return calculateCoachType(event)">
+
       <div class="quiz-questions">
 
         <!-- Question 1 -->
@@ -1926,6 +1892,40 @@ document.getElementById("coachQuizForm").addEventListener("submit", function (ev
             }
            });
 <script>
+  function calculateCoachType(event) {
+    event.preventDefault();
+    const answers = Array.from(document.querySelectorAll('#coachQuizForm input[type="radio"]:checked'))
+                         .map(input => input.value);
+    if (answers.length < 10) {
+      alert("Please answer all questions.");
+      return false;
+    }
+    const counts = { A: 0, B: 0, C: 0, D: 0 };
+    answers.forEach(val => counts[val]++);
+    const highest = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+    const result = {
+      A: {
+        title: "Human-Centered Coach",
+        desc: "You lead with empathy. You create a safe, supportive coaching environment rooted in trust."
+      },
+      B: {
+        title: "Skill-Focused Coach",
+        desc: "You are a developer of talent. You focus on technical growth and practical skill mastery."
+      },
+      C: {
+        title: "Performance-Driven Coach",
+        desc: "You push for outcomes. You drive measurable results and performance accountability."
+      },
+      D: {
+        title: "Visionary Coach",
+        desc: "You coach for alignment. You connect today’s work to tomorrow’s strategy with clarity and foresight."
+      }
+    };
+    const output = result[highest];
+    document.getElementById("quizResult").innerHTML = `<h3>${output.title}</h3><p>${output.desc}</p>`;
+    return false;
+  }
+
 document.addEventListener("DOMContentLoaded", function () {
   const quizForm = document.getElementById("coachQuizForm");
   if (!quizForm) return;
