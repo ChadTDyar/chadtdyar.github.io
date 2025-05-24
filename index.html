@@ -1159,47 +1159,6 @@
             </ul>
         </div>
     </header>
-    <div id="chat-box" style="
-      background: white;
-      border: 1px solid #E2E8F0;
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      max-height: 500px;
-      overflow-y: auto;
-      margin-bottom: 2rem;
-      text-align: left;
-    ">
-      <div id="chat-history" style="min-height: 300px;"></div>
-    </div>
-
-    <form id="chat-form" onsubmit="sendMessage(event)" style="display: flex; flex-direction: column; align-items: center;">
-      <textarea id="user-input" rows="3" placeholder="Ask a question..." style="
-        width: 100%;
-        max-width: 700px;
-        padding: 1rem;
-        border: 1px solid #CBD5E0;
-        border-radius: 0.5rem;
-        font-size: 1rem;
-        resize: none;
-        margin-bottom: 1rem;
-      "></textarea>
-      <button type="submit" style="
-        background-color: #000;
-        color: #fff;
-        font-size: 1.1rem;
-        padding: 0.75rem 2rem;
-        border: none;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: background 0.3s ease;
-      " onmouseover="this.style.backgroundColor='#444'" onmouseout="this.style.backgroundColor='#000'">
-        Send
-      </button>
-    </form>
-  </div>
-</section>
-
 <script>
   async function sendMessage(event) {
     event.preventDefault();
