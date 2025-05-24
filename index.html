@@ -118,13 +118,14 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.7;
+            line-height: 1.75;
             color: var(--charcoal);
             background: var(--warm-white);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             font-weight: 400;
+            font-size: 1.1rem;
         }
         
         /* Typography System */
@@ -428,18 +429,18 @@
         }
         
         .hero-description {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            opacity: 0.85;
-            margin-bottom: 3rem;
-            max-width: 650px;
-            line-height: 1.7;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            opacity: 0.9;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            line-height: 1.8;
             margin-left: auto;
             margin-right: auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
         }
         
         .cta-buttons {
@@ -524,10 +525,13 @@
             transform: translateY(-2px);
         }
         
-        /* Section Styles - Enhanced */
         section {
             padding: var(--section-padding) 0;
             position: relative;
+        }
+        
+        section:not(.hero):not(.chalkboard-section):not(.coaching):not(.blog) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .section-header {
@@ -600,20 +604,21 @@
         }
         
         .about-text {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1.8;
             color: var(--charcoal);
         }
         
         .about-text p {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
         
         .about-text p:first-child {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--navy);
             font-weight: 600;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Crimson Text', serif;
+            line-height: 1.6;
         }
         
         .about-image-container {
@@ -709,11 +714,11 @@
         
         .book-card {
             background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            padding: 3rem;
             box-shadow: var(--shadow-card);
             transition: var(--transition-slow);
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
             position: relative;
             overflow: hidden;
             cursor: pointer;
@@ -724,7 +729,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(139, 95, 191, 0.06), transparent);
+            background: linear-gradient(135deg, transparent, rgba(139, 95, 191, 0.03), transparent);
             transform: translateX(-100%);
             transition: var(--transition-slow);
         }
@@ -732,9 +737,9 @@
         .book-card:hover::before { transform: translateX(100%); }
         
         .book-card:hover {
-            transform: translateY(-16px) scale(1.02);
-            box-shadow: var(--shadow-elegant);
-            border-color: rgba(139, 95, 191, 0.15);
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            border-color: rgba(139, 95, 191, 0.1);
         }
         
         .book-genre {
@@ -797,9 +802,9 @@
         
         .module-card {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius-lg);
+            padding: 3rem;
             border: 1px solid rgba(255, 255, 255, 0.15);
             transition: var(--transition-slow);
             position: relative;
@@ -809,8 +814,9 @@
         
         .module-card:hover {
             background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-8px);
+            transform: translateY(-12px);
             border-color: var(--purple-light);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
         .module-icon {
@@ -1292,19 +1298,19 @@
         }
         
         .contact-card {
-            background: var(--gradient-surface);
-            padding: 3rem;
-            border-radius: var(--border-radius);
+            background: var(--gradient-warm);
+            padding: 3.5rem;
+            border-radius: var(--border-radius-lg);
             text-align: center;
             transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
             box-shadow: var(--shadow-card);
         }
         
         .contact-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-12px);
             box-shadow: var(--shadow-elegant);
-            border-color: rgba(139, 95, 191, 0.1);
+            border-color: rgba(139, 95, 191, 0.08);
         }
         
         .contact-icon {
