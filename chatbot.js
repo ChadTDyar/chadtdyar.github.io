@@ -1,89 +1,40 @@
-const chatBubble = document.createElement('div');
-chatBubble.innerHTML = '💬 Chat with Coach Chad';
-chatBubble.style.cssText = `
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #000;
-  color: #fff;
-  padding: 1rem 1.5rem;
-  border-radius: 50px;
-  cursor: pointer;
-  z-index: 9999;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  font-weight: bold;
-`;
+// Coach Chad Chatbot
+(function () {
+  const chatBubble = document.createElement("div");
+  chatBubble.id = "coach-chad-bubble";
+  chatBubble.style.position = "fixed";
+  chatBubble.style.bottom = "20px";
+  chatBubble.style.right = "20px";
+  chatBubble.style.width = "70px";
+  chatBubble.style.height = "70px";
+  chatBubble.style.borderRadius = "50%";
+  chatBubble.style.background = "#000";
+  chatBubble.style.color = "#fff";
+  chatBubble.style.display = "flex";
+  chatBubble.style.alignItems = "center";
+  chatBubble.style.justifyContent = "center";
+  chatBubble.style.fontSize = "32px";
+  chatBubble.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
+  chatBubble.style.cursor = "pointer";
+  chatBubble.style.zIndex = "9999";
+  chatBubble.innerText = "💬";
+  document.body.appendChild(chatBubble);
 
-document.body.appendChild(chatBubble);
+  const iframe = document.createElement("iframe");
+  iframe.src = "https://chat.openai.com/g/g-68311183afa88191afa94562b36b701f-coach-chad";
+  iframe.style.position = "fixed";
+  iframe.style.bottom = "100px";
+  iframe.style.right = "20px";
+  iframe.style.width = "400px";
+  iframe.style.height = "600px";
+  iframe.style.border = "none";
+  iframe.style.borderRadius = "12px";
+  iframe.style.boxShadow = "0 8px 24px rgba(0,0,0,0.2)";
+  iframe.style.display = "none";
+  iframe.style.zIndex = "9999";
+  document.body.appendChild(iframe);
 
-// Chat container
-const chatContainer = document.createElement('div');
-chatContainer.style.cssText = `
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 350px;
-  max-height: 500px;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  display: none;
-  flex-direction: column;
-  z-index: 9999;
-  overflow: hidden;
-`;
-
-chatContainer.innerHTML = `
-  <div style="padding: 1rem; font-weight: bold; background: #000; color: #fff;">Coach Chad</div>
-  <div id="chatLog" style="flex: 1; padding: 1rem; overflow-y: auto; font-size: 14px;"></div>
-  <form id="chatForm" style="display: flex; border-top: 1px solid #eee;">
-    <input type="text" placeholder="Ask anything..." style="flex:1; padding: 0.75rem; border: none;" />
-    <button style="background:#000; color:#fff; border:none; padding: 0 1rem;">Send</button>
-  </form>
-`;
-
-document.body.appendChild(chatContainer);
-
-// Toggle
-chatBubble.addEventListener('click', () => {
-  chatContainer.style.display = chatContainer.style.display === 'none' ? 'flex' : 'none';
-});
-
-// Chat logic
-document.getElementById('chatForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const input = this.querySelector('input');
-  const msg = input.value.trim();
-  if (!msg) return;
-  appendMessage('You', msg);
-  input.value = '';
-  
-  try {
-    const res = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer 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',
-
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        model: 'gpt-4',
-        messages: [{ role: 'system', content: 'You are Coach Chad, a helpful, encouraging performance coach.' },
-                   { role: 'user', content: msg }]
-      })
-    });
-
-    const data = await res.json();
-    const reply = data.choices?.[0]?.message?.content || "Something went wrong.";
-    appendMessage('Coach Chad', reply);
-  } catch (err) {
-    appendMessage('Coach Chad', 'Error fetching response.');
-  }
-});
-
-function appendMessage(sender, text) {
-  const div = document.createElement('div');
-  div.innerHTML = `<strong>${sender}:</strong> ${text}`;
-  document.getElementById('chatLog').appendChild(div);
-}
+  chatBubble.addEventListener("click", function () {
+    iframe.style.display = iframe.style.display === "none" ? "block" : "none";
+  });
+})();
