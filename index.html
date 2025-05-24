@@ -1159,7 +1159,77 @@
             </ul>
         </div>
     </header>
+<!-- Embedded Coach Chad Chat UI -->
+<section id="coach-chad-chat" style="padding: 4rem 0; background: #f7f8fc;">
+  <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem;">Chat with Coach Chad</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #4A5568;">
+      Ask anything about systems, coaching, or performance — Chad's AI is ready to help.
+    </p>
 
+    <div id="chat-box" style="
+      background: white;
+      border: 1px solid #E2E8F0;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      max-height: 500px;
+      overflow-y: auto;
+      margin-bottom: 2rem;
+      text-align: left;
+    ">
+      <div id="chat-history" style="min-height: 300px;"></div>
+    </div>
+
+    <form id="chat-form" onsubmit="sendMessage(event)" style="display: flex; flex-direction: column; align-items: center;">
+      <textarea id="user-input" rows="3" placeholder="Ask a question..." style="
+        width: 100%;
+        max-width: 700px;
+        padding: 1rem;
+        border: 1px solid #CBD5E0;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        resize: none;
+        margin-bottom: 1rem;
+      "></textarea>
+      <button type="submit" style="
+        background-color: #000;
+        color: #fff;
+        font-size: 1.1rem;
+        padding: 0.75rem 2rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      " onmouseover="this.style.backgroundColor='#444'" onmouseout="this.style.backgroundColor='#000'">
+        Send
+      </button>
+    </form>
+  </div>
+</section>
+
+<script>
+  async function sendMessage(event) {
+    event.preventDefault();
+    const inputField = document.getElementById('user-input');
+    const chatHistory = document.getElementById('chat-history');
+    const userMessage = inputField.value.trim();
+    if (!userMessage) return;
+
+    chatHistory.innerHTML += '<p><strong>You:</strong> ' + userMessage + '</p>';
+    inputField.value = '';
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+
+    // Simulate response (swap with real API integration)
+    chatHistory.innerHTML += '<p><strong>Coach Chad:</strong> Thinking...</p>';
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+
+    setTimeout(() => {
+      chatHistory.innerHTML = chatHistory.innerHTML.replace('Thinking...', 'This is a simulated response. Add your OpenAI API call here.');
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+    }, 1000);
+  }
+</script>
     <main>
        <!-- Hero Section -->
 <section id="home" class="hero">
