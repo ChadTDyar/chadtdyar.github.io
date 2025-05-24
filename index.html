@@ -994,7 +994,7 @@
         
         /* Virtual Chalkboard Section */
         .chalkboard-section {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: linear-gradient(135deg, var(--purple) 0%, var(--navy) 100%);
             color: var(--white);
             position: relative;
             overflow: hidden;
@@ -1005,8 +1005,8 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse at 30% 40%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+                radial-gradient(ellipse at 30% 40%, rgba(167, 139, 250, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(155, 158, 173, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
         
@@ -1020,8 +1020,8 @@
         }
         
         .chalkboard {
-            background: linear-gradient(135deg, #1a3d2e 0%, #2d5a47 100%);
-            border: 8px solid #8B4513;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--graphite) 100%);
+            border: 8px solid var(--silver-accent);
             border-radius: var(--border-radius);
             padding: 3rem;
             box-shadow: 
@@ -1045,7 +1045,7 @@
             left: -4px;
             right: -4px;
             bottom: -4px;
-            background: linear-gradient(45deg, #654321, #8B4513, #654321);
+            background: linear-gradient(45deg, var(--silver-dark), var(--silver-accent), var(--silver-dark));
             border-radius: calc(var(--border-radius) + 4px);
             z-index: -1;
         }
@@ -1082,7 +1082,7 @@
         .story-form textarea {
             width: 100%;
             background: rgba(255, 255, 255, 0.9);
-            border: 2px solid #8B4513;
+            border: 2px solid var(--silver-accent);
             border-radius: var(--border-radius-sm);
             padding: 1rem;
             font-size: 1rem;
@@ -1094,8 +1094,8 @@
         .story-form input:focus,
         .story-form textarea:focus {
             outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+            border-color: var(--purple-light);
+            box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
         }
         
         .form-actions {
@@ -1148,7 +1148,7 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.8);
             transform: rotate(-1deg);
             transition: var(--transition);
-            border-left: 4px solid var(--gold);
+            border-left: 4px solid var(--purple);
             position: relative;
         }
         
@@ -1329,7 +1329,7 @@
         }
         
         .contact-card a:hover {
-            color: var(--purple-dark);
+            color: var(--silver-accent);
         }
 
         /* ConvertKit Form Styling */
