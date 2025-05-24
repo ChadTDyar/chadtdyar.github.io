@@ -265,15 +265,16 @@
             padding: 0 2rem;
         }
        
-        /* Hero Section */
+        /* Hero Section - Broadway Musical Banner */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: var(--gradient-hero);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
             color: var(--white);
             position: relative;
             overflow: hidden;
+            border-bottom: 4px solid var(--gold);
         }
         
         .hero::before {
@@ -281,14 +282,27 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse at 25% 50%, rgba(0, 217, 255, 0.15) 0%, transparent 60%),
-                radial-gradient(ellipse at 75% 25%, rgba(255, 0, 128, 0.12) 0%, transparent 60%),
-                radial-gradient(ellipse at 50% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 60%);
+                radial-gradient(ellipse at 25% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 75% 25%, rgba(255, 215, 0, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
             pointer-events: none;
-            animation: backgroundFloat 20s ease-in-out infinite;
+            animation: spotlightFloat 20s ease-in-out infinite;
         }
         
-        @keyframes backgroundFloat {
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            right: 2rem;
+            bottom: 2rem;
+            border: 2px solid var(--gold);
+            border-radius: var(--border-radius-lg);
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        
+        @keyframes spotlightFloat {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             33% { transform: translateY(-10px) rotate(1deg); }
             66% { transform: translateY(5px) rotate(-0.5deg); }
@@ -299,6 +313,20 @@
             z-index: 2;
             max-width: 1000px;
             animation: heroFadeIn 1.2s ease-out;
+            text-align: center;
+        }
+        
+        .hero-content::before {
+            content: "✦ ✦ ✦ PRESENTING ✦ ✦ ✦";
+            display: block;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
         
         @keyframes heroFadeIn {
@@ -318,27 +346,44 @@
             font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 900;
             font-family: 'Playfair Display', serif;
-            background: linear-gradient(135deg, var(--white) 0%, var(--purple-light) 50%, var(--silver) 100%);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--white) 50%, var(--gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: textGlow 4s ease-in-out infinite alternate;
-            margin-bottom: 1.5rem;
+            animation: titleGlow 4s ease-in-out infinite alternate;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
-        @keyframes textGlow {
-            from { filter: drop-shadow(0 0 15px rgba(139, 95, 191, 0.3)); }
-            to { filter: drop-shadow(0 0 25px rgba(192, 199, 214, 0.4)); }
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.3)); }
+            to { filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.5)); }
         }
         
         .hero-subtitle {
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             font-weight: 400;
             opacity: 0.95;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             max-width: 700px;
             font-family: 'Playfair Display', serif;
             font-style: italic;
+            color: var(--gold);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-subtitle::before {
+            content: "~ ";
+            font-size: 1.5em;
+        }
+        
+        .hero-subtitle::after {
+            content: " ~";
+            font-size: 1.5em;
         }
         
         .hero-description {
@@ -347,6 +392,13 @@
             margin-bottom: 3rem;
             max-width: 650px;
             line-height: 1.7;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
         
         .cta-buttons {
@@ -354,6 +406,20 @@
             gap: 2rem;
             flex-wrap: wrap;
             align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons::after {
+            content: "✦ ✦ ✦";
+            display: block;
+            width: 100%;
+            text-align: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            letter-spacing: 1rem;
+            margin-top: 2rem;
+            opacity: 0.7;
         }
         
         /* Button Styles - Enhanced */
@@ -387,14 +453,19 @@
         .btn:hover::before { transform: translateX(100%); }
         
         .btn-primary {
-            background: var(--gradient-accent);
-            color: var(--white);
+            background: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+            color: var(--navy);
             box-shadow: var(--shadow-elegant);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
         .btn-primary:hover {
             transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            background: linear-gradient(135deg, #FFA500 0%, var(--gold) 100%);
         }
         
         .btn-secondary {
