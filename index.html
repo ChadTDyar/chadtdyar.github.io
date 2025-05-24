@@ -1440,7 +1440,143 @@
                 </div>
             </div>
         </section>
+<section id="quiz-coach-type" class="books fade-in">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">What Kind of Coach Am I?</h2>
+      <p class="section-subtitle">Answer 10 quick questions and find out your coaching type.</p>
+    </div>
 
+    <form id="coachQuizForm">
+      <div class="quiz-questions">
+
+        <!-- Question 1 -->
+        <div class="quiz-question">
+          <p><strong>1. How do you approach the initial conversation with your coachee?</strong></p>
+          <label><input type="radio" name="q1" value="A"> A) With empathy and understanding</label><br>
+          <label><input type="radio" name="q1" value="B"> B) With a focus on skill development</label><br>
+          <label><input type="radio" name="q1" value="C"> C) By setting performance goals</label><br>
+          <label><input type="radio" name="q1" value="D"> D) By discussing strategic objectives</label>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question">
+          <p><strong>2. How do you identify your coachee's needs?</strong></p>
+          <label><input type="radio" name="q2" value="A"> A) By asking about their feelings and perspectives</label><br>
+          <label><input type="radio" name="q2" value="B"> B) Through skill assessments</label><br>
+          <label><input type="radio" name="q2" value="C"> C) By analyzing performance data</label><br>
+          <label><input type="radio" name="q2" value="D"> D) By aligning with strategic goals</label>
+        </div>
+
+        <!-- Repeat similar structure for questions 3 through 10 -->
+        <!-- Question 3 -->
+        <div class="quiz-question">
+          <p><strong>3. What is your main focus during coaching sessions?</strong></p>
+          <label><input type="radio" name="q3" value="A"> A) Building trust and understanding</label><br>
+          <label><input type="radio" name="q3" value="B"> B) Developing specific skills</label><br>
+          <label><input type="radio" name="q3" value="C"> C) Improving performance</label><br>
+          <label><input type="radio" name="q3" value="D"> D) Achieving strategic alignment</label>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question">
+          <p><strong>4. How do you measure coaching success?</strong></p>
+          <label><input type="radio" name="q4" value="A"> A) By the coachee’s emotional well-being</label><br>
+          <label><input type="radio" name="q4" value="B"> B) By the coachee’s skill improvement</label><br>
+          <label><input type="radio" name="q4" value="C"> C) By the coachee’s performance metrics</label><br>
+          <label><input type="radio" name="q4" value="D"> D) By the coachee’s alignment with strategic goals</label>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-question">
+          <p><strong>5. How do you set goals with your coachees?</strong></p>
+          <label><input type="radio" name="q5" value="A"> A) Based on their personal aspirations</label><br>
+          <label><input type="radio" name="q5" value="B"> B) According to their skill needs</label><br>
+          <label><input type="radio" name="q5" value="C"> C) Focused on performance metrics</label><br>
+          <label><input type="radio" name="q5" value="D"> D) Aligned with strategic objectives</label>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="quiz-question">
+          <p><strong>6. What type of feedback do you provide?</strong></p>
+          <label><input type="radio" name="q6" value="A"> A) Emotional and supportive</label><br>
+          <label><input type="radio" name="q6" value="B"> B) Instructional and corrective</label><br>
+          <label><input type="radio" name="q6" value="C"> C) Performance-driven and specific</label><br>
+          <label><input type="radio" name="q6" value="D"> D) Strategic and future-focused</label>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="quiz-question">
+          <p><strong>7. How do you motivate your coachees?</strong></p>
+          <label><input type="radio" name="q7" value="A"> A) Through emotional encouragement</label><br>
+          <label><input type="radio" name="q7" value="B"> B) By setting skill milestones</label><br>
+          <label><input type="radio" name="q7" value="C"> C) With performance rewards</label><br>
+          <label><input type="radio" name="q7" value="D"> D) By outlining strategic benefits</label>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="quiz-question">
+          <p><strong>8. How do you handle resistance from coachees?</strong></p>
+          <label><input type="radio" name="q8" value="A"> A) With empathy and understanding</label><br>
+          <label><input type="radio" name="q8" value="B"> B) By breaking down skills into manageable steps</label><br>
+          <label><input type="radio" name="q8" value="C"> C) By showing performance data</label><br>
+          <label><input type="radio" name="q8" value="D"> D) By revisiting strategic goals</label>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="quiz-question">
+          <p><strong>9. What do you believe is the most important outcome of coaching?</strong></p>
+          <label><input type="radio" name="q9" value="A"> A) Emotional well-being</label><br>
+          <label><input type="radio" name="q9" value="B"> B) Skill proficiency</label><br>
+          <label><input type="radio" name="q9" value="C"> C) Performance improvement</label><br>
+          <label><input type="radio" name="q9" value="D"> D) Strategic alignment</label>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="quiz-question">
+          <p><strong>10. How do you assess your coachee’s progress?</strong></p>
+          <label><input type="radio" name="q10" value="A"> A) Through regular check-ins on well-being</label><br>
+          <label><input type="radio" name="q10" value="B"> B) Through skill assessments</label><br>
+          <label><input type="radio" name="q10" value="C"> C) By tracking performance metrics</label><br>
+          <label><input type="radio" name="q10" value="D"> D) By reviewing progress towards strategic goals</label>
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-primary">Get My Coaching Type</button>
+      </div>
+    </form>
+
+    <div id="quiz-result" style="display:none; margin-top: 2rem;"></div>
+  </div>
+</section>
+
+<script>
+document.getElementById("coachQuizForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const formData = new FormData(this);
+  const count = { A: 0, B: 0, C: 0, D: 0 };
+  for (let [key, value] of formData.entries()) {
+    count[value]++;
+  }
+
+  const max = Math.max(count.A, count.B, count.C, count.D);
+  let result = "";
+
+  if (count.A === max) {
+    result = `<h3>Human-Centered Coach</h3><p>You lead with empathy, trust, and emotional support. Strengths: Excellent in trust-building and emotional intelligence. Opportunities: Work on assertiveness and boundaries.</p>`;
+  } else if (count.B === max) {
+    result = `<h3>Skill-Focused Coach</h3><p>You prioritize skill development and clarity. Strengths: Technical knowledge and instruction. Opportunities: Performance tracking and planning.</p>`;
+  } else if (count.C === max) {
+    result = `<h3>Performance-Driven Coach</h3><p>You focus on results and metrics. Strengths: Analytical and goal-oriented. Opportunities: Build empathy and emotional strategy.</p>`;
+  } else if (count.D === max) {
+    result = `<h3>Visionary Coach</h3><p>You are strategy-focused and future-aligned. Strengths: Long-term planning. Opportunities: Improve daily tracking and implementation.</p>`;
+  }
+
+  const output = document.getElementById("quiz-result");
+  output.innerHTML = result;
+  output.style.display = "block";
+});
+</script>
         <!-- Blog Section -->
         <section id="blog" class="blog fade-in">
             <div class="container">
