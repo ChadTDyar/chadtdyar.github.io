@@ -384,17 +384,14 @@
         
         .gradient-text {
             font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 600;
+            font-weight: 400;
             font-family: 'Crimson Text', serif;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--warm-white) 50%, var(--gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--gold-light);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
             animation: titleGlow 4s ease-in-out infinite alternate;
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             line-height: 1.1;
         }
         
