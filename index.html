@@ -847,7 +847,60 @@
         .contact-card a:hover {
             color: var(--magenta);
         }
-        
+        <section id="quiz" class="fade-in" style="background: var(--warm-gray); padding: 4rem 2rem;">
+  <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <h2 class="section-title">What Kind of Coach Am I?</h2>
+    <form id="coachQuizForm" onsubmit="return calculateCoachType(event)" style="text-align: left; margin-top: 2rem;">
+      <p><strong>1.</strong> How do you approach the initial conversation with your coachee?</p>
+      <label><input type="radio" name="q1" value="A"> A) With empathy and understanding</label><br>
+      <label><input type="radio" name="q1" value="B"> B) With a focus on skill development</label><br>
+      <label><input type="radio" name="q1" value="C"> C) By setting performance goals</label><br>
+      <label><input type="radio" name="q1" value="D"> D) By discussing strategic objectives</label><br><br>
+
+      <!-- Repeat for Questions 2–10 using same format -->
+      <!-- To keep this readable here, only Question 1 is shown. You’ll need to replicate this format for all 10 questions. -->
+
+      <button type="submit" class="btn btn-primary" style="margin-top: 2rem;">Submit</button>
+    </form>
+    <div id="quizResult" style="margin-top: 2rem;"></div>
+  </div>
+</section>
+
+<script>
+  function calculateCoachType(event) {
+    event.preventDefault();
+    const answers = Array.from(document.querySelectorAll('#coachQuizForm input[type="radio"]:checked'))
+                         .map(input => input.value);
+    if (answers.length < 10) {
+      alert("Please answer all questions.");
+      return false;
+    }
+    const counts = { A: 0, B: 0, C: 0, D: 0 };
+    answers.forEach(val => counts[val]++);
+    const highest = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+    const result = {
+      A: {
+        title: "Human-Centered Coach",
+        desc: "You lead with empathy. You create a safe, supportive coaching environment rooted in trust."
+      },
+      B: {
+        title: "Skill-Focused Coach",
+        desc: "You are a developer of talent. You focus on technical growth and practical skill mastery."
+      },
+      C: {
+        title: "Performance-Driven Coach",
+        desc: "You push for outcomes. You drive measurable results and performance accountability."
+      },
+      D: {
+        title: "Visionary Coach",
+        desc: "You coach for alignment. You connect today’s work to tomorrow’s strategy with clarity and foresight."
+      }
+    };
+    const output = result[highest];
+    document.getElementById("quizResult").innerHTML = `<h3>${output.title}</h3><p>${output.desc}</p>`;
+    return false;
+  }
+</script>
         /* ConvertKit Form Styling */
         #convertkit-form-container {
             max-width: 500px;
