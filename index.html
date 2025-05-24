@@ -1925,7 +1925,39 @@ document.getElementById("coachQuizForm").addEventListener("submit", function (ev
                 }, 5000);
             }
            });
-    </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const quizForm = document.getElementById("coachQuizForm");
+  if (!quizForm) return;
+
+  quizForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const formData = new FormData(quizForm);
+    const count = { A: 0, B: 0, C: 0, D: 0 };
+
+    for (let [_, value] of formData.entries()) {
+      count[value]++;
+    }
+
+    const max = Math.max(count.A, count.B, count.C, count.D);
+    let result = "";
+
+    if (count.A === max) {
+      result = `<h3>Human-Centered Coach</h3><p>You lead with empathy and emotional support. You build trust first.</p>`;
+    } else if (count.B === max) {
+      result = `<h3>Skill-Focused Coach</h3><p>You teach with precision. You develop people through clear instruction and repetition.</p>`;
+    } else if (count.C === max) {
+      result = `<h3>Performance-Driven Coach</h3><p>You care about results. You coach to performance metrics and measurable success.</p>`;
+    } else if (count.D === max) {
+      result = `<h3>Visionary Coach</h3><p>You think long-term. You help people connect daily work to their strategic goals.</p>`;
+    }
+
+    const output = document.getElementById("quiz-result");
+    output.innerHTML = result;
+    output.style.display = "block";
+  });
+});
+</script>
 </body>
 </html>
 
