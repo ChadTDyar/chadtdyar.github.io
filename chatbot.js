@@ -63,7 +63,8 @@ document.getElementById('chatForm').addEventListener('submit', async function(e)
     const res = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer YOUR_API_KEY_HERE',
+        'Authorization': 'Bearer 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',
+
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
