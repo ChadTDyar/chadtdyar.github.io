@@ -2517,19 +2517,30 @@
         
         // Quiz functionality
         function showQuiz(quizNumber) {
-            // Hide all quiz contents
-            document.querySelectorAll('.quiz-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Remove active class from all tabs
-            document.querySelectorAll('.quiz-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show selected quiz
-            document.getElementById(`quiz${quizNumber}`).classList.add('active');
-            document.querySelectorAll('.quiz-tab')[quizNumber - 1].classList.add('active');
+            try {
+                // Hide all quiz contents
+                document.querySelectorAll('.quiz-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Remove active class from all tabs
+                document.querySelectorAll('.quiz-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Show selected quiz
+                const targetQuiz = document.getElementById(`quiz${quizNumber}`);
+                const targetTab = document.querySelectorAll('.quiz-tab')[quizNumber - 1];
+                
+                if (targetQuiz && targetTab) {
+                    targetQuiz.classList.add('active');
+                    targetTab.classList.add('active');
+                } else {
+                    console.warn(`Quiz ${quizNumber} not found`);
+                }
+            } catch (error) {
+                console.error('Error switching quiz tabs:', error);
+            }
         }
         
         function calculateResult(event, quizNumber) {
@@ -2789,10 +2800,12 @@
                             addStory();
                         }
                     });
+                    
+                    // Initial character count
+                    updateCharCount();
+                } else {
+                    console.log('Chalkboard not found on this page');
                 }
-                
-                // Initial character count
-                updateCharCount();
                 
             } catch (error) {
                 console.error('Error initializing chalkboard:', error);
