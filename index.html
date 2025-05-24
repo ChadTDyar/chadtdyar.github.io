@@ -61,10 +61,10 @@
             --border-radius-sm: 8px;
             --border-radius-lg: 24px;
             --container-width: 1400px;
-            --section-padding: 10rem;
-            --section-padding-mobile: 6rem;
-            --element-spacing: 4rem;
-            --content-spacing: 3rem;
+            --section-padding: 8rem;
+            --section-padding-mobile: 4rem;
+            --element-spacing: 3rem;
+            --content-spacing: 2rem;
             /* Chalkboard mobile styles */
             .chalkboard {
                 padding: 2rem 1.5rem;
@@ -431,7 +431,7 @@
         .hero-description {
             font-size: clamp(1.1rem, 2vw, 1.3rem);
             opacity: 0.9;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
             max-width: 600px;
             line-height: 1.8;
             margin-left: auto;
@@ -445,11 +445,11 @@
         
         .cta-buttons {
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
         }
         
         .cta-buttons::after {
@@ -536,7 +536,7 @@
         
         .section-header {
             text-align: center;
-            margin-bottom: 6rem;
+            margin-bottom: 5rem;
             position: relative;
         }
         
@@ -2794,26 +2794,28 @@
                 'post1': {
                     title: 'The Human in the Machine',
                     category: 'AI & Partnership',
-                    preview: 'I didn\'t start using AI because I wanted to move faster. I started using it because I was stuck. Stuck in a loop of doing too much, thinking too hard, and still falling short of what I knew I was capable of...',
+                    preview: 'Why AI won\'t replace us—but bad management might. A reflection on how I use AI not as a shortcut, but as a co-architect for performance systems, coaching simulations, and book writing.',
                     readTime: '8 min read'
                 },
                 'post2': {
                     title: 'Performance Is Personal',
                     category: 'Performance',
-                    preview: 'Let\'s start with something most leaders get wrong: performance isn\'t a number. It\'s a person. And that person is messy, complex, triggered, brilliant, inconsistent, resilient, and wired by a million invisible variables...',
+                    preview: 'Your numbers won\'t move until your people do. We all want better pipeline, shorter ramp, and cleaner forecasts. But the only way to get there is through behavior.',
                     readTime: '7 min read'
                 },
                 'post3': {
                     title: 'Systems That Serve the Soul',
                     category: 'Systems Design',
-                    preview: 'There\'s a lie we\'ve normalized in business: that productivity must come at the cost of peace. That if you\'re not hustling, burning, or proving, you\'re falling behind. But I\'ve lived long enough inside that system to know what it does...',
+                    preview: 'If the system isn\'t making your life better, it\'s not the right system. A peek inside my own design process—from burnout to clarity.',
                     readTime: '9 min read'
                 }
             };
             
             const post = blogPosts[postId];
             if (post) {
-                alert(`${post.title}\n\n${post.category} • ${post.readTime}\n\n${post.preview}\n\nIn a real implementation, this would open the full blog post with the complete 2,500-word article.`);
+                alert(`${post.title}\n\n${post.category} • ${post.readTime}\n\n${post.preview}\n\nIn a real implementation, this would open the full blog post.`);
+            } else {
+                alert('Blog post not found.');
             }
         }
         
