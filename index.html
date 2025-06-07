@@ -41,20 +41,20 @@
             --purple-light: #A78BFA;
             --purple-dark: #6B46C1;
             --gold: #FFD700;
-            --gold-light: #FFEA80; /* Added gold-light for consistency */
-            --gold-warm: #FFA500; /* Defined gold-warm */
+            --gold-light: #FFEA80;
+            --gold-warm: #FFA500;
             --emerald: #10B981;
             --warm-gray: #F7F8FC;
-            --warm-white: #FDFDFD; /* Defined warm-white */
+            --warm-white: #FDFDFD;
             
             --gradient-primary: linear-gradient(135deg, var(--navy) 0%, var(--graphite) 100%);
             --gradient-accent: linear-gradient(135deg, var(--purple) 0%, var(--silver) 100%);
             --gradient-secondary: linear-gradient(135deg, var(--cyan) 0%, var(--purple-light) 100%);
-            --gradient-gold: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%); /* Used gold-warm */
+            --gradient-gold: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%);
             --gradient-hero: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 50%, var(--graphite) 100%);
             --gradient-surface: linear-gradient(135deg, var(--silver-light) 0%, #f8fafc 100%);
             --gradient-purple: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-light) 100%);
-            --gradient-warm: linear-gradient(135deg, var(--warm-gray) 0%, var(--silver-light) 100%); /* Used in contact-card */
+            --gradient-warm: linear-gradient(135deg, var(--warm-gray) 0%, var(--silver-light) 100%);
             
             --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.08);
             --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.12);
@@ -73,7 +73,7 @@
             --border-radius-sm: 8px;
             --border-radius-lg: 24px;
             --container-width: 1400px;
-            --header-height: 84px; /* Defined header height as a variable */
+            --header-height: 84px;
             --section-padding: 8rem;
             --section-padding-mobile: 4rem;
             --element-spacing: 3rem;
@@ -105,7 +105,7 @@
         }
         
         /* Typography System */
-        .theatrical, .playfair { /* Combined redundant classes */
+        .theatrical, .playfair {
             font-family: 'Crimson Text', serif;
         }
         .playbill {
@@ -135,6 +135,30 @@
             transform: translateY(0);
         }
         
+        /* Skeleton loading state */
+        .skeleton-text {
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            display: inline-block;
+            height: 1em;
+            position: relative;
+            overflow: hidden;
+        }
+        .skeleton-text::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateX(-100%);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+
         /* Header - Broadway Playbill Style */
         header {
             position: fixed;
@@ -146,8 +170,8 @@
             z-index: 1000;
             transition: var(--transition);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-            height: var(--header-height); /* Set height from variable */
-            display: flex; /* Ensure contents are centered vertically */
+            height: var(--header-height);
+            display: flex;
             align-items: center;
         }
         
@@ -160,10 +184,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem; /* Adjusted padding to let header manage height */
+            padding: 0 2rem;
             max-width: var(--container-width);
             margin: 0 auto;
-            width: 100%; /* Ensure nav takes full width of container */
+            width: 100%;
         }
         
         .logo {
@@ -230,7 +254,7 @@
         .mobile-menu span {
             width: 28px;
             height: 3px;
-            background: var(--white); /* Changed to white for better contrast on dark header */
+            background: var(--white);
             transition: var(--transition);
             border-radius: 2px;
         }
@@ -242,18 +266,18 @@
         .mobile-nav {
             display: none;
             position: fixed;
-            top: var(--header-height); /* Uses header height variable */
+            top: var(--header-height);
             left: 0;
             right: 0;
             background: rgba(255, 255, 255, 0.98);
-            -webkit-backdrop-filter: blur(20px); /* Webkit prefix for backdrop-filter */
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             padding: 2rem;
             z-index: 999;
             transform: translateY(-100%);
             transition: var(--transition);
-            box-shadow: var(--shadow-md); /* Added shadow for mobile nav */
+            box-shadow: var(--shadow-md);
         }
         
         .mobile-nav.active {
@@ -278,7 +302,7 @@
         }
         
         main {
-            margin-top: var(--header-height); /* Uses header height variable */
+            margin-top: var(--header-height);
         }
         
         .container {
@@ -336,7 +360,7 @@
             max-width: 1000px;
             animation: heroFadeIn 1.2s ease-out;
             text-align: center;
-            margin-left: auto; /* Centering hero content */
+            margin-left: auto;
             margin-right: auto;
         }
         
@@ -361,7 +385,7 @@
         .hero-title {
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
-            font-family: 'Playfair Display', serif; /* Changed to Playfair Display as per content */
+            font-family: 'Playfair Display', serif;
             color: var(--white);
             margin-bottom: 1rem;
         }    
@@ -420,7 +444,7 @@
             padding: 2.5rem;
             border-radius: var(--border-radius-lg);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            -webkit-backdrop-filter: blur(20px); /* Webkit prefix */
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
         }
         
@@ -464,7 +488,7 @@
             box-shadow: var(--shadow-card);
             font-family: 'Inter', sans-serif;
             letter-spacing: 0.02em;
-            outline: none; /* Add outline none for focus */
+            outline: none;
         }
         
         .btn::before {
@@ -477,13 +501,13 @@
         }
         
         .btn:hover::before { transform: translateX(100%); }
-        .btn:focus-visible { /* Focus-visible for accessibility */
+        .btn:focus-visible {
             outline: 2px solid var(--cyan);
             outline-offset: 2px;
         }
         
         .btn-primary {
-            background: var(--gradient-gold); /* Used gradient-gold variable */
+            background: var(--gradient-gold);
             color: var(--navy);
             box-shadow: var(--shadow-elegant);
             font-family: 'Playfair Display', serif;
@@ -495,14 +519,14 @@
         .btn-primary:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
-            background: linear-gradient(135deg, var(--gold-warm) 0%, var(--gold) 100%); /* Used gold-warm */
+            background: linear-gradient(135deg, var(--gold-warm) 0%, var(--gold) 100%);
         }
         
         .btn-secondary {
             background: transparent;
             color: var(--white);
             border: 2px solid rgba(255, 255, 255, 0.3);
-            -webkit-backdrop-filter: blur(10px); /* Webkit prefix */
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
         
@@ -789,7 +813,7 @@
         
         .module-card {
             background: rgba(255, 255, 255, 0.1);
-            -webkit-backdrop-filter: blur(20px); /* Webkit prefix */
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border-radius: var(--border-radius-lg);
             padding: 3rem;
@@ -831,11 +855,6 @@
             list-style: none;
             margin-bottom: 2rem;
             text-align: left;
-        }
-        
-        .module-features li {
-            padding: 0.5rem 0;
-            opacity: 0.8;
         }
         
         .module-features li::before {
@@ -1015,7 +1034,7 @@
         
         .chalkboard {
             background: linear-gradient(135deg, var(--purple) 0%, var(--graphite) 100%);
-            border: 8px solid var(--silver-dark); /* Used silver-dark as a more defined accent */
+            border: 8px solid var(--silver-dark);
             border-radius: var(--border-radius);
             padding: 3rem;
             box-shadow: 
@@ -1039,7 +1058,7 @@
             left: -4px;
             right: -4px;
             bottom: -4px;
-            background: linear-gradient(45deg, var(--silver-dark), var(--silver), var(--silver-dark)); /* Used silver variable */
+            background: linear-gradient(45deg, var(--silver-dark), var(--silver), var(--silver-dark));
             border-radius: calc(var(--border-radius) + 4px);
             z-index: -1;
         }
@@ -1076,7 +1095,7 @@
         .story-form textarea {
             width: 100%;
             background: rgba(255, 255, 255, 0.9);
-            border: 2px solid var(--silver); /* Used silver variable */
+            border: 2px solid var(--silver);
             border-radius: var(--border-radius-sm);
             padding: 1rem;
             font-size: 1rem;
@@ -1120,7 +1139,7 @@
         }
         
         .btn-chalk:hover {
-            background: var(--gold-warm); /* Used gold-warm variable */
+            background: var(--gold-warm);
             transform: translateY(-3px);
             box-shadow: var(--shadow-glow);
         }
@@ -1213,7 +1232,7 @@
         
         .blog-card {
             background: rgba(255, 255, 255, 0.1);
-            -webkit-backdrop-filter: blur(15px); /* Webkit prefix */
+            -webkit-backdrop-filter: blur(15px);
             backdrop-filter: blur(15px);
             border-radius: var(--border-radius);
             padding: 2.5rem;
@@ -1287,7 +1306,7 @@
         }
         
         .contact-card {
-            background: var(--gradient-warm); /* Used gradient-warm */
+            background: var(--gradient-warm);
             padding: 3.5rem;
             border-radius: var(--border-radius-lg);
             text-align: center;
@@ -1324,7 +1343,7 @@
         }
         
         .contact-card a:hover {
-            color: var(--silver-dark); /* Used silver-dark variable */
+            color: var(--silver-dark);
         }
 
         /* ConvertKit Form Styling */
@@ -1378,7 +1397,7 @@
         /* Newsletter */
         .newsletter-form {
             background: rgba(255, 255, 255, 0.1);
-            -webkit-backdrop-filter: blur(15px); /* Webkit prefix */
+            -webkit-backdrop-filter: blur(15px);
             backdrop-filter: blur(15px);
             border-radius: var(--border-radius-lg);
             padding: 3rem;
@@ -1516,7 +1535,7 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             nav {
-                padding: 0 1rem; /* Adjusted padding to match header height */
+                padding: 0 1rem;
             }
             
             .nav-links {
@@ -1643,13 +1662,13 @@
         }
         
         .interactive-element:hover {
-            transform: scale(1.01); /* Reduced scale for subtle effect */
+            transform: scale(1.01);
         }
         
         /* Progress Bar */
         .progress-bar {
             position: fixed;
-            top: var(--header-height); /* Uses header height variable */
+            top: var(--header-height);
             left: 0;
             width: 0%;
             height: 3px;
@@ -1733,7 +1752,7 @@
             z-index: 2000;
             opacity: 0;
             transition: opacity 0.3s ease-out;
-            visibility: hidden; /* Start hidden */
+            visibility: hidden;
         }
 
         .app-modal-overlay.active {
@@ -1779,6 +1798,11 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+
+        /* Noscroll for body when modal is open */
+        body.no-scroll {
+            overflow: hidden;
+        }
     </style>
     <script type="application/ld+json">
         {
@@ -1789,14 +1813,8 @@
           "sameAs": [
             "https://linkedin.com/in/chadtdyar",
             "https://twitter.com/chadtdyar" 
-            /* Add other social profiles here */
           ],
-          "jobTitle": "Author, Strategist & Creative Systems Thinker",
-          "alumniOf": "Your Alma Mater (if relevant)",
-          "worksFor": {
-            "@type": "Organization",
-            "name": "Your Company (if relevant)"
-          }
+          "jobTitle": "Author, Strategist & Creative Systems Thinker"
         }
     </script>
     <script type="application/ld+json">
@@ -1807,14 +1825,46 @@
           "url": "https://chadtdyar.com",
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://chadtdyar.com/?q={search_term_string}", /* Replace with actual search URL */
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://chadtdyar.com/?q={search_term_string}"
+            },
             "query-input": "required name=search_term_string"
           }
         }
     </script>
+    <noscript>
+        <style>
+            /* Show all fade-in content immediately */
+            .fade-in { opacity: 1 !important; transform: none !important; }
+            /* Hide JS-dependent sections */
+            .quiz-section, .chalkboard-section, #convertkit-form-container { display: none !important; }
+            /* Show fallback newsletter form */
+            #fallbackNewsletterForm { display: flex !important; }
+            /* Simple notification for no-JS users */
+            body::before {
+                content: "Note: This site works best with JavaScript enabled for full interactivity and some content. Basic navigation is available.";
+                display: block;
+                background-color: #ffcc00;
+                color: #333;
+                padding: 10px;
+                text-align: center;
+                font-size: 0.9em;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 10001;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+            main { margin-top: calc(var(--header-height) + 40px); } /* Adjust for notification bar */
+            header { top: 40px; } /* Adjust header position */
+            .progress-bar { display: none; } /* Hide progress bar */
+        </style>
+    </noscript>
 </head>
 <body>
-    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Page reading progress"></div>
     
     <header id="header">
         <nav aria-label="Main navigation">
@@ -1880,7 +1930,7 @@
 
                     <div class="about-image-container tooltip interactive-element">
                         <img 
-                            src="https://res.cloudinary.com/dwvn18ge3/image/upload/v1748048037/chad-headshot_qe2rsc.jpg" 
+                            src="https://res.cloudinary.com/dwvn18ge3/image/upload/f_auto,q_auto:best,w_280,h_280,c_fill/v1748048037/chad-headshot_qe2rsc.jpg" 
                             alt="Chad T Dyar – Author, Strategist & Coach" 
                             class="about-image" 
                             loading="lazy">
@@ -2081,6 +2131,7 @@
                     
                     <form class="form-group fallback-form" id="fallbackNewsletterForm" onsubmit="handleNewsletterSignup(event)" style="display: none;">
                         <input type="email" placeholder="Enter your email address" required aria-label="Email address for newsletter signup">
+                        <input type="text" name="hp_email" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
                     
@@ -2097,11 +2148,11 @@
                 </div>
 
                 <div class="quiz-tabs" role="tablist" aria-label="Coaching Quizzes">
-                    <button class="quiz-tab active" role="tab" aria-selected="true" aria-controls="quiz1" id="tab-quiz1" onclick="showQuiz(1)">Quiz 1: Coach Type</button>
-                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz2" id="tab-quiz2" onclick="showQuiz(2)">Quiz 2: Strengths</button>
-                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz3" id="tab-quiz3" onclick="showQuiz(3)">Quiz 3: Weaknesses</button>
-                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz4" id="tab-quiz4" onclick="showQuiz(4)">Quiz 4: Style</button>
-                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz5" id="tab-quiz5" onclick="showQuiz(5)">Quiz 5: Best Fit</button>
+                    <button class="quiz-tab active" role="tab" aria-selected="true" aria-controls="quiz1" id="tab-quiz1">Quiz 1: Coach Type</button>
+                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz2" id="tab-quiz2">Quiz 2: Strengths</button>
+                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz3" id="tab-quiz3">Quiz 3: Weaknesses</button>
+                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz4" id="tab-quiz4">Quiz 4: Style</button>
+                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz5" id="tab-quiz5">Quiz 5: Best Fit</button>
                 </div>
 
                 <div class="quiz-content active" id="quiz1" role="tabpanel" aria-labelledby="tab-quiz1">
@@ -2109,7 +2160,7 @@
                         <h3>What Kind of Coach Am I?</h3>
                         <p>Discover your primary coaching approach and style.</p>
                     </div>
-                    <form id="coachQuizForm1" onsubmit="return calculateResult(event, 1)">
+                    <form id="coachQuizForm1">
                         <div class="quiz-questions">
                             <div class="quiz-question">
                                 <p><strong>1. How do you approach the initial conversation with your coachee?</strong></p>
@@ -2159,7 +2210,7 @@
                         <h3>What Are My Coaching Strengths?</h3>
                         <p>Identify your key strengths and superpowers as a coach.</p>
                     </div>
-                    <form id="coachQuizForm2" onsubmit="return calculateResult(event, 2)">
+                    <form id="coachQuizForm2">
                         <div class="quiz-questions">
                             <div class="quiz-question">
                                 <p><strong>1. What is your strongest skill as a coach?</strong></p>
@@ -2209,7 +2260,7 @@
                         <h3>What Are My Coaching Weaknesses?</h3>
                         <p>Identify areas for growth and development in your coaching practice.</p>
                     </div>
-                    <form id="coachQuizForm3" onsubmit="return calculateResult(event, 3)">
+                    <form id="coachQuizForm3">
                         <div class="quiz-questions">
                             <div class="quiz-question">
                                 <p><strong>1. What feedback do you least like to receive?</strong></p>
@@ -2259,7 +2310,7 @@
                         <h3>What Is My Coaching Style?</h3>
                         <p>Understand your unique approach and methodology as a coach.</p>
                     </div>
-                    <form id="coachQuizForm4" onsubmit="return calculateResult(event, 4)">
+                    <form id="coachQuizForm4">
                         <div class="quiz-questions">
                             <div class="quiz-question">
                                 <p><strong>1. How do you start your coaching sessions?</strong></p>
@@ -2309,7 +2360,7 @@
                         <h3>Who Would I Be the Best Coach For?</h3>
                         <p>Find out what type of coachees you're most effective with.</p>
                     </div>
-                    <form id="coachQuizForm5" onsubmit="return calculateResult(event, 5)">
+                    <form id="coachQuizForm5">
                         <div class="quiz-questions">
                             <div class="quiz-question">
                                 <p><strong>1. What type of coachee do you feel most comfortable working with?</strong></p>
@@ -2374,6 +2425,7 @@
                         <div class="story-form">
                             <input type="text" id="story-name" placeholder="Your name (or stay anonymous)" maxlength="50" aria-label="Your name for the story">
                             <textarea id="story-text" placeholder="Share your coaching story..." maxlength="280" rows="4" aria-label="Your coaching story"></textarea>
+                            <input type="text" name="hp_story" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
                             <div class="form-actions">
                                 <span class="char-count" aria-live="polite">280 characters remaining</span>
                                 <button type="button" onclick="addStory()" class="btn btn-chalk" aria-label="Post story to chalkboard">Post to Board</button>
@@ -2451,7 +2503,7 @@
                         <h3 class="contact-title">Social</h3>
                         <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
                             <a href="https://linkedin.com/in/chadtdyar" target="_blank" rel="noopener noreferrer" style="padding: 0.5rem; background: var(--gradient-accent); color: white; border-radius: 8px; text-decoration: none;" aria-label="LinkedIn Profile">LinkedIn <i class="fab fa-linkedin"></i></a>
-                            <a href="https://www.youtube.com/@chadtdyar" target="_blank" rel="noopener noreferrer" style="padding: 0.5rem; background: var(--gradient-accent); color: white; border-radius: 8px; text-decoration: none;" aria-label="YouTube Channel">YouTube <i class="fab fa-youtube"></i></a>
+                            <a href="https://www.youtube.com/@ChadTDyar" target="_blank" rel="noopener noreferrer" style="padding: 0.5rem; background: var(--gradient-accent); color: white; border-radius: 8px; text-decoration: none;" aria-label="YouTube Channel">YouTube <i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                     
@@ -2492,7 +2544,7 @@
                     <h4>Connect</h4>
                     <div class="social-links">
                         <a href="https://linkedin.com/in/chadtdyar" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.youtube.com/@chadtdyar" target="_blank" rel="noopener noreferrer" aria-label="Connect on YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.youtube.com/@ChadTDyar" target="_blank" rel="noopener noreferrer" aria-label="Connect on YouTube"><i class="fab fa-youtube"></i></a>
                         <a href="mailto:chadtd1@gmail.com" aria-label="Email Chad Dyar"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
@@ -2504,7 +2556,7 @@
         </div>
     </footer>
 
-    <div id="app-modal-overlay" class="app-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
+    <div id="app-modal-overlay" class="app-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description" aria-hidden="true">
         <div class="app-modal-content">
             <button class="app-modal-close-btn" aria-label="Close modal">×</button>
             <div id="modal-content-area">
@@ -2513,7 +2565,8 @@
     </div>
 
     <script>
-        // Data structures for better maintainability
+        // --- DATA LAYER ---
+        // CENTRALIZED DATA CONFIGURATION
         const QUIZ_RESULTS_DATA = {
             1: { /* Coach Type */
                 A: { title: "Human-Centered Coach", description: "You lead with empathy, trust, and emotional support. Your strength lies in building deep relationships and creating safe spaces for growth. <strong>Strengths:</strong> Excellent in trust-building and emotional intelligence. <strong>Opportunities:</strong> Work on assertiveness and setting clear boundaries." },
@@ -2553,21 +2606,21 @@
                 category: 'AI & Partnership',
                 preview: 'Why AI won\'t replace us—but bad management might. A reflection on how I use AI not as a shortcut, but as a co-architect for performance systems, coaching simulations, and book writing.',
                 readTime: '8 min read',
-                url: 'blog-post-human-in-machine.html' // Example URL for full post
+                url: 'blog-post-human-in-machine.html'
             },
             'post2': {
                 title: 'Performance Is Personal',
                 category: 'Performance',
                 preview: 'Your numbers won\'t move until your people do. We all want better pipeline, shorter ramp, and cleaner forecasts. But the only way to get there is through behavior. Here\'s what I\'ve learned about designing performance systems that actually hold.',
                 readTime: '7 min read',
-                url: 'blog-post-performance-personal.html' // Example URL for full post
+                url: 'blog-post-performance-personal.html'
             },
             'post3': {
                 title: 'Systems That Serve the Soul',
                 category: 'Systems Design',
                 preview: 'If the system isn\'t making your life better, it\'s not the right system. A peek inside my own design process—from burnout to clarity—and how I use rhythm, voice, and reflection as infrastructure in the way I work now.',
                 readTime: '9 min read',
-                url: 'blog-post-systems-serve-soul.html' // Example URL for full post
+                url: 'blog-post-systems-serve-soul.html'
             }
         };
 
@@ -2595,42 +2648,209 @@
             }
         };
 
-        // Core UI Elements Cache
+        // --- GLOBAL UTILITIES & SERVICES ---
+
+        // Centralized UI Element Cache
         const UI_ELEMENTS = {};
 
-        // --- DOM Ready / Initialization ---
-        document.addEventListener('DOMContentLoaded', function() {
-            try {
-                cacheUIElements();
-                setDynamicContent();
-                setupMobileNav();
-                setupHeaderScroll();
-                setupProgressBar();
-                setupSmoothScroll();
-                setupFadeInAnimations();
-                setupQuizzes();
-                setupChalkboard();
-                setupNewsletterForm();
-                setupInteractiveElements();
-                setupModals();
-                activateKonamiCode();
+        // Error Handling Utility (Error Boundary Pattern)
+        class ErrorBoundary {
+            static wrap(fn, componentName = 'UnknownComponent') {
+                return (...args) => {
+                    try {
+                        return fn(...args);
+                    } catch (error) {
+                        console.error(`Error in ${componentName}:`, error);
+                        Analytics.trackEvent('Error', 'Caught by Boundary', `${componentName}: ${error.message}`);
+                        NotificationManager.show('Something went wrong. Please try again.', 'error');
+                        // In a real application, you might render a fallback UI here
+                    }
+                };
+            }
+        }
 
-            } catch (error) {
-                console.error('Global JavaScript error during DOMContentLoaded:', error);
-                // Graceful degradation: ensure content is visible even if JS fails
-                document.querySelectorAll('.fade-in').forEach(el => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
+        // Notification Manager
+        class NotificationManager {
+            static show(message, type = 'success') {
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`; // Add type for specific styling
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => { notification.style.transform = 'translateX(0)'; }, 100);
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(400px)';
+                    notification.addEventListener('transitionend', () => notification.remove(), { once: true });
+                }, 3000);
+            }
+        }
+
+        // Analytics Manager (Placeholder for actual analytics integration)
+        class Analytics {
+            static trackEvent(category, action, label = '', value = 0) {
+                console.log(`[Analytics] Category: ${category}, Action: ${action}, Label: ${label}, Value: ${value}`);
+                // Replace with actual analytics library call (e.g., Google Analytics, Matomo, etc.)
+                // if (window.gtag) { gtag('event', action, { event_category: category, event_label: label, value: value }); }
+                // if (window.mixpanel) { mixpanel.track(action, { category, label, value }); }
+            }
+
+            static trackPageView(path) {
+                console.log(`[Analytics] Page View: ${path}`);
+                // if (window.gtag) { gtag('config', 'GA_MEASUREMENT_ID', { 'page_path': path }); }
+            }
+
+            // Performance Monitoring (Example usage)
+            static observePerformance() {
+                if ('PerformanceObserver' in window) {
+                    const perfObserver = new PerformanceObserver((list) => {
+                        list.getEntries().forEach(entry => {
+                            // Filter relevant entries for cleaner logs/reporting
+                            if (entry.entryType === 'paint' && entry.name === 'first-contentful-paint') {
+                                console.log(`[Performance] FCP: ${entry.startTime.toFixed(2)}ms`);
+                                Analytics.trackEvent('Performance', 'First Contentful Paint', '', Math.round(entry.startTime));
+                            } else if (entry.entryType === 'measure') {
+                                console.log(`[Performance] ${entry.name}: ${entry.duration.toFixed(2)}ms`);
+                                Analytics.trackEvent('Performance', 'Custom Measure', entry.name, Math.round(entry.duration));
+                            }
+                        });
+                    });
+                    perfObserver.observe({ entryTypes: ['paint', 'measure', 'longtask'] }); // Added longtask
+                }
+            }
+        }
+
+        // Form Validation Utility
+        class FormValidator {
+            static emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            static rateLimitMap = new Map(); // Stores {identifier: [timestamps]}
+
+            static validateEmail(email) {
+                return this.emailPattern.test(email);
+            }
+
+            static checkRateLimit(identifier, maxAttempts = 3, windowMs = 60000) { // 3 attempts per minute
+                const now = Date.now();
+                const attempts = this.rateLimitMap.get(identifier) || [];
+                // Filter out attempts older than windowMs
+                const recentAttempts = attempts.filter(time => now - time < windowMs);
+                
+                if (recentAttempts.length >= maxAttempts) {
+                    return false; // Rate limit exceeded
+                }
+                
+                recentAttempts.push(now);
+                this.rateLimitMap.set(identifier, recentAttempts);
+                return true; // OK to proceed
+            }
+            
+            // Client-side Honeypot Check (requires server-side verification too)
+            static isHoneypotFilled(form) {
+                const honeypotField = form.querySelector('input[name="hp_email"], input[name="hp_story"]');
+                return honeypotField && honeypotField.value !== '';
+            }
+        }
+
+        // IndexedDB for story persistence (client-side only)
+        class StoryStorage {
+            static DB_NAME = 'CoachingStoriesDB';
+            static DB_VERSION = 1;
+            static STORE_NAME = 'stories';
+            static db = null;
+
+            static async init() {
+                if (StoryStorage.db) return StoryStorage.db;
+
+                return new Promise((resolve, reject) => {
+                    const request = indexedDB.open(StoryStorage.DB_NAME, StoryStorage.DB_VERSION);
+
+                    request.onupgradeneeded = (event) => {
+                        const db = event.target.result;
+                        if (!db.objectStoreNames.contains(StoryStorage.STORE_NAME)) {
+                            db.createObjectStore(StoryStorage.STORE_NAME, { keyPath: 'id', autoIncrement: true });
+                        }
+                    };
+
+                    request.onsuccess = (event) => {
+                        StoryStorage.db = event.target.result;
+                        resolve(StoryStorage.db);
+                    };
+
+                    request.onerror = (event) => {
+                        console.error('IndexedDB error:', event.target.errorCode);
+                        NotificationManager.show('Could not access local storage for stories.', 'error');
+                        reject(event.target.error);
+                    };
                 });
             }
-        });
 
+            static async saveStory(story) {
+                try {
+                    const db = await StoryStorage.init();
+                    const transaction = db.transaction([StoryStorage.STORE_NAME], 'readwrite');
+                    const store = transaction.objectStore(StoryStorage.STORE_NAME);
+                    const request = store.add(story);
+
+                    return new Promise((resolve, reject) => {
+                        request.onsuccess = () => resolve(request.result);
+                        request.onerror = () => reject(request.error);
+                    });
+                } catch (error) {
+                    console.error('Error saving story to IndexedDB:', error);
+                    throw error;
+                }
+            }
+
+            static async getAllStories() {
+                try {
+                    const db = await StoryStorage.init();
+                    const transaction = db.transaction([StoryStorage.STORE_NAME], 'readonly');
+                    const store = transaction.objectStore(StoryStorage.STORE_NAME);
+                    const request = store.getAll();
+
+                    return new Promise((resolve, reject) => {
+                        request.onsuccess = () => resolve(request.result);
+                        request.onerror = () => reject(request.error);
+                    });
+                } catch (error) {
+                    console.error('Error getting all stories from IndexedDB:', error);
+                    return []; // Return empty array on error
+                }
+            }
+        }
+
+        // --- DOM Ready / Initialization ---
+        document.addEventListener('DOMContentLoaded', ErrorBoundary.wrap(function() {
+            // Measure DOMContentLoaded time
+            performance.mark('DOMContentLoaded-start');
+
+            cacheUIElements();
+            setDynamicContent();
+            setupMobileNav();
+            setupHeaderScroll();
+            setupProgressBar();
+            setupSmoothScroll();
+            setupFadeInAnimations();
+            setupQuizzes();
+            setupChalkboard();
+            setupNewsletterForm();
+            setupInteractiveElements();
+            setupModals();
+            activateKonamiCode();
+            Analytics.observePerformance(); // Start observing performance metrics
+
+            performance.mark('DOMContentLoaded-end');
+            performance.measure('DOMContentLoaded-duration', 'DOMContentLoaded-start', 'DOMContentLoaded-end');
+            Analytics.trackPageView(window.location.pathname); // Track initial page view
+        }, 'DOMContentLoaded'));
+
+        // Helper: Cache frequently accessed UI elements
         function cacheUIElements() {
             UI_ELEMENTS.mobileMenu = document.getElementById('mobileMenu');
             UI_ELEMENTS.mobileNav = document.getElementById('mobileNav');
             UI_ELEMENTS.header = document.getElementById('header');
             UI_ELEMENTS.progressBar = document.getElementById('progressBar');
             UI_ELEMENTS.currentYearSpan = document.getElementById('current-year');
+            UI_ELEMENTS.storyNameInput = document.getElementById('story-name'); // Added
             UI_ELEMENTS.storyTextInput = document.getElementById('story-text');
             UI_ELEMENTS.charCountSpan = document.querySelector('.char-count');
             UI_ELEMENTS.storiesDisplay = document.getElementById('stories-display');
@@ -2641,6 +2861,7 @@
             UI_ELEMENTS.convertKitContainer = document.getElementById('convertkit-form-container');
         }
 
+        // Helper: Set dynamic content like current year
         function setDynamicContent() {
             if (UI_ELEMENTS.currentYearSpan) {
                 UI_ELEMENTS.currentYearSpan.textContent = new Date().getFullYear();
@@ -2648,7 +2869,7 @@
         }
 
         // --- Mobile Navigation ---
-        function setupMobileNav() {
+        const setupMobileNav = ErrorBoundary.wrap(function() {
             if (UI_ELEMENTS.mobileMenu && UI_ELEMENTS.mobileNav) {
                 UI_ELEMENTS.mobileMenu.addEventListener('click', function() {
                     UI_ELEMENTS.mobileMenu.classList.toggle('active');
@@ -2667,10 +2888,10 @@
                     });
                 });
             }
-        }
+        }, 'setupMobileNav');
 
         // --- Header Scroll Behavior ---
-        function setupHeaderScroll() {
+        const setupHeaderScroll = ErrorBoundary.wrap(function() {
             if (UI_ELEMENTS.header) {
                 window.addEventListener('scroll', function() {
                     if (window.scrollY > 50) {
@@ -2680,27 +2901,27 @@
                     }
                 });
             }
-        }
+        }, 'setupHeaderScroll');
 
         // --- Progress Bar ---
-        function setupProgressBar() {
+        const setupProgressBar = ErrorBoundary.wrap(function() {
             if (UI_ELEMENTS.progressBar) {
                 window.addEventListener('scroll', updateProgressBar);
-                window.addEventListener('resize', updateProgressBar); // Recalculate on resize
-                updateProgressBar(); // Initial calculation
+                window.addEventListener('resize', updateProgressBar);
+                updateProgressBar();
             }
-        }
+        }, 'setupProgressBar');
 
-        function updateProgressBar() {
+        const updateProgressBar = ErrorBoundary.wrap(function() {
             if (!UI_ELEMENTS.progressBar) return;
             const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (window.scrollY / docHeight) * 100;
             UI_ELEMENTS.progressBar.style.width = `${scrolled}%`;
             UI_ELEMENTS.progressBar.setAttribute('aria-valuenow', Math.round(scrolled));
-        }
+        }, 'updateProgressBar');
 
         // --- Smooth Scroll for Anchor Links ---
-        function setupSmoothScroll() {
+        const setupSmoothScroll = ErrorBoundary.wrap(function() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -2708,55 +2929,61 @@
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height'));
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
                         
                         window.scrollTo({
                             top: offsetPosition,
                             behavior: 'smooth'
                         });
-                        // Update URL hash without jumping
                         history.pushState(null, '', targetId);
+                        Analytics.trackEvent('Navigation', 'Smooth Scroll', targetId);
                     }
                 });
             });
-        }
+        }, 'setupSmoothScroll');
 
         // --- Fade-in Animations on Scroll ---
-        function setupFadeInAnimations() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
+        const setupFadeInAnimations = ErrorBoundary.wrap(function() {
+            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
             const observer = new IntersectionObserver((entries, self) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        self.unobserve(entry.target); // Stop observing once visible
+                        self.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
             
-            // Initially hide elements and observe
             document.querySelectorAll('.fade-in').forEach(el => {
                 el.classList.remove('visible');
                 observer.observe(el);
             });
-        }
+        }, 'setupFadeInAnimations');
 
         // --- Quiz System ---
-        function setupQuizzes() {
+        const setupQuizzes = ErrorBoundary.wrap(function() {
             document.querySelectorAll('.quiz-tab').forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const quizNumber = parseInt(this.id.replace('tab-quiz', ''));
+                // Use event delegation for click for cleaner code on quiz tabs as well
+                tab.addEventListener('click', (e) => {
+                    const quizNumber = parseInt(e.target.id.replace('tab-quiz', ''));
                     showQuiz(quizNumber);
+                    Analytics.trackEvent('Quiz', 'Tab Switched', `Quiz ${quizNumber}`);
                 });
             });
-            showQuiz(1); // Activate the first quiz on load
-        }
 
-        function showQuiz(quizNumber) {
+            // Attach submit listeners using event delegation if forms are dynamically added,
+            // or directly if they are static as in this case
+            document.querySelectorAll('[id^="coachQuizForm"]').forEach(form => {
+                form.addEventListener('submit', ErrorBoundary.wrap((e) => {
+                    const quizNumber = parseInt(form.id.replace('coachQuizForm', ''));
+                    return calculateResult(e, quizNumber);
+                }, `QuizFormSubmit-${form.id}`));
+            });
+
+            showQuiz(1);
+        }, 'setupQuizzes');
+
+        const showQuiz = ErrorBoundary.wrap(function(quizNumber) {
             document.querySelectorAll('.quiz-content').forEach(content => {
                 content.classList.remove('active');
                 content.setAttribute('aria-hidden', 'true');
@@ -2778,45 +3005,40 @@
             } else {
                 console.warn(`Quiz ${quizNumber} or its tab not found.`);
             }
-        }
+        }, 'showQuiz');
         
-        function calculateResult(event, quizNumber) {
+        // This function would be a unit test candidate
+        const calculateResult = ErrorBoundary.wrap(function(event, quizNumber) {
             event.preventDefault();
             const form = event.target;
-            const formData = new FormData(form);
 
-            // Refactored quiz counting using reduce
+            performance.mark(`quiz-${quizNumber}-calculation-start`); // Performance measure start
+
+            const formData = new FormData(form);
             const answers = Array.from(formData.entries())
                 .filter(([key]) => key.startsWith('q'))
                 .map(([_, value]) => value);
 
+            const totalQuestions = form.querySelectorAll('.quiz-question').length;
+            if (answers.length < totalQuestions) {
+                NotificationManager.show("Please answer all questions before submitting.", "error");
+                return false;
+            }
+
             const count = answers.reduce((acc, val) => {
                 acc[val] = (acc[val] || 0) + 1;
                 return acc;
-            }, { A: 0, B: 0, C: 0, D: 0 }); // Ensure all keys are initialized to 0
-
-            const totalQuestions = form.querySelectorAll('.quiz-question').length;
-
-            if (answers.length < totalQuestions) {
-                showNotification("Please answer all questions before submitting.", "error");
-                return false;
-            }
+            }, { A: 0, B: 0, C: 0, D: 0 });
             
             let maxCount = 0;
-            let dominantTypes = []; // Handle potential ties
+            let dominantTypes = [];
             for (const type in count) {
                 if (count[type] > maxCount) {
                     maxCount = count[type];
                     dominantTypes = [type];
-                } else if (count[type] === maxCount && maxCount > 0) { // Only add to ties if there's a score
+                } else if (count[type] === maxCount && maxCount > 0) {
                     dominantTypes.push(type);
                 }
-            }
-
-            // Fallback for no answers selected (though 'required' should prevent this)
-            if (dominantTypes.length === 0) {
-                showNotification("Please answer all questions.", "error");
-                return false;
             }
 
             const resultOutput = UI_ELEMENTS[`quiz-result-${quizNumber}`] || document.getElementById(`quiz-result-${quizNumber}`);
@@ -2829,116 +3051,153 @@
             if (dominantTypes.length === 1) {
                 const resultData = QUIZ_RESULTS_DATA[quizNumber][dominantTypes[0]];
                 resultHtml = `<h3 style="color: var(--navy); margin-bottom: 1rem;">${resultData.title}</h3><p>${resultData.description}</p>`;
+                Analytics.trackEvent('Quiz', 'Completed', `Quiz${quizNumber}-${resultData.title}`);
             } else {
-                // Handle ties gracefully
                 resultHtml = `<h3 style="color: var(--navy); margin-bottom: 1rem;">Mixed Coaching Profile</h3>`;
                 resultHtml += `<p>You show strong tendencies across several areas. Your primary styles include:</p><ul>`;
                 dominantTypes.forEach(type => {
                     const resultData = QUIZ_RESULTS_DATA[quizNumber][type];
-                    resultHtml += `<li><strong>${resultData.title}:</strong> ${resultData.description.split('. ')[0]}.</li>`; // Take first sentence of description
+                    resultHtml += `<li><strong>${resultData.title}:</strong> ${resultData.description.split('. ')[0]}.</li>`;
                 });
                 resultHtml += `</ul><p>Embrace your versatility!</p>`;
+                Analytics.trackEvent('Quiz', 'Completed', `Quiz${quizNumber}-Mixed`);
             }
             
             resultOutput.innerHTML = resultHtml;
             resultOutput.classList.add('show');
             resultOutput.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // Analytics placeholder: Track quiz completion
-            console.log(`Analytics: Quiz ${quizNumber} completed with result: ${dominantTypes.join('/')}`);
+            performance.mark(`quiz-${quizNumber}-calculation-end`); // Performance measure end
+            performance.measure(`quiz-${quizNumber}-calculation`, `quiz-${quizNumber}-calculation-start`, `quiz-${quizNumber}-calculation-end`);
             
             return false;
-        }
+        }, 'calculateResult');
         
         // --- Virtual Chalkboard Functionality ---
-        function setupChalkboard() {
+        const setupChalkboard = ErrorBoundary.wrap(async function() { // Added async for IndexedDB
             if (UI_ELEMENTS.storyTextInput && UI_ELEMENTS.charCountSpan) {
                 UI_ELEMENTS.storyTextInput.addEventListener('input', updateCharCount);
-                // Adding a specific event listener for the button to trigger addStory
                 document.querySelector('.btn-chalk').addEventListener('click', addStory);
                 UI_ELEMENTS.storyTextInput.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter' && e.ctrlKey) {
-                        e.preventDefault(); // Prevent new line
+                        e.preventDefault();
                         addStory();
                     }
                 });
-                updateCharCount(); // Initial character count
-            }
-        }
+                updateCharCount();
 
-        function addStory() {
-            const name = UI_ELEMENTS.storyNameInput.value.trim() || 'Anonymous Coach'; // Ensure name input is cached
+                // Load existing stories from IndexedDB on startup
+                await loadStoriesFromStorage();
+            }
+        }, 'setupChalkboard');
+
+        const loadStoriesFromStorage = ErrorBoundary.wrap(async function() {
+            const storedStories = await StoryStorage.getAllStories();
+            // Sort by ID descending to show newest first, consistent with addStory
+            storedStories.sort((a, b) => b.id - a.id).forEach(story => {
+                appendStoryToDisplay(story.name, story.text, false); // Add without animation/storage
+            });
+        }, 'loadStoriesFromStorage');
+
+        const addStory = ErrorBoundary.wrap(async function() { // Added async
+            const name = UI_ELEMENTS.storyNameInput.value.trim();
             const text = UI_ELEMENTS.storyTextInput.value.trim();
             
-            // Basic client-side validation
+            // Client-side Honeypot Check
+            if (FormValidator.isHoneypotFilled(UI_ELEMENTS.storyTextInput.closest('form'))) {
+                console.warn('Honeypot caught a bot submission for chalkboard.');
+                NotificationManager.show('Form submission prevented (likely bot).', 'error');
+                Analytics.trackEvent('Security', 'Honeypot Triggered', 'Chalkboard');
+                return;
+            }
+
+            // Client-side Rate Limiting (using IP/Fingerprint or just local time for demo)
+            const userIdentifier = 'local_user_chalkboard'; // In real app, use user ID or IP
+            if (!FormValidator.checkRateLimit(userIdentifier)) {
+                NotificationManager.show('Too many submissions. Please wait a moment and try again.', 'error');
+                Analytics.trackEvent('Security', 'Rate Limit Hit', 'Chalkboard');
+                return;
+            }
+
             if (!text) {
-                showNotification('Please share your coaching story!', 'error');
+                NotificationManager.show('Please share your coaching story!', 'error');
                 UI_ELEMENTS.storyTextInput.focus();
                 return;
             }
             if (text.length > 280) {
-                showNotification('Please keep your story to 280 characters or less.', 'error');
+                NotificationManager.show('Please keep your story to 280 characters or less.', 'error');
                 UI_ELEMENTS.storyTextInput.focus();
                 return;
             }
             if (text.length < 10) {
-                showNotification('Please share a bit more detail in your story (at least 10 characters).', 'error');
+                NotificationManager.show('Please share a bit more detail in your story (at least 10 characters).', 'error');
                 UI_ELEMENTS.storyTextInput.focus();
                 return;
             }
 
-            // Security: Sanitize input before injecting into DOM
-            // IMPORTANT: For real-world applications, SERVER-SIDE SANITIZATION IS CRITICAL.
+            // Sanitize input
             const sanitizedText = sanitizeHTML(text);
-            const sanitizedName = sanitizeHTML(name);
+            const sanitizedName = sanitizeHTML(name || 'Anonymous Coach');
             
+            const newStory = { name: sanitizedName, text: sanitizedText, timestamp: Date.now() };
+
+            try {
+                // Save to IndexedDB
+                const id = await StoryStorage.saveStory(newStory);
+                newStory.id = id; // Update with generated ID from IndexedDB
+                
+                // Append to display
+                appendStoryToDisplay(newStory.name, newStory.text, true); // True for animation
+
+                // Clear form
+                UI_ELEMENTS.storyNameInput.value = '';
+                UI_ELEMENTS.storyTextInput.value = '';
+                updateCharCount();
+                
+                NotificationManager.show('Your story has been added to the board! 🎭', 'success');
+                Analytics.trackEvent('Chalkboard', 'Story Submitted');
+
+            } catch (error) {
+                console.error('Failed to add story:', error);
+                NotificationManager.show('Failed to save your story. Please try again.', 'error');
+                Analytics.trackEvent('Chalkboard', 'Story Submission Failed', error.message);
+            }
+        }, 'addStory');
+
+        function appendStoryToDisplay(name, text, animate = true) {
             const storyNote = document.createElement('div');
             storyNote.className = 'story-note';
-            storyNote.style.opacity = '0';
-            storyNote.style.transform = 'translateY(20px) rotate(-1deg)';
+            if (animate) {
+                storyNote.style.opacity = '0';
+                storyNote.style.transform = 'translateY(20px) rotate(-1deg)';
+            }
             
             const rotations = ['-1deg', '1deg', '-0.5deg', '0.5deg'];
             const randomRotation = rotations[Math.floor(Math.random() * rotations.length)];
             
             const contentDiv = document.createElement('div');
             contentDiv.className = 'story-content';
-            contentDiv.textContent = `"${sanitizedText}"`; // Use textContent to prevent XSS
+            contentDiv.textContent = `"${text}"`;
             
             const authorDiv = document.createElement('div');
             authorDiv.className = 'story-author';
-            authorDiv.textContent = `- ${sanitizedName}`; // Use textContent
+            authorDiv.textContent = `- ${name}`;
             
             storyNote.appendChild(contentDiv);
             storyNote.appendChild(authorDiv);
             
             UI_ELEMENTS.storiesDisplay.insertBefore(storyNote, UI_ELEMENTS.storiesDisplay.firstChild);
             
-            setTimeout(() => {
-                storyNote.style.transition = 'all 0.5s ease-out';
-                storyNote.style.opacity = '1';
-                storyNote.style.transform = `translateY(0) rotate(${randomRotation})`;
-            }, 100);
-            
-            UI_ELEMENTS.storyNameInput.value = '';
-            UI_ELEMENTS.storyTextInput.value = '';
-            updateCharCount();
-            
-            showNotification('Your story has been added to the board! 🎭', 'success');
-
-            // Analytics placeholder: Track story submission
-            console.log(`Analytics: Story submitted by ${sanitizedName}.`);
-
-            // IMPLICATION: In a real app, this would send data to a backend for persistence and moderation
-            // fetch('/api/submit-story', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ name: sanitizedName, text: sanitizedText })
-            // }).then(response => response.json())
-            //   .then(data => console.log('Story submitted to backend:', data))
-            //   .catch(error => console.error('Error submitting story:', error));
+            if (animate) {
+                setTimeout(() => {
+                    storyNote.style.transition = 'all 0.5s ease-out';
+                    storyNote.style.opacity = '1';
+                    storyNote.style.transform = `translateY(0) rotate(${randomRotation})`;
+                }, 100);
+            }
         }
-        
-        function updateCharCount() {
+
+        const updateCharCount = ErrorBoundary.wrap(function() {
             if (!UI_ELEMENTS.storyTextInput || !UI_ELEMENTS.charCountSpan) return;
             const remaining = 280 - UI_ELEMENTS.storyTextInput.value.length;
             UI_ELEMENTS.charCountSpan.textContent = `${remaining} characters remaining`;
@@ -2950,74 +3209,61 @@
             } else {
                 UI_ELEMENTS.charCountSpan.style.color = 'rgba(255, 255, 255, 0.7)';
             }
-        }
+        }, 'updateCharCount');
 
-        // Basic HTML Sanitization (Client-side, not sufficient for security alone)
+        // Client-side HTML Sanitization (crucial for security, must be paired with server-side)
         function sanitizeHTML(str) {
             const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
+            div.textContent = str; // Use textContent to prevent HTML parsing
+            return div.innerHTML; // Returns the HTML-escaped string
         }
 
-        // --- Notification System ---
-        function showNotification(message, type = 'success') {
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.textContent = message;
-            
-            if (type === 'error') {
-                notification.style.background = 'var(--magenta)';
-            } else if (type === 'info') {
-                notification.style.background = 'var(--cyan)';
-            }
-            
-            document.body.appendChild(notification);
-            
-            // Slide in
-            setTimeout(() => {
-                notification.style.transform = 'translateX(0)';
-            }, 100);
-            
-            // Slide out and remove
-            setTimeout(() => {
-                notification.style.transform = 'translateX(400px)';
-                notification.addEventListener('transitionend', () => notification.remove(), { once: true });
-            }, 3000); // Display for 3 seconds
-        }
-
-        // --- Modal System for Book/Blog Previews ---
-        function setupModals() {
+        // --- Modal System ---
+        const setupModals = ErrorBoundary.wrap(function() {
             if (UI_ELEMENTS.modalCloseBtn) {
                 UI_ELEMENTS.modalCloseBtn.addEventListener('click', closeModal);
             }
-            document.addEventListener('keydown', handleEscKey); // Global Escape key listener
-        }
+            // Use event delegation for closing modal by clicking overlay
+            if (UI_ELEMENTS.modalOverlay) {
+                UI_ELEMENTS.modalOverlay.addEventListener('click', (e) => {
+                    if (e.target === UI_ELEMENTS.modalOverlay) {
+                        closeModal();
+                    }
+                });
+            }
+            document.addEventListener('keydown', handleEscKey);
+        }, 'setupModals');
 
-        function showModal(contentHtml) {
+        const showModal = ErrorBoundary.wrap(function(contentHtml) {
             if (!UI_ELEMENTS.modalOverlay || !UI_ELEMENTS.modalContentArea) return;
 
             UI_ELEMENTS.modalContentArea.innerHTML = contentHtml;
             UI_ELEMENTS.modalOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            document.body.classList.add('no-scroll'); // Add class to body to prevent scroll
             UI_ELEMENTS.modalOverlay.setAttribute('aria-hidden', 'false');
-        }
+            UI_ELEMENTS.modalOverlay.focus(); // Set focus to modal for accessibility
+            Analytics.trackEvent('UI Interaction', 'Modal Opened');
+        }, 'showModal');
 
-        function closeModal() {
+        const closeModal = ErrorBoundary.wrap(function() {
             if (!UI_ELEMENTS.modalOverlay) return;
 
             UI_ELEMENTS.modalOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
+            document.body.classList.remove('no-scroll'); // Remove no-scroll class
             UI_ELEMENTS.modalOverlay.setAttribute('aria-hidden', 'true');
-        }
+            // Re-focus on the element that opened the modal if possible, for better UX
+            // This would require storing the `document.activeElement` before opening the modal.
+            Analytics.trackEvent('UI Interaction', 'Modal Closed');
+        }, 'closeModal');
 
-        function handleEscKey(e) {
+        const handleEscKey = ErrorBoundary.wrap(function(e) {
             if (e.key === 'Escape' && UI_ELEMENTS.modalOverlay.classList.contains('active')) {
                 closeModal();
             }
-        }
+        }, 'handleEscKey');
 
         // --- Book/Blog Post Interaction ---
-        function openBookPreview(bookId) {
+        const openBookPreview = ErrorBoundary.wrap(function(bookId) {
             const book = BOOK_DATA[bookId];
             if (book) {
                 const modalContent = `
@@ -3029,43 +3275,37 @@
                     <button class="btn btn-secondary" onclick="closeModal()" role="button">Close</button>
                 `;
                 showModal(modalContent);
-                // Analytics placeholder
-                console.log(`Analytics: Opened book preview for "${book.title}"`);
+                Analytics.trackEvent('Content', 'Book Preview Opened', book.title);
             } else {
-                showNotification('Book details not found.', 'error');
+                NotificationManager.show('Book details not found.', 'error');
             }
-        }
+        }, 'openBookPreview');
         
-        function openBlogPost(postId) {
+        const openBlogPost = ErrorBoundary.wrap(function(postId) {
             const post = BLOG_POSTS_DATA[postId];
             if (post) {
                 const modalContent = `
                     <h3 id="modal-title" style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--navy);">${sanitizeHTML(post.title)}</h3>
                     <p style="font-size: 0.9rem; color: var(--slate); margin-bottom: 1.5rem;"><span style="background: rgba(139, 95, 191, 0.3); color: var(--purple-light); padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 600; font-size: 0.8em; text-transform: uppercase;">${sanitizeHTML(post.category)}</span> • ${sanitizeHTML(post.readTime)}</p>
-                    <p id="modal-description" style="margin-bottom: 2rem; line-height: 1.6; color: var(--charcoal);">${sanitizeHTML(post.preview)} <br><br> (This is a preview. In a real blog, the full content would load here or link to a dedicated page.)</p>
+                    <p id="modal-description" style="margin-bottom: 2rem; line-height: 1.6; color: var(--charcoal);">${sanitizeHTML(post.preview)} <br><br> (This is a preview. For full content, navigate to the dedicated page.)</p>
                     <a href="${sanitizeHTML(post.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: block; margin-bottom: 1rem;" role="button">Read Full Post (New Page)</a>
                     <button class="btn btn-secondary" onclick="closeModal()" role="button">Close</button>
                 `;
                 showModal(modalContent);
-                // Analytics placeholder
-                console.log(`Analytics: Opened blog post preview for "${post.title}"`);
+                Analytics.trackEvent('Content', 'Blog Preview Opened', post.title);
             } else {
-                showNotification('Blog post not found.', 'error');
+                NotificationManager.show('Blog post not found.', 'error');
             }
-        }
+        }, 'openBlogPost');
 
         // --- Newsletter Signup ---
-        function setupNewsletterForm() {
-            // Load ConvertKit script dynamically to allow fallback
+        const setupNewsletterForm = ErrorBoundary.wrap(function() {
             const convertKitScriptUrl = `https://chad-t-dyar.ck.page/${UI_ELEMENTS.convertKitContainer.dataset.convertkitFormId}/index.js`;
             const script = document.createElement('script');
             script.src = convertKitScriptUrl;
             script.async = true;
             script.onload = () => {
-                // Give a short delay for ConvertKit to render the form
-                setTimeout(() => {
-                    checkConvertKitFormPresence();
-                }, 500); 
+                setTimeout(checkConvertKitFormPresence, 500);
             };
             script.onerror = () => {
                 console.warn('Failed to load ConvertKit script. Displaying fallback form.');
@@ -3073,17 +3313,14 @@
             };
             document.head.appendChild(script);
 
-            // Hook the fallback form's submit event
             if (UI_ELEMENTS.fallbackNewsletterForm) {
                 UI_ELEMENTS.fallbackNewsletterForm.addEventListener('submit', handleNewsletterSignup);
             }
+        }, 'setupNewsletterForm');
 
-            // Store storyNameInput for chalkboard
-            UI_ELEMENTS.storyNameInput = document.getElementById('story-name');
-        }
-
-        function checkConvertKitFormPresence() {
-            const convertKitForm = document.querySelector('.ck-form');
+        const checkConvertKitFormPresence = ErrorBoundary.wrap(function() {
+            // ConvertKit forms usually have a specific class or are injected into a div
+            const convertKitForm = UI_ELEMENTS.convertKitContainer.querySelector('form');
             if (convertKitForm) {
                 if (UI_ELEMENTS.fallbackNewsletterForm) {
                     UI_ELEMENTS.fallbackNewsletterForm.style.display = 'none';
@@ -3092,97 +3329,123 @@
             } else {
                 showFallbackForm();
             }
-        }
+        }, 'checkConvertKitFormPresence');
 
-        function showFallbackForm() {
+        const showFallbackForm = ErrorBoundary.wrap(function() {
             if (UI_ELEMENTS.fallbackNewsletterForm) {
-                UI_ELEMENTS.fallbackNewsletterForm.style.display = 'flex'; // Use flex to match original form-group style
+                UI_ELEMENTS.fallbackNewsletterForm.style.display = 'flex';
                 UI_ELEMENTS.fallbackNewsletterForm.setAttribute('aria-hidden', 'false');
             }
-        }
+        }, 'showFallbackForm');
         
-        function handleNewsletterSignup(event) {
-            event.preventDefault(); // Prevent default form submission
-            const emailInput = event.target.querySelector('input[type="email"]');
-            const email = emailInput ? emailInput.value : ''; // Ensure input exists
-            const button = event.target.querySelector('button[type="submit"]');
+        const handleNewsletterSignup = ErrorBoundary.wrap(async function(event) { // Added async for potential API call
+            event.preventDefault();
+            const form = event.target;
+            const emailInput = form.querySelector('input[type="email"]');
+            const honeypotField = form.querySelector('input[name="hp_email"]');
+            const button = form.querySelector('button[type="submit"]');
             
-            if (!button || !emailInput) {
+            if (!emailInput || !button) {
                 console.error("Newsletter form elements not found.");
                 return;
             }
 
+            const email = emailInput.value.trim();
             const originalText = button.textContent;
 
-            // Robust email validation (client-side, but still needs server-side)
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showNotification('Please enter a valid email address.', 'error');
-                emailInput.focus();
+            // Client-side Honeypot Check
+            if (honeypotField && honeypotField.value !== '') {
+                console.warn('Honeypot caught a bot submission for newsletter.');
+                NotificationManager.show('Submission prevented (likely bot).', 'error');
+                Analytics.trackEvent('Security', 'Honeypot Triggered', 'Newsletter');
                 return;
             }
 
-            // Honeypot field simulation (client-side, simple)
-            // For a real honeypot, this would be a hidden input with a name like 'hp_email'
-            // and the server would check if it was filled.
-            // if (event.target.querySelector('input[name="hp_field"]')?.value) {
-            //     console.warn('Honeypot caught a bot submission.');
-            //     showNotification('Form submission prevented.', 'error'); // Show generic error
-            //     return;
-            // }
+            // Client-side Rate Limiting (using local IP/Fingerprint or just local time for demo)
+            const userIdentifier = 'local_user_newsletter'; // In real app, use user ID or IP
+            if (!FormValidator.checkRateLimit(userIdentifier, 1, 5000)) { // 1 attempt every 5 seconds
+                NotificationManager.show('Please wait a moment before trying again.', 'error');
+                Analytics.trackEvent('Security', 'Rate Limit Hit', 'Newsletter');
+                return;
+            }
+
+            // Robust email validation (client-side)
+            if (!FormValidator.validateEmail(email)) {
+                NotificationManager.show('Please enter a valid email address.', 'error');
+                emailInput.focus();
+                return;
+            }
 
             // Show loading state
             button.innerHTML = '<span class="loading"></span> Subscribing...';
             button.disabled = true;
             emailInput.disabled = true;
             
-            // Simulate API call (replace with actual fetch to your backend or ConvertKit API)
-            // Analytics placeholder: Track newsletter signup attempt
-            console.log(`Analytics: Newsletter signup attempt for ${email}`);
-            setTimeout(() => {
-                showNotification('Successfully subscribed to the newsletter!', 'success');
+            try {
+                // Simulate API call (replace with actual fetch to your backend or ConvertKit API)
+                // For a real ConvertKit direct API integration (requires server-side or CORS proxy):
+                // const response = await fetch('https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ email: email, api_key: 'YOUR_PUBLIC_API_KEY' })
+                // });
+                // const data = await response.json();
+                // if (!response.ok) throw new Error(data.message || 'Subscription failed');
+
+                await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate network delay
+
+                NotificationManager.show('Successfully subscribed to the newsletter!', 'success');
                 button.textContent = 'Subscribed!';
                 button.style.background = 'var(--emerald)';
+                Analytics.trackEvent('Newsletter', 'Signed Up', email);
                 
                 setTimeout(() => {
                     button.textContent = originalText;
                     button.disabled = false;
                     emailInput.disabled = false;
                     button.style.background = ''; // Reset background
-                    event.target.reset(); // Clear the form
+                    form.reset(); // Clear the form
                 }, 2000);
-            }, 1500);
 
-            // IMPLICATION: Implement rate limiting on server-side for real forms
-        }
+            } catch (error) {
+                console.error('Newsletter signup failed:', error);
+                NotificationManager.show('Failed to subscribe. Please try again.', 'error');
+                Analytics.trackEvent('Newsletter', 'Signup Failed', error.message);
+                
+                // Re-enable form elements on error
+                button.textContent = originalText;
+                button.disabled = false;
+                emailInput.disabled = false;
+                button.style.background = '';
+            }
+
+        }, 'handleNewsletterSignup');
         
         // --- General Interactive Elements ---
-        function setupInteractiveElements() {
+        const setupInteractiveElements = ErrorBoundary.wrap(function() {
             document.querySelectorAll('.interactive-element').forEach(element => {
                 element.addEventListener('mouseenter', () => element.style.cursor = 'pointer');
                 element.addEventListener('mouseleave', () => element.style.cursor = 'default');
             });
             
             document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('btn') || e.target.closest('.btn')) {
-                    const btn = e.target.closest('.btn'); // Ensure we target the button
+                const btn = e.target.closest('.btn');
+                if (btn) {
                     const originalTransform = btn.style.transform;
                     btn.style.transform = `${originalTransform} scale(0.98)`;
                     setTimeout(() => {
                         btn.style.transform = originalTransform;
                     }, 150);
-                    // Analytics placeholder: Track button click
-                    console.log(`Analytics: Button clicked: ${btn.textContent.trim()}`);
+                    Analytics.trackEvent('UI Interaction', 'Button Clicked', btn.textContent.trim());
                 }
             });
 
-            // Make book-card and blog-card clickable (using event delegation for efficiency)
+            // Event delegation for book/blog cards
             document.addEventListener('click', function(e) {
                 const card = e.target.closest('.book-card[data-book-id], .blog-card[data-post-id]');
                 const readMoreLink = e.target.closest('.read-more');
 
-                // If a card was clicked and it's not the "Read More" link
-                if (card && !readMoreLink) {
+                if (card && !readMoreLink) { // Ensure click isn't on the nested link
                     if (card.dataset.bookId) {
                         openBookPreview(card.dataset.bookId);
                     } else if (card.dataset.postId) {
@@ -3191,7 +3454,7 @@
                 }
             });
 
-            // Add keyboard navigation for cards
+            // Keyboard navigation for cards
             document.querySelectorAll('.book-card[data-book-id], .blog-card[data-post-id]').forEach(card => {
                 card.addEventListener('keydown', function(event) {
                     if (event.key === 'Enter' || event.key === ' ') {
@@ -3204,31 +3467,31 @@
                     }
                 });
             });
-        }
+        }, 'setupInteractiveElements');
 
         // --- Konami Code Easter Egg ---
         let konamiCodeSequence = [];
         const CORRECT_KONAMI_CODE = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑↑↓↓←→←→BA
 
-        function activateKonamiCode() {
+        const activateKonamiCode = ErrorBoundary.wrap(function() {
             document.addEventListener('keydown', handleKonamiCode);
-        }
+        }, 'activateKonamiCode');
 
-        function handleKonamiCode(e) {
+        const handleKonamiCode = ErrorBoundary.wrap(function(e) {
             konamiCodeSequence.push(e.keyCode);
             if (konamiCodeSequence.length > CORRECT_KONAMI_CODE.length) {
-                konamiCodeSequence.shift(); // Keep sequence length to max required
+                konamiCodeSequence.shift();
             }
             
             if (konamiCodeSequence.length === CORRECT_KONAMI_CODE.length && 
                 konamiCodeSequence.every((key, index) => key === CORRECT_KONAMI_CODE[index])) {
                 triggerRainbowMode();
-                konamiCodeSequence = []; // Reset sequence to prevent repeated triggers
+                konamiCodeSequence = [];
                 document.removeEventListener('keydown', handleKonamiCode); // Remove listener after trigger
             }
-        }
+        }, 'handleKonamiCode');
 
-        function triggerRainbowMode() {
+        const triggerRainbowMode = ErrorBoundary.wrap(function() {
             const body = document.body;
             const originalBackground = body.style.background;
             const originalBackgroundSize = body.style.backgroundSize;
@@ -3238,40 +3501,18 @@
             body.style.backgroundSize = '400% 400%';
             body.style.animation = 'rainbow 2s ease infinite';
             
-            showNotification('🌈 Rainbow Mode Activated! 🌈', 'info');
-            console.log('Analytics: Konami Code activated!');
+            NotificationManager.show('🌈 Rainbow Mode Activated! 🌈', 'info');
+            Analytics.trackEvent('Easter Egg', 'Konami Code Activated');
 
             // Revert after 5 seconds
             setTimeout(() => {
                 body.style.background = originalBackground;
                 body.style.backgroundSize = originalBackgroundSize;
                 body.style.animation = originalAnimation;
-                showNotification('Rainbow Mode Deactivated.', 'info');
+                NotificationManager.show('Rainbow Mode Deactivated.', 'info');
                 document.addEventListener('keydown', handleKonamiCode); // Re-enable listener
             }, 5000);
-        }
-
-        // --- Analytics & Error Tracking (Placeholders) ---
-        // Implement a simple analytics function
-        function trackEvent(category, action, label = '') {
-            console.log(`[Analytics] Category: ${category}, Action: ${action}, Label: ${label}`);
-            // In a real scenario, you'd send this to Google Analytics, Matomo, etc.
-            // Example: ga('send', 'event', category, action, label);
-        }
-
-        // Global Error Tracking (basic)
-        window.onerror = function(message, source, lineno, colno, error) {
-            console.error(`[Global Error] Message: ${message}, Source: ${source}, Line: ${lineno}, Column: ${colno}`);
-            console.error(error);
-            // In a real scenario, you'd send this to Sentry, Bugsnag, etc.
-            // Sentry.captureException(error);
-            return true; // Suppress default browser error reporting
-        };
-
-        // Analytics example usage in functions:
-        // - In calculateResult: trackEvent('Quiz', 'Completed', `Quiz${quizNumber}-${dominantTypes.join('/')}`);
-        // - In addStory: trackEvent('Chalkboard', 'Story Submitted');
-        // - In handleNewsletterSignup: trackEvent('Newsletter', 'Signed Up');
+        }, 'triggerRainbowMode');
 
     </script>
 </body>
