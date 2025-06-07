@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <!-- SEO & Metadata -->
     <meta name="description" content="Where systems meet story, and performance becomes personal. Chad T Dyar is an author and creative performance coach.">
     <meta name="author" content="Chad T Dyar">
-    <meta name="keywords" content="coaching, performance, enablement, leadership, systems thinking, author, strategist">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://chadtdyar.com/">
     
     <!-- Open Graph & Twitter Cards -->
@@ -28,13 +28,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://res.cloudinary.com">
-    <link rel="preconnect" href="https://chad-t-dyar.ck.page">
     <link rel="preconnect" href="https://i.imgur.com">
     
     <!-- Optimized Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" referrerpolicy="strict-origin-when-cross-origin">
     
-    <!-- Content Security Policy -->
+    <!-- Content Security Policy (placeholder for hash generation) -->
+    <!-- NOTE: The 'sha256-...' hashes below are placeholders. They must be generated from the final content of the <style> and <script> blocks for production. -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         script-src 'self' 'unsafe-inline' https://chad-t-dyar.ck.page;
@@ -61,6 +61,7 @@
           "@type": "WebSite",
           "name": "Chad T Dyar - Author, Strategist & Creative Systems Thinker",
           "url": "https://chadtdyar.com",
+          "inLanguage": "en-US",
           "publisher": { "@type": "Person", "name": "Chad T Dyar" },
           "potentialAction": {
             "@type": "SearchAction",
@@ -68,20 +69,34 @@
             "query-input": "required name=search_term_string"
           }
         },
-        { "@type": "Book", "name": "How to Talk to Humans", "author": {"@type": "Person", "name": "Chad T Dyar"}, "url": "https://www.amazon.com/How-Talk-Humans-Chad-Dyar-ebook/dp/B016R8W7HM/", "workExample": [{"@type": "Book", "isbn": "B016R8W7HM", "bookFormat": "https://schema.org/EBook"}] },
-        { "@type": "Book", "name": "Bring Your Best Self to Work", "author": {"@type": "Person", "name": "Chad T Dyar"}, "url": "https://www.amazon.com/Bring-Your-Best-Self-Work-ebook/dp/B07VPKP8LJ/", "workExample": [{"@type": "Book", "isbn": "B07VPKP8LJ", "bookFormat": "https://schema.org/EBook"}] },
-        { "@type": "Book", "name": "The Performance Whisperer", "author": {"@type": "Person", "name": "Chad T Dyar"}, "url": "https://www.amazon.com/Performance-Whisperer-Unlocking-Potential-Those/dp/B0DHWHJ71F/", "workExample": [{"@type": "Book", "isbn": "B0DHWHJ71F", "bookFormat": "https://schema.org/EBook"}] }
+        { "@type": "Book", "inLanguage": "en-US", "name": "How to Talk to Humans", "author": {"@type": "Person", "name": "Chad T Dyar"}, "url": "https://www.amazon.com/How-Talk-Humans-Chad-Dyar-ebook/dp/B016R8W7HM/", "workExample": [{"@type": "Book", "isbn": "B016R8W7HM", "bookFormat": "https://schema.org/EBook"}] },
+        { "@type": "Book", "inLanguage": "en-US", "name": "Bring Your Best Self to Work", "author": {"@type": "Person", "name": "Chad T Dyar"}, "url": "https://www.amazon.com/Bring-Your-Best-Self-Work-ebook/dp/B07VPKP8LJ/", "workExample": [{"@type": "Book", "isbn": "B07VPKP8LJ", "bookFormat": "https://schema.org/EBook"}] },
+        { "@type": "Book", "inLanguage": "en-US", "name": "The Performance Whisperer", "author": {"@type": "Person", "name": "Chad T Dyar"}, "url": "https://www.amazon.com/Performance-Whisperer-Unlocking-Potential-Those/dp/B0DHWHJ71F/", "workExample": [{"@type": "Book", "isbn": "B0DHWHJ71F", "bookFormat": "https://schema.org/EBook"}] }
       ]
     }
     </script>
     
     <style>
-        /* CRITICAL, ABOVE-THE-FOLD CSS */
-        :root{--navy:#0A1628;--graphite:#1A1D29;--charcoal:#2D3748;--slate:#4A5568;--white:#FFFFFF;--gold:#FFD700;--gold-warm:#FFA500;--warm-white:#FDFDFD;--gradient-gold:linear-gradient(135deg,var(--gold) 0%,var(--gold-warm) 100%);--shadow-card:0 4px 20px rgba(0,0,0,.08);--transition:all .3s cubic-bezier(.4,0,.2,1);--border-radius:16px;--border-radius-lg:24px;--header-height:84px}
+        /* CSS Variables & Base Styles */
+        :root{--navy:#0A1628;--graphite:#1A1D29;--charcoal:#2D3748;--slate:#4A5568;--white:#FFFFFF;--gold:#FFD700;--gold-warm:#FFA500;--warm-white:#FDFDFD;--silver-light:#E2E8F0;--silver-dark:#94A3B8;--cyan:#00D9FF;--magenta:#FF0080;--purple:#8B5FBF;--purple-light:#A78BFA;--purple-dark:#6B46C1;--emerald:#10B981;--warm-gray:#F7F8FC;--gradient-gold:linear-gradient(135deg,var(--gold) 0%,var(--gold-warm) 100%);--gradient-accent:linear-gradient(135deg,var(--purple) 0%,#C0C7D6 100%);--shadow-card:0 4px 20px rgba(0,0,0,.08);--shadow-elegant:0 8px 32px rgba(0,0,0,.1);--shadow-glow:0 0 30px rgba(139,95,191,.3);--transition:all .3s cubic-bezier(.4,0,.2,1);--transition-slow:all .6s cubic-bezier(.4,0,.2,1);--border-radius:16px;--border-radius-sm:8px;--border-radius-lg:24px;--header-height:84px}
         *,::after,::before{margin:0;padding:0;box-sizing:border-box}
         html{font-size:16px;scroll-behavior:smooth}
         body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.75;color:var(--charcoal);background:var(--warm-white);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1.1rem}
-        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+        .sr-only:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+        .skip-link:focus{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:10001;padding:10px 20px;background:var(--gold);color:var(--navy);text-decoration:none;border-radius:var(--border-radius-sm);box-shadow:var(--shadow-elegant)}
+
+        /* Reduced Motion Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        /* All other styles */
         header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(10,22,40,.8);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background-color .3s ease,box-shadow .3s ease;height:var(--header-height);display:flex;align-items:center;justify-content:space-between}
         header.scrolled{background-color:var(--navy);box-shadow:0 4px 20px rgba(0,0,0,.1)}
         nav{width:100%;display:flex;justify-content:space-between;align-items:center;max-width:1400px;margin:0 auto;padding:0 2rem}
@@ -107,28 +122,6 @@
         .btn{padding:1.2rem 2.5rem;border:none;border-radius:var(--border-radius);font-size:1.1rem;font-weight:600;text-decoration:none;cursor:pointer;transition:var(--transition);display:inline-flex;align-items:center;gap:.7rem;position:relative;overflow:hidden;text-align:center;box-shadow:var(--shadow-card);font-family:'Inter',sans-serif;letter-spacing:.02em;outline:none}
         .btn-primary{background:var(--gradient-gold);color:var(--navy);box-shadow:0 8px 32px rgba(0,0,0,.1);font-family:'Playfair Display',serif;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
         .btn-secondary{background:0 0;color:var(--white);border:2px solid rgba(255,255,255,.3);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-        @media (max-width:768px){.nav-links{display:none}.mobile-menu{display:flex}.logo{font-size:1.5rem}}
-
-        /* NON-CRITICAL CSS */
-        :root {
-            --silver-light: #E2E8F0;
-            --silver-dark: #94A3B8;
-            --cyan: #00D9FF;
-            --magenta: #FF0080;
-            --purple: #8B5FBF;
-            --purple-light: #A78BFA;
-            --purple-dark: #6B46C1;
-            --gold-light: #FFEA80;
-            --emerald: #10B981;
-            --warm-gray: #F7F8FC;
-            --gradient-primary: linear-gradient(135deg, var(--navy) 0%, var(--graphite) 100%);
-            --gradient-accent: linear-gradient(135deg, var(--purple) 0%, #C0C7D6 100%);
-            --shadow-elegant: 0 8px 32px rgba(0, 0, 0, 0.1);
-            --shadow-glow: 0 0 30px rgba(139, 95, 191, 0.3);
-            --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            --border-radius-sm: 8px;
-        }
         .skeleton{background-color:#f0f0f0;border-radius:var(--border-radius-sm);position:relative;overflow:hidden;opacity:.7}
         .skeleton::after{content:'';position:absolute;top:0;right:0;bottom:0;left:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);animation:shimmer 1.5s infinite}
         @keyframes shimmer{100%{transform:translateX(100%)}}
@@ -303,7 +296,7 @@
     </noscript>
 </head>
 <body>
-    <a href="#main-content" class="sr-only">Skip to main content</a>
+    <a href="#main-content" class="sr-only skip-link">Skip to main content</a>
     <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
     <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Page reading progress"></div>
@@ -320,7 +313,7 @@
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="mobile-menu" id="mobileMenu" aria-controls="mobileNav" aria-expanded="false" title="Open mobile navigation">
+            <button class="mobile-menu" id="mobileMenu" aria-controls="mobileNav" aria-expanded="false" title="Open mobile navigation" aria-label="Open mobile navigation">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -373,9 +366,11 @@
                     <div class="about-image-container tooltip interactive-element">
                         <img 
                             src="https://res.cloudinary.com/dwvn18ge3/image/upload/f_auto,q_auto:best,w_280,h_280,c_fill/v1748048037/chad-headshot_qe2rsc.jpg" 
-                            alt="Chad T Dyar – Author, Strategist & Coach" 
+                            alt="A professional headshot of Chad T Dyar, a man with short brown hair and a beard, smiling lightly." 
                             class="about-image" 
-                            loading="lazy">
+                            loading="lazy"
+                            width="280"
+                            height="280">
                         <span class="tooltiptext">Chad T Dyar – Author, Strategist & Coach</span>
                     </div>
                 </div>
@@ -391,8 +386,7 @@
                 </div>
                 <div class="books-grid">
                     <div class="book-card interactive-element" tabindex="0" role="button" aria-label="Open preview for How to Talk to Humans" data-book-id="book1">
-                        <img src="https://imgur.com/Cl8WbZI.jpg" alt="How to Talk to Humans Book Cover" class="book-cover-image" loading="lazy">
-                        
+                        <img src="https://imgur.com/Cl8WbZI.jpg" alt="Book cover for How to Talk to Humans" class="book-cover-image" loading="lazy" width="200" height="280">
                         <div class="book-genre">Business Communication</div>
                         <h3 class="book-title">How to Talk to Humans</h3>
                         <p class="book-description">Speak so people act. A leadership guide for relational, strategic communication.</p>
@@ -400,8 +394,7 @@
                     </div>
                     
                     <div class="book-card interactive-element" tabindex="0" role="button" aria-label="Open preview for Bring Your Best Self to Work" data-book-id="book2">
-                        <img src="https://imgur.com/jlqfVxA.jpg" alt="Bring Your Best Self to Work Book Cover" class="book-cover-image" loading="lazy">
-                        
+                        <img src="https://imgur.com/jlqfVxA.jpg" alt="Book cover for Bring Your Best Self to Work" class="book-cover-image" loading="lazy" width="200" height="280">
                         <div class="book-genre">Self-Development</div>
                         <h3 class="book-title">Bring Your Best Self to Work</h3>
                         <p class="book-description">Reconnect with purpose, protect your energy, and show up in your full power.</p>
@@ -409,8 +402,7 @@
                     </div>
                     
                     <div class="book-card interactive-element" tabindex="0" role="button" aria-label="Open preview for The Performance Whisperer" data-book-id="book3">
-                        <img src="https://imgur.com/NKehWIQ.jpg" alt="The Performance Whisperer Book Cover" class="book-cover-image" loading="lazy">
-                        
+                        <img src="https://imgur.com/NKehWIQ.jpg" alt="Book cover for The Performance Whisperer" class="book-cover-image" loading="lazy" width="200" height="280">
                         <div class="book-genre">Coaching</div>
                         <h3 class="book-title">The Performance Whisperer</h3>
                         <p class="book-description">Performance doesn't happen by accident. This book shows you how to build systems that coach, develop, and sustain excellence.</p>
