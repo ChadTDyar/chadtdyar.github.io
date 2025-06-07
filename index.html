@@ -5,19 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chad T Dyar - Author, Strategist & Creative Systems Thinker</title>
     <meta name="description" content="Where systems meet story, and performance becomes personal.">
+    <link rel="canonical" href="https://chadtdyar.com/">
     
-    <!-- Open Graph -->
     <meta property="og:title" content="Chad T Dyar - Author, Strategist & Creative Systems Thinker">
     <meta property="og:description" content="Where systems meet story, and performance becomes personal.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://chadtdyar.com">
+    <meta property="og:image" content="https://res.cloudinary.com/dwvn18ge3/image/upload/v1748048037/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@chadtdyar"> <meta name="twitter:creator" content="@chadtdyar">
+    <meta name="twitter:title" content="Chad T Dyar - Author, Strategist & Creative Systems Thinker">
+    <meta name="twitter:description" content="Where systems meet story, and performance becomes personal.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dwvn18ge3/image/upload/v1748048037/og-image.jpg">
     
-    <!-- Fonts - Modern Typography System -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlroqQ7/q7C4xK6+F7xX8w1/fQf/d5+gC9q7c1e5pD8eJ9f3l6r2o2z0/z4s2pW3o8i0V0+e3G7o2w8g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
+        /* CSS Variables - Centralized Design System */
         :root {
             --navy: #0A1628;
             --graphite: #1A1D29;
@@ -33,16 +41,20 @@
             --purple-light: #A78BFA;
             --purple-dark: #6B46C1;
             --gold: #FFD700;
+            --gold-light: #FFEA80; /* Added gold-light for consistency */
+            --gold-warm: #FFA500; /* Defined gold-warm */
             --emerald: #10B981;
             --warm-gray: #F7F8FC;
+            --warm-white: #FDFDFD; /* Defined warm-white */
             
             --gradient-primary: linear-gradient(135deg, var(--navy) 0%, var(--graphite) 100%);
             --gradient-accent: linear-gradient(135deg, var(--purple) 0%, var(--silver) 100%);
             --gradient-secondary: linear-gradient(135deg, var(--cyan) 0%, var(--purple-light) 100%);
-            --gradient-gold: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+            --gradient-gold: linear-gradient(135deg, var(--gold) 0%, var(--gold-warm) 100%); /* Used gold-warm */
             --gradient-hero: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 50%, var(--graphite) 100%);
             --gradient-surface: linear-gradient(135deg, var(--silver-light) 0%, #f8fafc 100%);
             --gradient-purple: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-light) 100%);
+            --gradient-warm: linear-gradient(135deg, var(--warm-gray) 0%, var(--silver-light) 100%); /* Used in contact-card */
             
             --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.08);
             --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.12);
@@ -61,51 +73,15 @@
             --border-radius-sm: 8px;
             --border-radius-lg: 24px;
             --container-width: 1400px;
+            --header-height: 84px; /* Defined header height as a variable */
             --section-padding: 8rem;
             --section-padding-mobile: 4rem;
             --element-spacing: 3rem;
             --content-spacing: 2rem;
-            /* Chalkboard mobile styles */
-            .chalkboard {
-                padding: 2rem 1.5rem;
-                border-width: 4px;
-            }
-            
-            .chalkboard-header h3 {
-                font-size: 1.5rem;
-            }
-            
-            .story-form {
-                padding: 1.5rem;
-            }
-            
-            .form-actions {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-            }
-            
-            .btn-chalk {
-                width: 100%;
-                padding: 1rem;
-            }
-            
-            .stories-display {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .story-note {
-                transform: rotate(0deg) !important;
-                margin-bottom: 0.5rem;
-            }
-            
-            .story-note:hover {
-                transform: rotate(0deg) scale(1.01);
-            }
         }
         
-        * {
+        /* Box sizing for all elements */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -129,8 +105,9 @@
         }
         
         /* Typography System */
-        .theatrical { font-family: 'Crimson Text', serif; }
-        .playfair { font-family: 'Crimson Text', serif; }
+        .theatrical, .playfair { /* Combined redundant classes */
+            font-family: 'Crimson Text', serif;
+        }
         .playbill {
             font-family: 'Crimson Text', serif;
             font-weight: 600;
@@ -146,16 +123,11 @@
             border-radius: 10px;
         }
         
-        /* Animations - Fallback for when JS doesn't load */
+        /* Animations - Fallback for when JS doesn't load handled by JS directly now */
         .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-            transition: var(--transition-slow);
-        }
-        
-        .fade-in:not(.visible) {
             opacity: 0;
             transform: translateY(30px);
+            transition: var(--transition-slow);
         }
         
         .fade-in.visible {
@@ -174,6 +146,9 @@
             z-index: 1000;
             transition: var(--transition);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            height: var(--header-height); /* Set height from variable */
+            display: flex; /* Ensure contents are centered vertically */
+            align-items: center;
         }
         
         header.scrolled {
@@ -185,9 +160,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 2rem;
+            padding: 0 2rem; /* Adjusted padding to let header manage height */
             max-width: var(--container-width);
             margin: 0 auto;
+            width: 100%; /* Ensure nav takes full width of container */
         }
         
         .logo {
@@ -254,7 +230,7 @@
         .mobile-menu span {
             width: 28px;
             height: 3px;
-            background: var(--charcoal);
+            background: var(--white); /* Changed to white for better contrast on dark header */
             transition: var(--transition);
             border-radius: 2px;
         }
@@ -266,16 +242,18 @@
         .mobile-nav {
             display: none;
             position: fixed;
-            top: 84px;
+            top: var(--header-height); /* Uses header height variable */
             left: 0;
             right: 0;
             background: rgba(255, 255, 255, 0.98);
+            -webkit-backdrop-filter: blur(20px); /* Webkit prefix for backdrop-filter */
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             padding: 2rem;
             z-index: 999;
             transform: translateY(-100%);
             transition: var(--transition);
+            box-shadow: var(--shadow-md); /* Added shadow for mobile nav */
         }
         
         .mobile-nav.active {
@@ -300,7 +278,7 @@
         }
         
         main {
-            margin-top: 84px;
+            margin-top: var(--header-height); /* Uses header height variable */
         }
         
         .container {
@@ -308,7 +286,7 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-       
+        
         /* Hero Section - Broadway Musical Banner */
         .hero {
             min-height: 100vh;
@@ -358,6 +336,8 @@
             max-width: 1000px;
             animation: heroFadeIn 1.2s ease-out;
             text-align: center;
+            margin-left: auto; /* Centering hero content */
+            margin-right: auto;
         }
         
         .hero-content::before {
@@ -381,10 +361,10 @@
         .hero-title {
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', serif; /* Changed to Playfair Display as per content */
             color: var(--white);
             margin-bottom: 1rem;
-        }     
+        }    
         
         .gradient-text {
             font-size: clamp(2.5rem, 8vw, 5rem);
@@ -440,6 +420,7 @@
             padding: 2.5rem;
             border-radius: var(--border-radius-lg);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(20px); /* Webkit prefix */
             backdrop-filter: blur(20px);
         }
         
@@ -483,6 +464,7 @@
             box-shadow: var(--shadow-card);
             font-family: 'Inter', sans-serif;
             letter-spacing: 0.02em;
+            outline: none; /* Add outline none for focus */
         }
         
         .btn::before {
@@ -495,9 +477,13 @@
         }
         
         .btn:hover::before { transform: translateX(100%); }
+        .btn:focus-visible { /* Focus-visible for accessibility */
+            outline: 2px solid var(--cyan);
+            outline-offset: 2px;
+        }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+            background: var(--gradient-gold); /* Used gradient-gold variable */
             color: var(--navy);
             box-shadow: var(--shadow-elegant);
             font-family: 'Playfair Display', serif;
@@ -509,13 +495,14 @@
         .btn-primary:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
-            background: linear-gradient(135deg, #FFA500 0%, var(--gold) 100%);
+            background: linear-gradient(135deg, var(--gold-warm) 0%, var(--gold) 100%); /* Used gold-warm */
         }
         
         .btn-secondary {
             background: transparent;
             color: var(--white);
             border: 2px solid rgba(255, 255, 255, 0.3);
+            -webkit-backdrop-filter: blur(10px); /* Webkit prefix */
             backdrop-filter: blur(10px);
         }
         
@@ -680,7 +667,7 @@
             object-fit: cover;
         }
         
-        .book-image-placeholder:hover { 
+        .book-image-placeholder:hover {    
             transform: scale(1.05) rotateY(10deg);
         }
         
@@ -696,7 +683,7 @@
             display: block;
         }
         
-        .book-cover-image:hover { 
+        .book-cover-image:hover {    
             transform: scale(1.05) rotateY(10deg);
         }
         
@@ -802,6 +789,7 @@
         
         .module-card {
             background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(20px); /* Webkit prefix */
             backdrop-filter: blur(20px);
             border-radius: var(--border-radius-lg);
             padding: 3rem;
@@ -1027,7 +1015,7 @@
         
         .chalkboard {
             background: linear-gradient(135deg, var(--purple) 0%, var(--graphite) 100%);
-            border: 8px solid var(--silver-accent);
+            border: 8px solid var(--silver-dark); /* Used silver-dark as a more defined accent */
             border-radius: var(--border-radius);
             padding: 3rem;
             box-shadow: 
@@ -1051,7 +1039,7 @@
             left: -4px;
             right: -4px;
             bottom: -4px;
-            background: linear-gradient(45deg, var(--silver-dark), var(--silver-accent), var(--silver-dark));
+            background: linear-gradient(45deg, var(--silver-dark), var(--silver), var(--silver-dark)); /* Used silver variable */
             border-radius: calc(var(--border-radius) + 4px);
             z-index: -1;
         }
@@ -1088,7 +1076,7 @@
         .story-form textarea {
             width: 100%;
             background: rgba(255, 255, 255, 0.9);
-            border: 2px solid var(--silver-accent);
+            border: 2px solid var(--silver); /* Used silver variable */
             border-radius: var(--border-radius-sm);
             padding: 1rem;
             font-size: 1rem;
@@ -1132,7 +1120,7 @@
         }
         
         .btn-chalk:hover {
-            background: var(--gold-warm);
+            background: var(--gold-warm); /* Used gold-warm variable */
             transform: translateY(-3px);
             box-shadow: var(--shadow-glow);
         }
@@ -1225,6 +1213,7 @@
         
         .blog-card {
             background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(15px); /* Webkit prefix */
             backdrop-filter: blur(15px);
             border-radius: var(--border-radius);
             padding: 2.5rem;
@@ -1298,7 +1287,7 @@
         }
         
         .contact-card {
-            background: var(--gradient-warm);
+            background: var(--gradient-warm); /* Used gradient-warm */
             padding: 3.5rem;
             border-radius: var(--border-radius-lg);
             text-align: center;
@@ -1335,7 +1324,7 @@
         }
         
         .contact-card a:hover {
-            color: var(--silver-accent);
+            color: var(--silver-dark); /* Used silver-dark variable */
         }
 
         /* ConvertKit Form Styling */
@@ -1389,6 +1378,7 @@
         /* Newsletter */
         .newsletter-form {
             background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(15px); /* Webkit prefix */
             backdrop-filter: blur(15px);
             border-radius: var(--border-radius-lg);
             padding: 3rem;
@@ -1526,7 +1516,7 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             nav {
-                padding: 1rem;
+                padding: 0 1rem; /* Adjusted padding to match header height */
             }
             
             .nav-links {
@@ -1557,19 +1547,7 @@
                 font-size: 3rem;
             }
             
-            .books-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .coaching-modules {
-                grid-template-columns: 1fr;
-            }
-            
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-grid {
+            .books-grid, .coaching-modules, .blog-grid, .contact-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1581,14 +1559,12 @@
                 justify-content: center;
             }
             
-            .book-cover-image {
+            .book-cover-image, .book-image-placeholder {
                 width: 160px;
                 height: 220px;
             }
             
             .book-image-placeholder {
-                width: 160px;
-                height: 220px;
                 font-size: 2rem;
             }
             
@@ -1619,6 +1595,45 @@
                 font-size: 0.85rem;
                 padding: 0.3rem 0;
             }
+
+            /* Chalkboard mobile styles */
+            .chalkboard {
+                padding: 2rem 1.5rem;
+                border-width: 4px;
+            }
+            
+            .chalkboard-header h3 {
+                font-size: 1.5rem;
+            }
+            
+            .story-form {
+                padding: 1.5rem;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            
+            .btn-chalk {
+                width: 100%;
+                padding: 1rem;
+            }
+            
+            .stories-display {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .story-note {
+                transform: rotate(0deg) !important;
+                margin-bottom: 0.5rem;
+            }
+            
+            .story-note:hover {
+                transform: rotate(0deg) scale(1.01);
+            }
         }
         
         /* Interactive Elements */
@@ -1628,13 +1643,13 @@
         }
         
         .interactive-element:hover {
-            transform: scale(1.05);
+            transform: scale(1.01); /* Reduced scale for subtle effect */
         }
         
         /* Progress Bar */
         .progress-bar {
             position: fixed;
-            top: 84px;
+            top: var(--header-height); /* Uses header height variable */
             left: 0;
             width: 0%;
             height: 3px;
@@ -1686,38 +1701,144 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        
+        /* Notification styling */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            font-family: 'Playfair Display', serif;
+            transform: translateX(400px);
+            transition: all 0.3s ease-out;
+        }
+
+        /* Modal specific styles */
+        .app-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            visibility: hidden; /* Start hidden */
+        }
+
+        .app-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .app-modal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--border-radius-lg);
+            max-width: 600px;
+            width: 90%;
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease-out;
+        }
+
+        .app-modal-overlay.active .app-modal-content {
+            transform: translateY(0);
+        }
+
+        .app-modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--slate);
+            transition: color 0.2s;
+        }
+        .app-modal-close-btn:hover {
+            color: var(--navy);
+        }
+
+        /* Konami code rainbow effect */
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
     </style>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Chad T Dyar",
+          "url": "https://chadtdyar.com",
+          "sameAs": [
+            "https://linkedin.com/in/chadtdyar",
+            "https://twitter.com/chadtdyar" 
+            /* Add other social profiles here */
+          ],
+          "jobTitle": "Author, Strategist & Creative Systems Thinker",
+          "alumniOf": "Your Alma Mater (if relevant)",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Your Company (if relevant)"
+          }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Chad T Dyar - Author, Strategist & Creative Systems Thinker",
+          "url": "https://chadtdyar.com",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://chadtdyar.com/?q={search_term_string}", /* Replace with actual search URL */
+            "query-input": "required name=search_term_string"
+          }
+        }
+    </script>
 </head>
 <body>
-    <!-- Progress Bar -->
-    <div class="progress-bar" id="progressBar"></div>
+    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
     
-    <!-- Header -->
     <header id="header">
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="#home" class="logo">Chad T Dyar</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#books">Books</a></li>
-                <li><a href="#consulting">Consulting</a></li>
-                <li><a href="#coaching-content">Coaching Content</a></li>
+                <li><a href="#coaching">Coaching</a></li>
                 <li><a href="#quiz-coach-type">Quiz</a></li>
                 <li><a href="#coaching-stories">Stories</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu" id="mobileMenu" aria-controls="mobileNav" aria-expanded="false" title="Open mobile navigation">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </nav>
-        <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav" id="mobileNav" aria-hidden="true">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#books">Books</a></li>
-                <li><a href="#consulting">Consulting</a></li>
-                <li><a href="#coaching-content">Coaching Content</a></li>
+                <li><a href="#coaching">Coaching</a></li>
                 <li><a href="#quiz-coach-type">Quiz</a></li>
                 <li><a href="#coaching-stories">Stories</a></li>
                 <li><a href="#blog">Blog</a></li>
@@ -1727,27 +1848,26 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero">
+        <section id="home" class="hero" aria-labelledby="hero-title-main">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="gradient-text">Chad T Dyar</h1>
+                    <h1 class="gradient-text" id="hero-title-main">Chad T Dyar</h1>
                     <div class="hero-subtitle">Where systems meet story, and performance becomes personal.</div>
                     <div class="hero-description">
                         I'm an enablement leader, author, strategist, and creative systems thinker who helps leaders and organizations design transformational performance architecture.
                     </div>
                     <div class="cta-buttons">
-                        <a href="#about" class="btn btn-primary">Discover My Story</a>
-                        <a href="#coaching" class="btn btn-secondary">Explore Coaching</a>
+                        <a href="#about" class="btn btn-primary" role="button">Discover My Story</a>
+                        <a href="#coaching" class="btn btn-secondary" role="button">Explore Coaching</a>
                     </div>
                 </div>
             </div>
         </section> 
 
-        <section id="about" class="about fade-in">
+        <section id="about" class="about fade-in" aria-labelledby="about-title">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">About Chad</h2>
+                    <h2 class="section-title" id="about-title">About Chad</h2>
                     <p class="section-subtitle">Performance begins with identity. This is the story behind the systems.</p>
                 </div>
 
@@ -1770,151 +1890,151 @@
             </div>
         </section>
 
-        <!-- Books Section -->
-        <section id="books" class="books fade-in">
+        <section id="books" class="books fade-in" aria-labelledby="books-title">
             <div class="container">
                 <div class="section-header">
                     <div class="playbill-label">✦ Now Playing ✦</div>
-                    <h2 class="section-title">Books</h2>
+                    <h2 class="section-title" id="books-title">Books</h2>
                     <p class="section-subtitle">Explore the work. Multiple books, one voice: clear, bold, and built to move you forward.</p>
                 </div>
                 <div class="books-grid">
-                    <div class="book-card interactive-element" onclick="openBookPreview('book1')">
-                        <img src="https://imgur.com/Cl8WbZI.jpg" alt="How to Talk to Humans Book Cover" class="book-cover-image">
+                    <div class="book-card interactive-element" tabindex="0" role="button" aria-label="Open preview for How to Talk to Humans" data-book-id="book1">
+                        <img src="https://imgur.com/Cl8WbZI.jpg" alt="How to Talk to Humans Book Cover" class="book-cover-image" loading="lazy">
                         
                         <div class="book-genre">Business Communication</div>
                         <h3 class="book-title">How to Talk to Humans</h3>
                         <p class="book-description">Speak so people act. A leadership guide for relational, strategic communication.</p>
-                        <a href="https://www.amazon.com/How-Talk-Humans-Chad-Dyar-ebook/dp/B016R8W7HM/" class="btn btn-primary" target="_blank" onclick="event.stopPropagation()">Buy on Amazon</a>
+                        <a href="https://www.amazon.com/How-Talk-Humans-Chad-Dyar-ebook/dp/B016R8W7HM/" class="btn btn-primary" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Buy How to Talk to Humans on Amazon">Buy on Amazon</a>
                     </div>
                     
-                    <div class="book-card interactive-element" onclick="openBookPreview('book2')">
-                        <img src="https://imgur.com/jlqfVxA.jpg" alt="Bring Your Best Self to Work Book Cover" class="book-cover-image">
+                    <div class="book-card interactive-element" tabindex="0" role="button" aria-label="Open preview for Bring Your Best Self to Work" data-book-id="book2">
+                        <img src="https://imgur.com/jlqfVxA.jpg" alt="Bring Your Best Self to Work Book Cover" class="book-cover-image" loading="lazy">
                         
                         <div class="book-genre">Self-Development</div>
                         <h3 class="book-title">Bring Your Best Self to Work</h3>
                         <p class="book-description">Reconnect with purpose, protect your energy, and show up in your full power.</p>
-                        <a href="https://www.amazon.com/Bring-Your-Best-Self-Work-ebook/dp/B07VPKP8LJ/" class="btn btn-primary" target="_blank" onclick="event.stopPropagation()">Buy on Amazon</a>
+                        <a href="https://www.amazon.com/Bring-Your-Best-Self-Work-ebook/dp/B07VPKP8LJ/" class="btn btn-primary" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Buy Bring Your Best Self to Work on Amazon">Buy on Amazon</a>
                     </div>
                     
-                    <div class="book-card interactive-element" onclick="openBookPreview('book3')">
-                        <img src="https://imgur.com/NKehWIQ.jpg" alt="The Performance Whisperer Book Cover" class="book-cover-image">
+                    <div class="book-card interactive-element" tabindex="0" role="button" aria-label="Open preview for The Performance Whisperer" data-book-id="book3">
+                        <img src="https://imgur.com/NKehWIQ.jpg" alt="The Performance Whisperer Book Cover" class="book-cover-image" loading="lazy">
                         
                         <div class="book-genre">Coaching</div>
                         <h3 class="book-title">The Performance Whisperer</h3>
                         <p class="book-description">Performance doesn't happen by accident. This book shows you how to build systems that coach, develop, and sustain excellence.</p>
-                        <a href="https://www.amazon.com/Performance-Whisperer-Unlocking-Potential-Those/dp/B0DHWHJ71F/" class="btn btn-primary" target="_blank" onclick="event.stopPropagation()">Buy on Amazon</a>
+                        <a href="https://www.amazon.com/Performance-Whisperer-Unlocking-Potential-Those/dp/B0DHWHJ71F/" class="btn btn-primary" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Buy The Performance Whisperer on Amazon">Buy on Amazon</a>
                     </div>
                 </div>
             </div>
         </section>
     
-        <!-- Coming Soon Section -->
-        <section id="coming-soon" class="books fade-in">
+        <section id="coming-soon" class="books fade-in" aria-labelledby="coming-soon-title">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Coming Soon</h2>
+                    <h2 class="section-title" id="coming-soon-title">Coming Soon</h2>
                     <p class="section-subtitle">Books, tools, and courses in production. Get ready for what's next.</p>
                 </div>
                 <div class="books-grid">
-                    <!-- EOS -->
-                    <div class="book-card interactive-element">
+                    <div class="book-card interactive-element tooltip" tabindex="0" role="button" aria-label="The Enablement Operating System">
                         <div class="book-image-placeholder">📘</div>
                         <div class="book-genre">Enablement</div>
                         <h3 class="book-title">The Enablement Operating System</h3>
                         <p class="book-description">A systems-first field guide to human-centered performance at scale.</p>
+                        <span class="tooltiptext">A systems-first field guide to human-centered performance at scale.</span>
                     </div>
 
-                    <!-- Performance Is Personal -->
-                    <div class="book-card interactive-element">
+                    <div class="book-card interactive-element tooltip" tabindex="0" role="button" aria-label="Performance Is Personal">
                         <div class="book-image-placeholder">🧠</div>
                         <div class="book-genre">Leadership</div>
                         <h3 class="book-title">Performance Is Personal</h3>
                         <p class="book-description">Designing systems that serve the soul—not just the strategy.</p>
+                        <span class="tooltiptext">Designing systems that serve the soul—not just the strategy.</span>
                     </div>
 
-                    <!-- The Way I Work with AI -->
-                    <div class="book-card interactive-element">
+                    <div class="book-card interactive-element tooltip" tabindex="0" role="button" aria-label="The Way I Work with AI">
                         <div class="book-image-placeholder">🤖</div>
                         <div class="book-genre">AI + Work</div>
                         <h3 class="book-title">The Way I Work with AI</h3>
                         <p class="book-description">A field guide for building systems that think with you, not for you.</p>
+                        <span class="tooltiptext">A field guide for building systems that think with you, not for you.</span>
                     </div>
 
-                    <!-- Gospel Trilogy -->
-                    <div class="book-card interactive-element">
+                    <div class="book-card interactive-element tooltip" tabindex="0" role="button" aria-label="The Gospel According to No One">
                         <div class="book-image-placeholder">🎭</div>
                         <div class="book-genre">Theater</div>
                         <h3 class="book-title">The Gospel According to No One</h3>
                         <p class="book-description">A play about survival, silence, and the story underneath.</p>
+                        <span class="tooltiptext">A play about survival, silence, and the story underneath.</span>
                     </div>
 
-                    <div class="book-card interactive-element">
+                    <div class="book-card interactive-element tooltip" tabindex="0" role="button" aria-label="The Gospel According to Me">
                         <div class="book-image-placeholder">🎭</div>
                         <div class="book-genre">Theater</div>
                         <h3 class="book-title">The Gospel According to Me</h3>
                         <p class="book-description">College. Queerness. Embodiment. Becoming.</p>
+                        <span class="tooltiptext">College. Queerness. Embodiment. Becoming.</span>
                     </div>
 
-                    <div class="book-card interactive-element">
+                    <div class="book-card interactive-element tooltip" tabindex="0" role="button" aria-label="The Gospel According to Us">
                         <div class="book-image-placeholder">🎭</div>
                         <div class="book-genre">Theater</div>
                         <h3 class="book-title">The Gospel According to Us</h3>
                         <p class="book-description">The third act of the trilogy—how we hold each other through it.</p>
+                        <span class="tooltiptext">The third act of the trilogy—how we hold each other through it.</span>
                     </div>
 
-                    <!-- Children's Books -->
-                    <div class="book-card interactive-element">
+                    <div class="book-card interactive-element tooltip" tabindex="0" role="button" aria-label="The Wiggles, the Woofs, and the Why">
                         <div class="book-image-placeholder">🐾</div>
                         <div class="book-genre">Children's</div>
                         <h3 class="book-title">The Wiggles, the Woofs, and the Why</h3>
                         <p class="book-description">A story about big feelings, little dogs, and finding your way back.</p>
+                        <span class="tooltiptext">A story about big feelings, little dogs, and finding your way back.</span>
                     </div>
 
-                    <div class="book-card interactive-element">
+                    <div class="book-card interactive-element tooltip" tabindex="0" role="button" aria-label="The Barks, the Snort, and the Squeak">
                         <div class="book-image-placeholder">🐾</div>
                         <div class="book-genre">Children's</div>
                         <h3 class="book-title">The Barks, the Snort, and the Squeak</h3>
                         <p class="book-description">The voices we use matter. Even the ones with paws.</p>
+                        <span class="tooltiptext">The voices we use matter. Even the ones with paws.</span>
                     </div>
 
-                    <!-- AI Prompts -->
-                    <div class="book-card interactive-element">
+                    <div class="book-card interactive-element tooltip" tabindex="0" role="button" aria-label="AI Prompts">
                         <div class="book-image-placeholder">🔤</div>
                         <div class="book-genre">Prompts</div>
                         <h3 class="book-title">AI Prompts</h3>
                         <p class="book-description">200+ real-world prompts for enablement, coaching, and systems design.</p>
+                        <span class="tooltiptext">200+ real-world prompts for enablement, coaching, and systems design.</span>
                     </div>
 
-                    <!-- AI Prompt Engineering Course -->
-                    <div class="book-card interactive-element">
+                    <div class="book-card interactive-element tooltip" tabindex="0" role="button" aria-label="AI Prompt Engineering">
                         <div class="book-image-placeholder">🧪</div>
                         <div class="book-genre">Courses</div>
                         <h3 class="book-title">AI Prompt Engineering</h3>
                         <p class="book-description">A beginner-to-pro system for unlocking AI as a creative, strategic partner.</p>
+                        <span class="tooltiptext">A beginner-to-pro system for unlocking AI as a creative, strategic partner.</span>
                     </div>
 
-                    <!-- Coaching Premium -->
-                    <div class="book-card interactive-element">
+                    <div class="book-card interactive-element tooltip" tabindex="0" role="button" aria-label="Premium Coaching Content">
                         <div class="book-image-placeholder">🚀</div>
                         <div class="book-genre">Coaching</div>
                         <h3 class="book-title">Premium Coaching Content</h3>
                         <p class="book-description">Frameworks, templates, and toolkits for leading with clarity and coaching with impact.</p>
+                        <span class="tooltiptext">Frameworks, templates, and toolkits for leading with clarity and coaching with impact.</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Coaching Section -->
-        <section id="coaching" class="coaching fade-in">
+        <section id="coaching" class="coaching fade-in" aria-labelledby="coaching-title">
             <div class="container">
                 <div class="section-header">
                     <div class="playbill-label">✦ Featured Performance ✦</div>
-                    <h2 class="section-title">Coaching by Chad</h2>
+                    <h2 class="section-title" id="coaching-title">Coaching by Chad</h2>
                     <p class="section-subtitle">Where Performance Gets Personal. This isn't a "coaching program." This is a behavior-first, outcome-driven architecture for transformation. I don't teach theory. I build systems that shift how you lead, sell, and grow.</p>
                 </div>
                 <div class="coaching-modules">
-                    <div class="module-card interactive-element">
+                    <div class="module-card interactive-element" tabindex="0" role="button" aria-label="Coaching Like a Human">
                         <div class="module-icon">🧠</div>
                         <h3 class="module-title">Coaching Like a Human</h3>
                         <p class="module-description">Reconnect. Reflect. Rebuild. A 1:1 coaching engagement focused on leaders who've lost the thread. Together, we slow down the chaos, get honest about what's not working, and build the clarity and cadence to lead from your core.</p>
@@ -1922,10 +2042,10 @@
                             <li>Weekly personal prompts + voice-integrated tools</li>
                             <li>Custom leadership rhythm that restores you</li>
                         </ul>
-                        <a href="#contact" class="btn btn-secondary">Start with a Consult</a>
+                        <a href="#contact" class="btn btn-secondary" role="button">Start with a Consult</a>
                     </div>
                     
-                    <div class="module-card interactive-element">
+                    <div class="module-card interactive-element" tabindex="0" role="button" aria-label="Coaching Skill">
                         <div class="module-icon">⚡</div>
                         <h3 class="module-title">Coaching Skill</h3>
                         <p class="module-description">Because managers drive performance—and no one ever taught them how. Designed for frontline sales managers, this program walks you through the ACT Coaching Framework and builds a real-time coaching cadence.</p>
@@ -1935,10 +2055,10 @@
                             <li>Real-world call reviews and role-plays</li>
                             <li>Tools to develop people, not just manage tasks</li>
                         </ul>
-                        <a href="#contact" class="btn btn-secondary">Learn More</a>
+                        <a href="#contact" class="btn btn-secondary" role="button">Learn More</a>
                     </div>
                     
-                    <div class="module-card interactive-element">
+                    <div class="module-card interactive-element" tabindex="0" role="button" aria-label="Coaching Performance">
                         <div class="module-icon">🎯</div>
                         <h3 class="module-title">Coaching Performance</h3>
                         <p class="module-description">Executive enablement for orgs ready to scale. Fractional enablement support and performance system design for high-growth SaaS companies. You'll get a GTM-aligned enablement plan and embedded coaching systems built to scale.</p>
@@ -1948,23 +2068,19 @@
                             <li>Performance system design that scales</li>
                             <li>Fractional enablement partnership</li>
                         </ul>
-                        <a href="#contact" class="btn btn-secondary">Discuss Your Needs</a>
+                        <a href="#contact" class="btn btn-secondary" role="button">Discuss Your Needs</a>
                     </div>
                 </div>
                 
-                <!-- Newsletter Signup with Real ConvertKit Integration -->
-                <div class="newsletter-form" id="newsletter">
-                    <h3 style="margin-bottom: 1rem; font-size: 1.8rem;">Chad's Coaching Center</h3>
+                <div class="newsletter-form" id="newsletter" aria-labelledby="newsletter-title">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.8rem;" id="newsletter-title">Chad's Coaching Center</h3>
                     <p style="margin-bottom: 2rem; opacity: 0.9;">Want insights that move people to action? I send one newsletter a week. No spam. No broetry. Just real lessons from real work—delivered in plain English, with tactics you can use immediately.</p>
                     
-                    <!-- ConvertKit Form Integration -->
-                    <div id="convertkit-form-container">
-                        <script async data-uid="4dec1b3a85" src="https://chad-t-dyar.kit.com/4dec1b3a85/index.js"></script>
-                    </div>
+                    <div id="convertkit-form-container" data-convertkit-form-id="4dec1b3a85">
+                        </div>
                     
-                    <!-- Fallback Manual Form (hidden by default) -->
-                    <form class="form-group fallback-form" onsubmit="handleNewsletterSignup(event)" style="display: none;">
-                        <input type="email" placeholder="Enter your email address" required>
+                    <form class="form-group fallback-form" id="fallbackNewsletterForm" onsubmit="handleNewsletterSignup(event)" style="display: none;">
+                        <input type="email" placeholder="Enter your email address" required aria-label="Email address for newsletter signup">
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
                     
@@ -1973,25 +2089,22 @@
             </div>
         </section>
 
-        <!-- Quiz Section -->
-        <section id="quiz-coach-type" class="quiz-section fade-in">
+        <section id="quiz-coach-type" class="quiz-section fade-in" aria-labelledby="quiz-section-title">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Coaching Assessment Center</h2>
+                    <h2 class="section-title" id="quiz-section-title">Coaching Assessment Center</h2>
                     <p class="section-subtitle">Discover your coaching profile with these quick, insightful quizzes.</p>
                 </div>
 
-                <!-- Quiz Tabs -->
-                <div class="quiz-tabs">
-                    <div class="quiz-tab active" onclick="showQuiz(1)">Quiz 1: Coach Type</div>
-                    <div class="quiz-tab" onclick="showQuiz(2)">Quiz 2: Strengths</div>
-                    <div class="quiz-tab" onclick="showQuiz(3)">Quiz 3: Weaknesses</div>
-                    <div class="quiz-tab" onclick="showQuiz(4)">Quiz 4: Style</div>
-                    <div class="quiz-tab" onclick="showQuiz(5)">Quiz 5: Best Fit</div>
+                <div class="quiz-tabs" role="tablist" aria-label="Coaching Quizzes">
+                    <button class="quiz-tab active" role="tab" aria-selected="true" aria-controls="quiz1" id="tab-quiz1" onclick="showQuiz(1)">Quiz 1: Coach Type</button>
+                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz2" id="tab-quiz2" onclick="showQuiz(2)">Quiz 2: Strengths</button>
+                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz3" id="tab-quiz3" onclick="showQuiz(3)">Quiz 3: Weaknesses</button>
+                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz4" id="tab-quiz4" onclick="showQuiz(4)">Quiz 4: Style</button>
+                    <button class="quiz-tab" role="tab" aria-selected="false" aria-controls="quiz5" id="tab-quiz5" onclick="showQuiz(5)">Quiz 5: Best Fit</button>
                 </div>
 
-                <!-- Quiz 1: What Kind of Coach Am I? -->
-                <div class="quiz-content active" id="quiz1">
+                <div class="quiz-content active" id="quiz1" role="tabpanel" aria-labelledby="tab-quiz1">
                     <div class="quiz-intro">
                         <h3>What Kind of Coach Am I?</h3>
                         <p>Discover your primary coaching approach and style.</p>
@@ -2000,35 +2113,35 @@
                         <div class="quiz-questions">
                             <div class="quiz-question">
                                 <p><strong>1. How do you approach the initial conversation with your coachee?</strong></p>
-                                <label><input type="radio" name="q1" value="A"> A) With empathy and understanding</label>
+                                <label><input type="radio" name="q1" value="A" required> A) With empathy and understanding</label>
                                 <label><input type="radio" name="q1" value="B"> B) With a focus on skill development</label>
                                 <label><input type="radio" name="q1" value="C"> C) By setting performance goals</label>
                                 <label><input type="radio" name="q1" value="D"> D) By discussing strategic objectives</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>2. How do you identify your coachee's needs?</strong></p>
-                                <label><input type="radio" name="q2" value="A"> A) By asking about their feelings and perspectives</label>
+                                <label><input type="radio" name="q2" value="A" required> A) By asking about their feelings and perspectives</label>
                                 <label><input type="radio" name="q2" value="B"> B) Through skill assessments</label>
                                 <label><input type="radio" name="q2" value="C"> C) By analyzing performance data</label>
                                 <label><input type="radio" name="q2" value="D"> D) By aligning with strategic goals</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>3. What is your main focus during coaching sessions?</strong></p>
-                                <label><input type="radio" name="q3" value="A"> A) Building trust and understanding</label>
+                                <label><input type="radio" name="q3" value="A" required> A) Building trust and understanding</label>
                                 <label><input type="radio" name="q3" value="B"> B) Developing specific skills</label>
                                 <label><input type="radio" name="q3" value="C"> C) Improving performance</label>
                                 <label><input type="radio" name="q3" value="D"> D) Achieving strategic alignment</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>4. How do you measure coaching success?</strong></p>
-                                <label><input type="radio" name="q4" value="A"> A) By the coachee's emotional well-being</label>
+                                <label><input type="radio" name="q4" value="A" required> A) By the coachee's emotional well-being</label>
                                 <label><input type="radio" name="q4" value="B"> B) By the coachee's skill improvement</label>
                                 <label><input type="radio" name="q4" value="C"> C) By the coachee's performance metrics</label>
                                 <label><input type="radio" name="q4" value="D"> D) By the coachee's alignment with strategic goals</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>5. How do you set goals with your coachees?</strong></p>
-                                <label><input type="radio" name="q5" value="A"> A) Based on their personal aspirations</label>
+                                <label><input type="radio" name="q5" value="A" required> A) Based on their personal aspirations</label>
                                 <label><input type="radio" name="q5" value="B"> B) According to their skill needs</label>
                                 <label><input type="radio" name="q5" value="C"> C) Focused on performance metrics</label>
                                 <label><input type="radio" name="q5" value="D"> D) Aligned with strategic objectives</label>
@@ -2038,11 +2151,10 @@
                             </div>
                         </div>
                     </form>
-                    <div class="quiz-result" id="quiz-result-1"></div>
+                    <div class="quiz-result" id="quiz-result-1" aria-live="polite"></div>
                 </div>
 
-                <!-- Quiz 2: What Are My Coaching Strengths? -->
-                <div class="quiz-content" id="quiz2">
+                <div class="quiz-content" id="quiz2" role="tabpanel" aria-labelledby="tab-quiz2" aria-hidden="true">
                     <div class="quiz-intro">
                         <h3>What Are My Coaching Strengths?</h3>
                         <p>Identify your key strengths and superpowers as a coach.</p>
@@ -2051,35 +2163,35 @@
                         <div class="quiz-questions">
                             <div class="quiz-question">
                                 <p><strong>1. What is your strongest skill as a coach?</strong></p>
-                                <label><input type="radio" name="q1" value="A"> A) Empathy and listening</label>
+                                <label><input type="radio" name="q1" value="A" required> A) Empathy and listening</label>
                                 <label><input type="radio" name="q1" value="B"> B) Technical expertise</label>
                                 <label><input type="radio" name="q1" value="C"> C) Setting and achieving goals</label>
                                 <label><input type="radio" name="q1" value="D"> D) Strategic thinking</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>2. How do you help your coachees develop new skills?</strong></p>
-                                <label><input type="radio" name="q2" value="A"> A) By understanding their feelings and motivations</label>
+                                <label><input type="radio" name="q2" value="A" required> A) By understanding their feelings and motivations</label>
                                 <label><input type="radio" name="q2" value="B"> B) Through detailed instruction and practice</label>
                                 <label><input type="radio" name="q2" value="C"> C) By setting performance targets</label>
                                 <label><input type="radio" name="q2" value="D"> D) By aligning skill development with strategic goals</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>3. What do you do best during coaching sessions?</strong></p>
-                                <label><input type="radio" name="q3" value="A"> A) Build trust and rapport</label>
+                                <label><input type="radio" name="q3" value="A" required> A) Build trust and rapport</label>
                                 <label><input type="radio" name="q3" value="B"> B) Teach and develop specific skills</label>
                                 <label><input type="radio" name="q3" value="C"> C) Motivate and drive performance</label>
                                 <label><input type="radio" name="q3" value="D"> D) Plan and execute strategic initiatives</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>4. What do you consider your coaching superpower?</strong></p>
-                                <label><input type="radio" name="q4" value="A"> A) Building strong relationships</label>
+                                <label><input type="radio" name="q4" value="A" required> A) Building strong relationships</label>
                                 <label><input type="radio" name="q4" value="B"> B) Developing technical skills</label>
                                 <label><input type="radio" name="q4" value="C"> C) Achieving high performance</label>
                                 <label><input type="radio" name="q4" value="D"> D) Strategic foresight</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>5. What feedback do you receive most often from your coachees?</strong></p>
-                                <label><input type="radio" name="q5" value="A"> A) That you are empathetic and supportive</label>
+                                <label><input type="radio" name="q5" value="A" required> A) That you are empathetic and supportive</label>
                                 <label><input type="radio" name="q5" value="B"> B) That you are knowledgeable and instructional</label>
                                 <label><input type="radio" name="q5" value="C"> C) That you are motivating and goal-oriented</label>
                                 <label><input type="radio" name="q5" value="D"> D) That you are strategic and visionary</label>
@@ -2089,11 +2201,10 @@
                             </div>
                         </div>
                     </form>
-                    <div class="quiz-result" id="quiz-result-2"></div>
+                    <div class="quiz-result" id="quiz-result-2" aria-live="polite"></div>
                 </div>
 
-                <!-- Quiz 3: What Are My Coaching Weaknesses? -->
-                <div class="quiz-content" id="quiz3">
+                <div class="quiz-content" id="quiz3" role="tabpanel" aria-labelledby="tab-quiz3" aria-hidden="true">
                     <div class="quiz-intro">
                         <h3>What Are My Coaching Weaknesses?</h3>
                         <p>Identify areas for growth and development in your coaching practice.</p>
@@ -2102,35 +2213,35 @@
                         <div class="quiz-questions">
                             <div class="quiz-question">
                                 <p><strong>1. What feedback do you least like to receive?</strong></p>
-                                <label><input type="radio" name="q1" value="A"> A) That you are too empathetic and not assertive enough</label>
+                                <label><input type="radio" name="q1" value="A" required> A) That you are too empathetic and not assertive enough</label>
                                 <label><input type="radio" name="q1" value="B"> B) That you are too focused on skills and not enough on overall performance</label>
                                 <label><input type="radio" name="q1" value="C"> C) That you are too results-oriented and not empathetic enough</label>
                                 <label><input type="radio" name="q1" value="D"> D) That you are too strategic and not practical enough</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>2. What is your biggest challenge in coaching?</strong></p>
-                                <label><input type="radio" name="q2" value="A"> A) Being assertive when necessary</label>
+                                <label><input type="radio" name="q2" value="A" required> A) Being assertive when necessary</label>
                                 <label><input type="radio" name="q2" value="B"> B) Balancing skill development with performance improvement</label>
                                 <label><input type="radio" name="q2" value="C"> C) Showing empathy while focusing on results</label>
                                 <label><input type="radio" name="q2" value="D"> D) Implementing strategic plans effectively</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>3. What do you struggle with the most during coaching sessions?</strong></p>
-                                <label><input type="radio" name="q3" value="A"> A) Setting boundaries</label>
+                                <label><input type="radio" name="q3" value="A" required> A) Setting boundaries</label>
                                 <label><input type="radio" name="q3" value="B"> B) Tracking performance metrics</label>
                                 <label><input type="radio" name="q3" value="C"> C) Providing emotional support</label>
                                 <label><input type="radio" name="q3" value="D"> D) Ensuring practical application of strategies</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>4. What is the most challenging aspect of feedback for you?</strong></p>
-                                <label><input type="radio" name="q4" value="A"> A) Being direct and assertive</label>
+                                <label><input type="radio" name="q4" value="A" required> A) Being direct and assertive</label>
                                 <label><input type="radio" name="q4" value="B"> B) Balancing skill feedback with performance goals</label>
                                 <label><input type="radio" name="q4" value="C"> C) Providing empathetic feedback</label>
                                 <label><input type="radio" name="q4" value="D"> D) Aligning feedback with practical actions</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>5. What do you need to improve the most in your coaching?</strong></p>
-                                <label><input type="radio" name="q5" value="A"> A) Assertiveness and boundary setting</label>
+                                <label><input type="radio" name="q5" value="A" required> A) Assertiveness and boundary setting</label>
                                 <label><input type="radio" name="q5" value="B"> B) Performance tracking</label>
                                 <label><input type="radio" name="q5" value="C"> C) Empathy and emotional support</label>
                                 <label><input type="radio" name="q5" value="D"> D) Practical application of strategies</label>
@@ -2140,11 +2251,10 @@
                             </div>
                         </div>
                     </form>
-                    <div class="quiz-result" id="quiz-result-3"></div>
+                    <div class="quiz-result" id="quiz-result-3" aria-live="polite"></div>
                 </div>
 
-                <!-- Quiz 4: What Is My Coaching Style? -->
-                <div class="quiz-content" id="quiz4">
+                <div class="quiz-content" id="quiz4" role="tabpanel" aria-labelledby="tab-quiz4" aria-hidden="true">
                     <div class="quiz-intro">
                         <h3>What Is My Coaching Style?</h3>
                         <p>Understand your unique approach and methodology as a coach.</p>
@@ -2153,35 +2263,35 @@
                         <div class="quiz-questions">
                             <div class="quiz-question">
                                 <p><strong>1. How do you start your coaching sessions?</strong></p>
-                                <label><input type="radio" name="q1" value="A"> A) With a focus on building rapport and understanding</label>
+                                <label><input type="radio" name="q1" value="A" required> A) With a focus on building rapport and understanding</label>
                                 <label><input type="radio" name="q1" value="B"> B) By discussing skill development needs</label>
                                 <label><input type="radio" name="q1" value="C"> C) By setting performance goals</label>
                                 <label><input type="radio" name="q1" value="D"> D) By aligning with strategic objectives</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>2. What is your primary coaching goal?</strong></p>
-                                <label><input type="radio" name="q2" value="A"> A) Building trust and emotional well-being</label>
+                                <label><input type="radio" name="q2" value="A" required> A) Building trust and emotional well-being</label>
                                 <label><input type="radio" name="q2" value="B"> B) Developing specific skills</label>
                                 <label><input type="radio" name="q2" value="C"> C) Improving performance metrics</label>
                                 <label><input type="radio" name="q2" value="D"> D) Achieving long-term strategic alignment</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>3. How do you motivate your coachees?</strong></p>
-                                <label><input type="radio" name="q3" value="A"> A) Through emotional encouragement</label>
+                                <label><input type="radio" name="q3" value="A" required> A) Through emotional encouragement</label>
                                 <label><input type="radio" name="q3" value="B"> B) By setting skill milestones</label>
                                 <label><input type="radio" name="q3" value="C"> C) With performance rewards</label>
                                 <label><input type="radio" name="q3" value="D"> D) By outlining strategic benefits</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>4. What is your coaching superpower?</strong></p>
-                                <label><input type="radio" name="q4" value="A"> A) Building strong relationships</label>
+                                <label><input type="radio" name="q4" value="A" required> A) Building strong relationships</label>
                                 <label><input type="radio" name="q4" value="B"> B) Developing technical skills</label>
                                 <label><input type="radio" name="q4" value="C"> C) Achieving high performance</label>
                                 <label><input type="radio" name="q4" value="D"> D) Strategic foresight</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>5. What do you believe is the most important outcome of coaching?</strong></p>
-                                <label><input type="radio" name="q5" value="A"> A) Emotional well-being</label>
+                                <label><input type="radio" name="q5" value="A" required> A) Emotional well-being</label>
                                 <label><input type="radio" name="q5" value="B"> B) Skill proficiency</label>
                                 <label><input type="radio" name="q5" value="C"> C) Performance improvement</label>
                                 <label><input type="radio" name="q5" value="D"> D) Strategic alignment</label>
@@ -2191,11 +2301,10 @@
                             </div>
                         </div>
                     </form>
-                    <div class="quiz-result" id="quiz-result-4"></div>
+                    <div class="quiz-result" id="quiz-result-4" aria-live="polite"></div>
                 </div>
 
-                <!-- Quiz 5: Who Would I Be the Best Coach For? -->
-                <div class="quiz-content" id="quiz5">
+                <div class="quiz-content" id="quiz5" role="tabpanel" aria-labelledby="tab-quiz5" aria-hidden="true">
                     <div class="quiz-intro">
                         <h3>Who Would I Be the Best Coach For?</h3>
                         <p>Find out what type of coachees you're most effective with.</p>
@@ -2204,35 +2313,35 @@
                         <div class="quiz-questions">
                             <div class="quiz-question">
                                 <p><strong>1. What type of coachee do you feel most comfortable working with?</strong></p>
-                                <label><input type="radio" name="q1" value="A"> A) Those seeking emotional support and guidance</label>
+                                <label><input type="radio" name="q1" value="A" required> A) Those seeking emotional support and guidance</label>
                                 <label><input type="radio" name="q1" value="B"> B) Those looking to develop specific skills</label>
                                 <label><input type="radio" name="q1" value="C"> C) Those focused on achieving high performance</label>
                                 <label><input type="radio" name="q1" value="D"> D) Those needing strategic planning and alignment</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>2. How do you tailor your coaching approach?</strong></p>
-                                <label><input type="radio" name="q2" value="A"> A) By understanding their personal values and feelings</label>
+                                <label><input type="radio" name="q2" value="A" required> A) By understanding their personal values and feelings</label>
                                 <label><input type="radio" name="q2" value="B"> B) By identifying their skill development needs</label>
                                 <label><input type="radio" name="q2" value="C"> C) By setting and achieving performance goals</label>
                                 <label><input type="radio" name="q2" value="D"> D) By aligning their actions with strategic objectives</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>3. What is your main goal when coaching a coachee?</strong></p>
-                                <label><input type="radio" name="q3" value="A"> A) Enhancing their emotional well-being</label>
+                                <label><input type="radio" name="q3" value="A" required> A) Enhancing their emotional well-being</label>
                                 <label><input type="radio" name="q3" value="B"> B) Improving their skills and competencies</label>
                                 <label><input type="radio" name="q3" value="C"> C) Boosting their performance metrics</label>
                                 <label><input type="radio" name="q3" value="D"> D) Helping them achieve strategic alignment</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>4. What do you find most rewarding about coaching?</strong></p>
-                                <label><input type="radio" name="q4" value="A"> A) Seeing emotional growth and well-being</label>
+                                <label><input type="radio" name="q4" value="A" required> A) Seeing emotional growth and well-being</label>
                                 <label><input type="radio" name="q4" value="B"> B) Witnessing skill development and mastery</label>
                                 <label><input type="radio" name="q4" value="C"> C) Achieving high performance and results</label>
                                 <label><input type="radio" name="q4" value="D"> D) Planning and executing strategic visions</label>
                             </div>
                             <div class="quiz-question">
                                 <p><strong>5. What type of coachee do you find most challenging?</strong></p>
-                                <label><input type="radio" name="q5" value="A"> A) Those who are emotionally distant</label>
+                                <label><input type="radio" name="q5" value="A" required> A) Those who are emotionally distant</label>
                                 <label><input type="radio" name="q5" value="B"> B) Those who struggle with skill development</label>
                                 <label><input type="radio" name="q5" value="C"> C) Those who lack performance focus</label>
                                 <label><input type="radio" name="q5" value="D"> D) Those who are not strategically aligned</label>
@@ -2242,17 +2351,16 @@
                             </div>
                         </div>
                     </form>
-                    <div class="quiz-result" id="quiz-result-5"></div>
+                    <div class="quiz-result" id="quiz-result-5" aria-live="polite"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Virtual Chalkboard Section -->
-        <section id="coaching-stories" class="chalkboard-section fade-in">
+        <section id="coaching-stories" class="chalkboard-section fade-in" aria-labelledby="chalkboard-title">
             <div class="container">
                 <div class="section-header">
                     <div class="playbill-label">✦ Backstage Stories ✦</div>
-                    <h2 class="section-title">Coaching Chalkboard</h2>
+                    <h2 class="section-title" id="chalkboard-title">Coaching Chalkboard</h2>
                     <p class="section-subtitle">Share your coaching story, breakthrough moment, or lesson learned. This is our virtual green room where coaches connect. 🎭</p>
                 </div>
 
@@ -2264,16 +2372,15 @@
                         </div>
                         
                         <div class="story-form">
-                            <input type="text" id="story-name" placeholder="Your name (or stay anonymous)" maxlength="50">
-                            <textarea id="story-text" placeholder="Share your coaching story..." maxlength="280" rows="4"></textarea>
+                            <input type="text" id="story-name" placeholder="Your name (or stay anonymous)" maxlength="50" aria-label="Your name for the story">
+                            <textarea id="story-text" placeholder="Share your coaching story..." maxlength="280" rows="4" aria-label="Your coaching story"></textarea>
                             <div class="form-actions">
-                                <span class="char-count">280 characters remaining</span>
-                                <button onclick="addStory()" class="btn btn-chalk">Post to Board</button>
+                                <span class="char-count" aria-live="polite">280 characters remaining</span>
+                                <button type="button" onclick="addStory()" class="btn btn-chalk" aria-label="Post story to chalkboard">Post to Board</button>
                             </div>
                         </div>
                         
                         <div class="stories-display" id="stories-display">
-                            <!-- Sample stories to get started -->
                             <div class="story-note">
                                 <div class="story-content">"My biggest breakthrough was realizing I was coaching myself, not my coachee. Once I learned to listen first, everything changed." 🎯</div>
                                 <div class="story-author">- Sarah M.</div>
@@ -2293,73 +2400,72 @@
                 </div>
             </div>
         </section>
-        <section id="blog" class="blog fade-in">
+        <section id="blog" class="blog fade-in" aria-labelledby="blog-title">
             <div class="container">
                 <div class="section-header">
                     <div class="playbill-label">✦ Behind the Scenes ✦</div>
-                    <h2 class="section-title">The System & The Story</h2>
+                    <h2 class="section-title" id="blog-title">The System & The Story</h2>
                     <p class="section-subtitle">This isn't a blog. It's a backstage pass into how I work, what I build, and what the work is teaching me. I write to make sense of what I'm seeing—and share what's actually working in the wild.</p>
                 </div>
                 <div class="blog-grid">
-                    <article class="blog-card interactive-element" onclick="openBlogPost('post1')">
+                    <article class="blog-card interactive-element" tabindex="0" role="link" aria-label="Read The Human in the Machine blog post" data-post-id="post1">
                         <div class="blog-category">AI & Partnership</div>
                         <h3 class="blog-title">The Human in the Machine</h3>
                         <p class="blog-preview">Why AI won't replace us—but bad management might. A reflection on how I use AI not as a shortcut, but as a co-architect for performance systems, coaching simulations, and book writing. It's not about prompts. It's about partnership.</p>
-                        <a href="#" class="read-more" onclick="event.stopPropagation()">Read Full Story →</a>
+                        <a href="blog-post-human-in-machine.html" class="read-more" onclick="event.stopPropagation()">Read Full Story <i class="fas fa-arrow-right"></i></a>
                     </article>
                     
-                    <article class="blog-card interactive-element" onclick="openBlogPost('post2')">
+                    <article class="blog-card interactive-element" tabindex="0" role="link" aria-label="Read Performance Is Personal blog post" data-post-id="post2">
                         <div class="blog-category">Performance</div>
                         <h3 class="blog-title">Performance Is Personal</h3>
                         <p class="blog-preview">Your numbers won't move until your people do. We all want better pipeline, shorter ramp, and cleaner forecasts. But the only way to get there is through behavior. Here's what I've learned about designing performance systems that actually hold.</p>
-                        <a href="#" class="read-more" onclick="event.stopPropagation()">Read Full Story →</a>
+                        <a href="blog-post-performance-personal.html" class="read-more" onclick="event.stopPropagation()">Read Full Story <i class="fas fa-arrow-right"></i></a>
                     </article>
                     
-                    <article class="blog-card interactive-element" onclick="openBlogPost('post3')">
+                    <article class="blog-card interactive-element" tabindex="0" role="link" aria-label="Read Systems That Serve the Soul blog post" data-post-id="post3">
                         <div class="blog-category">Systems Design</div>
                         <h3 class="blog-title">Systems That Serve the Soul</h3>
                         <p class="blog-preview">If the system isn't making your life better, it's not the right system. A peek inside my own design process—from burnout to clarity—and how I use rhythm, voice, and reflection as infrastructure in the way I work now.</p>
-                        <a href="#" class="read-more" onclick="event.stopPropagation()">Read Full Story →</a>
+                        <a href="blog-post-systems-serve-soul.html" class="read-more" onclick="event.stopPropagation()">Read Full Story <i class="fas fa-arrow-right"></i></a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact fade-in">
+        <section id="contact" class="contact fade-in" aria-labelledby="contact-title">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Let's Connect</h2>
+                    <h2 class="section-title" id="contact-title">Let's Connect</h2>
                     <p class="section-subtitle">Whether you're ready to work together or just want to start a conversation, I'd love to hear from you.</p>
                 </div>
                 <div class="contact-grid">
-                    <div class="contact-card interactive-element">
-                        <div class="contact-icon">✉️</div>
+                    <div class="contact-card interactive-element" tabindex="0" role="button" aria-label="Email Chad Dyar">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <h3 class="contact-title">Email</h3>
                         <p><a href="mailto:chadtd1@gmail.com">chadtd1@gmail.com</a></p>
                         <p style="margin-top: 1rem; color: var(--slate); font-size: 0.9rem;">Reach me directly for consulting, coaching, or collaboration</p>
                     </div>
                     
-                    <div class="contact-card interactive-element">
-                        <div class="contact-icon">🔗</div>
+                    <div class="contact-card interactive-element" tabindex="0" role="button" aria-label="Connect on Social Media">
+                        <div class="contact-icon"><i class="fas fa-share-alt"></i></div>
                         <h3 class="contact-title">Social</h3>
                         <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
-                            <a href="https://linkedin.com/in/chadtdyar" target="_blank" style="padding: 0.5rem; background: var(--gradient-accent); color: white; border-radius: 8px; text-decoration: none;">LinkedIn</a>
+                            <a href="https://linkedin.com/in/chadtdyar" target="_blank" rel="noopener noreferrer" style="padding: 0.5rem; background: var(--gradient-accent); color: white; border-radius: 8px; text-decoration: none;" aria-label="LinkedIn Profile">LinkedIn <i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.youtube.com/@chadtdyar" target="_blank" rel="noopener noreferrer" style="padding: 0.5rem; background: var(--gradient-accent); color: white; border-radius: 8px; text-decoration: none;" aria-label="YouTube Channel">YouTube <i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                     
-                    <div class="contact-card interactive-element">
-                        <div class="contact-icon">📅</div>
+                    <div class="contact-card interactive-element" tabindex="0" role="button" aria-label="Schedule a call with Chad">
+                        <div class="contact-icon"><i class="fas fa-calendar-alt"></i></div>
                         <h3 class="contact-title">Schedule a Call</h3>
                         <p style="margin-bottom: 1rem;">Let's discuss how we can work together</p>
-                        <a href="https://calendly.com/chadtdyar" target="_blank" class="btn btn-primary">Book a Call</a>
+                        <a href="https://calendly.com/chadtdyar" target="_blank" rel="noopener noreferrer" class="btn btn-primary" role="button">Book a Call</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -2385,370 +2491,485 @@
                 <div class="footer-section">
                     <h4>Connect</h4>
                     <div class="social-links">
-                        <a href="https://linkedin.com/in/chadtdyar" target="_blank">💼</a>
-                        <a href="https://youtube.com/@chadtdyar" target="_blank">📺</a>
-                        <a href="mailto:chadtd1@gmail.com">✉️</a>
+                        <a href="https://linkedin.com/in/chadtdyar" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/@chadtdyar" target="_blank" rel="noopener noreferrer" aria-label="Connect on YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="mailto:chadtd1@gmail.com" aria-label="Email Chad Dyar"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Chad T Dyar. All rights reserved. Built with systems, story, and soul. 🐾</p>
+                <p>© <span id="current-year"></span> Chad T Dyar. All rights reserved. Built with systems, story, and soul. 🐾</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <div id="app-modal-overlay" class="app-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
+        <div class="app-modal-content">
+            <button class="app-modal-close-btn" aria-label="Close modal">×</button>
+            <div id="modal-content-area">
+                </div>
+        </div>
+    </div>
+
     <script>
-        // Wrap everything in try/catch to prevent errors from breaking the page
-        try {
-            // Mobile menu functionality
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileNav = document.getElementById('mobileNav');
-            
-            if (mobileMenu && mobileNav) {
-                mobileMenu.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('active');
-                    mobileNav.classList.toggle('active');
+        // Data structures for better maintainability
+        const QUIZ_RESULTS_DATA = {
+            1: { /* Coach Type */
+                A: { title: "Human-Centered Coach", description: "You lead with empathy, trust, and emotional support. Your strength lies in building deep relationships and creating safe spaces for growth. <strong>Strengths:</strong> Excellent in trust-building and emotional intelligence. <strong>Opportunities:</strong> Work on assertiveness and setting clear boundaries." },
+                B: { title: "Skill-Focused Coach", description: "You prioritize skill development and clear instruction. You're the coach people turn to when they need to master something specific. <strong>Strengths:</strong> Technical knowledge and systematic instruction. <strong>Opportunities:</strong> Develop performance tracking and strategic planning skills." },
+                C: { title: "Performance-Driven Coach", description: "You focus on results and measurable outcomes. You're data-driven and goal-oriented in your approach. <strong>Strengths:</strong> Analytical mindset and results orientation. <strong>Opportunities:</strong> Build more empathy and emotional intelligence into your coaching approach." },
+                D: { title: "Visionary Coach", description: "You are strategy-focused and help people see the bigger picture. You excel at connecting daily work to long-term vision. <strong>Strengths:</strong> Long-term thinking and strategic alignment. <strong>Opportunities:</strong> Improve daily implementation and practical skill development." }
+            },
+            2: { /* Coaching Strengths */
+                A: { title: "Empathy and Listening", description: "Your greatest strength lies in your ability to empathize with your coachees and listen to their concerns. You build strong, trusting relationships and provide emotional support. <strong>Impact:</strong> Coachees feel understood and valued, leading to higher engagement and satisfaction." },
+                B: { title: "Technical Expertise", description: "You excel in teaching and developing specific skills. Your deep technical knowledge and clear instructional style help coachees acquire new competencies effectively. <strong>Impact:</strong> Coachees develop the skills they need to succeed, leading to improved performance and confidence." },
+                C: { title: "Goal Setting and Performance", description: "You are highly effective at setting and achieving performance goals. Your focus on outcomes and measurable results drives coachees to reach their full potential. <strong>Impact:</strong> Coachees achieve significant performance improvements, leading to tangible business results." },
+                D: { title: "Strategic Thinking", description: "Your strength lies in your ability to think strategically and align coaching with long-term goals. You help coachees see the bigger picture and plan for future success. <strong>Impact:</strong> Coachees gain a clear sense of direction and alignment with organizational goals, leading to sustained growth." }
+            },
+            3: { /* Coaching Weaknesses */
+                A: { title: "Assertiveness and Boundary Setting", description: "You struggle with being assertive and setting clear boundaries with your coachees. This can lead to challenges in maintaining authority and driving performance. <strong>Impact:</strong> Coachees may lack clear direction and accountability, affecting their progress and outcomes. <strong>Growth Focus:</strong> Practice direct communication and establish clear expectations upfront." },
+                B: { title: "Performance Tracking", description: "You find it challenging to track and analyze performance metrics effectively. This can result in a lack of measurable progress and accountability. <strong>Impact:</strong> Coachees may not achieve their performance goals, leading to lower overall effectiveness. <strong>Growth Focus:</strong> Develop systems for measuring and monitoring progress." },
+                C: { title: "Empathy and Emotional Support", description: "You struggle with showing empathy and providing emotional support to your coachees. This can lead to a lack of trust and rapport in your coaching relationships. <strong>Impact:</strong> Coachees may feel unsupported and disengaged, affecting their motivation and performance. <strong>Growth Focus:</strong> Practice active listening and emotional intelligence skills." },
+                D: { title: "Practical Application of Strategies", description: "You find it difficult to implement strategic plans effectively and ensure their practical application. This can result in a lack of actionable steps and measurable outcomes. <strong>Impact:</strong> Coachees may struggle to apply strategic goals in their day-to-day work, affecting their overall success. <strong>Growth Focus:</strong> Break down strategies into concrete, actionable steps." }
+            },
+            4: { /* Coaching Style */
+                A: { title: "Supportive Coaching Style", description: "You create a nurturing environment where emotional well-being is prioritized. Your coachees feel valued and supported. <strong>Strengths:</strong> Excellent at building rapport and trust. <strong>Opportunities:</strong> Need to work on being more assertive and setting performance metrics." },
+                B: { title: "Instructional Coaching Style", description: "Your focus is on teaching and developing skills. You provide detailed instructions and ensure your coachees acquire the necessary competencies. <strong>Strengths:</strong> Strong in providing clear, directive feedback. <strong>Opportunities:</strong> Could improve in performance analysis and strategic planning." },
+                C: { title: "Results-Oriented Coaching Style", description: "You prioritize achieving measurable performance outcomes. You set specific goals and use data to drive improvements. <strong>Strengths:</strong> Highly analytical and performance-focused. <strong>Opportunities:</strong> Might need to enhance empathy and emotional support." },
+                D: { title: "Visionary Coaching Style", description: "You emphasize strategic goals and help coachees align their actions with long-term objectives. You are future-focused and provide strategic guidance. <strong>Strengths:</strong> Strong in strategic thinking and long-term planning. <strong>Opportunities:</strong> Should focus on improving day-to-day performance tracking and skill development." }
+            },
+            5: { /* Best Fit */
+                A: { title: "Best for Coachees Seeking Emotional Support", description: "You excel at providing emotional support and building strong, trusting relationships with your coachees. You help them feel valued and understood. <strong>Strengths:</strong> Excellent at building rapport and providing empathy. <strong>Opportunities:</strong> Need to work on balancing emotional support with performance goals." },
+                B: { title: "Best for Coachees Developing Skills", description: "Your coaching is focused on skill development and technical competencies. You provide clear, instructional feedback to help coachees master new skills. <strong>Strengths:</strong> Strong in technical knowledge and teaching abilities. <strong>Opportunities:</strong> Could benefit from enhancing performance tracking and strategic alignment." },
+                C: { title: "Best for High-Performance Focused Coachees", description: "You prioritize performance outcomes and set specific, measurable goals to drive improvements. Your coaching is highly analytical and results-focused. <strong>Strengths:</strong> Highly analytical and goal-oriented. <strong>Opportunities:</strong> Might need to develop more empathy and emotional support strategies." },
+                D: { title: "Best for Strategic Planning Coachees", description: "You excel in strategic thinking and long-term planning. You help coachees align their actions with strategic goals and provide guidance on achieving their visions. <strong>Strengths:</strong> Strong in strategic thinking and long-term planning. <strong>Opportunities:</strong> Should focus on improving day-to-day performance tracking and skill development." }
+            }
+        };
+
+        const BLOG_POSTS_DATA = {
+            'post1': {
+                title: 'The Human in the Machine',
+                category: 'AI & Partnership',
+                preview: 'Why AI won\'t replace us—but bad management might. A reflection on how I use AI not as a shortcut, but as a co-architect for performance systems, coaching simulations, and book writing.',
+                readTime: '8 min read',
+                url: 'blog-post-human-in-machine.html' // Example URL for full post
+            },
+            'post2': {
+                title: 'Performance Is Personal',
+                category: 'Performance',
+                preview: 'Your numbers won\'t move until your people do. We all want better pipeline, shorter ramp, and cleaner forecasts. But the only way to get there is through behavior. Here\'s what I\'ve learned about designing performance systems that actually hold.',
+                readTime: '7 min read',
+                url: 'blog-post-performance-personal.html' // Example URL for full post
+            },
+            'post3': {
+                title: 'Systems That Serve the Soul',
+                category: 'Systems Design',
+                preview: 'If the system isn\'t making your life better, it\'s not the right system. A peek inside my own design process—from burnout to clarity—and how I use rhythm, voice, and reflection as infrastructure in the way I work now.',
+                readTime: '9 min read',
+                url: 'blog-post-systems-serve-soul.html' // Example URL for full post
+            }
+        };
+
+        const BOOK_DATA = {
+            'book1': {
+                title: 'How to Talk to Humans',
+                genre: 'Business Communication',
+                description: 'Speak so people act. A leadership guide for relational, strategic communication.',
+                amazonLink: 'https://www.amazon.com/How-Talk-Humans-Chad-Dyar-ebook/dp/B016R8W7HM/',
+                image: 'https://imgur.com/Cl8WbZI.jpg'
+            },
+            'book2': {
+                title: 'Bring Your Best Self to Work',
+                genre: 'Self-Development',
+                description: 'Reconnect with purpose, protect your energy, and show up in your full power.',
+                amazonLink: 'https://www.amazon.com/Bring-Your-Best-Self-Work-ebook/dp/B07VPKP8LJ/',
+                image: 'https://imgur.com/jlqfVxA.jpg'
+            },
+            'book3': {
+                title: 'The Performance Whisperer',
+                genre: 'Coaching',
+                description: 'Performance doesn\'t happen by accident. This book shows you how to build systems that coach, develop, and sustain excellence.',
+                amazonLink: 'https://www.amazon.com/Performance-Whisperer-Unlocking-Potential-Those/dp/B0DHWHJ71F/',
+                image: 'https://imgur.com/NKehWIQ.jpg'
+            }
+        };
+
+        // Core UI Elements Cache
+        const UI_ELEMENTS = {};
+
+        // --- DOM Ready / Initialization ---
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                cacheUIElements();
+                setDynamicContent();
+                setupMobileNav();
+                setupHeaderScroll();
+                setupProgressBar();
+                setupSmoothScroll();
+                setupFadeInAnimations();
+                setupQuizzes();
+                setupChalkboard();
+                setupNewsletterForm();
+                setupInteractiveElements();
+                setupModals();
+                activateKonamiCode();
+
+            } catch (error) {
+                console.error('Global JavaScript error during DOMContentLoaded:', error);
+                // Graceful degradation: ensure content is visible even if JS fails
+                document.querySelectorAll('.fade-in').forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+            }
+        });
+
+        function cacheUIElements() {
+            UI_ELEMENTS.mobileMenu = document.getElementById('mobileMenu');
+            UI_ELEMENTS.mobileNav = document.getElementById('mobileNav');
+            UI_ELEMENTS.header = document.getElementById('header');
+            UI_ELEMENTS.progressBar = document.getElementById('progressBar');
+            UI_ELEMENTS.currentYearSpan = document.getElementById('current-year');
+            UI_ELEMENTS.storyTextInput = document.getElementById('story-text');
+            UI_ELEMENTS.charCountSpan = document.querySelector('.char-count');
+            UI_ELEMENTS.storiesDisplay = document.getElementById('stories-display');
+            UI_ELEMENTS.modalOverlay = document.getElementById('app-modal-overlay');
+            UI_ELEMENTS.modalContentArea = document.getElementById('modal-content-area');
+            UI_ELEMENTS.modalCloseBtn = document.querySelector('.app-modal-close-btn');
+            UI_ELEMENTS.fallbackNewsletterForm = document.getElementById('fallbackNewsletterForm');
+            UI_ELEMENTS.convertKitContainer = document.getElementById('convertkit-form-container');
+        }
+
+        function setDynamicContent() {
+            if (UI_ELEMENTS.currentYearSpan) {
+                UI_ELEMENTS.currentYearSpan.textContent = new Date().getFullYear();
+            }
+        }
+
+        // --- Mobile Navigation ---
+        function setupMobileNav() {
+            if (UI_ELEMENTS.mobileMenu && UI_ELEMENTS.mobileNav) {
+                UI_ELEMENTS.mobileMenu.addEventListener('click', function() {
+                    UI_ELEMENTS.mobileMenu.classList.toggle('active');
+                    UI_ELEMENTS.mobileNav.classList.toggle('active');
+                    const isExpanded = UI_ELEMENTS.mobileMenu.classList.contains('active');
+                    UI_ELEMENTS.mobileMenu.setAttribute('aria-expanded', isExpanded);
+                    UI_ELEMENTS.mobileNav.setAttribute('aria-hidden', !isExpanded);
                 });
                 
-                // Close mobile menu when clicking on a link
-                const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-                mobileNavLinks.forEach(link => {
+                UI_ELEMENTS.mobileNav.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', function() {
-                        mobileMenu.classList.remove('active');
-                        mobileNav.classList.remove('active');
+                        UI_ELEMENTS.mobileMenu.classList.remove('active');
+                        UI_ELEMENTS.mobileNav.classList.remove('active');
+                        UI_ELEMENTS.mobileMenu.setAttribute('aria-expanded', false);
+                        UI_ELEMENTS.mobileNav.setAttribute('aria-hidden', true);
                     });
                 });
             }
-            
-            // Header scroll behavior
-            window.addEventListener('scroll', function() {
-                const header = document.getElementById('header');
-                if (header) {
+        }
+
+        // --- Header Scroll Behavior ---
+        function setupHeaderScroll() {
+            if (UI_ELEMENTS.header) {
+                window.addEventListener('scroll', function() {
                     if (window.scrollY > 50) {
-                        header.classList.add('scrolled');
+                        UI_ELEMENTS.header.classList.add('scrolled');
                     } else {
-                        header.classList.remove('scrolled');
+                        UI_ELEMENTS.header.classList.remove('scrolled');
                     }
-                }
-            });
-            
-            // Progress bar
-            window.addEventListener('scroll', function() {
-                const progressBar = document.getElementById('progressBar');
-                if (progressBar) {
-                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    const scrolled = (winScroll / height) * 100;
-                    progressBar.style.width = scrolled + "%";
-                }
-            });
-            
-            // Smooth scroll for anchor links
+                });
+            }
+        }
+
+        // --- Progress Bar ---
+        function setupProgressBar() {
+            if (UI_ELEMENTS.progressBar) {
+                window.addEventListener('scroll', updateProgressBar);
+                window.addEventListener('resize', updateProgressBar); // Recalculate on resize
+                updateProgressBar(); // Initial calculation
+            }
+        }
+
+        function updateProgressBar() {
+            if (!UI_ELEMENTS.progressBar) return;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / docHeight) * 100;
+            UI_ELEMENTS.progressBar.style.width = `${scrolled}%`;
+            UI_ELEMENTS.progressBar.setAttribute('aria-valuenow', Math.round(scrolled));
+        }
+
+        // --- Smooth Scroll for Anchor Links ---
+        function setupSmoothScroll() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        const headerOffset = 84;
-                        const elementPosition = target.getBoundingClientRect().top;
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height'));
+                        const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                         
                         window.scrollTo({
                             top: offsetPosition,
                             behavior: 'smooth'
                         });
+                        // Update URL hash without jumping
+                        history.pushState(null, '', targetId);
                     }
                 });
             });
-            
-            // Fade-in animation on scroll - only apply hiding if JS is working
+        }
+
+        // --- Fade-in Animations on Scroll ---
+        function setupFadeInAnimations() {
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             };
             
-            const observer = new IntersectionObserver(function(entries) {
+            const observer = new IntersectionObserver((entries, self) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
+                        self.unobserve(entry.target); // Stop observing once visible
                     }
                 });
             }, observerOptions);
             
-            // Observe all fade-in elements and initially hide them since JS is working
+            // Initially hide elements and observe
             document.querySelectorAll('.fade-in').forEach(el => {
-                el.classList.remove('visible'); // Hide initially since JS is working
+                el.classList.remove('visible');
                 observer.observe(el);
             });
-            
-        } catch (error) {
-            console.error('JavaScript error:', error);
-            // If there's an error, make all fade-in elements visible
-            document.querySelectorAll('.fade-in').forEach(el => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            });
         }
-        
-        // Quiz functionality
+
+        // --- Quiz System ---
+        function setupQuizzes() {
+            document.querySelectorAll('.quiz-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const quizNumber = parseInt(this.id.replace('tab-quiz', ''));
+                    showQuiz(quizNumber);
+                });
+            });
+            showQuiz(1); // Activate the first quiz on load
+        }
+
         function showQuiz(quizNumber) {
-            try {
-                // Hide all quiz contents
-                document.querySelectorAll('.quiz-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                
-                // Remove active class from all tabs
-                document.querySelectorAll('.quiz-tab').forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                
-                // Show selected quiz
-                const targetQuiz = document.getElementById(`quiz${quizNumber}`);
-                const targetTab = document.querySelectorAll('.quiz-tab')[quizNumber - 1];
-                
-                if (targetQuiz && targetTab) {
-                    targetQuiz.classList.add('active');
-                    targetTab.classList.add('active');
-                } else {
-                    console.warn(`Quiz ${quizNumber} not found`);
-                }
-            } catch (error) {
-                console.error('Error switching quiz tabs:', error);
+            document.querySelectorAll('.quiz-content').forEach(content => {
+                content.classList.remove('active');
+                content.setAttribute('aria-hidden', 'true');
+            });
+            
+            document.querySelectorAll('.quiz-tab').forEach(tab => {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+            
+            const targetQuiz = document.getElementById(`quiz${quizNumber}`);
+            const targetTab = document.getElementById(`tab-quiz${quizNumber}`);
+            
+            if (targetQuiz && targetTab) {
+                targetQuiz.classList.add('active');
+                targetQuiz.setAttribute('aria-hidden', 'false');
+                targetTab.classList.add('active');
+                targetTab.setAttribute('aria-selected', 'true');
+            } else {
+                console.warn(`Quiz ${quizNumber} or its tab not found.`);
             }
         }
         
         function calculateResult(event, quizNumber) {
-            try {
-                event.preventDefault();
-                
-                const formData = new FormData(document.getElementById(`coachQuizForm${quizNumber}`));
-                const count = { A: 0, B: 0, C: 0, D: 0 };
-                
-                // Count answers
-                for (let [key, value] of formData.entries()) {
-                    count[value]++;
-                }
-                
-                // Check if all questions are answered
-                if (Object.values(count).reduce((a, b) => a + b, 0) < 5) {
-                    alert("Please answer all questions.");
-                    return false;
-                }
-                
-                const max = Math.max(count.A, count.B, count.C, count.D);
-                let result = "";
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
 
-                // Generate results based on quiz type
-                switch(quizNumber) {
-                    case 1:
-                        result = getQuiz1Result(count, max);
-                        break;
-                    case 2:
-                        result = getQuiz2Result(count, max);
-                        break;
-                    case 3:
-                        result = getQuiz3Result(count, max);
-                        break;
-                    case 4:
-                        result = getQuiz4Result(count, max);
-                        break;
-                    case 5:
-                        result = getQuiz5Result(count, max);
-                        break;
-                }
+            // Refactored quiz counting using reduce
+            const answers = Array.from(formData.entries())
+                .filter(([key]) => key.startsWith('q'))
+                .map(([_, value]) => value);
 
-                const output = document.getElementById(`quiz-result-${quizNumber}`);
-                if (output) {
-                    output.innerHTML = result;
-                    output.classList.add('show');
-                    
-                    // Scroll to result
-                    output.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-                
-                return false;
-            } catch (error) {
-                console.error('Quiz error:', error);
-                alert('There was an error processing your quiz. Please try again.');
+            const count = answers.reduce((acc, val) => {
+                acc[val] = (acc[val] || 0) + 1;
+                return acc;
+            }, { A: 0, B: 0, C: 0, D: 0 }); // Ensure all keys are initialized to 0
+
+            const totalQuestions = form.querySelectorAll('.quiz-question').length;
+
+            if (answers.length < totalQuestions) {
+                showNotification("Please answer all questions before submitting.", "error");
                 return false;
             }
+            
+            let maxCount = 0;
+            let dominantTypes = []; // Handle potential ties
+            for (const type in count) {
+                if (count[type] > maxCount) {
+                    maxCount = count[type];
+                    dominantTypes = [type];
+                } else if (count[type] === maxCount && maxCount > 0) { // Only add to ties if there's a score
+                    dominantTypes.push(type);
+                }
+            }
+
+            // Fallback for no answers selected (though 'required' should prevent this)
+            if (dominantTypes.length === 0) {
+                showNotification("Please answer all questions.", "error");
+                return false;
+            }
+
+            const resultOutput = UI_ELEMENTS[`quiz-result-${quizNumber}`] || document.getElementById(`quiz-result-${quizNumber}`);
+            if (!resultOutput) {
+                console.error(`Quiz result output for quiz ${quizNumber} not found.`);
+                return false;
+            }
+
+            let resultHtml = '';
+            if (dominantTypes.length === 1) {
+                const resultData = QUIZ_RESULTS_DATA[quizNumber][dominantTypes[0]];
+                resultHtml = `<h3 style="color: var(--navy); margin-bottom: 1rem;">${resultData.title}</h3><p>${resultData.description}</p>`;
+            } else {
+                // Handle ties gracefully
+                resultHtml = `<h3 style="color: var(--navy); margin-bottom: 1rem;">Mixed Coaching Profile</h3>`;
+                resultHtml += `<p>You show strong tendencies across several areas. Your primary styles include:</p><ul>`;
+                dominantTypes.forEach(type => {
+                    const resultData = QUIZ_RESULTS_DATA[quizNumber][type];
+                    resultHtml += `<li><strong>${resultData.title}:</strong> ${resultData.description.split('. ')[0]}.</li>`; // Take first sentence of description
+                });
+                resultHtml += `</ul><p>Embrace your versatility!</p>`;
+            }
+            
+            resultOutput.innerHTML = resultHtml;
+            resultOutput.classList.add('show');
+            resultOutput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Analytics placeholder: Track quiz completion
+            console.log(`Analytics: Quiz ${quizNumber} completed with result: ${dominantTypes.join('/')}`);
+            
+            return false;
         }
         
-        function getQuiz1Result(count, max) {
-            if (count.A === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Human-Centered Coach</h3><p>You lead with empathy, trust, and emotional support. Your strength lies in building deep relationships and creating safe spaces for growth. <strong>Strengths:</strong> Excellent in trust-building and emotional intelligence. <strong>Opportunities:</strong> Work on assertiveness and setting clear boundaries.</p>`;
-            } else if (count.B === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Skill-Focused Coach</h3><p>You prioritize skill development and clear instruction. You're the coach people turn to when they need to master something specific. <strong>Strengths:</strong> Technical knowledge and systematic instruction. <strong>Opportunities:</strong> Develop performance tracking and strategic planning skills.</p>`;
-            } else if (count.C === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Performance-Driven Coach</h3><p>You focus on results and measurable outcomes. You're data-driven and goal-oriented in your approach. <strong>Strengths:</strong> Analytical mindset and results orientation. <strong>Opportunities:</strong> Build more empathy and emotional intelligence into your coaching approach.</p>`;
-            } else if (count.D === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Visionary Coach</h3><p>You are strategy-focused and help people see the bigger picture. You excel at connecting daily work to long-term vision. <strong>Strengths:</strong> Long-term thinking and strategic alignment. <strong>Opportunities:</strong> Improve daily implementation and practical skill development.</p>`;
+        // --- Virtual Chalkboard Functionality ---
+        function setupChalkboard() {
+            if (UI_ELEMENTS.storyTextInput && UI_ELEMENTS.charCountSpan) {
+                UI_ELEMENTS.storyTextInput.addEventListener('input', updateCharCount);
+                // Adding a specific event listener for the button to trigger addStory
+                document.querySelector('.btn-chalk').addEventListener('click', addStory);
+                UI_ELEMENTS.storyTextInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' && e.ctrlKey) {
+                        e.preventDefault(); // Prevent new line
+                        addStory();
+                    }
+                });
+                updateCharCount(); // Initial character count
             }
         }
-        
-        function getQuiz2Result(count, max) {
-            if (count.A === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Empathy and Listening</h3><p>Your greatest strength lies in your ability to empathize with your coachees and listen to their concerns. You build strong, trusting relationships and provide emotional support. <strong>Impact:</strong> Coachees feel understood and valued, leading to higher engagement and satisfaction.</p>`;
-            } else if (count.B === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Technical Expertise</h3><p>You excel in teaching and developing specific skills. Your deep technical knowledge and clear instructional style help coachees acquire new competencies effectively. <strong>Impact:</strong> Coachees develop the skills they need to succeed, leading to improved performance and confidence.</p>`;
-            } else if (count.C === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Goal Setting and Performance</h3><p>You are highly effective at setting and achieving performance goals. Your focus on outcomes and measurable results drives coachees to reach their full potential. <strong>Impact:</strong> Coachees achieve significant performance improvements, leading to tangible business results.</p>`;
-            } else if (count.D === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Strategic Thinking</h3><p>Your strength lies in your ability to think strategically and align coaching with long-term goals. You help coachees see the bigger picture and plan for future success. <strong>Impact:</strong> Coachees gain a clear sense of direction and alignment with organizational goals, leading to sustained growth.</p>`;
-            }
-        }
-        
-        function getQuiz3Result(count, max) {
-            if (count.A === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Assertiveness and Boundary Setting</h3><p>You struggle with being assertive and setting clear boundaries with your coachees. This can lead to challenges in maintaining authority and driving performance. <strong>Impact:</strong> Coachees may lack clear direction and accountability, affecting their progress and outcomes. <strong>Growth Focus:</strong> Practice direct communication and establish clear expectations upfront.</p>`;
-            } else if (count.B === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Performance Tracking</h3><p>You find it challenging to track and analyze performance metrics effectively. This can result in a lack of measurable progress and accountability. <strong>Impact:</strong> Coachees may not achieve their performance goals, leading to lower overall effectiveness. <strong>Growth Focus:</strong> Develop systems for measuring and monitoring progress.</p>`;
-            } else if (count.C === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Empathy and Emotional Support</h3><p>You struggle with showing empathy and providing emotional support to your coachees. This can lead to a lack of trust and rapport in your coaching relationships. <strong>Impact:</strong> Coachees may feel unsupported and disengaged, affecting their motivation and performance. <strong>Growth Focus:</strong> Practice active listening and emotional intelligence skills.</p>`;
-            } else if (count.D === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Practical Application of Strategies</h3><p>You find it difficult to implement strategic plans effectively and ensure their practical application. This can result in a lack of actionable steps and measurable outcomes. <strong>Impact:</strong> Coachees may struggle to apply strategic goals in their day-to-day work, affecting their overall success. <strong>Growth Focus:</strong> Break down strategies into concrete, actionable steps.</p>`;
-            }
-        }
-        
-        function getQuiz4Result(count, max) {
-            if (count.A === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Supportive Coaching Style</h3><p>You create a nurturing environment where emotional well-being is prioritized. Your coachees feel valued and supported. <strong>Strengths:</strong> Excellent at building rapport and trust. <strong>Opportunities:</strong> Need to work on being more assertive and setting performance metrics.</p>`;
-            } else if (count.B === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Instructional Coaching Style</h3><p>Your focus is on teaching and developing skills. You provide detailed instructions and ensure your coachees acquire the necessary competencies. <strong>Strengths:</strong> Strong in providing clear, directive feedback. <strong>Opportunities:</strong> Could improve in performance analysis and strategic planning.</p>`;
-            } else if (count.C === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Results-Oriented Coaching Style</h3><p>You prioritize achieving measurable performance outcomes. You set specific goals and use data to drive improvements. <strong>Strengths:</strong> Highly analytical and performance-focused. <strong>Opportunities:</strong> Might need to enhance empathy and emotional support.</p>`;
-            } else if (count.D === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Visionary Coaching Style</h3><p>You emphasize strategic goals and help coachees align their actions with long-term objectives. You are future-focused and provide strategic guidance. <strong>Strengths:</strong> Strong in strategic thinking and long-term planning. <strong>Opportunities:</strong> Should focus on improving day-to-day performance tracking and skill development.</p>`;
-            }
-        }
-        
-        function getQuiz5Result(count, max) {
-            if (count.A === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Best for Coachees Seeking Emotional Support</h3><p>You excel at providing emotional support and building strong, trusting relationships with your coachees. You help them feel valued and understood. <strong>Strengths:</strong> Excellent at building rapport and providing empathy. <strong>Opportunities:</strong> Need to work on balancing emotional support with performance goals.</p>`;
-            } else if (count.B === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Best for Coachees Developing Skills</h3><p>Your coaching is focused on skill development and technical competencies. You provide clear, instructional feedback to help coachees master new skills. <strong>Strengths:</strong> Strong in technical knowledge and teaching abilities. <strong>Opportunities:</strong> Could benefit from enhancing performance tracking and strategic alignment.</p>`;
-            } else if (count.C === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Best for High-Performance Focused Coachees</h3><p>You prioritize performance outcomes and set specific, measurable goals to drive improvements. Your coaching is highly analytical and results-focused. <strong>Strengths:</strong> Highly analytical and goal-oriented. <strong>Opportunities:</strong> Might need to develop more empathy and emotional support strategies.</p>`;
-            } else if (count.D === max) {
-                return `<h3 style="color: var(--navy); margin-bottom: 1rem;">Best for Strategic Planning Coachees</h3><p>You excel in strategic thinking and long-term planning. You help coachees align their actions with strategic goals and provide guidance on achieving their visions. <strong>Strengths:</strong> Strong in strategic thinking and long-term planning. <strong>Opportunities:</strong> Should focus on improving day-to-day performance tracking and skill development.</p>`;
-            }
-        }
-        
-        // Virtual Chalkboard Functionality
+
         function addStory() {
-            try {
-                const nameInput = document.getElementById('story-name');
-                const textInput = document.getElementById('story-text');
-                const storiesDisplay = document.getElementById('stories-display');
-                
-                if (!nameInput || !textInput || !storiesDisplay) {
-                    console.error('Chalkboard elements not found');
-                    return;
-                }
-                
-                const name = nameInput.value.trim() || 'Anonymous Coach';
-                const text = textInput.value.trim();
-                
-                if (!text) {
-                    alert('Please share your coaching story!');
-                    textInput.focus();
-                    return;
-                }
-                
-                if (text.length > 280) {
-                    alert('Please keep your story to 280 characters or less.');
-                    textInput.focus();
-                    return;
-                }
-                
-                if (text.length < 10) {
-                    alert('Please share a bit more detail in your story (at least 10 characters).');
-                    textInput.focus();
-                    return;
-                }
-                
-                // Create new story element
-                const storyNote = document.createElement('div');
-                storyNote.className = 'story-note';
-                storyNote.style.opacity = '0';
-                storyNote.style.transform = 'translateY(20px) rotate(-1deg)';
-                
-                // Add random rotation for authenticity
-                const rotations = ['-1deg', '1deg', '-0.5deg', '0.5deg'];
-                const randomRotation = rotations[Math.floor(Math.random() * rotations.length)];
-                
-                storyNote.innerHTML = `
-                    <div class="story-content">"${text}"</div>
-                    <div class="story-author">- ${name}</div>
-                `;
-                
-                // Add to top of stories display
-                storiesDisplay.insertBefore(storyNote, storiesDisplay.firstChild);
-                
-                // Animate in
-                setTimeout(() => {
-                    storyNote.style.transition = 'all 0.5s ease-out';
-                    storyNote.style.opacity = '1';
-                    storyNote.style.transform = `translateY(0) rotate(${randomRotation})`;
-                }, 100);
-                
-                // Clear form
-                nameInput.value = '';
-                textInput.value = '';
-                updateCharCount();
-                
-                // Show success message
-                showNotification('Your story has been added to the board! 🎭');
-                
-            } catch (error) {
-                console.error('Error adding story:', error);
-                alert('There was an error adding your story. Please try again.');
+            const name = UI_ELEMENTS.storyNameInput.value.trim() || 'Anonymous Coach'; // Ensure name input is cached
+            const text = UI_ELEMENTS.storyTextInput.value.trim();
+            
+            // Basic client-side validation
+            if (!text) {
+                showNotification('Please share your coaching story!', 'error');
+                UI_ELEMENTS.storyTextInput.focus();
+                return;
             }
+            if (text.length > 280) {
+                showNotification('Please keep your story to 280 characters or less.', 'error');
+                UI_ELEMENTS.storyTextInput.focus();
+                return;
+            }
+            if (text.length < 10) {
+                showNotification('Please share a bit more detail in your story (at least 10 characters).', 'error');
+                UI_ELEMENTS.storyTextInput.focus();
+                return;
+            }
+
+            // Security: Sanitize input before injecting into DOM
+            // IMPORTANT: For real-world applications, SERVER-SIDE SANITIZATION IS CRITICAL.
+            const sanitizedText = sanitizeHTML(text);
+            const sanitizedName = sanitizeHTML(name);
+            
+            const storyNote = document.createElement('div');
+            storyNote.className = 'story-note';
+            storyNote.style.opacity = '0';
+            storyNote.style.transform = 'translateY(20px) rotate(-1deg)';
+            
+            const rotations = ['-1deg', '1deg', '-0.5deg', '0.5deg'];
+            const randomRotation = rotations[Math.floor(Math.random() * rotations.length)];
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'story-content';
+            contentDiv.textContent = `"${sanitizedText}"`; // Use textContent to prevent XSS
+            
+            const authorDiv = document.createElement('div');
+            authorDiv.className = 'story-author';
+            authorDiv.textContent = `- ${sanitizedName}`; // Use textContent
+            
+            storyNote.appendChild(contentDiv);
+            storyNote.appendChild(authorDiv);
+            
+            UI_ELEMENTS.storiesDisplay.insertBefore(storyNote, UI_ELEMENTS.storiesDisplay.firstChild);
+            
+            setTimeout(() => {
+                storyNote.style.transition = 'all 0.5s ease-out';
+                storyNote.style.opacity = '1';
+                storyNote.style.transform = `translateY(0) rotate(${randomRotation})`;
+            }, 100);
+            
+            UI_ELEMENTS.storyNameInput.value = '';
+            UI_ELEMENTS.storyTextInput.value = '';
+            updateCharCount();
+            
+            showNotification('Your story has been added to the board! 🎭', 'success');
+
+            // Analytics placeholder: Track story submission
+            console.log(`Analytics: Story submitted by ${sanitizedName}.`);
+
+            // IMPLICATION: In a real app, this would send data to a backend for persistence and moderation
+            // fetch('/api/submit-story', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ name: sanitizedName, text: sanitizedText })
+            // }).then(response => response.json())
+            //   .then(data => console.log('Story submitted to backend:', data))
+            //   .catch(error => console.error('Error submitting story:', error));
         }
         
         function updateCharCount() {
-            try {
-                const textInput = document.getElementById('story-text');
-                const charCount = document.querySelector('.char-count');
-                
-                if (textInput && charCount) {
-                    const remaining = 280 - textInput.value.length;
-                    charCount.textContent = `${remaining} characters remaining`;
-                    
-                    if (remaining < 50) {
-                        charCount.style.color = '#FFD700';
-                    } else if (remaining < 20) {
-                        charCount.style.color = '#FF6B6B';
-                    } else {
-                        charCount.style.color = 'rgba(255, 255, 255, 0.7)';
-                    }
-                }
-            } catch (error) {
-                console.error('Error updating character count:', error);
+            if (!UI_ELEMENTS.storyTextInput || !UI_ELEMENTS.charCountSpan) return;
+            const remaining = 280 - UI_ELEMENTS.storyTextInput.value.length;
+            UI_ELEMENTS.charCountSpan.textContent = `${remaining} characters remaining`;
+            
+            if (remaining < 50 && remaining >= 20) {
+                UI_ELEMENTS.charCountSpan.style.color = 'var(--gold)';
+            } else if (remaining < 20) {
+                UI_ELEMENTS.charCountSpan.style.color = 'var(--magenta)';
+            } else {
+                UI_ELEMENTS.charCountSpan.style.color = 'rgba(255, 255, 255, 0.7)';
             }
         }
-        
-        function showNotification(message) {
+
+        // Basic HTML Sanitization (Client-side, not sufficient for security alone)
+        function sanitizeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // --- Notification System ---
+        function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: var(--gold);
-                color: var(--navy);
-                padding: 1rem 2rem;
-                border-radius: var(--border-radius);
-                font-weight: 600;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-                z-index: 10000;
-                font-family: 'Playfair Display', serif;
-                transform: translateX(400px);
-                transition: all 0.3s ease-out;
-            `;
+            notification.className = 'notification';
             notification.textContent = message;
+            
+            if (type === 'error') {
+                notification.style.background = 'var(--magenta)';
+            } else if (type === 'info') {
+                notification.style.background = 'var(--cyan)';
+            }
             
             document.body.appendChild(notification);
             
@@ -2760,155 +2981,298 @@
             // Slide out and remove
             setTimeout(() => {
                 notification.style.transform = 'translateX(400px)';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
+                notification.addEventListener('transitionend', () => notification.remove(), { once: true });
+            }, 3000); // Display for 3 seconds
         }
-        
-        // Initialize chalkboard functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            try {
-                const textInput = document.getElementById('story-text');
-                if (textInput) {
-                    textInput.addEventListener('input', updateCharCount);
-                    textInput.addEventListener('keypress', function(e) {
-                        if (e.key === 'Enter' && e.ctrlKey) {
-                            addStory();
-                        }
-                    });
-                    
-                    // Initial character count
-                    updateCharCount();
-                } else {
-                    console.log('Chalkboard not found on this page');
-                }
-                
-            } catch (error) {
-                console.error('Error initializing chalkboard:', error);
+
+        // --- Modal System for Book/Blog Previews ---
+        function setupModals() {
+            if (UI_ELEMENTS.modalCloseBtn) {
+                UI_ELEMENTS.modalCloseBtn.addEventListener('click', closeModal);
             }
-        });
+            document.addEventListener('keydown', handleEscKey); // Global Escape key listener
+        }
+
+        function showModal(contentHtml) {
+            if (!UI_ELEMENTS.modalOverlay || !UI_ELEMENTS.modalContentArea) return;
+
+            UI_ELEMENTS.modalContentArea.innerHTML = contentHtml;
+            UI_ELEMENTS.modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            UI_ELEMENTS.modalOverlay.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeModal() {
+            if (!UI_ELEMENTS.modalOverlay) return;
+
+            UI_ELEMENTS.modalOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+            UI_ELEMENTS.modalOverlay.setAttribute('aria-hidden', 'true');
+        }
+
+        function handleEscKey(e) {
+            if (e.key === 'Escape' && UI_ELEMENTS.modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+        }
+
+        // --- Book/Blog Post Interaction ---
         function openBookPreview(bookId) {
-            alert(`Opening preview for ${bookId}. In a real implementation, this would show a detailed book preview with sample chapters, reviews, and purchase options.`);
+            const book = BOOK_DATA[bookId];
+            if (book) {
+                const modalContent = `
+                    <h3 id="modal-title" style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--navy);">${sanitizeHTML(book.title)}</h3>
+                    <p style="font-size: 0.9rem; color: var(--slate); margin-bottom: 1.5rem;"><span style="background: var(--gradient-accent); color: var(--white); padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 600; font-size: 0.8em; text-transform: uppercase;">${sanitizeHTML(book.genre)}</span></p>
+                    <img src="${sanitizeHTML(book.image)}" alt="${sanitizeHTML(book.title)} cover" style="max-width: 180px; height: auto; border-radius: var(--border-radius-sm); box-shadow: var(--shadow-md); margin-bottom: 1.5rem;" loading="lazy">
+                    <p id="modal-description" style="margin-bottom: 2rem; line-height: 1.6; color: var(--charcoal);">${sanitizeHTML(book.description)}</p>
+                    <a href="${sanitizeHTML(book.amazonLink)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: block; margin-bottom: 1rem;" role="button">Buy on Amazon</a>
+                    <button class="btn btn-secondary" onclick="closeModal()" role="button">Close</button>
+                `;
+                showModal(modalContent);
+                // Analytics placeholder
+                console.log(`Analytics: Opened book preview for "${book.title}"`);
+            } else {
+                showNotification('Book details not found.', 'error');
+            }
         }
         
         function openBlogPost(postId) {
-            const blogPosts = {
-                'post1': {
-                    title: 'The Human in the Machine',
-                    category: 'AI & Partnership',
-                    preview: 'Why AI won\'t replace us—but bad management might. A reflection on how I use AI not as a shortcut, but as a co-architect for performance systems, coaching simulations, and book writing.',
-                    readTime: '8 min read'
-                },
-                'post2': {
-                    title: 'Performance Is Personal',
-                    category: 'Performance',
-                    preview: 'Your numbers won\'t move until your people do. We all want better pipeline, shorter ramp, and cleaner forecasts. But the only way to get there is through behavior.',
-                    readTime: '7 min read'
-                },
-                'post3': {
-                    title: 'Systems That Serve the Soul',
-                    category: 'Systems Design',
-                    preview: 'If the system isn\'t making your life better, it\'s not the right system. A peek inside my own design process—from burnout to clarity.',
-                    readTime: '9 min read'
-                }
-            };
-            
-            const post = blogPosts[postId];
+            const post = BLOG_POSTS_DATA[postId];
             if (post) {
-                alert(`${post.title}\n\n${post.category} • ${post.readTime}\n\n${post.preview}\n\nIn a real implementation, this would open the full blog post.`);
+                const modalContent = `
+                    <h3 id="modal-title" style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--navy);">${sanitizeHTML(post.title)}</h3>
+                    <p style="font-size: 0.9rem; color: var(--slate); margin-bottom: 1.5rem;"><span style="background: rgba(139, 95, 191, 0.3); color: var(--purple-light); padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 600; font-size: 0.8em; text-transform: uppercase;">${sanitizeHTML(post.category)}</span> • ${sanitizeHTML(post.readTime)}</p>
+                    <p id="modal-description" style="margin-bottom: 2rem; line-height: 1.6; color: var(--charcoal);">${sanitizeHTML(post.preview)} <br><br> (This is a preview. In a real blog, the full content would load here or link to a dedicated page.)</p>
+                    <a href="${sanitizeHTML(post.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: block; margin-bottom: 1rem;" role="button">Read Full Post (New Page)</a>
+                    <button class="btn btn-secondary" onclick="closeModal()" role="button">Close</button>
+                `;
+                showModal(modalContent);
+                // Analytics placeholder
+                console.log(`Analytics: Opened blog post preview for "${post.title}"`);
             } else {
-                alert('Blog post not found.');
+                showNotification('Blog post not found.', 'error');
+            }
+        }
+
+        // --- Newsletter Signup ---
+        function setupNewsletterForm() {
+            // Load ConvertKit script dynamically to allow fallback
+            const convertKitScriptUrl = `https://chad-t-dyar.ck.page/${UI_ELEMENTS.convertKitContainer.dataset.convertkitFormId}/index.js`;
+            const script = document.createElement('script');
+            script.src = convertKitScriptUrl;
+            script.async = true;
+            script.onload = () => {
+                // Give a short delay for ConvertKit to render the form
+                setTimeout(() => {
+                    checkConvertKitFormPresence();
+                }, 500); 
+            };
+            script.onerror = () => {
+                console.warn('Failed to load ConvertKit script. Displaying fallback form.');
+                showFallbackForm();
+            };
+            document.head.appendChild(script);
+
+            // Hook the fallback form's submit event
+            if (UI_ELEMENTS.fallbackNewsletterForm) {
+                UI_ELEMENTS.fallbackNewsletterForm.addEventListener('submit', handleNewsletterSignup);
+            }
+
+            // Store storyNameInput for chalkboard
+            UI_ELEMENTS.storyNameInput = document.getElementById('story-name');
+        }
+
+        function checkConvertKitFormPresence() {
+            const convertKitForm = document.querySelector('.ck-form');
+            if (convertKitForm) {
+                if (UI_ELEMENTS.fallbackNewsletterForm) {
+                    UI_ELEMENTS.fallbackNewsletterForm.style.display = 'none';
+                    UI_ELEMENTS.fallbackNewsletterForm.setAttribute('aria-hidden', 'true');
+                }
+            } else {
+                showFallbackForm();
+            }
+        }
+
+        function showFallbackForm() {
+            if (UI_ELEMENTS.fallbackNewsletterForm) {
+                UI_ELEMENTS.fallbackNewsletterForm.style.display = 'flex'; // Use flex to match original form-group style
+                UI_ELEMENTS.fallbackNewsletterForm.setAttribute('aria-hidden', 'false');
             }
         }
         
         function handleNewsletterSignup(event) {
-            try {
-                event.preventDefault();
-                const email = event.target.querySelector('input').value;
-                const button = event.target.querySelector('button');
-                const originalText = button.textContent;
-                
-                // Show loading state
-                button.innerHTML = '<span class="loading"></span> Subscribing...';
-                button.disabled = true;
-                
-                // Simulate API call
-                setTimeout(() => {
-                    button.textContent = 'Subscribed!';
-                    button.style.background = 'var(--emerald)';
-                    
-                    setTimeout(() => {
-                        button.textContent = originalText;
-                        button.disabled = false;
-                        button.style.background = '';
-                        event.target.reset();
-                    }, 2000);
-                }, 1500);
-            } catch (error) {
-                console.error('Newsletter signup error:', error);
+            event.preventDefault(); // Prevent default form submission
+            const emailInput = event.target.querySelector('input[type="email"]');
+            const email = emailInput ? emailInput.value : ''; // Ensure input exists
+            const button = event.target.querySelector('button[type="submit"]');
+            
+            if (!button || !emailInput) {
+                console.error("Newsletter form elements not found.");
+                return;
             }
+
+            const originalText = button.textContent;
+
+            // Robust email validation (client-side, but still needs server-side)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                emailInput.focus();
+                return;
+            }
+
+            // Honeypot field simulation (client-side, simple)
+            // For a real honeypot, this would be a hidden input with a name like 'hp_email'
+            // and the server would check if it was filled.
+            // if (event.target.querySelector('input[name="hp_field"]')?.value) {
+            //     console.warn('Honeypot caught a bot submission.');
+            //     showNotification('Form submission prevented.', 'error'); // Show generic error
+            //     return;
+            // }
+
+            // Show loading state
+            button.innerHTML = '<span class="loading"></span> Subscribing...';
+            button.disabled = true;
+            emailInput.disabled = true;
+            
+            // Simulate API call (replace with actual fetch to your backend or ConvertKit API)
+            // Analytics placeholder: Track newsletter signup attempt
+            console.log(`Analytics: Newsletter signup attempt for ${email}`);
+            setTimeout(() => {
+                showNotification('Successfully subscribed to the newsletter!', 'success');
+                button.textContent = 'Subscribed!';
+                button.style.background = 'var(--emerald)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    emailInput.disabled = false;
+                    button.style.background = ''; // Reset background
+                    event.target.reset(); // Clear the form
+                }, 2000);
+            }, 1500);
+
+            // IMPLICATION: Implement rate limiting on server-side for real forms
         }
         
-        // Add dynamic interactions
-        document.addEventListener('DOMContentLoaded', function() {
-            try {
-                // Add hover effects to interactive elements
-                const interactiveElements = document.querySelectorAll('.interactive-element');
-                interactiveElements.forEach(element => {
-                    element.addEventListener('mouseenter', function() {
-                        this.style.cursor = 'pointer';
-                    });
-                });
-                
-                // Add click feedback
-                document.addEventListener('click', function(e) {
-                    if (e.target.classList.contains('btn')) {
-                        e.target.style.transform = 'scale(0.98)';
-                        setTimeout(() => {
-                            e.target.style.transform = '';
-                        }, 150);
+        // --- General Interactive Elements ---
+        function setupInteractiveElements() {
+            document.querySelectorAll('.interactive-element').forEach(element => {
+                element.addEventListener('mouseenter', () => element.style.cursor = 'pointer');
+                element.addEventListener('mouseleave', () => element.style.cursor = 'default');
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('btn') || e.target.closest('.btn')) {
+                    const btn = e.target.closest('.btn'); // Ensure we target the button
+                    const originalTransform = btn.style.transform;
+                    btn.style.transform = `${originalTransform} scale(0.98)`;
+                    setTimeout(() => {
+                        btn.style.transform = originalTransform;
+                    }, 150);
+                    // Analytics placeholder: Track button click
+                    console.log(`Analytics: Button clicked: ${btn.textContent.trim()}`);
+                }
+            });
+
+            // Make book-card and blog-card clickable (using event delegation for efficiency)
+            document.addEventListener('click', function(e) {
+                const card = e.target.closest('.book-card[data-book-id], .blog-card[data-post-id]');
+                const readMoreLink = e.target.closest('.read-more');
+
+                // If a card was clicked and it's not the "Read More" link
+                if (card && !readMoreLink) {
+                    if (card.dataset.bookId) {
+                        openBookPreview(card.dataset.bookId);
+                    } else if (card.dataset.postId) {
+                        openBlogPost(card.dataset.postId);
+                    }
+                }
+            });
+
+            // Add keyboard navigation for cards
+            document.querySelectorAll('.book-card[data-book-id], .blog-card[data-post-id]').forEach(card => {
+                card.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        if (this.dataset.bookId) {
+                            openBookPreview(this.dataset.bookId);
+                        } else if (this.dataset.postId) {
+                            openBlogPost(this.dataset.postId);
+                        }
                     }
                 });
-            } catch (error) {
-                console.error('DOM interaction error:', error);
-            }
-        });
+            });
+        }
 
-        // Easter egg - Konami code
-        let konamiCode = [];
-        const correctCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑↑↓↓←→←→BA
-        
-        document.addEventListener('keydown', function(e) {
-            try {
-                konamiCode.push(e.keyCode);
-                if (konamiCode.length > correctCode.length) {
-                    konamiCode.shift();
-                }
-                
-                if (konamiCode.every((key, index) => key === correctCode[index])) {
-                    document.body.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57)';
-                    document.body.style.backgroundSize = '400% 400%';
-                    document.body.style.animation = 'rainbow 2s ease infinite';
-                    
-                    const style = document.createElement('style');
-                    style.textContent = `
-                        @keyframes rainbow {
-                            0% { background-position: 0% 50%; }
-                            50% { background-position: 100% 50%; }
-                            100% { background-position: 0% 50%; }
-                        }
-                    `;
-                    document.head.appendChild(style);
-                    
-                    setTimeout(() => {
-                        location.reload();
-                    }, 5000);
-                }
-            } catch (error) {
-                console.error('Konami code error:', error);
+        // --- Konami Code Easter Egg ---
+        let konamiCodeSequence = [];
+        const CORRECT_KONAMI_CODE = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑↑↓↓←→←→BA
+
+        function activateKonamiCode() {
+            document.addEventListener('keydown', handleKonamiCode);
+        }
+
+        function handleKonamiCode(e) {
+            konamiCodeSequence.push(e.keyCode);
+            if (konamiCodeSequence.length > CORRECT_KONAMI_CODE.length) {
+                konamiCodeSequence.shift(); // Keep sequence length to max required
             }
-        });
+            
+            if (konamiCodeSequence.length === CORRECT_KONAMI_CODE.length && 
+                konamiCodeSequence.every((key, index) => key === CORRECT_KONAMI_CODE[index])) {
+                triggerRainbowMode();
+                konamiCodeSequence = []; // Reset sequence to prevent repeated triggers
+                document.removeEventListener('keydown', handleKonamiCode); // Remove listener after trigger
+            }
+        }
+
+        function triggerRainbowMode() {
+            const body = document.body;
+            const originalBackground = body.style.background;
+            const originalBackgroundSize = body.style.backgroundSize;
+            const originalAnimation = body.style.animation;
+
+            body.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57)';
+            body.style.backgroundSize = '400% 400%';
+            body.style.animation = 'rainbow 2s ease infinite';
+            
+            showNotification('🌈 Rainbow Mode Activated! 🌈', 'info');
+            console.log('Analytics: Konami Code activated!');
+
+            // Revert after 5 seconds
+            setTimeout(() => {
+                body.style.background = originalBackground;
+                body.style.backgroundSize = originalBackgroundSize;
+                body.style.animation = originalAnimation;
+                showNotification('Rainbow Mode Deactivated.', 'info');
+                document.addEventListener('keydown', handleKonamiCode); // Re-enable listener
+            }, 5000);
+        }
+
+        // --- Analytics & Error Tracking (Placeholders) ---
+        // Implement a simple analytics function
+        function trackEvent(category, action, label = '') {
+            console.log(`[Analytics] Category: ${category}, Action: ${action}, Label: ${label}`);
+            // In a real scenario, you'd send this to Google Analytics, Matomo, etc.
+            // Example: ga('send', 'event', category, action, label);
+        }
+
+        // Global Error Tracking (basic)
+        window.onerror = function(message, source, lineno, colno, error) {
+            console.error(`[Global Error] Message: ${message}, Source: ${source}, Line: ${lineno}, Column: ${colno}`);
+            console.error(error);
+            // In a real scenario, you'd send this to Sentry, Bugsnag, etc.
+            // Sentry.captureException(error);
+            return true; // Suppress default browser error reporting
+        };
+
+        // Analytics example usage in functions:
+        // - In calculateResult: trackEvent('Quiz', 'Completed', `Quiz${quizNumber}-${dominantTypes.join('/')}`);
+        // - In addStory: trackEvent('Chalkboard', 'Story Submitted');
+        // - In handleNewsletterSignup: trackEvent('Newsletter', 'Signed Up');
+
     </script>
 </body>
 </html>
